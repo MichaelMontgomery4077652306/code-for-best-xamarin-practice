@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentView
+    x:Class="TruliteMobile.Views.Notifications.NotificationsFilterView"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:components="clr-namespace:TruliteMobile.Components;assembly=TruliteMobile"
+    xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+    xmlns:i18N="clr-namespace:TruliteMobile.i18n;assembly=TruliteMobile"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:notifications="clr-namespace:TruliteMobile.Views.Notifications;assembly=TruliteMobile"
+    xmlns:orders="clr-namespace:TruliteMobile.Views.Orders;assembly=TruliteMobile"
+    x:DataType="notifications:NotificationsFilterView"
+    mc:Ignorable="d">
+    <ContentView.Content>
+        <Frame Padding="10,5">
+            <Grid x:DataType="notifications:NotificationsFilterView">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+                <components:ResetFormView Grid.Column="1" Tapped="ResetFormView_Tapped" />
+
+                <Label
+                    Grid.Row="1"
+                    Grid.ColumnSpan="2"
+                    Text="{i18N:TranslateExtension Text=StartEndDate}" />
+                <components:NullableDatePickerView Grid.Row="2" Date="{Binding StartDate, Mode=TwoWay}" />
+                <components:NullableDatePickerView
+                    Grid.Row="2"
+                    Grid.Column="1"
+                    Date="{Binding EndDate, Mode=TwoWay}" />
+                <components:ListSortView
+                    Grid.Row="3"
+                    Grid.ColumnSpan="2"
+                    Ascending="{Binding Ascending}"
+                    FilterTriggerCommand="{Binding FilterTriggerCommand}"
+                    SelectedSortColumn="{Binding SelectedSortColumn}"
+                    SortColumns="{Binding SortColumns}" />
+                <Button
+                    Grid.Row="4"
+                    Grid.Column="1"
+                    Clicked="Button_Clicked"
+                    Text="{i18N:TranslateExtension Text=Search}" />
+
+            </Grid>
+        </Frame>
+    </ContentView.Content>
+</ContentView>

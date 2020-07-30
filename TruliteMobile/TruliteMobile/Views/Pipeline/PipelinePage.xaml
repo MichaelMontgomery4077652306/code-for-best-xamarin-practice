@@ -1,0 +1,113 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage x:Class="TruliteMobile.Views.Pipeline.PipelinePage"
+             xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:components="clr-namespace:TruliteMobile.Components;assembly=TruliteMobile"
+             xmlns:converters="clr-namespace:XamarinUniversity.Converters;assembly=XamU.Infrastructure"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:i18N="clr-namespace:TruliteMobile.i18n;assembly=TruliteMobile"
+             xmlns:infrastructure="clr-namespace:XamarinUniversity.Infrastructure;assembly=XamU.Infrastructure"
+             xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:pipeline="clr-namespace:TruliteMobile.Views.Pipeline;assembly=TruliteMobile"
+             xmlns:services="clr-namespace:TruliteMobile.Services;assembly=TruliteMobile"
+             xmlns:xForms="clr-namespace:Syncfusion.SfBusyIndicator.XForms;assembly=Syncfusion.SfBusyIndicator.XForms"
+             Title="{i18N:TranslateExtension Text=PipeLineManager}"
+             ios:Page.UseSafeArea="true"
+             mc:Ignorable="d">
+    <!--#region Menu -->
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Command="{Binding OpenSettingsCommand}"
+                     IconImageSource="gears.png"
+                     Order="Primary"
+                     Priority="0"
+                     Text="{i18N:TranslateExtension Text=GiveFeedback}" />
+    </ContentPage.ToolbarItems>
+    <!--#endregion-->
+    <ContentPage.Content>
+            <Grid Style="{StaticResource RootGrid}">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <StackLayout Margin="5"
+                             HorizontalOptions="End"
+                             Orientation="Horizontal">
+                    <Label Text="{i18N:TranslateExtension Text=SearchFilter}"
+                           TextColor="{StaticResource DarkPrimaryBlue}" />
+                    <Label Style="{StaticResource FilterExpandIconLabel}">
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding ToggleFilterCommand}" />
+                        </Label.GestureRecognizers>
+                    </Label>
+                </StackLayout>
+                <pipeline:PipelineFilterView Grid.Row="1"
+                                             FilterTriggerCommand="{Binding FilterChangeCommand}"
+                                             IsVisible="{Binding ShowFilter}"
+                                             SearchCommand="{Binding SearchCommand}" />
+                <ListView Grid.Row="2"
+                          CachingStrategy="RecycleElement"
+                          VerticalOptions="Start"
+                          RowHeight="80"
+                          IsVisible="{Binding NoResults, Converter={converters:NotBooleanConverter}}"
+                          ItemsSource="{Binding PipelineList}"
+                          SelectedItem="{Binding SelectedItem}"
+                          SeparatorColor="{StaticResource DarkPrimaryBlue}"
+                          SeparatorVisibility="Default">
+                    <ListView.Behaviors>
+                        <infrastructure:EventToCommandBehavior Command="{Binding OpenLinesCommand}"
+                                                               EventName="ItemTapped" />
+                    </ListView.Behaviors>
+
+                    <ListView.ItemTemplate>
+                        <DataTemplate x:DataType="services:SalesQuotationInquiry">
+                            <ViewCell>
+                                <Grid Padding="5,5,5,10">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="Auto"/>
+                                        <ColumnDefinition Width="Auto" />
+                                    </Grid.ColumnDefinitions>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="Auto" />
+                                    </Grid.RowDefinitions>
+                                    <!--  First Column  -->
+                                    <Label Text="{Binding QuotationId}" />
+                                    <Label Grid.Row="1"
+                                           Text="{Binding QuotationName}" />
+                                    <Label Grid.Row="2"
+                                           LineBreakMode="TailTruncation"
+                                           Text="{Binding CustName}" />
+                                    <!--  Second Column  -->
+                                    <Label Grid.Column="1"
+                                           HorizontalTextAlignment="End"
+                                           Text="{Binding DateCreated, StringFormat='{0:d}'}" />
+                                    <Label Grid.RowSpan="3"
+                                           Grid.Column="2"
+                                           FontSize="40"
+                                           Style="{StaticResource IconLabel}"
+                                           Text="&#xf054;"
+                                           TextColor="{StaticResource DarkPrimaryBlue}" />
+
+                                </Grid>
+
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+                <components:RowCountView List="{Binding PipelineList}"
+                                         Grid.Row="3"/>
+                <components:NoResultsView Grid.Row="2"
+                                          VerticalOptions="Center"
+                                          IsVisible="{Binding NoResults}" />
+                <xForms:SfBusyIndicator Grid.Row="2" VerticalOptions="Center"
+                                        HorizontalOptions="Center" 
+                                        HeightRequest="80" 
+                                        WidthRequest="80" />
+            </Grid>
+    </ContentPage.Content>
+</ContentPage>

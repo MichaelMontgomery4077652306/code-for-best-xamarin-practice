@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:forms="clr-namespace:SignaturePad.Forms;assembly=SignaturePad.Forms"
+             xmlns:components="clr-namespace:TruliteMobile.Components;assembly=TruliteMobile"
+             xmlns:drvPackingSlip="clr-namespace:TruliteMobile.Views.DrvPackingSlip;assembly=TruliteMobile"
+             xmlns:i18N="clr-namespace:TruliteMobile.i18n;assembly=TruliteMobile"
+             mc:Ignorable="d"
+             Title="{i18N:TranslateExtension Text=SubmitRepack}"
+             x:DataType="drvPackingSlip:DrvPackingSlipSubmitPageViewModel"
+             x:Class="TruliteMobile.Views.DrvPackingSlip.DrvPackingSlipSubmitPage">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Order="Primary"
+                     IconImageSource="gears.png"
+                     Text="{i18N:TranslateExtension Text=GiveFeedback}"
+                     Command="{Binding OpenSettingsCommand}"
+                     Priority="0" />
+    </ContentPage.ToolbarItems>
+    <ContentPage.Content>
+        <Grid Style="{StaticResource RootGrid}"
+              x:Name="root"
+              Padding="10">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+
+            <Label Text="{Binding PackingSlip.Key, StringFormat={i18N:TranslateExtension Text=EnterNoteToUnpack}}"/>
+            <Editor Grid.Row="1"
+                    Placeholder="{i18N:TranslateExtension Text=Note}" Text="{Binding Note}"/>
+
+            <Grid Grid.Row="2">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+
+                <components:ActionButtonView BackgroundColor="Gray"
+                                             IconText="&#xf00d;"
+                                             Grid.Column="0"
+                                             TappedCommand="{Binding CloseCommand}"
+                                             Text="{i18N:TranslateExtension Text=Close}" />
+                <components:ActionButtonView BackgroundColor="Green"
+                                             IconText="&#xf00c;"
+                                             Grid.Column="1"
+                                             TappedCommand="{Binding SubmitCommand}"
+                                             Text="{i18N:TranslateExtension Text=Submit}" />
+
+            </Grid>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

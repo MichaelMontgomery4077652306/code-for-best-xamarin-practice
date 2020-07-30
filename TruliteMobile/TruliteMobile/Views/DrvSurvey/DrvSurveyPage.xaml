@@ -1,0 +1,102 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="TruliteMobile.Views.DrvSurvey.DrvSurveyPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:components="clr-namespace:TruliteMobile.Components;assembly=TruliteMobile"
+    xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+    xmlns:i18N="clr-namespace:TruliteMobile.i18n;assembly=TruliteMobile"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    Title="{i18N:TranslateExtension Text=Survey}"
+    mc:Ignorable="d">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem
+            Command="{Binding OpenSettingsCommand}"
+            IconImageSource="gears.png"
+            Order="Primary"
+            Priority="0"
+            Text="{i18N:TranslateExtension Text=GiveFeedback}" />
+    </ContentPage.ToolbarItems>
+    <ContentPage.Content>
+        <ScrollView Padding="10">
+            <Grid x:Name="root"
+                  Style="{StaticResource RootGrid}">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="100" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <Label FontAttributes="Bold"
+                       Text="{i18N:TranslateExtension Text=PleaseRateDriver, Suffix=':'}" />
+                <Label Grid.Row="1"
+                       Text="{i18N:TranslateExtension Text=Friendliness, Suffix=':'}" />
+                <Picker Grid.Row="2"
+                        ItemDisplayBinding="{Binding Value}"
+                        ItemsSource="{Binding SurveyOptions}"
+                        SelectedItem="{Binding SelectedFriendlinessOption}" />
+                <Label Grid.Row="3"
+                       Text="{i18N:TranslateExtension Text=OnTime, Suffix=':'}" />
+                <Picker Grid.Row="4"
+                        ItemDisplayBinding="{Binding Value}"
+                        ItemsSource="{Binding SurveyOptions}"
+                        SelectedItem="{Binding SelectedOnTimeOption}" />
+                <Label Grid.Row="5"
+                       Text="{i18N:TranslateExtension Text=Helpfulness, Suffix=':'}" />
+                <Picker Grid.Row="6"
+                        ItemDisplayBinding="{Binding Value}"
+                        ItemsSource="{Binding SurveyOptions}"
+                        SelectedItem="{Binding SelectedHelpfulnessOption}" />
+
+                <Label Grid.Row="7"
+                       Text="{i18N:TranslateExtension Text=RepresentingTheTruliteBranch, Suffix=':'}" />
+                <Picker Grid.Row="8"
+                        ItemDisplayBinding="{Binding Value}"
+                        ItemsSource="{Binding SurveyOptions}"
+                        SelectedItem="{Binding SelectedRepresentingOption}" />
+                <StackLayout Grid.Row="9"
+                             Orientation="Horizontal">
+                    <Switch IsToggled="{Binding Survey.SafetyQualities}" />
+                    <Label Text="{i18N:TranslateExtension Text=DriverSurveyQuestionSafety}" />
+                </StackLayout>
+                <StackLayout Grid.Row="10"
+                             Orientation="Horizontal">
+                    <Switch IsToggled="{Binding Survey.DeliveryProblemResolution}" />
+                    <Label Text="{i18N:TranslateExtension Text=DriverSurveyResolution}" />
+
+                </StackLayout>
+                <Label Grid.Row="11"
+                       Text="{i18N:TranslateExtension Text=DriverSurveyAdditionalComments}" />
+                <Editor Grid.Row="12"
+                        Placeholder="{i18N:TranslateExtension Text=PleaseEnterYourComments}"
+                        Text="{Binding Comments}" />
+                <Grid Grid.Row="13">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition />
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+                    <components:ActionButtonView BackgroundColor="Gray"
+                                                 IconText="&#xf00d;"
+                                                 TappedCommand="{Binding CloseCommand}"
+                                                 Text="{i18N:TranslateExtension Text=Close}" />
+                    <components:ActionButtonView Grid.Column="1"
+                                                 BackgroundColor="{StaticResource PrimaryBlue}"
+                                                 IconText="&#xf00c;"
+                                                 TappedCommand="{Binding SendCommand}"
+                                                 Text="{i18N:TranslateExtension Text=Send}" />
+                </Grid>
+            </Grid>
+        </ScrollView>
+       
+    </ContentPage.Content>
+</ContentPage>

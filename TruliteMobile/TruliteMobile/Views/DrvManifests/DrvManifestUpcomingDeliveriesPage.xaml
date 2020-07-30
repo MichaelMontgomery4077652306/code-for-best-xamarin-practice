@@ -1,0 +1,130 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:i18N="clr-namespace:TruliteMobile.i18n;assembly=TruliteMobile"
+             xmlns:components="clr-namespace:TruliteMobile.Components;assembly=TruliteMobile"
+             xmlns:drvManifests="clr-namespace:TruliteMobile.Views.DrvManifests;assembly=TruliteMobile"
+             xmlns:converters="clr-namespace:XamarinUniversity.Converters;assembly=XamU.Infrastructure"
+             xmlns:infrastructure="clr-namespace:XamarinUniversity.Infrastructure;assembly=XamU.Infrastructure"
+             xmlns:services="clr-namespace:TruliteMobile.Services;assembly=TruliteMobile"
+             xmlns:xForms="clr-namespace:Syncfusion.SfBusyIndicator.XForms;assembly=Syncfusion.SfBusyIndicator.XForms"
+             mc:Ignorable="d"
+             x:DataType="drvManifests:DrvManifestUpcomingDeliveriesPageViewModel"
+             Title="{i18N:TranslateExtension Text=UpcomingDeliveries}"
+             x:Class="TruliteMobile.Views.DrvManifests.DrvManifestUpcomingDeliveriesPage">
+    <!--#region Menu -->
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Order="Primary"
+                     IconImageSource="gears.png"
+                     Text="{i18N:TranslateExtension Text=GiveFeedback}"
+                     Command="{Binding OpenSettingsCommand}"
+                     Priority="0" />
+    </ContentPage.ToolbarItems>
+    <!--#endregion-->
+    <ContentPage.Content>
+            <Grid Style="{StaticResource RootGrid}"
+                  Padding="10">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <Label Text="{i18N:Translate Text=EmailAddress}"
+                       FontAttributes="Bold" />
+                <Entry Text="{Binding Email}"
+                       Keyboard="Email"
+                       Grid.Row="1"
+                       Placeholder="{i18N:Translate Text=EmailAddress}" />
+
+                <components:ListSortView SortColumns="{Binding SortColumns}"
+                                         IsVisible="{Binding NoResults, Converter={converters:NotBooleanConverter}}"
+                                         SelectedSortColumn="{Binding SelectedSortColumn}"
+                                         FilterTriggerCommand="{Binding FilterTriggerCommand}"
+                                         Grid.Row="2" />
+
+                <components:ActionButtonView Text="{i18N:TranslateExtension Text=SelectUnselectAll}"
+                                             IconText="&#xf058;"
+                                             Grid.Row="3"
+                                             IsVisible="{Binding NoResults, Converter={converters:NotBooleanConverter}}"
+                                             BackgroundColor="{StaticResource CyanButtonColor}"
+                                             TappedCommand="{Binding SelectAllCommand}" />
+                <ListView Grid.Row="4"
+                          CachingStrategy="RecycleElement"
+                          HasUnevenRows="True"
+                          IsVisible="{Binding NoResults, Converter={converters:NotBooleanConverter}}"
+                          ItemsSource="{Binding DeliveryList}"
+                          SeparatorColor="{DynamicResource DarkPrimaryBlue}"
+                          SeparatorVisibility="Default">
+                    <!--<ListView.Behaviors>
+                    <infrastructure:EventToCommandBehavior Command="{Binding OpenLinesCommand}"
+                                                           EventName="ItemTapped" />
+                </ListView.Behaviors>-->
+
+                    <ListView.ItemTemplate>
+                        <DataTemplate x:DataType="services:SalesOrder">
+                            <ViewCell>
+                                <Grid Padding="5,5,5,10">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="Auto" />
+                                        <ColumnDefinition Width="Auto" />
+                                        <ColumnDefinition />
+                                    </Grid.ColumnDefinitions>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="Auto" />
+                                    </Grid.RowDefinitions>
+                                    <Switch IsToggled="{Binding IsSelected}"
+                                            Grid.RowSpan="3" />
+
+                                    <Label Style="{DynamicResource GridHeaderLabel}"
+                                           Text="{i18N:Translate Text=OrderNumber, Suffix=':'}"
+                                           Grid.Column="1" />
+                                    <Label Grid.Column="2"
+                                           Text="{Binding Key}" />
+
+                                    <Label Text="{i18N:Translate Text=PurchaseOrder, Suffix=':'}"
+                                           Style="{DynamicResource GridHeaderLabel}"
+                                           Grid.Column="1"
+                                           Grid.Row="1" />
+                                    <Label Grid.Column="2"
+                                           Grid.Row="1"
+                                           Text="{Binding CustomerPurchaseOrderNo}" />
+
+                                    <Label Text="{i18N:Translate Text=DeliveryDate, Suffix=':'}"
+                                           Style="{DynamicResource GridHeaderLabel}"
+                                           Grid.Column="1"
+                                           Grid.Row="2" />
+
+                                    <Label Grid.Row="2"
+                                           Grid.Column="2"
+                                           Text="{Binding OrderDate, StringFormat='{0:d}'}" />
+
+                                </Grid>
+
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+                <components:NoResultsView Grid.Row="4"
+                                          IsVisible="{Binding NoResults}" />
+                <xForms:SfBusyIndicator Grid.Row="4" />
+                <components:RowCountView Grid.Row="5"
+                                         List="{Binding DeliveryList}" />
+                <StackLayout Grid.Row="6">
+                    <BoxView BackgroundColor="{DynamicResource DarkPrimaryBlue}" HeightRequest="1"/>
+                    <Button Style="{DynamicResource BlueButton}"
+                            IsEnabled="{Binding NoResults, Converter={converters:NotBooleanConverter}}"
+                            HorizontalOptions="End"
+                            Text="{i18N:Translate EmailCustomer}"
+                            Command="{Binding EmailCustomerCommand}" />
+                </StackLayout>
+            </Grid>
+    </ContentPage.Content>
+</ContentPage>

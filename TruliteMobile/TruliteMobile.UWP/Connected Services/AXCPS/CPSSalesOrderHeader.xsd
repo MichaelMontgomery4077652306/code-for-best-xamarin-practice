@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xsd:schema xmlns="http://schemas.microsoft.com/dynamics/2006/02/documents/CPSSalesOrderHeader" elementFormDefault="qualified" targetNamespace="http://schemas.microsoft.com/dynamics/2006/02/documents/CPSSalesOrderHeader" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <xsd:element name="CPSSalesOrderHeader" type="CPSSalesOrderHeader" />
+  <xsd:complexType name="CPSSalesOrderHeader">
+    <xsd:sequence>
+      <xsd:element name="OrderNo" type="xsd:string" />
+      <xsd:element name="InvoiceIds" type="xsd:string" />
+      <xsd:element name="Amount" type="xsd:string" />
+      <xsd:element name="Status" type="xsd:string" />
+      <xsd:element name="ShippingDate" type="xsd:string" />
+      <xsd:element name="OrderDate" type="xsd:string" />
+      <xsd:element name="LinesQty" type="xsd:string" />
+      <xsd:element name="DeliveryDate" type="xsd:string" />
+      <xsd:element name="CustPurchaseOrder" type="xsd:string" />
+      <xsd:element name="PackingSlipIds" type="xsd:string" />
+      <xsd:element name="CustAccount" type="xsd:string" />
+      <xsd:element name="CustName" type="xsd:string" />
+      <xsd:element name="DateChanged" type="xsd:string" />
+      <xsd:element name="InventLocationName" type="xsd:string" />
+      <xsd:element name="CustomerRef" type="xsd:string" />
+      <xsd:element name="SalesGroup" type="xsd:string" />
+    </xsd:sequence>
+  </xsd:complexType>
+</xsd:schema>

@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:xForms="clr-namespace:Syncfusion.SfPdfViewer.XForms;assembly=Syncfusion.SfPdfViewer.XForms"
+             xmlns:converters="clr-namespace:XamarinUniversity.Converters;assembly=XamU.Infrastructure"
+             xmlns:xForms1="clr-namespace:Syncfusion.SfBusyIndicator.XForms;assembly=Syncfusion.SfBusyIndicator.XForms"
+             xmlns:i18N="clr-namespace:TruliteMobile.i18n;assembly=TruliteMobile"
+             Title="{i18N:TranslateExtension Text=PriceLetters}"
+             x:Class="TruliteMobile.Views.PriceLetters.PriceLettersPage">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Order="Primary"
+                     IconImageSource="gears.png"
+                     Text="{i18N:TranslateExtension Text=GiveFeedback}"
+                     Command="{Binding OpenSettingsCommand}"
+                     Priority="0" />
+    </ContentPage.ToolbarItems>
+    <ContentPage.Content>
+        <Grid>
+            <StackLayout IsVisible="{Binding IsBusy}">
+                <Label Text="{i18N:TranslateExtension Text=PriceLetterMessage}"
+                       VerticalOptions="CenterAndExpand"
+                       HorizontalOptions="CenterAndExpand" />
+                <xForms1:SfBusyIndicator  />
+            </StackLayout>
+            <xForms:SfPdfViewer x:Name="pdfViewerControl"
+                                IsVisible="{Binding IsBusy, Converter={converters:NotBooleanConverter}}"
+                                InputFileStream="{Binding PdfStream}" />
+        </Grid>
+      
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,97 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage x:Class="TruliteMobile.Views.Orders.ViewDateChangesPage"
+             xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:components="clr-namespace:TruliteMobile.Components;assembly=TruliteMobile"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:i18N="clr-namespace:TruliteMobile.i18n;assembly=TruliteMobile"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             x:DataType="orders:ViewDateChangesPageViewModel"
+             xmlns:services="clr-namespace:TruliteMobile.Services;assembly=TruliteMobile"
+             xmlns:xForms="clr-namespace:Syncfusion.SfBusyIndicator.XForms;assembly=Syncfusion.SfBusyIndicator.XForms"
+             xmlns:orders="clr-namespace:TruliteMobile.Views.Orders;assembly=TruliteMobile"
+             Title="{Binding Title}"
+             mc:Ignorable="d">
+    <ContentPage.Content>
+        <Grid x:Name="root"
+              Padding="10"
+              Style="{StaticResource RootGrid}">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="1" />
+                <RowDefinition />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+            <!--#region Sort control -->
+            <components:ListSortView SortColumns="{Binding SortColumns}"
+                                     SelectedSortColumn="{Binding SelectedSortColumn}"
+                                     Ascending="{Binding Ascending}"
+                                     FilterTriggerCommand="{Binding FilterTriggeredCommand}" />
+            <BoxView BackgroundColor="{StaticResource PrimaryBlue}"
+                     Grid.Row="1" />
+            <!--#endregion-->
+
+            <!--#region List -->
+            <ListView Grid.Row="2"
+                      ItemsSource="{Binding DateChangesList}"
+                      SeparatorColor="{StaticResource PrimaryGray}"
+                      SeparatorVisibility="Default">
+                <ListView.ItemTemplate>
+                    <DataTemplate x:DataType="services:CfmDlvDateTracking">
+                        <ViewCell>
+                            <Grid Margin="10,0,10,10">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto" />
+                                    <ColumnDefinition />
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                </Grid.RowDefinitions>
+                                <Label Style="{StaticResource GridHeaderLabel}"
+                                       Text="{i18N:TranslateExtension Text=LineNumber}" />
+                                <Label Grid.Column="1"
+                                       Text="{Binding LineNum}" />
+                                <Label Grid.Row="1"
+                                       Style="{StaticResource GridHeaderLabel}"
+                                       Text="{i18N:TranslateExtension Text=OrderDeliveryDate}" />
+                                <Label Grid.Row="1"
+                                       Grid.Column="1"
+                                       Text="{Binding OldDeliveryDate, StringFormat='{0:d}'}" />
+                                <Label Grid.Row="2"
+                                       Style="{StaticResource GridHeaderLabel}"
+                                       Text="{i18N:TranslateExtension Text=NewDeliveryDate}" />
+                                <Label Grid.Row="2"
+                                       Grid.Column="1"
+                                       Text="{Binding NewDeliveryDate, StringFormat='{0:d}'}" />
+                                <Label Grid.Row="3"
+                                       Style="{StaticResource GridHeaderLabel}"
+                                       Text="{i18N:TranslateExtension Text=CreatedBy}" />
+                                <Label Grid.Row="3"
+                                       Grid.Column="1"
+                                       Text="{Binding CreatedBy}" />
+                                <Label Grid.Row="4"
+                                       Style="{StaticResource GridHeaderLabel}"
+                                       Text="{i18N:TranslateExtension Text=Reason}" />
+                                <Label Grid.Row="4"
+                                       Grid.Column="1"
+                                       Text="{Binding ReasonCode}" />
+
+                            </Grid>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            <!--#endregion-->
+            <components:RowCountView Grid.Row="3"
+                                     List="{Binding DateChangesList}" />
+            <components:NoResultsView Grid.Row="2"
+                                      IsVisible="{Binding NoResults}" />
+            <xForms:SfBusyIndicator Grid.Row="2" />
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

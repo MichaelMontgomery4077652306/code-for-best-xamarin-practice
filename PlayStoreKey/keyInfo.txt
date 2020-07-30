@@ -1,0 +1,2 @@
+alias: "trulite"
+password: "trulite2019""

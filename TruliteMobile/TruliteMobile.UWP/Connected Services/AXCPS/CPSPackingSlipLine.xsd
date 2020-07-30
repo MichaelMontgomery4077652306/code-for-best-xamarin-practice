@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xsd:schema xmlns="http://schemas.microsoft.com/dynamics/2006/02/documents/CPSPackingSlipLine" elementFormDefault="qualified" targetNamespace="http://schemas.microsoft.com/dynamics/2006/02/documents/CPSPackingSlipLine" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <xsd:element name="CPSPackingSlipLine" type="CPSPackingSlipLine" />
+  <xsd:complexType name="CPSPackingSlipLine">
+    <xsd:sequence>
+      <xsd:element name="LineNo" type="xsd:string" />
+      <xsd:element name="OrderedQty" type="xsd:string" />
+      <xsd:element name="Unit" type="xsd:string" />
+      <xsd:element name="Description" type="xsd:string" />
+      <xsd:element name="ConfigDescription" type="xsd:string" />
+      <xsd:element name="Name" type="xsd:string" />
+      <xsd:element name="ListSqftLit" type="xsd:string" />
+      <xsd:element name="ShippedQty" type="xsd:string" />
+      <xsd:element name="BackorderedQty" type="xsd:string" />
+      <xsd:element name="Type" type="xsd:string" />
+      <xsd:element name="InventTransId" type="xsd:string" />
+    </xsd:sequence>
+  </xsd:complexType>
+</xsd:schema>

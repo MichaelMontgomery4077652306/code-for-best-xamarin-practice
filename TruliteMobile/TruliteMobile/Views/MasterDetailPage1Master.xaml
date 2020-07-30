@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="TruliteMobile.Views.MasterDetailPage1Master"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:components="clr-namespace:TruliteMobile.Components;assembly=TruliteMobile"
+    xmlns:converters="clr-namespace:TruliteMobile.Converters;assembly=TruliteMobile"
+    xmlns:converters1="clr-namespace:XamarinUniversity.Converters;assembly=XamU.Infrastructure"
+    xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+    xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:views="clr-namespace:TruliteMobile.Views;assembly=TruliteMobile"
+    Title="Menu"
+    ios:Page.UseSafeArea="true"
+    BackgroundColor="{DynamicResource BackgroundColor}"
+    IconImageSource="menu.png"
+    mc:Ignorable="d">
+    <StackLayout x:Name="root">
+        <ListView
+            x:Name="MenuItemsListView"
+            HasUnevenRows="true"
+            ItemsSource="{Binding MenuItems}"
+            SelectedItem="{Binding SelectedItem, Mode=TwoWay}"
+            SeparatorVisibility="None">
+            <ListView.Header>
+                <Grid BackgroundColor="{DynamicResource BackgroundColor}">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="10" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="10" />
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="30" />
+                        <RowDefinition Height="80" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="10" />
+                    </Grid.RowDefinitions>
+                    <Image
+                        Grid.Row="1"
+                        Grid.Column="1"
+                        HorizontalOptions="Center"
+                        Source="trueliteLogo.png"
+                        VerticalOptions="Center" />
+                </Grid>
+            </ListView.Header>
+            <ListView.ItemTemplate>
+                <DataTemplate x:DataType="views:MenuItemModel">
+                    <ViewCell>
+                        <components:MenuItemView
+                            IsBusy="{Binding BindingContext.IsBusy, Source={x:Reference root}}"
+                            Item="{Binding}"
+                            TappedCommand="{Binding BindingContext.ItemSelectedCommand, Source={x:Reference root}}" />
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </StackLayout>
+</ContentPage>

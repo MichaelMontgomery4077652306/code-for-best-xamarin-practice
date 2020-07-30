@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:i18N="clr-namespace:TruliteMobile.i18n;assembly=TruliteMobile"
+             xmlns:services="clr-namespace:TruliteMobile.Services;assembly=TruliteMobile"
+             xmlns:maps="clr-namespace:Xamarin.Forms.Maps;assembly=Xamarin.Forms.Maps"
+             mc:Ignorable="d"
+             Title="Directions"
+             x:Class="TruliteMobile.Views.DrvManifests.DrvManifestDirectionsMapPage">
+    <ContentPage.Content>
+        <ScrollView
+            x:Name="root"
+            BackgroundColor="{StaticResource DarkBlueButtonColor}">
+            <StackLayout>
+                <maps:Map x:Name="map">
+                </maps:Map>
+                <Frame Margin="0,5"
+                       BackgroundColor="White">
+                    <StackLayout>
+                        <Picker
+                            x:Name="picker"
+                            Title="{i18N:TranslateExtension Text=Destination}"
+                            ItemsSource="{Binding DestAddresses}"
+                            SelectedItem="{Binding SelectedAddress}"/>
+                    </StackLayout>
+                </Frame>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

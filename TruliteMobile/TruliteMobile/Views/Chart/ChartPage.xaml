@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="TruliteMobile.Views.Chart.ChartPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+    xmlns:forms="clr-namespace:Microcharts.Forms;assembly=Microcharts.Forms"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:xForms="clr-namespace:Syncfusion.SfChart.XForms;assembly=Syncfusion.SfChart.XForms"
+    mc:Ignorable="d">
+    <ContentPage.Content>
+        <StackLayout>
+            <Button Clicked="Button_Clicked" Text="Load Chart" />
+            <Grid x:Name="grd1">
+
+                <!--<xForms:SfChart x:Name="chartArea">
+                <xForms:AreaSeries ItemsSource="{Binding ChartData}"
+                                   XBindingPath="XValue"
+                                   YBindingPath="YValue">
+                    <xForms:AreaSeries.ColorModel>
+                        <xForms:ChartColorModel Palette="Custom"
+                                                CustomBrushes="{StaticResource ColorsArea}" />
+                    </xForms:AreaSeries.ColorModel>
+                </xForms:AreaSeries>
+
+            </xForms:SfChart>-->
+                <forms:ChartView x:Name="chartView" />
+            </Grid>
+        </StackLayout>
+
+    </ContentPage.Content>
+</ContentPage>

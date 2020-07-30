@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="TruliteMobile.Components.NullableDatePickerView">
+    <ContentView.Content>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition Width="Auto" />
+            </Grid.ColumnDefinitions>
+            <Entry IsReadOnly="True"></Entry>
+            <DatePicker x:Name="dp1"
+                        Format="MM/dd/yyyy"
+                        DateSelected="Dp1_DateSelected"
+                        IsVisible="False">
+            </DatePicker>
+            <Grid x:Name="box1">
+               <Label Text="Select"  HorizontalTextAlignment="Center"/>
+                <BoxView BackgroundColor="Transparent">
+                    <BoxView.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="Box_Tapped" />
+                    </BoxView.GestureRecognizers>
+                </BoxView>
+            </Grid>
+
+            <Label TextColor="Red"
+                   Grid.Column="1"
+                   x:Name="btnClear"
+                   Style="{StaticResource IconLabel}"
+                   Text="&#xf00d;"
+                   IsVisible="False"
+                   Margin="5,0"
+                   BackgroundColor="Transparent"
+                   VerticalOptions="Center"
+                   HorizontalOptions="Center">
+                <Label.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="ClearBtn_Tapped" />
+                </Label.GestureRecognizers>
+            </Label>
+        </Grid>
+    </ContentView.Content>
+</ContentView>

@@ -1,0 +1,2041 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="Account" xml:space="preserve">
+    <value>Compte </value>
+    <comment>DrvRoutesPackingSlipDetailPage</comment>
+  </data>
+  <data name="AccountName" xml:space="preserve">
+    <value>Nom du compte</value>
+    <comment>PipelineFilterView</comment>
+  </data>
+  <data name="AccountNumber" xml:space="preserve">
+    <value>Compte #</value>
+    <comment>InvoicesFilterView</comment>
+  </data>
+  <data name="Accounts" xml:space="preserve">
+    <value>Comptes</value>
+    <comment>Menu</comment>
+  </data>
+  <data name="Action" xml:space="preserve">
+    <value>Action</value>
+    <comment>Screen label</comment>
+  </data>
+  <data name="ACTIONS" xml:space="preserve">
+    <value>ACTIONS</value>
+    <comment>DrvRoutesPackingSlipDetailPage</comment>
+  </data>
+  <data name="Active" xml:space="preserve">
+    <value>Actif</value>
+    <comment>SalesInquiryContextFilter.</comment>
+  </data>
+  <data name="AddNote" xml:space="preserve">
+    <value>Ajouter une note</value>
+    <comment>PipelineDetailPage</comment>
+  </data>
+  <data name="AddReason" xml:space="preserve">
+    <value>Ajouter un motif</value>
+    <comment>DrvPackingSlipLineEditPage</comment>
+  </data>
+  <data name="ADDRESS" xml:space="preserve">
+    <value>ADRESSE</value>
+    <comment>DrvRoutesPackingSlipDetailPage</comment>
+  </data>
+  <data name="AddressCamelcase" xml:space="preserve">
+    <value>Addresse</value>
+    <comment>CreditCardView</comment>
+  </data>
+  <data name="AddUpdateIssue" xml:space="preserve">
+    <value>Ajouter / Mettre à jour un problème</value>
+    <comment>DrvRoutesPackingSlipDetailPage</comment>
+  </data>
+  <data name="All" xml:space="preserve">
+    <value>Tout</value>
+    <comment>SalesInquiryContextFilter.</comment>
+  </data>
+  <data name="Amount" xml:space="preserve">
+    <value>Montant</value>
+    <comment>InvoicePaymentPage</comment>
+  </data>
+  <data name="AreYouSureMarkInvoiced" xml:space="preserve">
+    <value>Êtes-vous sûr de vouloir marquer cela comme PRÊT à être facturé ?</value>
+    <comment>DrvManifestDetailPage2</comment>
+  </data>
+  <data name="AreYouSureMarkNotInvoice" xml:space="preserve">
+    <value>Êtes-vous sûr que vous voulez marquer cela comme n'étant PAS prêt à être facturé ?</value>
+    <comment>DrvManifestDetailPage2</comment>
+  </data>
+  <data name="AreYouSureMarkPacklingSlip" xml:space="preserve">
+    <value>Êtes-vous sûr de vouloir marquer ce bon de livraison</value>
+    <comment>DrvRoutesPackingSlipsPage</comment>
+  </data>
+  <data name="BackorderedQty" xml:space="preserve">
+    <value>Quantité en rupture de stock.</value>
+    <comment>PackingSlipsDetailLinesPage</comment>
+  </data>
+  <data name="BackorderedQuantity" xml:space="preserve">
+    <value>Quantité en rupture de stock.</value>
+  </data>
+  <data name="BillTo" xml:space="preserve">
+    <value>Facturer à</value>
+    <comment>InvoiceViewPage Row header</comment>
+  </data>
+  <data name="Branch" xml:space="preserve">
+    <value>Succursale</value>
+    <comment>DrvRoutesPackingSlipDetailPage</comment>
+  </data>
+  <data name="BranchNumber" xml:space="preserve">
+    <value>Succursale #</value>
+    <comment>PackingSlipsDetailLinesPage</comment>
+  </data>
+  <data name="Camera" xml:space="preserve">
+    <value>Caméra</value>
+    <comment>Select image actionsheet</comment>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>Annuler</value>
+    <comment>AlertMessage</comment>
+  </data>
+  <data name="Cancelled" xml:space="preserve">
+    <value>Annulé</value>
+    <comment>SalesInquiryContextFilter.</comment>
+  </data>
+  <data name="CardNumber" xml:space="preserve">
+    <value>Numéro de carte</value>
+    <comment>CreditCardView</comment>
+  </data>
+  <data name="CardType" xml:space="preserve">
+    <value>Type de carte</value>
+    <comment>CreditCardView</comment>
+  </data>
+  <data name="ChoosePaymentMethod" xml:space="preserve">
+    <value>Choisissez le mode de paiement</value>
+    <comment>InvoicePaymentPage</comment>
+  </data>
+  <data name="City" xml:space="preserve">
+    <value>Ville</value>
+    <comment>DrvManifestDetailPage2 City label</comment>
+  </data>
+  <data name="Clear" xml:space="preserve">
+    <value>Effacer</value>
+    <comment>DrvPackingSlipSignPage</comment>
+  </data>
+  <data name="Close" xml:space="preserve">
+    <value>Fermé</value>
+    <comment>Close button caption</comment>
+  </data>
+  <data name="ConfirmationDate" xml:space="preserve">
+    <value>Date de confirmation</value>
+    <comment>Quotes</comment>
+  </data>
+  <data name="Confirmed" xml:space="preserve">
+    <value>Confirmé</value>
+    <comment>SalesInquiryContextFilter.</comment>
+  </data>
+  <data name="ConfirmedDate" xml:space="preserve">
+    <value>Date confirmé</value>
+  </data>
+  <data name="ContactInformation" xml:space="preserve">
+    <value>Coordonnées du contact</value>
+    <comment>Contact screen title</comment>
+  </data>
+  <data name="ContactName" xml:space="preserve">
+    <value>Nom du contact</value>
+    <comment>PipelineDetailPage</comment>
+  </data>
+  <data name="ContactUs" xml:space="preserve">
+    <value>Nous contacter </value>
+    <comment>Login screen label</comment>
+  </data>
+  <data name="CopyrightMessage" xml:space="preserve">
+    <value>© Trulite Glass and Aluminum Solutions. Tous droits réservés.</value>
+    <comment>Login screen label</comment>
+  </data>
+  <data name="CouldNotConnectToServer" xml:space="preserve">
+    <value>Impossible de vous connecter au serveur, veuillez vérifier votre connexion Internet et réessayer.</value>
+    <comment>Login screen error message</comment>
+  </data>
+  <data name="CouldNotFindPackingSlip" xml:space="preserve">
+    <value>Impossible de trouver le bon de livraison. Le serveur a retourné une liste vide</value>
+    <comment>DrvManifestDetailPage2</comment>
+  </data>
+  <data name="CouldNotFindProofOfDelivery" xml:space="preserve">
+    <value>Impossible de trouver une preuve de livraison</value>
+  </data>
+  <data name="CouldNotGetActionList" xml:space="preserve">
+    <value>Impossible d'obtenir la liste des actions du serveur</value>
+    <comment>DrvPackingSlipIssueView error message</comment>
+  </data>
+  <data name="CouldNotGetBranchList" xml:space="preserve">
+    <value>Impossible d'obtenir la liste des branches du serveur</value>
+    <comment>DrvPackingSlipIssueView error message</comment>
+  </data>
+  <data name="CouldNotGetDocumentList" xml:space="preserve">
+    <value>Impossible d'obtenir la liste des documents du serveur</value>
+    <comment>DocumentsPageViewModel error message</comment>
+  </data>
+  <data name="CouldNotLoginMessage" xml:space="preserve">
+    <value>Si vous n'arrivez pas à vous connecter, veuillez vérifier votre nom d'utilisateur et/ou votre mot de passe.</value>
+    <comment>Login screen error message</comment>
+  </data>
+  <data name="CouldNotMarkAsNotReady" xml:space="preserve">
+    <value>N'a pas pu le marquer comme n'étant pas prêt</value>
+    <comment>DrvManifestDetailPage2</comment>
+  </data>
+  <data name="CouldNotReceiveInformationFromServer" xml:space="preserve">
+    <value>Impossible de recevoir des informations utilisateur du serveur</value>
+    <comment>Login screen error message</comment>
+  </data>
+  <data name="CouldNotRetrievePackingSlip" xml:space="preserve">
+    <value>Impossible de récupérer le bon de livraison du serveur</value>
+    <comment>DrvManifestDetailPage2</comment>
+  </data>
+  <data name="CouldNotSubmitRepacking" xml:space="preserve">
+    <value>Impossible de soumettre le remballage</value>
+    <comment>DrvPackingSlipSubmitPage</comment>
+  </data>
+  <data name="CouldntGetPackingSlipLines" xml:space="preserve">
+    <value>Impossible d'obtenir des lignes de bons d'emballage</value>
+    <comment>DrvRoutesPackingSlipsPage</comment>
+  </data>
+  <data name="Country" xml:space="preserve">
+    <value>Pays</value>
+    <comment>CreditCardView</comment>
+  </data>
+  <data name="Created" xml:space="preserve">
+    <value>Créé</value>
+    <comment>SalesInquiryContextFilter.</comment>
+  </data>
+  <data name="CreatedBy" xml:space="preserve">
+    <value>Créé par</value>
+    <comment>Screen label</comment>
+  </data>
+  <data name="CREDITREPRESENTATIVE" xml:space="preserve">
+    <value>REPRÉSENTANT DE CRÉDIT</value>
+    <comment>Contact screen header</comment>
+  </data>
+  <data name="CustAccount" xml:space="preserve">
+    <value>Compte cust</value>
+    <comment>PipelineDetailPage</comment>
+  </data>
+  <data name="CustName" xml:space="preserve">
+    <value>Nom cust</value>
+    <comment>PipelineDetailPage</comment>
+  </data>
+  <data name="CustomerAccount" xml:space="preserve">
+    <value>Compte client</value>
+    <comment>DrvManifestDetailPage2 Customer Account label</comment>
+  </data>
+  <data name="CustomerName" xml:space="preserve">
+    <value>Nom du client</value>
+    <comment>DrvManifestDetailPage2 Customer Name label</comment>
+  </data>
+  <data name="CustomerName2" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CustomerPONumber" xml:space="preserve">
+    <value>N° de commande client</value>
+    <comment>PackingSlipsDetailLinesPage</comment>
+  </data>
+  <data name="Dashboard" xml:space="preserve">
+    <value>Tableau de bord</value>
+    <comment>Menu</comment>
+  </data>
+  <data name="Date" xml:space="preserve">
+    <value>Date</value>
+    <comment>Screen label</comment>
+  </data>
+  <data name="DateChanges" xml:space="preserve">
+    <value>Changements de date</value>
+  </data>
+  <data name="DateChangesFor" xml:space="preserve">
+    <value>Changements de date pour</value>
+    <comment>Date changes for SO12344x</comment>
+  </data>
+  <data name="DateCreated" xml:space="preserve">
+    <value>Date de création</value>
+    <comment>PipelineDetailPage</comment>
+  </data>
+  <data name="DateOfOrder" xml:space="preserve">
+    <value>Date de la commande</value>
+    <comment>DrvRoutesPackingSlipDetailPage</comment>
+  </data>
+  <data name="DateShipped" xml:space="preserve">
+    <value>Date d'expédition</value>
+    <comment>DrvRoutesPackingSlipDetailPage</comment>
+  </data>
+  <data name="DateWanted" xml:space="preserve">
+    <value>Date recherchée</value>
+    <comment>DrvRoutesPackingSlipDetailPage</comment>
+  </data>
+  <data name="Delivered" xml:space="preserve">
+    <value>Livré</value>
+    <comment>OrdersFilterView - Order Status</comment>
+  </data>
+  <data name="DeliveredQuantity" xml:space="preserve">
+    <value>Quantité livrée</value>
+    <comment>DrvPackingSlipLineEditPage</comment>
+  </data>
+  <data name="DeliveryAddress" xml:space="preserve">
+    <value>Adresse de livraison</value>
+    <comment>Quotes</comment>
+  </data>
+  <data name="DeliveryDate" xml:space="preserve">
+    <value>Date de livraison</value>
+    <comment>DrvManifestDetailPage2 Delivery date label</comment>
+  </data>
+  <data name="DeliveryDateShort" xml:space="preserve">
+    <value>DLV Date</value>
+    <comment>InvoiceViewPage Row header</comment>
+  </data>
+  <data name="Description" xml:space="preserve">
+    <value>Description</value>
+    <comment>InvoiceViewPage Row header</comment>
+  </data>
+  <data name="DescriptionOfItems" xml:space="preserve">
+    <value>Description des articles</value>
+    <comment>DrvPackingSlipLineEditPage</comment>
+  </data>
+  <data name="DiffLessThan90DaysMessage" xml:space="preserve">
+    <value>La différence entre les dates de début et de fin devrait être inférieure à 90 jours.</value>
+    <comment>OrdersFilterView</comment>
+  </data>
+  <data name="Discount" xml:space="preserve">
+    <value>Réduction</value>
+    <comment>Order Detail Page</comment>
+  </data>
+  <data name="DiscountPriceSqFt" xml:space="preserve">
+    <value>Prix réduit SqFt</value>
+    <comment>InvoiceViewPage Row header</comment>
+  </data>
+  <data name="Dissatisfied" xml:space="preserve">
+    <value>Insatisfait</value>
+  </data>
+  <data name="Documents" xml:space="preserve">
+    <value>Documents</value>
+    <comment>Menu</comment>
+  </data>
+  <data name="DollarAmountIsRequired" xml:space="preserve">
+    <value>Montant en dollars exigé</value>
+    <comment>LienWaiverPage</comment>
+  </data>
+  <data name="Download PDF" xml:space="preserve">
+    <value>Télécharger PDF</value>
+    <comment>Button caption</comment>
+  </data>
+  <data name="DownloadPackingSlipPDF" xml:space="preserve">
+    <value>Télécharger le bon de livraison PDF</value>
+    <comment>DrvRoutesPackingSlipDetailPage</comment>
+  </data>
+  <data name="DownloadPDF" xml:space="preserve">
+    <value>Télécharger PDF</value>
+  </data>
+  <data name="Driver" xml:space="preserve">
+    <value>Chauffeur</value>
+    <comment>Login screen label</comment>
+  </data>
+  <data name="DriverName" xml:space="preserve">
+    <value>Nom du chauffeur</value>
+    <comment>DrvManifestPage</comment>
+  </data>
+  <data name="DriverSurveyAdditionalComments" xml:space="preserve">
+    <value>Avez-vous d'autres commentaires sur le ser ou le chauffeur qui pourraient nous aider à améliorer notre service ?</value>
+  </data>
+  <data name="DriverSurveyQuestionSafety" xml:space="preserve">
+    <value>Did your chauffeur demonstrate good safety qualities when unloading your order?</value>
+  </data>
+  <data name="DriverSurveyResolution" xml:space="preserve">
+    <value>Si vous avez eu un problème avec votre livraison, le chauffeur a-t-il été en mesure de trouver une solution ?</value>
+  </data>
+  <data name="DrvPackingSlipError" xml:space="preserve">
+    <value>La quantité livrée ne peut être supérieure à la somme des quantités émises.</value>
+    <comment>DrvPackingSlip screen error message</comment>
+  </data>
+  <data name="DrvSignPageError1" xml:space="preserve">
+    <value>Impossible d'envoyer cette signature au serveur</value>
+    <comment>DrvPackingSlipSignPage Error</comment>
+  </data>
+  <data name="DueDate" xml:space="preserve">
+    <value>Date d'échéance</value>
+    <comment>InvoicesFilterView</comment>
+  </data>
+  <data name="EditLine" xml:space="preserve">
+    <value>Modifier la ligne</value>
+    <comment>Edit packing slip line</comment>
+  </data>
+  <data name="Email" xml:space="preserve">
+    <value>Email</value>
+    <comment>DrvPackingSlipSignPage</comment>
+  </data>
+  <data name="EmailAddress" xml:space="preserve">
+    <value>Adresse email</value>
+    <comment>Login screen label</comment>
+  </data>
+  <data name="EmailCannotBeEmpty" xml:space="preserve">
+    <value>L'email ne peut pas être vide</value>
+    <comment>Login screen email validation</comment>
+  </data>
+  <data name="EnergySurcharge" xml:space="preserve">
+    <value>Supplément d'énergie</value>
+    <comment>InvoiceViewPage Row header</comment>
+  </data>
+  <data name="EnterNoteToUnpack" xml:space="preserve">
+    <value>Entrez la note pour déballer {0}.</value>
+    <comment>DrvPackingSlipSubmitPage</comment>
+  </data>
+  <data name="ExpirationDay" xml:space="preserve">
+    <value>Date d'expiration</value>
+    <comment>CreditCardView</comment>
+  </data>
+  <data name="ExpirationMonth" xml:space="preserve">
+    <value>Mois d'expiration</value>
+    <comment>CreditCardView</comment>
+  </data>
+  <data name="ExpirationYear" xml:space="preserve">
+    <value>Année d'expiration</value>
+    <comment>CreditCardView</comment>
+  </data>
+  <data name="ExpiryDate" xml:space="preserve">
+    <value>Date d'expiration</value>
+    <comment>PipelineDetailPage</comment>
+  </data>
+  <data name="Fax" xml:space="preserve">
+    <value>Fax</value>
+    <comment>DrvRoutesPackingSlipDetailPage</comment>
+  </data>
+  <data name="FeedbackMessage" xml:space="preserve">
+    <value>Ceci est pour les commentaires de l'application seulement. Si vous avez besoin d'aide ou pour nous contacter, veuillez utiliser l'écran Mes Contacts.</value>
+    <comment>GiveFeedbackPage</comment>
+  </data>
+  <data name="FinancialStatement" xml:space="preserve">
+    <value>État financier</value>
+    <comment>Financial Statement screen title</comment>
+  </data>
+  <data name="FinancialStatements" xml:space="preserve">
+    <value>États financiers</value>
+    <comment>Menu</comment>
+  </data>
+  <data name="FirstName" xml:space="preserve">
+    <value>Prenom</value>
+    <comment>CreditCardView</comment>
+  </data>
+  <data name="ForgotPassword" xml:space="preserve">
+    <value>Mot de passe oublié ?</value>
+    <comment>Login screen label</comment>
+  </data>
+  <data name="Friendliness" xml:space="preserve">
+    <value>Convivialité</value>
+  </data>
+  <data name="FromAmount" xml:space="preserve">
+    <value>Du Montant</value>
+    <comment>PipelineFilterView</comment>
+  </data>
+  <data name="FromExpiryDate" xml:space="preserve">
+    <value>partir de la date d'expiration</value>
+    <comment>PipelineFilterView</comment>
+  </data>
+  <data name="Gallery" xml:space="preserve">
+    <value>Galerie</value>
+    <comment>Select image actionsheet</comment>
+  </data>
+  <data name="GiveFeedback" xml:space="preserve">
+    <value>Donner votre avis</value>
+    <comment>Screen top give feedback link</comment>
+  </data>
+  <data name="Helpfulness" xml:space="preserve">
+    <value>Utilité</value>
+  </data>
+  <data name="HelpUsMakeOurAppBetter" xml:space="preserve">
+    <value>Aidez-nous à améliorer notre application dans votre intérêt !</value>
+    <comment>GiveFeedbackPage Title</comment>
+  </data>
+  <data name="Invoice" xml:space="preserve">
+    <value>Facture</value>
+    <comment>InvoicesFilterView</comment>
+  </data>
+  <data name="Invoiced" xml:space="preserve">
+    <value>Facturé</value>
+    <comment>OrdersFilterView- Order Status</comment>
+  </data>
+  <data name="InvoiceDate" xml:space="preserve">
+    <value>Date de facturation</value>
+    <comment>InvoicesFilterView</comment>
+  </data>
+  <data name="InvoiceNumber" xml:space="preserve">
+    <value>Numéro de facture</value>
+  </data>
+  <data name="InvoiceNumbers" xml:space="preserve">
+    <value>Numéro(s) de factures</value>
+    <comment>LienWaiverPage</comment>
+  </data>
+  <data name="InvoicePayment" xml:space="preserve">
+    <value>Paiement de facture</value>
+    <comment>Invoice Payment screen title</comment>
+  </data>
+  <data name="Invoices" xml:space="preserve">
+    <value>Factures</value>
+    <comment>Menu</comment>
+  </data>
+  <data name="InvoiceScreenMessage1" xml:space="preserve">
+    <value>Veuillez sélectionner au moins une facture à payer</value>
+    <comment>InvoicesPage</comment>
+  </data>
+  <data name="ItemName" xml:space="preserve">
+    <value>Nom de l'article</value>
+    <comment>Order Detail Page</comment>
+  </data>
+  <data name="ItemNumber" xml:space="preserve">
+    <value>Article #</value>
+    <comment>Order Detail Page</comment>
+  </data>
+  <data name="JobName" xml:space="preserve">
+    <value>Nom du travail</value>
+    <comment>InvoicesFilterView</comment>
+  </data>
+  <data name="Knowledgebase" xml:space="preserve">
+    <value>Base de connaissances</value>
+    <comment>Menu</comment>
+  </data>
+  <data name="LastName" xml:space="preserve">
+    <value>Nom de famille</value>
+    <comment>CreditCardView</comment>
+  </data>
+  <data name="LeadTime" xml:space="preserve">
+    <value>Délai d'exécution</value>
+    <comment>PipelineFilterView</comment>
+  </data>
+  <data name="LienWaiver" xml:space="preserve">
+    <value>Renonciation au privilège</value>
+    <comment>Menu</comment>
+  </data>
+  <data name="LienWaiverError1" xml:space="preserve">
+    <value>Impossible d'obtenir la liste des états</value>
+  </data>
+  <data name="LienWaiverError2" xml:space="preserve">
+    <value>Impossible d'obtenir la liste des types d'exemption</value>
+  </data>
+  <data name="LienWaiverHeader" xml:space="preserve">
+    <value>*Tous les champs doivent être remplis afin de pouvoir traiter votre demande dans les meilleurs délais.</value>
+  </data>
+  <data name="LienWaiverInstructions" xml:space="preserve">
+    <value>If you need assistance completing the form, please contact your local plant for help.</value>
+    <comment>LienWaiverPage</comment>
+  </data>
+  <data name="LienWaiverSelectedInvoices" xml:space="preserve">
+    <value>Factures choisies de renonciation de privilège</value>
+    <comment>InvoicesPage</comment>
+  </data>
+  <data name="LienWaiverTitle" xml:space="preserve">
+    <value>Formulaire de demande de renonciation aux privilèges de Trulite Glass &amp; Aluminum Solutions</value>
+  </data>
+  <data name="LineNum" xml:space="preserve">
+    <value>Numéro de ligne</value>
+    <comment>DrvPackingSlipLineEditPage</comment>
+  </data>
+  <data name="LineNumber" xml:space="preserve">
+    <value>Ligne #</value>
+    <comment>PackingSlipsDetailLinesPage</comment>
+  </data>
+  <data name="LINES" xml:space="preserve">
+    <value>LIGNES</value>
+  </data>
+  <data name="LinesCamelCase" xml:space="preserve">
+    <value>Lignes</value>
+    <comment>OrdersFilterView</comment>
+  </data>
+  <data name="ListSqFtLit" xml:space="preserve">
+    <value>Liste SqFt Lit</value>
+    <comment>InvoiceViewPage Row header</comment>
+  </data>
+  <data name="Locations" xml:space="preserve">
+    <value>Lieux</value>
+    <comment>Login screen label</comment>
+  </data>
+  <data name="LogIn" xml:space="preserve">
+    <value>S'identifier</value>
+    <comment>Login screen label</comment>
+  </data>
+  <data name="Logout" xml:space="preserve">
+    <value>Se déconnecter</value>
+    <comment>MainApp menu item</comment>
+  </data>
+  <data name="LoseQuotation" xml:space="preserve">
+    <value>Perdre un devis</value>
+    <comment>PipelineDetailPage</comment>
+  </data>
+  <data name="Lost" xml:space="preserve">
+    <value>Perdu</value>
+    <comment>SalesInquiryContextFilter.</comment>
+  </data>
+  <data name="MailingAddress" xml:space="preserve">
+    <value>Adresse postale</value>
+    <comment>LienWaiverPage</comment>
+  </data>
+  <data name="MailingAddressForWaiver" xml:space="preserve">
+    <value>Adresse postale pour la renonciation</value>
+    <comment>LienWaiverPage</comment>
+  </data>
+  <data name="MailingCity" xml:space="preserve">
+    <value>Ville d'envoi</value>
+    <comment>LienWaiverPage</comment>
+  </data>
+  <data name="MailingCityForWaiver" xml:space="preserve">
+    <value>Ville postale pour la renonciation</value>
+    <comment>LienWaiverPage</comment>
+  </data>
+  <data name="MailingState" xml:space="preserve">
+    <value>État d'envoi</value>
+    <comment>LienWaiverPage</comment>
+  </data>
+  <data name="MailingZip" xml:space="preserve">
+    <value>Zip d'envoi postal</value>
+    <comment>LienWaiverPage</comment>
+  </data>
+  <data name="MailingZipForWaiver" xml:space="preserve">
+    <value>Zip d'envoi postal pour la renonciation</value>
+    <comment>LienWaiverPage</comment>
+  </data>
+  <data name="MANIFEST" xml:space="preserve">
+    <value>MANIFESTE</value>
+    <comment>DrvManifestDetailPage2 Manifest block title</comment>
+  </data>
+  <data name="ManifestDetailsFor" xml:space="preserve">
+    <value>Détails du manifeste pour</value>
+    <comment>DrvManifestsDetailPage Title</comment>
+  </data>
+  <data name="Manifests" xml:space="preserve">
+    <value>Manifestes</value>
+    <comment>Menu</comment>
+  </data>
+  <data name="MarkInvoicesAsNotReady" xml:space="preserve">
+    <value>Êtes-vous sûr de vouloir marquer ces factures comme NON prêtes à être facturées ?</value>
+    <comment>DrvRoutesPackingSlipsPage</comment>
+  </data>
+  <data name="MarkInvoicesAsReady" xml:space="preserve">
+    <value>Êtes-vous sûr de vouloir marquer ces factures comme PRÊTES à être facturées ?</value>
+    <comment>DrvRoutesPackingSlipsPage</comment>
+  </data>
+  <data name="MarkRead" xml:space="preserve">
+    <value>Marquer comme lu</value>
+    <comment>NotificationsPage</comment>
+  </data>
+  <data name="MarkReadyToBeInvoiced" xml:space="preserve">
+    <value>Marque Prêt à être facturé</value>
+    <comment>DrvRoutesPackingSlipDetailPage</comment>
+  </data>
+  <data name="Message" xml:space="preserve">
+    <value>Message</value>
+    <comment>GiveFeedbackPage</comment>
+  </data>
+  <data name="Month" xml:space="preserve">
+    <value>Mois</value>
+    <comment>SalesInquiryContextLeadTime</comment>
+  </data>
+  <data name="Months" xml:space="preserve">
+    <value>Mois</value>
+    <comment>SalesInquiryContextLeadTime</comment>
+  </data>
+  <data name="MyContact" xml:space="preserve">
+    <value>Mes contacts</value>
+    <comment>Menu</comment>
+  </data>
+  <data name="MyUsers" xml:space="preserve">
+    <value>Mes utilisateurs</value>
+    <comment>Menu</comment>
+  </data>
+  <data name="Name" xml:space="preserve">
+    <value>Nom</value>
+    <comment>Name caption</comment>
+  </data>
+  <data name="NewDeliveryDate" xml:space="preserve">
+    <value>Nouvelle date de livraison</value>
+  </data>
+  <data name="No" xml:space="preserve">
+    <value>Non</value>
+    <comment>AlertMessage</comment>
+  </data>
+  <data name="NoFinancialStatementReturned" xml:space="preserve">
+    <value>Aucun état financier n'a été retourné par le serveur</value>
+    <comment>Financial Statement screen error message</comment>
+  </data>
+  <data name="None" xml:space="preserve">
+    <value>Aucun</value>
+    <comment>SalesInquiryContextLeadTime</comment>
+  </data>
+  <data name="Note" xml:space="preserve">
+    <value>Note</value>
+    <comment>DrvPackingSlipSubmitPage</comment>
+  </data>
+  <data name="Notifications" xml:space="preserve">
+    <value>Notifications</value>
+    <comment>Menu</comment>
+  </data>
+  <data name="NotificationsPageTitle" xml:space="preserve">
+    <value>Demandes de file d'attente</value>
+    <comment>NotificationsPage title</comment>
+  </data>
+  <data name="NotPaid" xml:space="preserve">
+    <value>Non payé</value>
+    <comment>InvoicesFilterView</comment>
+  </data>
+  <data name="NotReadyToBeInvoiced" xml:space="preserve">
+    <value>comme NON prêt à être facturé ?</value>
+    <comment>DrvRoutesPackingSlipsPage</comment>
+  </data>
+  <data name="Number" xml:space="preserve">
+    <value>Numéro</value>
+    <comment>OrdersFilterView</comment>
+  </data>
+  <data name="Offline" xml:space="preserve">
+    <value>Hors ligne</value>
+    <comment>Message box title for when server is offline</comment>
+  </data>
+  <data name="OnTime" xml:space="preserve">
+    <value>À l'heure</value>
+  </data>
+  <data name="OpenMap" xml:space="preserve">
+    <value>Ouvrir la carte</value>
+    <comment>DrvRoutesPackingSlipDetailPage</comment>
+  </data>
+  <data name="OpenOrder" xml:space="preserve">
+    <value>Commande en cours</value>
+    <comment>OrdersFilterView- Order Status</comment>
+  </data>
+  <data name="Order" xml:space="preserve">
+    <value>Commande</value>
+  </data>
+  <data name="Order Date" xml:space="preserve">
+    <value>Date de commande</value>
+  </data>
+  <data name="OrderDate" xml:space="preserve">
+    <value>Date de commande</value>
+    <comment>OrdersFilterView</comment>
+  </data>
+  <data name="OrderDeliveryDate" xml:space="preserve">
+    <value>Date de livraison de commande</value>
+  </data>
+  <data name="OrderDetailLineNote" xml:space="preserve">
+    <value>* Le prix n'inclut pas la majoration, les taxes ou les frais divers.</value>
+    <comment>Order Detail Page</comment>
+  </data>
+  <data name="OrderDetails" xml:space="preserve">
+    <value>Détails de la commande</value>
+  </data>
+  <data name="OrderedQuantity" xml:space="preserve">
+    <value>Quantité commandée</value>
+    <comment>InvoiceViewPage Row header</comment>
+  </data>
+  <data name="OrderedQuantityShort" xml:space="preserve">
+    <value>Quantité commandée</value>
+    <comment>InvoiceViewPage Row header</comment>
+  </data>
+  <data name="OrderNumber" xml:space="preserve">
+    <value>Numéro de commande</value>
+    <comment>InvoicesFilterView</comment>
+  </data>
+  <data name="Orders" xml:space="preserve">
+    <value>Commandes</value>
+    <comment>Menu</comment>
+  </data>
+  <data name="ORDER_UC" xml:space="preserve">
+    <value>Commande</value>
+    <comment>Order Detail Page</comment>
+  </data>
+  <data name="PackingSlip" xml:space="preserve">
+    <value>Bon de livraison</value>
+    <comment>DrvRoutesPackingSlipDetailPageDrvRoutesPackingSlipDetailPage</comment>
+  </data>
+  <data name="PackingSlipLinesMessage" xml:space="preserve">
+    <value>Impossible d'obtenir des lignes de bon de livraison.</value>
+  </data>
+  <data name="PackingSlipNumber" xml:space="preserve">
+    <value>Bon de livraison #</value>
+    <comment>InvoicesFilterView</comment>
+  </data>
+  <data name="PackingSlips" xml:space="preserve">
+    <value>Bons de livraison</value>
+    <comment>Menu</comment>
+  </data>
+  <data name="PackingSlipsForRoute" xml:space="preserve">
+    <value>Bons de livraison pour l'itinéraire</value>
+    <comment>DrvRoutesPackingSlipsPage</comment>
+  </data>
+  <data name="PACKING_SLIP" xml:space="preserve">
+    <value>BON DE LIVRAISON</value>
+    <comment>DrvRoutesPackingSlipDetailPage</comment>
+  </data>
+  <data name="Paid" xml:space="preserve">
+    <value>Payé</value>
+    <comment>InvoicesFilterView</comment>
+  </data>
+  <data name="Password" xml:space="preserve">
+    <value>Mot de passe</value>
+    <comment>Login screen label</comment>
+  </data>
+  <data name="PasswordCannotBeEmpty" xml:space="preserve">
+    <value>Le mot de passe ne peut pas être vide</value>
+    <comment>Login screen password validation</comment>
+  </data>
+  <data name="PaySelectedInvoices" xml:space="preserve">
+    <value>Payer les factures sélectionnées</value>
+    <comment>InvoicesPage</comment>
+  </data>
+  <data name="Phone" xml:space="preserve">
+    <value>Téléphone</value>
+    <comment>PackingSlipsDetailLinesPage</comment>
+  </data>
+  <data name="PhoneNumber" xml:space="preserve">
+    <value>Numéro de téléphone</value>
+    <comment>LienWaiverPage</comment>
+  </data>
+  <data name="PhoneNumberPlaceholder" xml:space="preserve">
+    <value>Numéro de téléphone (XXX) XXX-XXXXXX</value>
+    <comment>LienWaiverPage</comment>
+  </data>
+  <data name="Pipeline" xml:space="preserve">
+    <value>Gazoduc</value>
+    <comment>Menu</comment>
+  </data>
+  <data name="PipeLineManager" xml:space="preserve">
+    <value>Gestionnaire Gazoduc</value>
+    <comment>Pipeline screen title</comment>
+  </data>
+  <data name="Plant" xml:space="preserve">
+    <value>Usine</value>
+    <comment>PipelineDetailPage</comment>
+  </data>
+  <data name="PLANTINFORMATION" xml:space="preserve">
+    <value>INFORMATION SUR L'USINE</value>
+    <comment>Contact screen header</comment>
+  </data>
+  <data name="PLANT_INFORMATION" xml:space="preserve">
+    <value>INFORMATION SUR L'USINE</value>
+    <comment>PipelineContactPage</comment>
+  </data>
+  <data name="PleaseEnterYourComments" xml:space="preserve">
+    <value>Veuillez saisir vos commentaires</value>
+  </data>
+  <data name="PleaseRateDriver" xml:space="preserve">
+    <value>Veuillez évaluer le conducteur sur les points suivants</value>
+  </data>
+  <data name="PONumber" xml:space="preserve">
+    <value>Numéro de commande</value>
+    <comment>DrvRoutesPackingSlipDetailPage</comment>
+  </data>
+  <data name="PortalSettings" xml:space="preserve">
+    <value>Paramètres du portail</value>
+    <comment>Menu</comment>
+  </data>
+  <data name="PostalCode" xml:space="preserve">
+    <value>Code Postal</value>
+    <comment>CreditCardView</comment>
+  </data>
+  <data name="Price" xml:space="preserve">
+    <value>Prix</value>
+    <comment>Order Detail Page</comment>
+  </data>
+  <data name="PriceEach" xml:space="preserve">
+    <value>Prix de chaque</value>
+    <comment>InvoiceViewPage Row header</comment>
+  </data>
+  <data name="PriceLetterMessage" xml:space="preserve">
+    <value>Ouverture des lettres de prix...veuillez patienter</value>
+    <comment>PriceLettersPage</comment>
+  </data>
+  <data name="PriceLetters" xml:space="preserve">
+    <value>Lettres de prix</value>
+    <comment>Menu</comment>
+  </data>
+  <data name="PrintedName" xml:space="preserve">
+    <value>NomImprimé :</value>
+    <comment>DrvPackingSlipSignPage</comment>
+  </data>
+  <data name="Probability" xml:space="preserve">
+    <value>Probabilité</value>
+    <comment>PipelineFilterView</comment>
+  </data>
+  <data name="ProjectAccountNum" xml:space="preserve">
+    <value>Compte du projet #</value>
+    <comment>LienWaiverPage</comment>
+  </data>
+  <data name="ProjectAddress" xml:space="preserve">
+    <value>Adresse du projet </value>
+    <comment>LienWaiverPage</comment>
+  </data>
+  <data name="ProjectCity" xml:space="preserve">
+    <value>Ville du projet</value>
+    <comment>LienWaiverPage</comment>
+  </data>
+  <data name="ProjectName" xml:space="preserve">
+    <value>Nom du projet</value>
+    <comment>LienWaiverPage</comment>
+  </data>
+  <data name="ProjectState" xml:space="preserve">
+    <value>État du projet</value>
+    <comment>LienWaiverPage</comment>
+  </data>
+  <data name="ProjectZip" xml:space="preserve">
+    <value>Project Zip</value>
+    <comment>LienWaiverPage</comment>
+  </data>
+  <data name="ProofOfDelivery" xml:space="preserve">
+    <value>Justificatif de livraison</value>
+  </data>
+  <data name="ProofOfDeliveryFor" xml:space="preserve">
+    <value>Justificatif de livraison pour</value>
+  </data>
+  <data name="PSDate" xml:space="preserve">
+    <value>P.S. Date</value>
+    <comment>DrvRoutesPackingSlipDetailPage</comment>
+  </data>
+  <data name="PSDateShort" xml:space="preserve">
+    <value>P.S. Date</value>
+    <comment>Packing Slip date</comment>
+  </data>
+  <data name="PSNumberShort" xml:space="preserve">
+    <value>P.S. Nº </value>
+    <comment>Packing Slip Number</comment>
+  </data>
+  <data name="PurchaseOrder" xml:space="preserve">
+    <value>Bon de commande</value>
+    <comment>InvoicesFilterView</comment>
+  </data>
+  <data name="PurchaseOrderNumber" xml:space="preserve">
+    <value>N° de commande</value>
+    <comment>OrdersFilterView</comment>
+  </data>
+  <data name="PushNotificationError" xml:space="preserve">
+    <value>Impossible d'envoyer l'identifiant de notification push au serveur</value>
+    <comment>PushNotificationService</comment>
+  </data>
+  <data name="Quantity" xml:space="preserve">
+    <value>Quantité</value>
+    <comment>DrvRoutesPackingSlipDetailPage</comment>
+  </data>
+  <data name="QuantityOrdered" xml:space="preserve">
+    <value>Quantité commandée :</value>
+    <comment>DrvPackingSlipLineEditPage</comment>
+  </data>
+  <data name="QuantityShipped" xml:space="preserve">
+    <value>Quantité livrée :</value>
+    <comment>DrvPackingSlipLineEditPage</comment>
+  </data>
+  <data name="Quotation" xml:space="preserve">
+    <value>Devis </value>
+    <comment>PipelineDetailPage</comment>
+  </data>
+  <data name="QuotationNumber" xml:space="preserve">
+    <value>Numéro du devis</value>
+    <comment>Quotes</comment>
+  </data>
+  <data name="Quotes" xml:space="preserve">
+    <value>Offres de prix</value>
+    <comment>Menu</comment>
+  </data>
+  <data name="ReadMe" xml:space="preserve">
+    <value>Lisez-moi</value>
+    <comment>Menu</comment>
+  </data>
+  <data name="Ready" xml:space="preserve">
+    <value>Prêt</value>
+    <comment>AlertMessage</comment>
+  </data>
+  <data name="ReadyToBeInvoiced" xml:space="preserve">
+    <value>comme PRÊT à être facturé ?</value>
+    <comment>DrvRoutesPackingSlipsPage</comment>
+  </data>
+  <data name="Reason" xml:space="preserve">
+    <value>Raison</value>
+    <comment>DrvRoutesPackingSlipDetailPage</comment>
+  </data>
+  <data name="RememberMe" xml:space="preserve">
+    <value>Se souvenir de moi</value>
+    <comment>Login screen label</comment>
+  </data>
+  <data name="Report" xml:space="preserve">
+    <value>Rapport </value>
+    <comment>DrvReportIssuePage</comment>
+  </data>
+  <data name="ReportIssue" xml:space="preserve">
+    <value>Émission du rapport</value>
+    <comment>Menu</comment>
+  </data>
+  <data name="ReportSendError1" xml:space="preserve">
+    <value>Impossible d'envoyer le rapport au serveur</value>
+    <comment>DrvReportIssuePage</comment>
+  </data>
+  <data name="ReportSent" xml:space="preserve">
+    <value>Rapport envoyé</value>
+    <comment>DrvReportIssuePage</comment>
+  </data>
+  <data name="ReportSentError" xml:space="preserve">
+    <value>Une erreur a été retournée par le serveur lors de la publication du rapport.</value>
+    <comment>DrvReportIssuePage</comment>
+  </data>
+  <data name="RepresentingTheTruliteBranch" xml:space="preserve">
+    <value>Représentant la branche Trulite :</value>
+  </data>
+  <data name="RequestedDeliveryDate" xml:space="preserve">
+    <value>Date de livraison souhaitée</value>
+  </data>
+  <data name="RequestedDollarAmount" xml:space="preserve">
+    <value>Montant demandé en dollars</value>
+    <comment>LienWaiverPage</comment>
+  </data>
+  <data name="RequestedShipDate" xml:space="preserve">
+    <value>Date d'expédition demandée</value>
+    <comment>Quotes</comment>
+  </data>
+  <data name="ResetForm" xml:space="preserve">
+    <value>Formulaire de réinitialisation</value>
+    <comment>DrvManifestPage button</comment>
+  </data>
+  <data name="Routes" xml:space="preserve">
+    <value>Itinéraires</value>
+    <comment>Main App Menu</comment>
+  </data>
+  <data name="Routing" xml:space="preserve">
+    <value>Routage</value>
+    <comment>DrvRoutesPackingSlipDetailPage</comment>
+  </data>
+  <data name="RowCount" xml:space="preserve">
+    <value>Nombre de lignes</value>
+    <comment>InvoicesPage</comment>
+  </data>
+  <data name="Safety" xml:space="preserve">
+    <value>Sécurité</value>
+    <comment>DrvPackingSlipLineEditPage</comment>
+  </data>
+  <data name="SalesBalance" xml:space="preserve">
+    <value>Solde des ventes</value>
+    <comment>InvoiceViewPage Row header</comment>
+  </data>
+  <data name="SalesOrder" xml:space="preserve">
+    <value>Commande client</value>
+    <comment>DrvRoutesPackingSlipsPage</comment>
+  </data>
+  <data name="SalesOrderNumber" xml:space="preserve">
+    <value>N° de commande client</value>
+    <comment>InvoicesFilterView</comment>
+  </data>
+  <data name="InvoiceStatus" xml:space="preserve">
+    <value>Statut</value>
+    <comment>InvoicesFilterView</comment>
+  </data>
+  <data name="SalesOrders" xml:space="preserve">
+    <value>Commandes clients</value>
+    <comment>Orders screen title</comment>
+  </data>
+  <data name="SalesPerson" xml:space="preserve">
+    <value>Vendeur</value>
+    <comment>InvoicesFilterView</comment>
+  </data>
+  <data name="SALESREPRESENTATIVE" xml:space="preserve">
+    <value>REPRÉSENTANT COMMERCIAL</value>
+    <comment>Contact screen header</comment>
+  </data>
+  <data name="SalesResp" xml:space="preserve">
+    <value>Resp. des ventes</value>
+    <comment>PipelineDetailPage</comment>
+  </data>
+  <data name="SalesResponsible" xml:space="preserve">
+    <value>Responsable des ventes</value>
+    <comment>PipelineFilterView</comment>
+  </data>
+  <data name="SalesTax" xml:space="preserve">
+    <value>Taxe sur les ventes</value>
+    <comment>InvoiceViewPage Row header</comment>
+  </data>
+  <data name="SandSurcharge" xml:space="preserve">
+    <value>Supplément sable</value>
+    <comment>InvoiceViewPage Row header</comment>
+  </data>
+  <data name="Satisfied" xml:space="preserve">
+    <value>Satisfait</value>
+  </data>
+  <data name="Search" xml:space="preserve">
+    <value>Rechercher</value>
+  </data>
+  <data name="SearchFilter" xml:space="preserve">
+    <value>Recherche/Filtre</value>
+    <comment>Filter label</comment>
+  </data>
+  <data name="SelectFile" xml:space="preserve">
+    <value>Sélectionner un fichier</value>
+    <comment>LienWaiverPage</comment>
+  </data>
+  <data name="SelectImage" xml:space="preserve">
+    <value>Sélectionner une Image</value>
+  </data>
+  <data name="SelectOne" xml:space="preserve">
+    <value>Sélectionner un</value>
+    <comment>Picker default value</comment>
+  </data>
+  <data name="SelectSource" xml:space="preserve">
+    <value>Sélectionner la source</value>
+    <comment>DrvReportIssuePage</comment>
+  </data>
+  <data name="SelectStatus" xml:space="preserve">
+    <value>Sélectionner l'état</value>
+    <comment>Quotes</comment>
+  </data>
+  <data name="Send" xml:space="preserve">
+    <value>Envoyer</value>
+    <comment>Button caption</comment>
+  </data>
+  <data name="Sent" xml:space="preserve">
+    <value>Envoyé</value>
+    <comment>SalesInquiryContextFilter.</comment>
+  </data>
+  <data name="ServerError" xml:space="preserve">
+    <value>Impossible de contacter le serveur, veuillez vérifier la connexion et réessayer.</value>
+    <comment>DrvPackingSlipSignPage Error</comment>
+  </data>
+  <data name="SETTLEMENT" xml:space="preserve">
+    <value>RÉGLAGE</value>
+    <comment>InvoiceViewPage frame title</comment>
+  </data>
+  <data name="Settlements" xml:space="preserve">
+    <value>Réglages</value>
+    <comment>Menu</comment>
+  </data>
+  <data name="ShipDate" xml:space="preserve">
+    <value>Date d'expédition</value>
+    <comment>Order Detail Page</comment>
+  </data>
+  <data name="ShippedQty" xml:space="preserve">
+    <value>Qté expédiée.</value>
+    <comment>PackingSlipsDetailLinesPage</comment>
+  </data>
+  <data name="SHIPPINGBILLING" xml:space="preserve">
+    <value>EXPÉDITION/FACTURATION</value>
+    <comment>InvoiceViewPage frame title</comment>
+  </data>
+  <data name="ShippingCharge" xml:space="preserve">
+    <value>Frais de livraison</value>
+    <comment>InvoiceViewPage Row header</comment>
+  </data>
+  <data name="ShipTo" xml:space="preserve">
+    <value>Expédier à</value>
+    <comment>InvoiceViewPage Row header</comment>
+  </data>
+  <data name="Sign" xml:space="preserve">
+    <value>Signer</value>
+    <comment>DrvRoutesPackingSlipDetailPage</comment>
+  </data>
+  <data name="SONumber" xml:space="preserve">
+    <value>Numéro de S.O.</value>
+    <comment>DrvRoutesPackingSlipDetailPage</comment>
+  </data>
+  <data name="SONumberShort" xml:space="preserve">
+    <value>Nº DE S.O.</value>
+    <comment>Sales Order Number</comment>
+  </data>
+  <data name="SpecialInstructions" xml:space="preserve">
+    <value>Instructions spéciales</value>
+    <comment>LienWaiverPage</comment>
+  </data>
+  <data name="Sqft" xml:space="preserve">
+    <value>Sqft</value>
+    <comment>Square foot abbreviation</comment>
+  </data>
+  <data name="SqftLite" xml:space="preserve">
+    <value>Sqft/Lite</value>
+    <comment>PackingSlipsDetailLinesPage</comment>
+  </data>
+  <data name="SquareFoot" xml:space="preserve">
+    <value>Pied carré</value>
+    <comment>InvoicesFilterView</comment>
+  </data>
+  <data name="State" xml:space="preserve">
+    <value>État</value>
+    <comment>DrvManifestDetailPage2 State</comment>
+  </data>
+  <data name="Status" xml:space="preserve">
+    <value>Statut</value>
+    <comment>DrvManifestDetailPage2 Status label</comment>
+  </data>
+  <data name="Street" xml:space="preserve">
+    <value>Rue</value>
+    <comment>DrvManifestDetailPage2  Street label</comment>
+  </data>
+  <data name="Submit" xml:space="preserve">
+    <value>Soumettre</value>
+    <comment>Submit button caption</comment>
+  </data>
+  <data name="SubmitFeedback" xml:space="preserve">
+    <value>Soumettre un commentaire</value>
+    <comment>GiveFeedbackPage</comment>
+  </data>
+  <data name="SubmitPayment" xml:space="preserve">
+    <value>Soumettre un paiement</value>
+    <comment>InvoicePaymentPage</comment>
+  </data>
+  <data name="SubmitRepack" xml:space="preserve">
+    <value>Soumettre un réemballage</value>
+    <comment>DrvPackingSlipSubmitPage</comment>
+  </data>
+  <data name="SupportTickets" xml:space="preserve">
+    <value>Billets d'assistance</value>
+    <comment>Menu</comment>
+  </data>
+  <data name="Survey" xml:space="preserve">
+    <value>Sondage</value>
+    <comment>Survey title</comment>
+  </data>
+  <data name="TellUsWhatYouThink" xml:space="preserve">
+    <value>Dites-nous ce que vous en pensez !</value>
+    <comment>GiveFeedbackPage</comment>
+  </data>
+  <data name="Terms" xml:space="preserve">
+    <value>Termes et conditions</value>
+    <comment>DrvRoutesPackingSlipDetailPage</comment>
+  </data>
+  <data name="ThroughDateOfWaiver" xml:space="preserve">
+    <value>Jusqu'à la date de renonciation</value>
+    <comment>LienWaiverPage</comment>
+  </data>
+  <data name="ToAmount" xml:space="preserve">
+    <value>Jusqu'au Montant</value>
+    <comment>PipelineFilterView</comment>
+  </data>
+  <data name="ToExpiryDate" xml:space="preserve">
+    <value>Jusqu'à la date d'expiration</value>
+    <comment>PipelineFilterView</comment>
+  </data>
+  <data name="TotalDue" xml:space="preserve">
+    <value>Total des montants dus</value>
+    <comment>InvoiceViewPage Row header</comment>
+  </data>
+  <data name="TOTALS" xml:space="preserve">
+    <value>TOTALS</value>
+    <comment>InvoiceViewPage frame title</comment>
+  </data>
+  <data name="TotalSquareFootage" xml:space="preserve">
+    <value>Superficie totale en pieds carrés</value>
+    <comment>InvoiceViewPage Row header</comment>
+  </data>
+  <data name="TotalWeight" xml:space="preserve">
+    <value>Poids total</value>
+    <comment>InvoiceViewPage Row header</comment>
+  </data>
+  <data name="Track" xml:space="preserve">
+    <value>Suivre</value>
+  </data>
+  <data name="TrackOrder" xml:space="preserve">
+    <value>Suivre la commande</value>
+    <comment>DrvRoutesPackingSlipDetailPage</comment>
+  </data>
+  <data name="Transaction" xml:space="preserve">
+    <value>Transaction</value>
+    <comment>InvoiceViewPage Row header</comment>
+  </data>
+  <data name="TrulitePlant" xml:space="preserve">
+    <value>Trulite Usine</value>
+    <comment>InvoicesFilterView</comment>
+  </data>
+  <data name="Type" xml:space="preserve">
+    <value>Type</value>
+    <comment>GiveFeedbackPage</comment>
+  </data>
+  <data name="UndoReadyForInvoiced" xml:space="preserve">
+    <value>Annuler prêt pour facturation</value>
+    <comment>DrvRoutesPackingSlipDetailPage</comment>
+  </data>
+  <data name="Unit" xml:space="preserve">
+    <value>Unité</value>
+    <comment>DrvPackingSlipLineEditPage</comment>
+  </data>
+  <data name="UnitPrice" xml:space="preserve">
+    <value>Prix unitaire</value>
+    <comment>Order Detail Page</comment>
+  </data>
+  <data name="UnPackRepack" xml:space="preserve">
+    <value>Déballer/Remballer</value>
+    <comment>DrvRoutesPackingSlipDetailPage</comment>
+  </data>
+  <data name="Update" xml:space="preserve">
+    <value>Mise à jour</value>
+    <comment>PipelineDetailPage</comment>
+  </data>
+  <data name="UpdateFollowUpDate" xml:space="preserve">
+    <value>Date de suivi de la mise à jour</value>
+    <comment>PipelineDetailPage</comment>
+  </data>
+  <data name="UpdateLeadTime" xml:space="preserve">
+    <value>Délai de mise à jour</value>
+    <comment>PipelineDetailPage</comment>
+  </data>
+  <data name="UpdatePackingSlip" xml:space="preserve">
+    <value>Mise à jour du bon de livraison</value>
+    <comment>DrvRoutesPackingSlipsPage</comment>
+  </data>
+  <data name="UpdateProbability" xml:space="preserve">
+    <value>Mise à jour de la probabilité</value>
+    <comment>PipelineDetailPage</comment>
+  </data>
+  <data name="UploadAdditionalFile" xml:space="preserve">
+    <value>Télécharger un fichier supplémentaire</value>
+    <comment>LienWaiverPage</comment>
+  </data>
+  <data name="UploadImage" xml:space="preserve">
+    <value>Télécharger l'image</value>
+  </data>
+  <data name="Version" xml:space="preserve">
+    <value>Version</value>
+    <comment>Login screen label</comment>
+  </data>
+  <data name="VeryDissatisfied" xml:space="preserve">
+    <value>Très insatisfait</value>
+  </data>
+  <data name="VerySatisfied" xml:space="preserve">
+    <value>Très satisfait</value>
+  </data>
+  <data name="ViewNotes" xml:space="preserve">
+    <value>Afficher les notes</value>
+    <comment>PipelineDetailPage</comment>
+  </data>
+  <data name="ViewPDF" xml:space="preserve">
+    <value>Afficher le PDF</value>
+    <comment>Button caption</comment>
+  </data>
+  <data name="WaiverType" xml:space="preserve">
+    <value>Type de renonciation :</value>
+    <comment>LienWaiverPage</comment>
+  </data>
+  <data name="Weight" xml:space="preserve">
+    <value>Poids</value>
+    <comment>InvoicesFilterView</comment>
+  </data>
+  <data name="WorkOrder" xml:space="preserve">
+    <value>Bon de travail</value>
+    <comment>DrvPackingSlipLineEditPage</comment>
+  </data>
+  <data name="Yes" xml:space="preserve">
+    <value>Oui</value>
+    <comment>AlertMessage</comment>
+  </data>
+  <data name="ZipCode" xml:space="preserve">
+    <value>Code postal</value>
+    <comment>DrvManifestDetailPage2 Zip Code</comment>
+  </data>
+  <data name="DETAILS" xml:space="preserve">
+    <value>DÉTAILS</value>
+    <comment>DETAILS header</comment>
+  </data>
+  <data name="INVOICE_UC" xml:space="preserve">
+    <value>FACTURE</value>
+  </data>
+  <data name="TotalDueCalculated" xml:space="preserve">
+    <value>Total dû calculé</value>
+    <comment>Invoice page</comment>
+  </data>
+  <data name="Pending" xml:space="preserve">
+    <value>En attente</value>
+    <comment>Invoice page</comment>
+  </data>
+  <data name="StartEndDate" xml:space="preserve">
+    <value>Dates de début et de fin</value>
+    <comment>Orders Filter</comment>
+  </data>
+  <data name="AccountStatusActive" xml:space="preserve">
+    <value>Actif</value>
+    <comment>active</comment>
+  </data>
+  <data name="AccountStatusInActive" xml:space="preserve">
+    <value>Inactif</value>
+    <comment>Inactive account</comment>
+  </data>
+  <data name="AccountStatusLocked" xml:space="preserve">
+    <value>Verrouillé</value>
+    <comment>Locked Account</comment>
+  </data>
+  <data name="AccountStatusRequireNewPassword" xml:space="preserve">
+    <value>Nouveau mot de passe requis</value>
+    <comment>Require new password upon login</comment>
+  </data>
+  <data name="SubmissionError" xml:space="preserve">
+    <value>Erreur de soumission</value>
+    <comment>Submission Error string</comment>
+  </data>
+  <data name="Notification" xml:space="preserve">
+    <value>Notification</value>
+  </data>
+  <data name="DeliveryName\n" xml:space="preserve">
+    <value>Nom de livraison</value>
+    <comment>Quote screen filter status</comment>
+  </data>
+  <data name="CustRef" xml:space="preserve">
+    <value>Réf Client</value>
+    <comment>PipelineDetailPage</comment>
+  </data>
+  <data name="DeliveryName" xml:space="preserve">
+    <value>Nom de livraison</value>
+    <comment>Quote screen filter</comment>
+  </data>
+  <data name="Add" xml:space="preserve">
+    <value>Ajouter</value>
+    <comment>Add support ticket button</comment>
+  </data>
+  <data name="AddTicketInformation" xml:space="preserve">
+    <value>Ajouter des informations sur les billets</value>
+    <comment>Ticket screen title</comment>
+  </data>
+  <data name="Subject" xml:space="preserve">
+    <value>Sujet</value>
+    <comment>Message subject</comment>
+  </data>
+  <data name="UploadAttachment" xml:space="preserve">
+    <value>Télécharger l'annexe</value>
+    <comment>Upload attachement to support ticket</comment>
+  </data>
+  <data name="Refresh" xml:space="preserve">
+    <value>Actualiser</value>
+    <comment>Refresh list data</comment>
+  </data>
+  <data name="StopNumber" xml:space="preserve">
+    <value>Numéro d'arrêt</value>
+    <comment>Driver manifest detail stop number column</comment>
+  </data>
+  <data name="MarkReadMessage" xml:space="preserve">
+    <value>Souhaitez-vous marquer la lecture de cette notification ?</value>
+    <comment>Mark notification as read confirmation message.</comment>
+  </data>
+  <data name="UserDetails" xml:space="preserve">
+    <value>Données Utilisateur</value>
+    <comment>User details screen title</comment>
+  </data>
+  <data name="InvoiceScreenStatusQuestion" xml:space="preserve">
+    <value>Quel type de factures voulez-vous voir ?
+</value>
+    <comment>Invoice screen selection question</comment>
+  </data>
+  <data name="InvoiceStatusOpen" xml:space="preserve">
+    <value>Ouvert</value>
+    <comment>Open status of an invoice</comment>
+  </data>
+  <data name="Admin" xml:space="preserve">
+    <value>Admin</value>
+    <comment>User details screen Admin column header</comment>
+  </data>
+  <data name="Language" xml:space="preserve">
+    <value>Langue</value>
+    <comment>User details screen language column header</comment>
+  </data>
+  <data name="Timezone" xml:space="preserve">
+    <value>Fuseau horaire</value>
+    <comment>User details screen language column header</comment>
+  </data>
+  <data name="Receipt" xml:space="preserve">
+    <value>Récépissé</value>
+    <comment>Receipt page title</comment>
+  </data>
+  <data name="AmountBreakdown" xml:space="preserve">
+    <value>Répartition des montants</value>
+    <comment>Settlements Receipt View Screen</comment>
+  </data>
+  <data name="AuthorizationCode" xml:space="preserve">
+    <value>Code d'autorisation</value>
+    <comment>Settlements Receipt View Screen</comment>
+  </data>
+  <data name="JournalEntry" xml:space="preserve">
+    <value>Journal de bord</value>
+    <comment>Settlements Receipt View Screen</comment>
+  </data>
+  <data name="MISSING_TRANSACTION" xml:space="preserve">
+    <value>TRANSACTION MANQUANTE</value>
+    <comment>Settlements Receipt View Screen</comment>
+  </data>
+  <data name="PaidBy" xml:space="preserve">
+    <value>Payé par</value>
+    <comment>Settlements Receipt View Screen</comment>
+  </data>
+  <data name="PendingSettlements" xml:space="preserve">
+    <value>Règlements en cours</value>
+  </data>
+  <data name="TransactionInformation" xml:space="preserve">
+    <value>Renseignements sur les transactions</value>
+    <comment>Settlements Receipt View Screen</comment>
+  </data>
+  <data name="TransactionType" xml:space="preserve">
+    <value>Type de transaction</value>
+    <comment>Settlements Receipt View Screen</comment>
+  </data>
+  <data name="AccountInformation" xml:space="preserve">
+    <value>Renseignements sur le Compte</value>
+    <comment>Account Information Title</comment>
+  </data>
+  <data name="AccountStatus" xml:space="preserve">
+    <value>Statut de l'Account</value>
+    <comment>Account Information page</comment>
+  </data>
+  <data name="AppUserId" xml:space="preserve">
+    <value>ID utilisateur de l'application</value>
+    <comment>Account Information page</comment>
+  </data>
+  <data name="MyAccount" xml:space="preserve">
+    <value>Mon Compte</value>
+    <comment>My Account portal menu</comment>
+  </data>
+  <data name="PhoneVerified" xml:space="preserve">
+    <value>Téléphone Vérifié</value>
+    <comment>Account Information page</comment>
+  </data>
+  <data name="CustomerId" xml:space="preserve">
+    <value>ID du Client</value>
+    <comment>My Account screen</comment>
+  </data>
+  <data name="CustomerInformation" xml:space="preserve">
+    <value>Renseignement du Client</value>
+    <comment>My Account screen</comment>
+  </data>
+  <data name="Preferences" xml:space="preserve">
+    <value>Préférences</value>
+    <comment>My Account screen</comment>
+  </data>
+  <data name="Returns" xml:space="preserve">
+    <value>Retours</value>
+    <comment>Returns</comment>
+  </data>
+  <data name="ShowDaily" xml:space="preserve">
+    <value>Afficher Quotidiennement</value>
+    <comment>My Account screen</comment>
+  </data>
+  <data name="ShowMontly" xml:space="preserve">
+    <value>Afficher Mensuellement</value>
+    <comment>My Account screen</comment>
+  </data>
+  <data name="ShowQuarterly" xml:space="preserve">
+    <value>Afficher par trimestre</value>
+    <comment>My Account screen</comment>
+  </data>
+  <data name="DateDiffLessThan365" xml:space="preserve">
+    <value>La différence de date entre les données de début et de fin doit être inférieure à 365 jours</value>
+    <comment>Date difference error message</comment>
+  </data>
+  <data name="Voucher" xml:space="preserve">
+    <value>Bon d'achat</value>
+    <comment>Packing slip screen column title</comment>
+  </data>
+  <data name="OpenAmount" xml:space="preserve">
+    <value>Montant ouvert</value>
+    <comment>Invoice detail screen row</comment>
+  </data>
+  <data name="TotalInvoiceAmount" xml:space="preserve">
+    <value>Montant total de la facture</value>
+    <comment>Invoice detail screen row</comment>
+  </data>
+  <data name="DrvMarkRouteCompletedConfirmation" xml:space="preserve">
+    <value>Êtes-vous sûr de vouloir marquer le parcours {0} comme terminé ?</value>
+    <comment>Driver Packing Slip Mark Route completed</comment>
+  </data>
+  <data name="CreditCards" xml:space="preserve">
+    <value>Cartes de Crédit</value>
+    <comment>Credit Cards main menu item</comment>
+  </data>
+  <data name="Payments" xml:space="preserve">
+    <value>Paiements</value>
+    <comment>Payments main menu item</comment>
+  </data>
+  <data name="CouldNotRetrieveAccountStatus" xml:space="preserve">
+    <value>Impossible de récupérer l'état du compte depuis le serveur</value>
+  </data>
+  <data name="IsAdmin" xml:space="preserve">
+    <value>Is Admin</value>
+    <comment>MyUser User status</comment>
+  </data>
+  <data name="PlantAdmin" xml:space="preserve">
+    <value>Admin de l'usine</value>
+    <comment>MyUser User status</comment>
+  </data>
+  <data name="PlantViewer" xml:space="preserve">
+    <value>Visualiseur d'Usine</value>
+    <comment>MyUser User status</comment>
+  </data>
+  <data name="PleaseEnterValidEmail" xml:space="preserve">
+    <value>Veuillez entrer une adresse électronique valide</value>
+    <comment>Email validation message</comment>
+  </data>
+  <data name="SalesRep" xml:space="preserve">
+    <value>Rep des ventes</value>
+    <comment>MyUser User status</comment>
+  </data>
+  <data name="SelectBranch" xml:space="preserve">
+    <value>Sélectionner une branche</value>
+    <comment>Branch default item</comment>
+  </data>
+  <data name="RegularAccount" xml:space="preserve">
+    <value>Compte Courant</value>
+    <comment>My user account type</comment>
+  </data>
+  <data name="DateUpdated" xml:space="preserve">
+    <value>Date Actualisée</value>
+    <comment>credit card</comment>
+  </data>
+  <data name="UpdatedBy" xml:space="preserve">
+    <value>Actualisé par</value>
+    <comment>credit card</comment>
+  </data>
+  <data name="ConvertToOrder" xml:space="preserve">
+    <value>Convertir en commande</value>
+    <comment>Quotation detail screen action button</comment>
+  </data>
+  <data name="DownloadQuotationPdf" xml:space="preserve">
+    <value>Télécharger le PDF du devis</value>
+    <comment>Quotation detail screen action button</comment>
+  </data>
+  <data name="FromDateCannotBeNull" xml:space="preserve">
+    <value>La date de début ne peut être vide</value>
+    <comment>Settlements filter validation</comment>
+  </data>
+  <data name="SelectPlant" xml:space="preserve">
+    <value>Sélectionner l'Usine</value>
+    <comment>Pipeline screen filter</comment>
+  </data>
+  <data name="ToDateCannotBeNull" xml:space="preserve">
+    <value>Le champ A ce jour ne peut être vide</value>
+    <comment>Settlements filter validation</comment>
+  </data>
+  <data name="ViewQuotationPdf" xml:space="preserve">
+    <value>Voir le devis en PDF</value>
+    <comment>Quotation detail screen action button</comment>
+  </data>
+  <data name="CompletedECheckCreditCard" xml:space="preserve">
+    <value>Traitements par chèque électronique / carte de crédit</value>
+  </data>
+  <data name="EditCardInformation" xml:space="preserve">
+    <value>Modifier les informations de la carte</value>
+    <comment>Credit card details page title</comment>
+  </data>
+  <data name="RecordId" xml:space="preserve">
+    <value>Id d'enregistrement</value>
+  </data>
+  <data name="ChoosePlant" xml:space="preserve">
+    <value>Choisir une usine</value>
+    <comment>Pipeline account filter placeholder.</comment>
+  </data>
+  <data name="Contact" xml:space="preserve">
+    <value>Contact</value>
+    <comment>Contact sort column pipeline account screen</comment>
+  </data>
+  <data name="CustomerRef" xml:space="preserve">
+    <value>Réf du Client</value>
+    <comment>Pipeline sort column</comment>
+  </data>
+  <data name="SalesGroup" xml:space="preserve">
+    <value>Groupe de vente</value>
+    <comment>Sales Group  sort column pipeline account screen</comment>
+  </data>
+  <data name="Users" xml:space="preserve">
+    <value>Utilisateurs</value>
+    <comment>Users sort cokumn pipeline account screen</comment>
+  </data>
+  <data name="Warehouse" xml:space="preserve">
+    <value>Entrepôt</value>
+    <comment>Warehouse sort column pipeline account screen</comment>
+  </data>
+  <data name="SortByCreatedDate" xml:space="preserve">
+    <value>Trier par date :</value>
+    <comment>Documents screen sort order label</comment>
+  </data>
+  <data name="English" xml:space="preserve">
+    <value>Anglais</value>
+    <comment>Language selection item - user filter</comment>
+  </data>
+  <data name="French" xml:space="preserve">
+    <value>Français</value>
+    <comment>Language selection item - user filter</comment>
+  </data>
+  <data name="Role" xml:space="preserve">
+    <value>Rôle</value>
+  </data>
+  <data name="Spanish" xml:space="preserve">
+    <value>Espagnol</value>
+    <comment>Language selection item - user filter</comment>
+  </data>
+  <data name="Read" xml:space="preserve">
+    <value>Lire</value>
+    <comment>If message was read - Notifications screen</comment>
+  </data>
+  <data name="CorporateContactInformation" xml:space="preserve">
+    <value>Coordonnées de l'entreprise</value>
+    <comment>MyContacts header</comment>
+  </data>
+  <data name="CommunicationPreferences" xml:space="preserve">
+    <value>Préférences de communication</value>
+    <comment>My Account communication preferences header</comment>
+  </data>
+  <data name="CurrentDeliveryDate" xml:space="preserve">
+    <value>Date de livraison en cours</value>
+    <comment>Order request date change title screen</comment>
+  </data>
+  <data name="RequestDateChange" xml:space="preserve">
+    <value>Modification de la date de requête</value>
+    <comment>Order screen action</comment>
+  </data>
+  <data name="RequestDateChangeFor" xml:space="preserve">
+    <value>Requête de changement de date pour
+</value>
+    <comment>Order request date change title screen title</comment>
+  </data>
+  <data name="CommunicationType" xml:space="preserve">
+    <value>Type de communication</value>
+    <comment>My account confirm information title</comment>
+  </data>
+  <data name="EditCommunicationInformation" xml:space="preserve">
+    <value>Modifier les informations sur la communication</value>
+    <comment>My account confirm information title</comment>
+  </data>
+  <data name="Value" xml:space="preserve">
+    <value>Valeur</value>
+    <comment>My account contact type</comment>
+  </data>
+  <data name="AdvancedShippingNotesEmail" xml:space="preserve">
+    <value>Courriel des notes de livraison avancées</value>
+    <comment>MyAccountEditConfirmInformationPage</comment>
+  </data>
+  <data name="AdvancedShippingNotesFax" xml:space="preserve">
+    <value>Fax des notes avancées d'expédition</value>
+    <comment>MyAccountEditConfirmInformationPage</comment>
+  </data>
+  <data name="ConfirmationEmail" xml:space="preserve">
+    <value>Courriel de confirmation</value>
+    <comment>MyAccountEditConfirmInformationPage</comment>
+  </data>
+  <data name="ConfirmationFax" xml:space="preserve">
+    <value>Fax de confirmation</value>
+    <comment>MyAccountEditConfirmInformationPage</comment>
+  </data>
+  <data name="InvoiceEmail" xml:space="preserve">
+    <value>Courriel de facturation</value>
+    <comment>MyAccountEditConfirmInformationPage</comment>
+  </data>
+  <data name="InvoiceFax" xml:space="preserve">
+    <value>Fax de facturation</value>
+    <comment>MyAccountEditConfirmInformationPage</comment>
+  </data>
+  <data name="QuoteEmail" xml:space="preserve">
+    <value>Courriel de devis</value>
+    <comment>MyAccountEditConfirmInformationPage</comment>
+  </data>
+  <data name="QuoteFax" xml:space="preserve">
+    <value>Fax de devis</value>
+    <comment>MyAccountEditConfirmInformationPage</comment>
+  </data>
+  <data name="SelectCommunication" xml:space="preserve">
+    <value>Sélectionner une communication</value>
+    <comment>MyAccountEditConfirmInformationPage</comment>
+  </data>
+  <data name="FollowUpDate" xml:space="preserve">
+    <value>Date de suivi</value>
+    <comment>PipelineDetailPage</comment>
+  </data>
+  <data name="Dark" xml:space="preserve">
+    <value>Foncé</value>
+    <comment>Portal Settings Theme item</comment>
+  </data>
+  <data name="Light" xml:space="preserve">
+    <value>Lumineux</value>
+    <comment>Portal Settings Theme item</comment>
+  </data>
+  <data name="ShowCustomerCreditLimits" xml:space="preserve">
+    <value>Afficher les limites de crédit des clients
+</value>
+    <comment>Portal settings</comment>
+  </data>
+  <data name="ShowSummaryByStatus" xml:space="preserve">
+    <value>Afficher le résumé par statut</value>
+    <comment>Portal settings</comment>
+  </data>
+  <data name="ShowYearly" xml:space="preserve">
+    <value>Afficher Annuellement</value>
+    <comment>Portal Settings</comment>
+  </data>
+  <data name="Theme" xml:space="preserve">
+    <value>Thème</value>
+    <comment>Portal settings</comment>
+  </data>
+  <data name="Manifest_CamelCase" xml:space="preserve">
+    <value>Manifeste</value>
+    <comment>DrvManifest Sort Column</comment>
+  </data>
+  <data name="SalesPool" xml:space="preserve">
+    <value>Pool de vente</value>
+    <comment>DrvManifest Sort Column</comment>
+  </data>
+  <data name="ShippingDate" xml:space="preserve">
+    <value>Date de livraison</value>
+    <comment>DrvManifest Sort Column</comment>
+  </data>
+  <data name="NotifyCustomer" xml:space="preserve">
+    <value>Notifier le client</value>
+    <comment>DrvManifestDetailPage2 button text</comment>
+  </data>
+  <data name="UpcomingDeliveries" xml:space="preserve">
+    <value>Livraisons à venir</value>
+    <comment>DrvManifestDetailPage2 button text</comment>
+  </data>
+  <data name="PhoneNumberChanged" xml:space="preserve">
+    <value>Numéro de téléphone modifié</value>
+    <comment>MyAccountEditPhonePage</comment>
+  </data>
+  <data name="VerificationCode" xml:space="preserve">
+    <value>Code de vérification</value>
+    <comment>MyAccountEditPhonePage verification code entry placeholder</comment>
+  </data>
+  <data name="VerificationCodeHeader" xml:space="preserve">
+    <value>Veuillez entrer le code de vérification qui a été envoyé sur votre téléphone</value>
+    <comment>MyAccountEditPhonePage verification code entry header</comment>
+  </data>
+  <data name="VerificationCodeIsInvalid" xml:space="preserve">
+    <value>Le code de vérification saisi n'est pas valide</value>
+    <comment>MyAccountEditPhonePage</comment>
+  </data>
+  <data name="ChangePhoneNumber" xml:space="preserve">
+    <value>Changer de numéro de téléphone</value>
+    <comment>MyAccountEditPhone Title</comment>
+  </data>
+  <data name="Save" xml:space="preserve">
+    <value>Sauvegarder</value>
+    <comment>Save button text</comment>
+  </data>
+  <data name="UpdatePipelineNote" xml:space="preserve">
+    <value>Note de mise à jour du pipeline</value>
+    <comment>UpdatePipelineNote page title</comment>
+  </data>
+  <data name="FolowUpDate" xml:space="preserve">
+    <value>Date de suivi</value>
+  </data>
+  <data name="PercentageProbabilityHeader" xml:space="preserve">
+    <value>Pourcentage de probabilité (Entrez un nombre entre 0 et 100)</value>
+    <comment>UpdatePipelineProbability header</comment>
+  </data>
+  <data name="PipelineLoseQuotationTitle" xml:space="preserve">
+    <value>Sélectionnez la raison de la perte du devis</value>
+    <comment>PipelineLoseQuotationTitle</comment>
+  </data>
+  <data name="UpdateExpiryDate" xml:space="preserve">
+    <value>Actualisation de la date d'expiration</value>
+    <comment>UpdateExpiryDate</comment>
+  </data>
+  <data name="UpdatePipeline" xml:space="preserve">
+    <value>Mise à jour du pipeline</value>
+    <comment>UpdatePipeline title</comment>
+  </data>
+  <data name="UpdatePipelineExpiryDate" xml:space="preserve">
+    <value>Mise à jour de la date d'expiration du pipeline</value>
+    <comment>UpdatePipelineExpiryDate title</comment>
+  </data>
+  <data name="UpdatePipelineFollowUpDate" xml:space="preserve">
+    <value>Mise à jour de la date de suivi du pipeline</value>
+    <comment>UpdatePipelineFollowUpDate title</comment>
+  </data>
+  <data name="UpdatePipelineLeadTimes" xml:space="preserve">
+    <value>Mise à jour des délais pour les pipelines</value>
+    <comment>UpdatePipelineLeadTimes title</comment>
+  </data>
+  <data name="UpdatePipelineProbability" xml:space="preserve">
+    <value>Mise à jour de la probabilité des pipelines</value>
+    <comment>UpdatePipelineProbability title</comment>
+  </data>
+  <data name="LoseQuotationHeader" xml:space="preserve">
+    <value>Sélectionnez le code du motif pour perdre le devis.</value>
+  </data>
+  <data name="NoteAddedBy" xml:space="preserve">
+    <value>Note rajoutée par</value>
+    <comment>PipelineViewNotesPage</comment>
+  </data>
+  <data name="NotesFor" xml:space="preserve">
+    <value>Notes pour</value>
+    <comment>PipelineViewNotesPage</comment>
+  </data>
+  <data name="PleaseSelectReason" xml:space="preserve">
+    <value>Veuillez sélectionner un motif avant de continuer</value>
+    <comment>LoseQuotation</comment>
+  </data>
+  <data name="About" xml:space="preserve">
+    <value>À propos</value>
+    <comment>Settings screen</comment>
+  </data>
+  <data name="ChangePassword" xml:space="preserve">
+    <value>Changer le mot de passe</value>
+    <comment>Settings screen</comment>
+  </data>
+  <data name="Continue" xml:space="preserve">
+    <value>Continuer</value>
+    <comment>ResetPassword screen</comment>
+  </data>
+  <data name="CurrentPhoneNumber" xml:space="preserve">
+    <value>Numéro de téléphone courant</value>
+    <comment>ResetPassword confirmation screen</comment>
+  </data>
+  <data name="EnterPhone" xml:space="preserve">
+    <value>Entrez votre numéro de téléphone</value>
+    <comment>ResetPassword screen</comment>
+  </data>
+  <data name="Feedback" xml:space="preserve">
+    <value>Commentaire</value>
+    <comment>Settings</comment>
+  </data>
+  <data name="GroupByAccount" xml:space="preserve">
+    <value>Groupe par compte</value>
+    <comment>Settings screen</comment>
+  </data>
+  <data name="PasswordAndConfirmationDontMatch" xml:space="preserve">
+    <value>Le mot de passe et la confirmation ne correspondent pas</value>
+    <comment>ResetPassword confirmation screen</comment>
+  </data>
+  <data name="PhoneNotVerified" xml:space="preserve">
+    <value>Le téléphone indiqué n'est pas vérifié</value>
+    <comment>ResetPassword screen</comment>
+  </data>
+  <data name="PleaseEnterPassordVerification" xml:space="preserve">
+    <value>Veuillez entrer la vérification du mot de passe
+</value>
+    <comment>ResetPassword confirmation screen</comment>
+  </data>
+  <data name="PleaseEnterPassword" xml:space="preserve">
+    <value>Veuillez saisir le mot de passe</value>
+    <comment>ResetPassword confirmation screen</comment>
+  </data>
+  <data name="PleaseEnterPhone" xml:space="preserve">
+    <value>Veuillez indiquer le numéro de téléphone</value>
+    <comment>ResetPassword screen</comment>
+  </data>
+  <data name="PleaseEnterVerificationCode" xml:space="preserve">
+    <value>Veuillez entrer le code de vérification</value>
+    <comment>ResetPassword confirmation screen</comment>
+  </data>
+  <data name="ResetPassword" xml:space="preserve">
+    <value>Réinitialiser le mot de passe</value>
+    <comment>ResetPassword screen</comment>
+  </data>
+  <data name="SelectAccountDropdown" xml:space="preserve">
+    <value>Sélectionnez le menu déroulant du compte</value>
+    <comment>Settings screen</comment>
+  </data>
+  <data name="Settings" xml:space="preserve">
+    <value>Paramètres</value>
+    <comment>Settings screen</comment>
+  </data>
+  <data name="SwitchAccounts" xml:space="preserve">
+    <value>Changement de comptes</value>
+    <comment>Settings screen</comment>
+  </data>
+</root>

@@ -1,0 +1,207 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:packingSlips="clr-namespace:TruliteMobile.Views.PackingSlips;assembly=TruliteMobile"
+             xmlns:converters="clr-namespace:XamarinUniversity.Converters;assembly=XamU.Infrastructure"
+             xmlns:components="clr-namespace:TruliteMobile.Components;assembly=TruliteMobile"
+             xmlns:drvRoutes="clr-namespace:TruliteMobile.Views.DrvRoutes;assembly=TruliteMobile"
+             xmlns:services="clr-namespace:TruliteMobile.Services;assembly=TruliteMobile"
+             xmlns:infrastructure="clr-namespace:XamarinUniversity.Infrastructure;assembly=XamU.Infrastructure"
+             xmlns:i18N="clr-namespace:TruliteMobile.i18n;assembly=TruliteMobile"
+             mc:Ignorable="d"
+             Title="{Binding Title}"
+             x:DataType="drvRoutes:DrvRoutesPackingSlipsPageViewModel"
+             x:Class="TruliteMobile.Views.DrvRoutes.DrvRoutesPackingSlipsPage">
+    <ContentPage.Content>
+        <Grid x:Name="root"
+              Style="{StaticResource RootGrid}">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="AUto" />
+                <RowDefinition Height="AUto" />
+                <RowDefinition Height="40" />
+                <RowDefinition Height="AUto" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="AUto" />
+            </Grid.RowDefinitions>
+            <StackLayout Orientation="Horizontal"
+                         HorizontalOptions="End"
+                         Margin="5">
+                <Label Text="{i18N:TranslateExtension Text=SearchFilter}"
+                       TextColor="{StaticResource DarkPrimaryBlue}" />
+                <Label Style="{StaticResource FilterExpandIconLabel}">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding ToggleFilterCommand}" />
+                    </Label.GestureRecognizers>
+                </Label>
+            </StackLayout>
+            <drvRoutes:DrvRoutesPackingSlipsPageFilterView Grid.Row="1"
+                                                           IsVisible="{Binding ShowFilter}"
+                                                           FilterTriggerCommand="{Binding FilterChangeCommand}"
+                                                           IsEnabled="{Binding IsBusy, Converter={converters:NotBooleanConverter}}"
+                                                           SearchCommand="{Binding SearchCommand}" />
+            <!--#region Action  -->
+            <ScrollView Grid.Row="2"
+                        Padding="0,0,0,5"
+                        Orientation="Horizontal"
+                        IsVisible="{Binding NoResults,Converter={converters:NotBooleanConverter}}"
+                        VerticalOptions="Start"
+                        VerticalScrollBarVisibility="Never">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="Auto" />
+
+                    </Grid.ColumnDefinitions>
+
+                    <components:ActionButtonView Text="{i18N:TranslateExtension Text=MarkRouteCompleted}"
+                                                 IconText="&#xf058;"
+                                                 Margin="0,0,10,0"
+                                                 BackgroundColor="{StaticResource PrimaryBlue}"
+                                                 TappedCommand="{Binding MarkRouteCompletedCommand}" />
+
+                    <components:ActionButtonView Text="{i18N:TranslateExtension Text=SelectUnselectAll}"
+                                                 IconText="&#xf058;"
+                                                 Grid.Column="1"
+                                                 BackgroundColor="{StaticResource CyanButtonColor}"
+                                                 TappedCommand="{Binding SelectAllCommand}" />
+
+                    <components:ActionButtonView BackgroundColor="{StaticResource GreenButtonColor}"
+                                                 IconText="&#xf058;"
+                                                 Grid.Column="2"
+                                                 TappedCommand="{Binding MarkSelectedReadyCommand}"
+                                                 Text="{i18N:TranslateExtension Text=MarkSelectedAsReady}">
+                    </components:ActionButtonView>
+
+                    <components:ActionButtonView BackgroundColor="{StaticResource DarkBlueButtonColor}"
+                                                 IconText="&#xf058;"
+                                                 Grid.Column="3"
+                                                 TappedCommand="{Binding UndoMarkSelectedReadyCommand}"
+                                                 Text="{i18N:TranslateExtension Text=UndoMarkSelectedAsReady}">
+                    </components:ActionButtonView>
+                    <components:ActionButtonView BackgroundColor="{StaticResource DarkPrimaryBlue}"
+                                                 IconText="&#xf573;"
+                                                 Grid.Column="4"
+                                                 TappedCommand="{Binding  SignCommand}"
+                                                 Text="{i18N:TranslateExtension Text=SignSelected}" />
+                </Grid>
+            </ScrollView>
+
+            <!--#endregion-->
+
+         
+            <BoxView BackgroundColor="{StaticResource PrimaryBlue}"
+                     HeightRequest="2"
+                     Grid.Row="3"
+                     Margin="0,5" />
+            <!--#region List -->
+            <ListView Grid.Row="4"
+                      HasUnevenRows="True"
+                      ItemsSource="{Binding PackingList}"
+                      IsVisible="{Binding NoResults,Converter={converters:NotBooleanConverter}}"
+                      SeparatorColor="{StaticResource DarkPrimaryBlue}"
+                      SelectedItem="{Binding SelectedPackingSlip}">
+
+                <ListView.Behaviors>
+                    <infrastructure:EventToCommandBehavior EventName="ItemTapped"
+                                                           Command="{Binding OpenDetailsCommand}" />
+                </ListView.Behaviors>
+                <ListView.ItemTemplate>
+                    <DataTemplate x:DataType="services:PackingSlip">
+                        <ViewCell>
+                            <Grid Margin="5">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto" />
+                                    <ColumnDefinition />
+                                    <ColumnDefinition Width="Auto" />
+                                    <ColumnDefinition Width="Auto" />
+                                </Grid.ColumnDefinitions>
+                                <Switch Grid.RowSpan="3"
+                                        VerticalOptions="Center"
+                                        HorizontalOptions="Center"
+                                        IsToggled="{Binding IsSelected}"
+                                        OnColor="{StaticResource DarkPrimaryBlue}" />
+
+                                <Label Style="{StaticResource GridLabel}"
+                                       Grid.Column="1"
+                                       Text="{Binding Key}">
+
+                                </Label>
+                                <Label Style="{StaticResource GridLabel}"
+                                       Grid.Row="1"
+                                       Grid.Column="1"
+                                       Text="{Binding Account.Key}" />
+
+                                <Label Style="{StaticResource GridLabel}"
+                                       Grid.Row="2"
+                                       Grid.Column="1"
+                                       Text="{Binding Account.Name}" />
+
+                                <Label Grid.Column="2"
+                                       Style="{StaticResource GridLabel}"
+                                       Grid.Row="0"
+                                       HorizontalTextAlignment="End"
+                                       HorizontalOptions="End"
+                                       Text="{Binding Order.Key}" />
+
+                                <Image  Grid.Column="2"
+                                        Grid.Row="1"
+                                        Grid.RowSpan="2"
+                                        HeightRequest="30"
+                                        WidthRequest="30"
+                                        HorizontalOptions="End"
+                                        VerticalOptions="Center">
+                                    <Image.Triggers>
+                                        <DataTrigger TargetType="Image"
+                                                     Binding="{Binding SafetyIndicator}"
+                                                     Value="Two Man Lift">
+                                            <Setter Property="Source"
+                                                    Value="TwoPersonLiftBlack.png" />
+                                        </DataTrigger>
+                                        <DataTrigger TargetType="Image"
+                                                     Binding="{Binding  SafetyIndicator}"
+                                                     Value="Machine Lift">
+                                            <Setter Property="Source"
+                                                    Value="MachineLiftBlack.png" />
+                                        </DataTrigger>
+                                    </Image.Triggers>
+                                </Image>
+
+                                <Label Text="&#xf054;"
+                                       Grid.RowSpan="3"
+                                       Grid.Column="3"
+                                       FontSize="40"
+                                       Style="{StaticResource IconLabel}"
+                                       TextColor="{StaticResource DarkPrimaryBlue}">
+                                </Label>
+
+                            </Grid>
+                        </ViewCell>
+
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            <components:NoResultsView IsVisible="{Binding NoResults}"
+                                      Grid.Row="4"></components:NoResultsView>
+            <!--#endregion-->
+            <components:RowCountView Grid.Row="5"
+                                     List="{Binding PackingList}" />
+          
+
+            <ActivityIndicator Grid.Row="4"
+                               HeightRequest="60"
+                               WidthRequest="60"
+                               IsRunning="{Binding IsBusy}"
+                               IsVisible="{Binding IsBusy}" />
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

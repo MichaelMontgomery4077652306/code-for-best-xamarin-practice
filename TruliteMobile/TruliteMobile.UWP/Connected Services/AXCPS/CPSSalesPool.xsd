@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xsd:schema xmlns="http://schemas.microsoft.com/dynamics/2006/02/documents/CPSSalesPool" elementFormDefault="qualified" targetNamespace="http://schemas.microsoft.com/dynamics/2006/02/documents/CPSSalesPool" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <xsd:element name="CPSSalesPool" type="CPSSalesPool" />
+  <xsd:complexType name="CPSSalesPool">
+    <xsd:sequence>
+      <xsd:element name="SalesPoolId" type="xsd:string" />
+      <xsd:element name="SalesPoolName" type="xsd:string" />
+      <xsd:element name="SalesPoolSite" type="xsd:string" />
+    </xsd:sequence>
+  </xsd:complexType>
+</xsd:schema>

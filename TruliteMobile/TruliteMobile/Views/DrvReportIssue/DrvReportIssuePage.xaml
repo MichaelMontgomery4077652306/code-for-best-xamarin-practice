@@ -1,0 +1,88 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="TruliteMobile.Views.DrvReportIssue.DrvReportIssuePage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:components="clr-namespace:TruliteMobile.Components;assembly=TruliteMobile"
+    xmlns:converters="clr-namespace:TruliteMobile.Converters;assembly=TruliteMobile"
+    xmlns:converters1="clr-namespace:XamarinUniversity.Converters;assembly=XamU.Infrastructure"
+    xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+    xmlns:drvReportIssue="clr-namespace:TruliteMobile.Views.DrvReportIssue;assembly=TruliteMobile"
+    xmlns:i18N="clr-namespace:TruliteMobile.i18n;assembly=TruliteMobile"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    Title="{i18N:TranslateExtension Text=ReportIssue}"
+    x:DataType="drvReportIssue:DrvReportIssuePageViewModel"
+    mc:Ignorable="d">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem
+            Command="{Binding OpenSettingsCommand}"
+            IconImageSource="gears.png"
+            Order="Primary"
+            Priority="0"
+            Text="{i18N:TranslateExtension Text=GiveFeedback}" />
+    </ContentPage.ToolbarItems>
+    <ContentPage.Content>
+        <Grid
+            x:Name="root"
+            Padding="10"
+            Style="{StaticResource RootGrid}">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+            <Label Text="{i18N:TranslateExtension Text=Note}" />
+            <Editor Grid.Row="1" Text="{Binding Message}" />
+            <StackLayout Grid.Row="2" Orientation="Horizontal">
+                <Label Style="{StaticResource IconLabel}" Text="&#xf382;" />
+                <Label Text="{i18N:TranslateExtension Text=UploadImage}" />
+            </StackLayout>
+            <Grid
+                Grid.Row="3"
+                HeightRequest="200"
+                HorizontalOptions="Start"
+                VerticalOptions="Start"
+                WidthRequest="150">
+                <Image IsVisible="{Binding IsImageSelected}" Source="{Binding SelectedImage}" />
+                <StackLayout IsVisible="{Binding IsImageSelected, Converter={converters1:NotBooleanConverter}}">
+                    <Label
+                        FontSize="40"
+                        HorizontalOptions="Center"
+                        HorizontalTextAlignment="Center"
+                        Style="{StaticResource IconLabel}"
+                        Text="&#xf03e;" />
+                    <Label
+                        HorizontalOptions="Center"
+                        HorizontalTextAlignment="Center"
+                        Text="{i18N:TranslateExtension Text=SelectImage}" />
+                </StackLayout>
+                <BoxView BackgroundColor="Transparent">
+                    <BoxView.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding SelectImageCommand}" />
+                    </BoxView.GestureRecognizers>
+                </BoxView>
+
+            </Grid>
+            <Grid Grid.Row="4">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+                <components:ActionButtonView
+                    BackgroundColor="Gray"
+                    IconText="&#xf00d;"
+                    TappedCommand="{Binding CancelCommand}"
+                    Text="{i18N:TranslateExtension Text=Cancel}" />
+                <components:ActionButtonView
+                    Grid.Column="1"
+                    BackgroundColor="{StaticResource PrimaryBlue}"
+                    IconText="&#xf00c;"
+                    TappedCommand="{Binding SendCommand}"
+                    Text="{i18N:TranslateExtension Text=Send}" />
+            </Grid>
+        </Grid>
+
+    </ContentPage.Content>
+</ContentPage>

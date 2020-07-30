@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xsd:schema xmlns="http://schemas.microsoft.com/dynamics/2006/02/documents/CPSCustomerNotificationsResponse" xmlns:ek="http://schemas.microsoft.com/dynamics/2006/02/documents/CPSCustomerNotifications" elementFormDefault="qualified" targetNamespace="http://schemas.microsoft.com/dynamics/2006/02/documents/CPSCustomerNotificationsResponse" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <xsd:import schemaLocation="CPSCustomerNotifications.xsd" namespace="http://schemas.microsoft.com/dynamics/2006/02/documents/CPSCustomerNotifications" />
+  <xsd:element name="CPSCustomerNotificationsResponse" type="CPSCustomerNotificationsResponse" />
+  <xsd:complexType name="CPSCustomerNotificationsResponse">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" maxOccurs="unbounded" ref="ek:CPSCustomerNotifications" />
+    </xsd:sequence>
+  </xsd:complexType>
+</xsd:schema>

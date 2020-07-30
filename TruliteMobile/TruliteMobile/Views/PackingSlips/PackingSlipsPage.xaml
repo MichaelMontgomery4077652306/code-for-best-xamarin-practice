@@ -1,0 +1,121 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="TruliteMobile.Views.PackingSlips.PackingSlipsPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:components="clr-namespace:TruliteMobile.Components;assembly=TruliteMobile"
+    xmlns:converters="clr-namespace:XamarinUniversity.Converters;assembly=XamU.Infrastructure"
+    xmlns:i18N="clr-namespace:TruliteMobile.i18n;assembly=TruliteMobile"
+    xmlns:infrastructure="clr-namespace:XamarinUniversity.Infrastructure;assembly=XamU.Infrastructure"
+    xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+    xmlns:models="clr-namespace:TruliteMobile.Models;assembly=TruliteMobile"
+    xmlns:orders="clr-namespace:TruliteMobile.Views.Orders;assembly=TruliteMobile"
+    xmlns:packingSlips="clr-namespace:TruliteMobile.Views.PackingSlips;assembly=TruliteMobile"
+    xmlns:xForms="clr-namespace:Syncfusion.SfBusyIndicator.XForms;assembly=Syncfusion.SfBusyIndicator.XForms"
+    Title="{i18N:TranslateExtension Text=PackingSlips}"
+    ios:Page.UseSafeArea="true">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem
+            Command="{Binding OpenSettingsCommand}"
+            IconImageSource="gears.png"
+            Order="Primary"
+            Priority="0"
+            Text="{i18N:TranslateExtension Text=GiveFeedback}" />
+    </ContentPage.ToolbarItems>
+    <ScrollView>
+        <Grid
+            x:Name="root"
+            x:DataType="packingSlips:PackingSlipsPageViewModel"
+            Style="{StaticResource RootGrid}">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="AUto" />
+                <RowDefinition Height="AUto" />
+                <RowDefinition Height="AUto" />
+                <RowDefinition />
+                <RowDefinition Height="AUto" />
+            </Grid.RowDefinitions>
+            <StackLayout
+                Margin="5"
+                HorizontalOptions="End"
+                Orientation="Horizontal">
+                <Label Text="{i18N:TranslateExtension Text=SearchFilter}"
+                       TextColor="{DynamicResource FilterHeaderTextColor}" />
+                <Label Style="{StaticResource FilterExpandIconLabel}">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding ToggleFilterCommand}" />
+                    </Label.GestureRecognizers>
+                </Label>
+            </StackLayout>
+            <packingSlips:PackinSlipsFilterView
+                Grid.Row="1"
+                FilterTriggerCommand="{Binding FilterChangeCommand}"
+                IsEnabled="{Binding IsBusy, Converter={converters:NotBooleanConverter}}"
+                IsVisible="{Binding ShowFilter}"
+                SearchCommand="{Binding SearchCommand}" />
+            <BoxView
+                Grid.Row="2"
+                Margin="0,5"
+                BackgroundColor="{StaticResource PrimaryBlue}"
+                HeightRequest="2" />
+
+            <ListView
+                Grid.Row="3"
+                CachingStrategy="RecycleElement"
+                HasUnevenRows="True"
+                IsVisible="{Binding NoResults, Converter={converters:NotBooleanConverter}}"
+                ItemsSource="{Binding List}"
+                SelectedItem="{Binding SelectedPackingSlip}"
+                SeparatorColor="{StaticResource DarkPrimaryBlue}"
+                SeparatorVisibility="Default">
+                <ListView.Behaviors>
+                    <infrastructure:EventToCommandBehavior Command="{Binding OpenLinesCommand}" EventName="ItemTapped" />
+                </ListView.Behaviors>
+                <ListView.ItemTemplate>
+                    <DataTemplate x:DataType="models:PackingSlipModel">
+                        <ViewCell>
+                            <Grid Padding="5,5,5,10">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto" />
+                                    <ColumnDefinition />
+                                    <ColumnDefinition Width="Auto" />
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                </Grid.RowDefinitions>
+                                <!--  First Column  -->
+                                <Label Text="{Binding PurchaseOrder}" />
+                                <Label Grid.Row="1" Text="{Binding JobName}" />
+
+                                <!--  Second Column  -->
+                                <Label
+                                    Grid.Column="1"
+                                    HorizontalTextAlignment="End"
+                                    Text="{Binding OrderNumber}" />
+                                <Label
+                                    Grid.Row="1"
+                                    Grid.Column="1"
+                                    Text="{Binding PackingSlip}" />
+                                <Label
+                                    Grid.RowSpan="2"
+                                    Grid.Column="2"
+                                    FontSize="40"
+                                    Style="{StaticResource IconLabel}"
+                                    Text="&#xf054;"
+                                    TextColor="{StaticResource DarkPrimaryBlue}" />
+
+                            </Grid>
+
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+
+            <components:NoResultsView Grid.Row="3" IsVisible="{Binding NoResults}" />
+            <components:RowCountView Grid.Row="4" List="{Binding List}" />
+
+            <xForms:SfBusyIndicator Grid.Row="3" />
+        </Grid>
+    </ScrollView>
+</ContentPage>

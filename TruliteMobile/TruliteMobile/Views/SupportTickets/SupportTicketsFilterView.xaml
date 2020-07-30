@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentView
+    x:Class="TruliteMobile.Views.SupportTickets.SupportTicketsFilterView"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:components="clr-namespace:TruliteMobile.Components;assembly=TruliteMobile"
+    xmlns:i18N="clr-namespace:TruliteMobile.i18n;assembly=TruliteMobile"
+    xmlns:supportTickets="clr-namespace:TruliteMobile.Views.SupportTickets;assembly=TruliteMobile">
+    <ContentView.Content>
+        <Frame Padding="5">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+                <components:ResetFormView Grid.Column="1" Tapped="ResetFormView_Tapped" />
+
+                <Picker
+                    Grid.Row="1"
+                    ItemDisplayBinding="{Binding Value}"
+                    ItemsSource="{Binding StatusList}"
+                    SelectedItem="{Binding Filter.Status}" />
+                <Picker
+                    Grid.Row="1"
+                    Grid.Column="1"
+                    ItemDisplayBinding="{Binding DisplayString}"
+                    ItemsSource="{Binding BranchList}"
+                    SelectedItem="{Binding Filter.SelectedBranch, Mode=TwoWay}" />
+
+                <components:ListSortView
+                    Grid.Row="2"
+                    Grid.ColumnSpan="2"
+                    Ascending="{Binding IsAscending}"
+                    FilterTriggerCommand="{Binding FilterTriggerCommand}"
+                    SelectedSortColumn="{Binding SelectedSortColumn, Mode=TwoWay}"
+                    SortColumns="{Binding SortColumns}" />
+
+                <Button
+                    Grid.Row="3"
+                    Grid.Column="1"
+                    Clicked="Button_Clicked"
+                    HorizontalOptions="End"
+                    Text="{i18N:TranslateExtension Text=Search}" />
+
+            </Grid>
+        </Frame>
+
+    </ContentView.Content>
+</ContentView>

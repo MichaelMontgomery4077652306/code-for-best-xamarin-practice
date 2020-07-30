@@ -1,0 +1,444 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="TruliteMobile.Views.MyAccount.MyAccountPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:components="clr-namespace:TruliteMobile.Components;assembly=TruliteMobile"
+    xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+    xmlns:i18N="clr-namespace:TruliteMobile.i18n;assembly=TruliteMobile"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:myAccount="clr-namespace:TruliteMobile.Views.MyAccount;assembly=TruliteMobile"
+    xmlns:services="clr-namespace:TruliteMobile.Services;assembly=TruliteMobile"
+    xmlns:xForms="clr-namespace:Syncfusion.SfBusyIndicator.XForms;assembly=Syncfusion.SfBusyIndicator.XForms"
+    Title="{i18N:TranslateExtension Text=MyAccount}"
+    x:DataType="myAccount:MyAccountPageViewModel"
+    BackgroundColor="{StaticResource DarkBlueButtonColor}"
+    mc:Ignorable="d">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem
+            Command="{Binding OpenSettingsCommand}"
+            IconImageSource="gears.png"
+            Order="Primary"
+            Priority="0"
+            Text="{i18N:TranslateExtension Text=GiveFeedback}" />
+    </ContentPage.ToolbarItems>
+    <ContentPage.Content>
+        <ScrollView>
+            <Grid
+                x:Name="root"
+                Margin="10"
+                RowSpacing="10"
+                Style="{StaticResource RootGrid}">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <!--  Communication Preferences  -->
+                <Frame Grid.Row="0" IsVisible="{Binding ShowConfirmations}">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+                        <components:ExpanderButton
+                            ChangeExpandCommand="{Binding ExpandConfirmationsCommand}"
+                            IsExpanded="{Binding ExpandConfirmations}"
+                            Text="{i18N:TranslateExtension Text=CommunicationPreferences}" />
+                        <StackLayout
+                            Grid.Row="1"
+                            BindableLayout.ItemsSource="{Binding Confirmations}"
+                            IsVisible="{Binding ExpandConfirmations}">
+                            <BindableLayout.ItemTemplate>
+                                <DataTemplate x:DataType="services:CustomerConfirmInformation">
+                                    <Grid>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="Auto" />
+                                            <RowDefinition Height="Auto" />
+                                            <RowDefinition Height="Auto" />
+                                        </Grid.RowDefinitions>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="Auto" />
+                                            <ColumnDefinition Width="*" />
+                                            <ColumnDefinition Width="40" />
+                                        </Grid.ColumnDefinitions>
+                                        <!--  Type  -->
+                                        <Label Style="{StaticResource GridHeaderLabel}" Text="{i18N:TranslateExtension Text=Type}" />
+                                        <Label Grid.Column="1" Text="{Binding FriendlyCommunicationType}" />
+                                        <!--  Value  -->
+                                        <Label
+                                            Grid.Row="1"
+                                            Style="{StaticResource GridHeaderLabel}"
+                                            Text="{i18N:TranslateExtension Text=Value}" />
+                                        <Label
+                                            Grid.Row="1"
+                                            Grid.Column="1"
+                                            Text="{Binding Value}" />
+                                        <!--  Edit  -->
+                                        <Label
+                                            Grid.RowSpan="2"
+                                            Grid.Column="2"
+                                            FontSize="24"
+                                            HorizontalOptions="End"
+                                            Style="{StaticResource IconLabel}"
+                                            Text="&#xf044;"
+                                            TextColor="{StaticResource DarkBlueButtonColor}"
+                                            VerticalOptions="Center">
+                                            <Label.GestureRecognizers>
+                                                <TapGestureRecognizer Command="{Binding BindingContext.EditConfirmInformationCommand, Source={x:Reference root}}" CommandParameter="{Binding}" />
+                                            </Label.GestureRecognizers>
+                                        </Label>
+                                        <BoxView
+                                            Grid.Row="2"
+                                            Grid.ColumnSpan="3"
+                                            BackgroundColor="{x:StaticResource DarkBlueButtonColor}"
+                                            HeightRequest="1" />
+                                    </Grid>
+                                </DataTemplate>
+
+                            </BindableLayout.ItemTemplate>
+                        </StackLayout>
+
+                    </Grid>
+                </Frame>
+                <!--  Account Info  -->
+                <Frame Grid.Row="1">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+                        <components:ExpanderButton
+                            ChangeExpandCommand="{Binding ExpandAccountInformationCommand}"
+                            IsExpanded="{Binding ExpandAccountInformation}"
+                            Text="{i18N:TranslateExtension Text=AccountInformation}" />
+                        <Grid Grid.Row="1" IsVisible="{Binding ExpandAccountInformation}">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <!--  Name  -->
+                            <Label Style="{StaticResource GridHeaderLabel}" Text="{i18N:TranslateExtension Text=Name}" />
+                            <Label Grid.Column="1" Text="{Binding MyInfo.CurrentUser.FullName}" />
+                            <!--  Time Zone  -->
+                            <Label
+                                Grid.Row="1"
+                                Style="{StaticResource GridHeaderLabel}"
+                                Text="{i18N:TranslateExtension Text=Timezone}" />
+                            <Label
+                                Grid.Row="1"
+                                Grid.Column="1"
+                                Text="{Binding MyInfo.CurrentUser.TimeZone}" />
+                            <!--  Account Status  -->
+                            <Label
+                                Grid.Row="2"
+                                Style="{StaticResource GridHeaderLabel}"
+                                Text="{i18N:TranslateExtension Text=AccountStatus}" />
+                            <Label
+                                Grid.Row="2"
+                                Grid.Column="1"
+                                Text="{Binding MyInfo.CurrentUser.AccountStatusName}" />
+                            <!--  Email  -->
+                            <Label
+                                Grid.Row="3"
+                                Style="{StaticResource GridHeaderLabel}"
+                                Text="{i18N:TranslateExtension Text=Email}" />
+
+                            <Label
+                                Grid.Row="3"
+                                Grid.Column="1"
+                                Text="{Binding MyInfo.CurrentUser.LoginId}" />
+                            <!--  App User Id  -->
+                            <Label
+                                Grid.Row="4"
+                                Style="{StaticResource GridHeaderLabel}"
+                                Text="{i18N:TranslateExtension Text=AppUserId}" />
+
+                            <Label
+                                Grid.Row="4"
+                                Grid.Column="1"
+                                Text="{Binding MyInfo.CurrentUser.AppUserId}" />
+                            <!--  Phone Number  -->
+                            <Label
+                                Grid.Row="5"
+                                Style="{StaticResource GridHeaderLabel}"
+                                Text="{i18N:TranslateExtension Text=PhoneNumber}" />
+
+                            <StackLayout Orientation="Horizontal"
+                                         Grid.Row="5"
+                                         Grid.Column="1">
+                                <Label Text="{Binding MyInfo.CurrentUser.PhoneNumber}" />
+                                <Label Text="&#xf044;"
+                                       Style="{StaticResource IconLabel}">
+                                    <Label.GestureRecognizers>
+                                        <TapGestureRecognizer Command="{Binding EditPhoneCommand}" />
+                                    </Label.GestureRecognizers>
+                                </Label>
+                            </StackLayout>
+                         
+                            <!--  Phone Verified  -->
+                            <Label
+                                Grid.Row="6"
+                                Style="{StaticResource GridHeaderLabel}"
+                                Text="{i18N:TranslateExtension Text=PhoneVerified}" />
+
+                            <Label Grid.Row="6"
+                                   Text="{i18N:TranslateExtension Text=No}"
+                                   Grid.Column="1">
+                                <Label.Triggers>
+                                    <DataTrigger TargetType="Label"
+                                                 Binding="{Binding MyInfo.CurrentUser.IsPhoneNumberVerified}"
+                                                 Value="true">
+                                        <Setter Property="Text"
+                                                Value="{i18N:TranslateExtension Text=Yes}"/>
+                                        
+                                    </DataTrigger>
+                                </Label.Triggers>
+                            </Label>
+                        </Grid>
+                    </Grid>
+                </Frame>
+                <!--  Customer Info  -->
+                <Frame Grid.Row="2">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+                        <components:ExpanderButton
+                            ChangeExpandCommand="{Binding ExpandCustomerInformationCommand}"
+                            IsExpanded="{Binding ExpandCostumerInformation}"
+                            Text="{i18N:TranslateExtension Text=CustomerInformation}" />
+                        <Grid Grid.Row="1" IsVisible="{Binding ExpandCostumerInformation}">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <!--  Name  -->
+                            <Label Style="{StaticResource GridHeaderLabel}" Text="{i18N:TranslateExtension Text=CustomerName}" />
+                            <Label Grid.Column="1" Text="{Binding MyInfo.CustomerInfo.Name}" />
+                            <!--  Id  -->
+                            <Label
+                                Grid.Row="1"
+                                Style="{StaticResource GridHeaderLabel}"
+                                Text="{i18N:TranslateExtension Text=CustomerId}" />
+                            <Label
+                                Grid.Row="1"
+                                Grid.Column="1"
+                                Text="{Binding MyInfo.CustomerInfo.Key}" />
+                            <!--  Address  -->
+                            <Label
+                                Grid.Row="2"
+                                Style="{StaticResource GridHeaderLabel}"
+                                Text="{i18N:TranslateExtension Text=AddressCamelcase}" />
+
+                            <Label
+                                Grid.Row="2"
+                                Grid.Column="1"
+                                Text="{Binding MyInfo.CustomerInfo.Address}" />
+                            <!--  Email  -->
+                            <Label
+                                Grid.Row="3"
+                                Style="{StaticResource GridHeaderLabel}"
+                                Text="{i18N:TranslateExtension Text=Email}" />
+
+                            <Label
+                                Grid.Row="3"
+                                Grid.Column="1"
+                                Text="{Binding MyInfo.CustomerInfo.EmailAddress}" />
+                            <!--  Phone Number  -->
+                            <Label
+                                Grid.Row="4"
+                                Style="{StaticResource GridHeaderLabel}"
+                                Text="{i18N:TranslateExtension Text=PhoneNumber}" />
+                                <Label  Grid.Row="4"
+                                        Grid.Column="1"
+                                        Text="{Binding MyInfo.CustomerInfo.PhoneNumber}" />
+                           
+                            <!--  Contact Name  -->
+                            <Label
+                                Grid.Row="5"
+                                Style="{StaticResource GridHeaderLabel}"
+                                Text="{i18N:TranslateExtension Text=ContactName}" />
+
+                            <Label
+                                Grid.Row="5"
+                                Grid.Column="1"
+                                Text="{Binding MyInfo.CustomerInfo.ContactName}" />
+
+                        </Grid>
+                    </Grid>
+                </Frame>
+                <!--  Preferences  -->
+                <Frame Grid.Row="3">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+                        <components:ExpanderButton
+                            ChangeExpandCommand="{Binding ExpandPreferencesCommand}"
+                            IsExpanded="{Binding ExpandPreferences}"
+                            Text="{i18N:TranslateExtension Text=Preferences}" />
+                        <Grid Grid.Row="1" IsVisible="{Binding ExpandPreferences}">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+
+                            <Label
+                                Grid.ColumnSpan="2"
+                                FontSize="Large"
+                                HorizontalOptions="Start"
+                                Style="{StaticResource GridHeaderLabel}"
+                                Text="{i18N:TranslateExtension Text=Invoices}" />
+
+                            <!--  Daily  -->
+                            <Switch
+                                Grid.Row="1"
+                                IsToggled="{Binding MyPreferences.ShowInvoicesDaily}" />
+                            <Label
+                                Grid.Row="1"
+                                Grid.Column="1"
+                                Text="{i18N:TranslateExtension Text=ShowDaily}" />
+
+                            <!--  Montly  -->
+
+                            <Switch
+                                Grid.Row="2"
+                                IsToggled="{Binding MyPreferences.ShowInvoicesMonthly}" />
+                            <Label
+                                Grid.Row="2"
+                                Grid.Column="1"
+                                Text="{i18N:TranslateExtension Text=ShowMontly}" />
+
+                            <!--  Quartely  -->
+                            <Switch
+                                Grid.Row="3"
+                                IsToggled="{Binding MyPreferences.ShowInvoicesQuarterly}" />
+                            <Label
+                                Grid.Row="3"
+                                Grid.Column="1"
+                                Text="{i18N:TranslateExtension Text=ShowQuarterly}" />
+                            <!--  Show Credit Limits  -->
+                            <Switch
+                                Grid.Row="4"
+                                IsToggled="{Binding MyPreferences.ShowCustomerCreditLimits}" />
+                            <Label
+                                Grid.Row="4"
+                                Grid.Column="1"
+                                Text="{i18N:TranslateExtension Text=ShowCustomerCreditLimits}" />
+                            <!--  Orders  -->
+                            <Label
+                                Grid.Row="5"
+                                Grid.ColumnSpan="2"
+                                FontSize="Large"
+                                HorizontalOptions="Start"
+                                Style="{StaticResource GridHeaderLabel}"
+                                Text="{i18N:TranslateExtension Text=Orders}" />
+
+                            <!--  Daily  -->
+                            <Switch
+                                Grid.Row="6"
+                                IsToggled="{Binding MyPreferences.ShowOrdersDaily}" />
+                            <Label
+                                Grid.Row="6"
+                                Grid.Column="1"
+                                Text="{i18N:TranslateExtension Text=ShowDaily}" />
+
+                            <!--  Montly  -->
+
+                            <Switch
+                                Grid.Row="7"
+                                IsToggled="{Binding MyPreferences.ShowOrdersMonthly}" />
+                            <Label
+                                Grid.Row="7"
+                                Grid.Column="1"
+                                Text="{i18N:TranslateExtension Text=ShowMontly}" />
+
+                            <!--  Yearly  -->
+                            <Switch
+                                Grid.Row="8"
+                                IsToggled="{Binding MyPreferences.ShowOrdersYearly}" />
+                            <Label
+                                Grid.Row="8"
+                                Grid.Column="1"
+                                Text="{i18N:TranslateExtension Text=ShowYearly}" />
+
+                            <!--  Show Summary by Status  -->
+                            <!--  Yearly  -->
+                            <Switch
+                                Grid.Row="9"
+                                IsToggled="{Binding MyPreferences.ShowSalesOrdersSummaryByStatus}" />
+                            <Label
+                                Grid.Row="9"
+                                Grid.Column="1"
+                                Text="{i18N:TranslateExtension Text=ShowSummaryByStatus}" />
+
+                            <!--  Returns  -->
+                            <Label
+                                Grid.Row="10"
+                                Grid.ColumnSpan="2"
+                                FontSize="Large"
+                                HorizontalOptions="Start"
+                                Style="{StaticResource GridHeaderLabel}"
+                                Text="{i18N:TranslateExtension Text=Returns}" />
+
+                            <!--  Daily  -->
+                            <Switch
+                                Grid.Row="11"
+                                IsToggled="{Binding MyPreferences.ShowReturnsMonthly}" />
+                            <Label
+                                Grid.Row="11"
+                                Grid.Column="1"
+                                Text="{i18N:TranslateExtension Text=ShowDaily}" />
+
+                            <Picker
+                                Title="{i18N:TranslateExtension Text=Theme}"
+                                Grid.Row="12"
+                                Grid.ColumnSpan="2"
+                                ItemsSource="{Binding ThemeList}"
+                                SelectedItem="{Binding SelectedTheme}" />
+                        </Grid>
+                    </Grid>
+                </Frame>
+                <xForms:SfBusyIndicator Grid.RowSpan="3" />
+            </Grid>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

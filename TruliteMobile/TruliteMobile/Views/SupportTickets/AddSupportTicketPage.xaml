@@ -1,0 +1,63 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:supportTickets="clr-namespace:TruliteMobile.Views.SupportTickets;assembly=TruliteMobile"
+             Title="{i18N:TranslateExtension Text=AddTicketInformation}"
+             xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+             xmlns:i18N="clr-namespace:TruliteMobile.i18n;assembly=TruliteMobile"
+             ios:Page.UseSafeArea="true"
+             x:Class="TruliteMobile.Views.SupportTickets.AddSupportTicketPage">
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout Margin="10"
+                         x:Name="root"
+                         x:DataType="supportTickets:AddSupportTicketPageViewModel">
+                <Label Text="{i18N:TranslateExtension Text=TrulitePlant}" />
+                <Picker ItemsSource="{Binding PlantList}"
+                        ItemDisplayBinding="{Binding Branch}"
+                        SelectedItem="{Binding SelectedPlant}" />
+                <Label Text="{i18N:TranslateExtension Text=Subject}" />
+                <Entry Text="{Binding Subject}"
+                       Keyboard="Default"
+                       MaxLength="100"
+                       ReturnType="Next" />
+                <Label Text="{i18N:TranslateExtension Text=Description}" />
+                <Editor HeightRequest="200"
+                        Text="{Binding Description}" />
+                <Button BackgroundColor="Green"
+                        HorizontalOptions="Start"
+                        Padding="10"
+                        TextColor="White"
+                        IsEnabled="{Binding CanAddFile}"
+                        Command="{Binding SelectFileToUploadCommand}"
+                        Text="{i18N:TranslateExtension Text=UploadAttachment} " />
+                <StackLayout BindableLayout.ItemsSource="{Binding AttachedFilesList}">
+                    <BindableLayout.ItemTemplate>
+                        <DataTemplate x:DataType="supportTickets:SupportTicketUploadFileInformationModel">
+                            <StackLayout Orientation="Horizontal">
+                                <Label Text="{Binding Filename}" />
+                                <Label Text="X"
+                                       TextColor="Red"
+                                       FontSize="Large">
+                                    <Label.GestureRecognizers>
+                                        <TapGestureRecognizer Command="{Binding BindingContext.RemoveAttachedFileCommand, Source={x:Reference root}}"
+                                                              CommandParameter="{Binding .}" />
+                                    </Label.GestureRecognizers>
+                                </Label>
+                            </StackLayout>
+                        </DataTemplate>
+                    </BindableLayout.ItemTemplate>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal"
+                             HorizontalOptions="End">
+                    <Button Text="{i18N:TranslateExtension Text=Close}"
+                            Style="{StaticResource WhiteButton}"
+                            Command="{Binding CloseCommand}" />
+                    <Button Text="{i18N:TranslateExtension Text=Add}"
+                            Command="{Binding AddCommand}"
+                            Style="{StaticResource BlueButton}" />
+                </StackLayout>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

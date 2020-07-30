@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xsd:schema xmlns="http://schemas.microsoft.com/dynamics/2006/02/documents/CPSSalesOrderSummary" elementFormDefault="qualified" targetNamespace="http://schemas.microsoft.com/dynamics/2006/02/documents/CPSSalesOrderSummary" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <xsd:element name="CPSSalesOrderSummary" type="CPSSalesOrderSummary" />
+  <xsd:complexType name="CPSSalesOrderSummary">
+    <xsd:sequence>
+      <xsd:element name="DatePoint" type="xsd:string" />
+      <xsd:element name="Amount" type="xsd:string" />
+    </xsd:sequence>
+  </xsd:complexType>
+</xsd:schema>

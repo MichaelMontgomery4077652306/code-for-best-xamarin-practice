@@ -1,0 +1,181 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:invoicePayment="clr-namespace:TruliteMobile.Views.InvoicePayment;assembly=TruliteMobile"
+             xmlns:i18N="clr-namespace:TruliteMobile.i18n;assembly=TruliteMobile"
+             xmlns:Effects="clr-namespace:TruliteMobile.Effects;assembly=TruliteMobile"
+             mc:Ignorable="d"
+             x:DataType="invoicePayment:CreditCardView"
+             x:Class="TruliteMobile.Views.InvoicePayment.CreditCardView">
+    <ContentView.Content>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+
+            <Entry Text="{Binding FirstName}"
+                   Grid.Column="0"
+                   Grid.ColumnSpan="2"
+                   Placeholder="{i18N:TranslateExtension Text=FirstName}"
+                   ReturnType="Next"
+                   Effects:MaterialEntryExtensionEffect.HasMaterialEntry="True"
+                   Effects:MaterialEntryExtensionEffect.ErrorText="{Binding FirstNameError}" />
+            <Entry Text="{Binding LastName}"
+                   Grid.Row="1"
+                   Grid.Column="0"
+                   Grid.ColumnSpan="2"
+                   Placeholder="{i18N:TranslateExtension Text=LastName}"
+                   ReturnType="Next"
+                   Effects:MaterialEntryExtensionEffect.HasMaterialEntry="True"
+                   Effects:MaterialEntryExtensionEffect.ErrorText="{Binding LastNameError}" />
+
+            <Entry Text="{Binding Email}"
+                   Grid.Row="2"
+                   Grid.Column="0"
+                   Grid.ColumnSpan="2"
+                   Placeholder="{i18N:TranslateExtension Text=Email}"
+                   IsReadOnly="True"
+                   IsEnabled="False"
+                   ReturnType="Next"
+                   Effects:MaterialEntryExtensionEffect.HasMaterialEntry="True"
+                   Effects:MaterialEntryExtensionEffect.ErrorText="{Binding EmailError}" />
+
+            <Entry Text="{Binding EmailCopyReceipt}"
+                   Grid.Row="2"
+                   Grid.Column="0"
+                   Grid.ColumnSpan="2"
+                   Placeholder="{i18N:TranslateExtension Text=CopyReceiptEmailAddress}"
+                   IsReadOnly="True"
+                   ReturnType="Next"
+                   Effects:MaterialEntryExtensionEffect.HasMaterialEntry="True"
+                   Effects:MaterialEntryExtensionEffect.ErrorText="{Binding EmailError}" />
+
+            <Entry Text="{Binding PaymentNote}"
+                   Grid.Row="2"
+                   Grid.Column="0"
+                   Grid.ColumnSpan="2"
+                   Placeholder="{i18N:TranslateExtension Text=PaymentNote}"
+                   IsReadOnly="True"
+                   ReturnType="Next"
+                   Effects:MaterialEntryExtensionEffect.HasMaterialEntry="True"
+                   Effects:MaterialEntryExtensionEffect.ErrorText="{Binding EmailError}" />
+
+            <Entry Text="{Binding Address}"
+                   Grid.Row="3"
+                   Grid.Column="0"
+                   Grid.ColumnSpan="2"
+                   Placeholder="{i18N:TranslateExtension Text=AddressCamelcase}"
+                   ReturnType="Next"
+                   Effects:MaterialEntryExtensionEffect.HasMaterialEntry="True"
+                   Effects:MaterialEntryExtensionEffect.ErrorText="{Binding AddressError}" />
+
+            <Entry Text="{Binding City}"
+                   Grid.Row="4"
+                   Grid.Column="0"
+                   Grid.ColumnSpan="2"
+                   Placeholder="{i18N:TranslateExtension Text=City}"
+                   ReturnType="Next"
+                   Effects:MaterialEntryExtensionEffect.HasMaterialEntry="True"
+                   Effects:MaterialEntryExtensionEffect.ErrorText="{Binding CityError}" />
+
+            <Entry Text="{Binding State}"
+                   Grid.Row="5"
+                   Grid.Column="0"
+                   Grid.ColumnSpan="2"
+                   MaxLength="2"
+                   Placeholder="{i18N:TranslateExtension Text=State}"
+                   ReturnType="Next"
+                   Effects:MaterialEntryExtensionEffect.HasMaterialEntry="True"
+                   Effects:MaterialEntryExtensionEffect.ErrorText="{Binding StateError}" />
+
+            <Picker Grid.Row="6"
+                    Grid.Column="0"
+                    Grid.ColumnSpan="2"
+                    ItemsSource="{Binding CountryList}"
+                    SelectedItem="{Binding Country}"
+                    Title="{i18N:TranslateExtension Text=Country}"
+                    Effects:MaterialEntryExtensionEffect.HasMaterialEntry="True"
+                    Effects:MaterialEntryExtensionEffect.ErrorText="{Binding CountryError}" />
+
+            <Entry Text="{Binding PostalCode}"
+                   Grid.Row="7"
+                   Grid.Column="0"
+                   Grid.ColumnSpan="2"
+                   Placeholder="{i18N:TranslateExtension Text=PostalCode}"
+                   ReturnType="Next"
+                   Effects:MaterialEntryExtensionEffect.HasMaterialEntry="True"
+                   Effects:MaterialEntryExtensionEffect.ErrorText="{Binding PostalCodeError}" />
+
+            <Picker Grid.Row="8"
+                    Grid.Column="0"
+                    Grid.ColumnSpan="2"
+                    x:DataType="{x:Null}"
+                    ItemsSource="{Binding CreditCardTypeList}"
+                    ItemDisplayBinding="{Binding Value}"
+                    SelectedItem="{Binding CreditCardType}"
+                    Title="{i18N:TranslateExtension Text=CardType}"
+                    Effects:MaterialEntryExtensionEffect.HasMaterialEntry="True"
+                    Effects:MaterialEntryExtensionEffect.ErrorText="{Binding CardTypeError}" />
+
+            <Entry Text="{Binding CardNumber}"
+                   Grid.Row="9"
+                   Grid.Column="0"
+                   Grid.ColumnSpan="2"
+                   Placeholder="{i18N:TranslateExtension Text=CardNumber}"
+                   ReturnType="Next"
+                   Keyboard="Numeric"
+                   Effects:MaterialEntryExtensionEffect.HasMaterialEntry="True"
+                   Effects:MaterialEntryExtensionEffect.ErrorText="{Binding CardNumberError}" />
+
+            <Entry Text="{Binding CVV}"
+                   Grid.Row="10"
+                   Grid.Column="0"
+                   MaxLength="4"
+                   Grid.ColumnSpan="2"
+                   Placeholder="CVN"
+                   ReturnType="Next"
+                   Keyboard="Numeric"
+                   Effects:MaterialEntryExtensionEffect.HasMaterialEntry="True"
+                   Effects:MaterialEntryExtensionEffect.ErrorText="{Binding CVVError}" />
+
+            <StackLayout Grid.Column="0"
+                         Grid.ColumnSpan="2"
+                         Orientation="Horizontal"
+                         Grid.Row="11"
+                         HorizontalOptions="FillAndExpand">
+
+                <Picker ItemsSource="{Binding ExpirationMonthList}"
+                        SelectedItem="{Binding ExpirationMonth}"
+                        Title="{i18N:TranslateExtension Text=ExpirationMonth}"
+                        HorizontalOptions="FillAndExpand"
+                        Effects:MaterialEntryExtensionEffect.HasMaterialEntry="True"
+                        Effects:MaterialEntryExtensionEffect.ErrorText="{Binding ExpirationMonthError}" />
+                <Label Text="/"></Label>
+                <Picker ItemsSource="{Binding ExpirationYearList}"
+                        SelectedItem="{Binding ExpirationYear}"
+                        Title="{i18N:TranslateExtension Text=ExpirationYear}"
+                        HorizontalOptions="FillAndExpand"
+                        Effects:MaterialEntryExtensionEffect.HasMaterialEntry="True"
+                        Effects:MaterialEntryExtensionEffect.ErrorText="{Binding ExpirationYearError}" />
+            </StackLayout>
+
+        </Grid>
+    </ContentView.Content>
+</ContentView>

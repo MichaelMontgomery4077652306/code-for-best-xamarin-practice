@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xsd:schema xmlns="http://schemas.microsoft.com/dynamics/2006/02/documents/CPSGetInvoiceDetailsResponse" xmlns:ek="http://schemas.microsoft.com/dynamics/2006/02/documents/CPSInvoiceLine" elementFormDefault="qualified" targetNamespace="http://schemas.microsoft.com/dynamics/2006/02/documents/CPSGetInvoiceDetailsResponse" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <xsd:import schemaLocation="CPSInvoiceLine.xsd" namespace="http://schemas.microsoft.com/dynamics/2006/02/documents/CPSInvoiceLine" />
+  <xsd:element name="CPSGetInvoiceDetailsResponse" type="CPSGetInvoiceDetailsResponse" />
+  <xsd:complexType name="CPSGetInvoiceDetailsResponse">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" maxOccurs="unbounded" ref="ek:CPSInvoiceLine" />
+    </xsd:sequence>
+  </xsd:complexType>
+</xsd:schema>

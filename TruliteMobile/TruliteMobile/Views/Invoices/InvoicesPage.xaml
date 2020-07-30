@@ -1,0 +1,235 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage x:Class="TruliteMobile.Views.Invoices.InvoicesPage"
+             xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:components="clr-namespace:TruliteMobile.Components;assembly=TruliteMobile"
+             xmlns:converters="clr-namespace:TruliteMobile.Converters;assembly=TruliteMobile"
+             xmlns:converters1="clr-namespace:XamarinUniversity.Converters;assembly=XamU.Infrastructure"
+             xmlns:infrastructure="clr-namespace:XamarinUniversity.Infrastructure;assembly=XamU.Infrastructure"
+             xmlns:invoices="clr-namespace:TruliteMobile.Views.Invoices;assembly=TruliteMobile"
+             xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+             xmlns:models="clr-namespace:TruliteMobile.Models;assembly=TruliteMobile"
+             xmlns:xForms="clr-namespace:Syncfusion.SfBusyIndicator.XForms;assembly=Syncfusion.SfBusyIndicator.XForms"
+             xmlns:i18N="clr-namespace:TruliteMobile.i18n;assembly=TruliteMobile"
+             ios:Page.UseSafeArea="true">
+    <!--#region Menu -->
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Order="Primary"
+                     IconImageSource="gears.png"
+                     Text="{i18N:TranslateExtension Text=GiveFeedback}"
+                     Command="{Binding OpenSettingsCommand}"
+                     Priority="0" />
+    </ContentPage.ToolbarItems>
+    <!--#endregion-->
+    <ContentPage.Content>
+        <Grid x:Name="root"
+              x:DataType="invoices:InvoicesPageViewModel"
+              Style="{StaticResource RootGrid}">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="AUto" />
+                <RowDefinition Height="AUto" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="AUto" />
+                <RowDefinition Height="AUto" />
+            </Grid.RowDefinitions>
+            <StackLayout Margin="5"
+                         HorizontalOptions="End"
+                         Orientation="Horizontal">
+                <Label Text="{i18N:TranslateExtension Text=SearchFilter}"
+                       TextColor="{StaticResource DarkPrimaryBlue}" />
+                <Label Style="{StaticResource FilterExpandIconLabel}">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding ToggleFilterCommand}" />
+                    </Label.GestureRecognizers>
+                </Label>
+            </StackLayout>
+            <invoices:InvoicesFilterView Grid.Row="1"
+                                         Mode="{Binding DefaultMode}"
+                                         FilterTriggerCommand="{Binding FilterChangeCommand}"
+                                         IsEnabled="{Binding IsBusy, Converter={converters1:NotBooleanConverter}}"
+                                         IsVisible="{Binding ShowFilter}"
+                                         SearchCommand="{Binding SearchCommand}" />
+
+            <!--#region List -->
+            <ListView Grid.Row="2"
+                      CachingStrategy="RecycleElement"
+                      HasUnevenRows="True"
+                      IsVisible="{Binding NoResults, Converter={converters1:NotBooleanConverter}}"
+                      ItemsSource="{Binding List}"
+                      SelectedItem="{Binding SelectedInvoice}"
+                      SeparatorColor="{StaticResource DarkPrimaryBlue}"
+                      SeparatorVisibility="Default">
+                <ListView.Behaviors>
+                    <infrastructure:EventToCommandBehavior Command="{Binding OpenInvoiceCommand}"
+                                                           EventName="ItemTapped" />
+                </ListView.Behaviors>
+                <ListView.GroupHeaderTemplate>
+                    <DataTemplate x:DataType="{x:Null}">
+                        <ViewCell>
+                            <Grid BackgroundColor="{StaticResource DarkPrimaryBlue}">
+                                <Label Margin="5"
+                                       FontAttributes="Bold"
+                                       HorizontalTextAlignment="Center"
+                                       Text="{Binding Key}"
+                                       TextColor="White" />
+                            </Grid>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.GroupHeaderTemplate>
+                <ListView.ItemTemplate>
+                    <DataTemplate x:DataType="models:InvoiceModel">
+                        <ViewCell>
+                            <Grid Padding="5,5,5,10">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto" />
+                                    <ColumnDefinition Width="Auto" />
+                                    <ColumnDefinition />
+                                    <ColumnDefinition Width="Auto" />
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                </Grid.RowDefinitions>
+                                <StackLayout Grid.RowSpan="3"
+                                             BackgroundColor="Transparent"
+                                             IsVisible="{Binding IsPaymentPending, Converter={converters1:NotBooleanConverter}}"
+                                             Margin="0,0,10,0">
+                                    <Label Text="Select" />
+                                    <Switch IsToggled="{Binding IsSelected}" />
+                                </StackLayout>
+                                <BoxView BackgroundColor="Transparent"
+                                         IsVisible="{Binding IsPaymentPending, Converter={converters1:NotBooleanConverter}}"
+                                         Grid.RowSpan="3">
+                                    <BoxView.GestureRecognizers>
+                                        <TapGestureRecognizer CommandParameter="{Binding}" Command="{Binding BindingContext.IsSelectedChangedCommand, Source={x:Reference root}}" />
+                                    </BoxView.GestureRecognizers>
+                                </BoxView>
+                                <StackLayout Grid.RowSpan="3"
+                                             Margin="0,0,10,0"
+                                             IsVisible="{Binding IsPaymentPending}">
+                                    <Label Text="{i18N:TranslateExtension Text=Pending}" />
+                                    <Label Text="&#xf021;"
+                                           Style="{StaticResource IconLabel}"
+                                           HorizontalOptions="Center" />
+                                </StackLayout>
+                                <!--<StackLayout Grid.RowSpan="3"
+                                                 Margin="0,0,10,0"
+                                                 IsVisible="{Binding IsPaid}">
+                                        <Label Text="{i18N:TranslateExtension Text=Paid}" />
+                                        <Label Text="&#x2713;"
+                                               Style="{StaticResource IconLabel}"
+                                               HorizontalOptions="Center" />
+                                    </StackLayout>-->
+
+                                <!--  First Column  -->
+                                <Label Grid.Column="1"
+                                       Text="{Binding CustomerPurchaseOrderNo}" />
+                                <Label Grid.Row="1"
+                                       Grid.Column="1"
+                                       Text="{Binding CustomerRef}" />
+                                <Label Grid.Row="2"
+                                       Grid.Column="1"
+                                       Text="{Binding Key}" />
+                                <!--  Second Column  -->
+                                <Label Grid.Column="2"
+                                       HorizontalTextAlignment="End"
+                                       Text="{Binding Amount, StringFormat='{0:c}'}" />
+                                <Label Grid.Row="2"
+                                       Grid.Column="2"
+                                       HorizontalOptions="End"
+                                       Text="{Binding DueDate, StringFormat='{0:d}'}" />
+                                <Label Grid.RowSpan="3"
+                                       Grid.Column="3"
+                                       FontSize="Medium"
+                                       Style="{StaticResource IconLabel}"
+                                       Text="&#xf054;"
+                                       TextColor="{StaticResource DarkPrimaryBlue}" />
+
+                            </Grid>
+
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            <!--#endregion-->
+            <components:NoResultsView Grid.Row="2"
+                                      IsVisible="{Binding NoResults}" />
+            <xForms:SfBusyIndicator Grid.Row="2" />
+            <components:RowCountView Grid.Row="3"
+                                     List="{Binding List}" />
+            <!--#region Actions -->
+            <Grid Grid.Row="4">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="1" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+                <Button Command="{Binding PayInvoicesCommand}"
+                        FontSize="Micro"
+                        Style="{StaticResource BlueButton}"
+                        Text="{i18N:TranslateExtension Text=PaySelectedInvoices}" />
+
+                <Button Command="{Binding LienWaiverCommand}"
+                        FontSize="Micro"
+                        Grid.Column="1"
+                        Style="{StaticResource BlueButton}"
+                        BackgroundColor="Green"
+                        Text="{i18N:TranslateExtension Text=LienWaiverSelectedInvoices}" />
+
+                <Button Command="{Binding AddMoneyOnAccountCommand}"
+                        FontSize="Micro"
+                        Style="{StaticResource BlueButton}"
+                        Grid.Row="1"
+                        Text="{i18N:TranslateExtension Text=AddMoney}" />
+
+                <Button Command="{Binding PayPartialCommand}"
+                        FontSize="Micro"
+                        Style="{StaticResource BlueButton}"
+                        Grid.Column="1"
+                        Grid.Row="1"
+                        Text="{i18N:TranslateExtension Text=PartialPayment}" />
+
+                <BoxView Grid.ColumnSpan="2"
+                         Grid.Row="2"
+                         BackgroundColor="{StaticResource PrimaryBlue}"
+                         HeightRequest="1"
+                         VerticalOptions="Start" />
+                <Label Grid.Row="3"
+                       Grid.Column="0"
+                       Margin="5"
+                       FontAttributes="Bold">
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <FormattedString.Spans>
+                                <Span Text="{i18N:TranslateExtension Text=Order, Suffix=':'}" />
+                                <Span Text="{Binding TotalAmount, StringFormat='{0:c}'}" />
+                            </FormattedString.Spans>
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
+                <Label Grid.Row="2"
+                       Grid.Column="1"
+                       Margin="5"
+                       HorizontalOptions="End"
+                       HorizontalTextAlignment="End">
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <FormattedString.Spans>
+                                <Span Text="{i18N:TranslateExtension Text=RowCount, Suffix=':'} " />
+                                <Span FontAttributes="Bold"
+                                      Text="{Binding RowCount}" />
+                            </FormattedString.Spans>
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
+            </Grid>
+            <!--#endregion-->
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

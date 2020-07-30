@@ -1,0 +1,113 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:i18N="clr-namespace:TruliteMobile.i18n;assembly=TruliteMobile"
+             xmlns:pipelineAccounts="clr-namespace:TruliteMobile.Views.PipelineAccounts;assembly=TruliteMobile"
+             xmlns:converters="clr-namespace:XamarinUniversity.Converters;assembly=XamU.Infrastructure"
+             xmlns:infrastructure="clr-namespace:XamarinUniversity.Infrastructure;assembly=XamU.Infrastructure"
+             xmlns:services="clr-namespace:TruliteMobile.Services;assembly=TruliteMobile"
+             xmlns:components="clr-namespace:TruliteMobile.Components;assembly=TruliteMobile"
+             xmlns:xForms="clr-namespace:Syncfusion.SfBusyIndicator.XForms;assembly=Syncfusion.SfBusyIndicator.XForms"
+             xmlns:superuserAccounts="clr-namespace:TruliteMobile.Views.SuperuserAccounts;assembly=TruliteMobile"
+             mc:Ignorable="d"
+             Title="{i18N:Translate Text=SelectAccount}"
+             x:DataType="superuserAccounts:SuperUserAccountsPageViewModel"
+             x:Class="TruliteMobile.Views.SuperuserAccounts.SuperUserAccountsPage">
+    <ContentPage.Content>
+        <Grid Style="{StaticResource RootGrid}">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+            <StackLayout Margin="5"
+                         HorizontalOptions="End"
+                         Orientation="Horizontal">
+                <Label Text="{i18N:TranslateExtension Text=SearchFilter}"
+                       TextColor="{StaticResource DarkPrimaryBlue}" />
+                <Label Style="{StaticResource FilterExpandIconLabel}">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding ToggleFilterCommand}" />
+                    </Label.GestureRecognizers>
+                </Label>
+            </StackLayout>
+            <pipelineAccounts:PipelineAccountsFilterView Grid.Row="1"
+                                                         IsBusy="{Binding IsBusy}"
+                                                         FilterTriggerCommand="{Binding FilterTriggerCommand}"
+                                                         IsVisible="{Binding ShowFilter}"
+                                                         SearchCommand="{Binding SearchCommand}" />
+            <ListView x:Name="listView"
+                      Grid.Row="2"
+                      CachingStrategy="RecycleElement"
+                      HasUnevenRows="True"
+                      IsVisible="{Binding NoResults, Converter={converters:NotBooleanConverter}}"
+                      ItemsSource="{Binding CustomerList}"
+                      SelectedItem="{Binding SelectedCustomer}"
+                      SeparatorColor="{StaticResource DarkPrimaryBlue}"
+                      SeparatorVisibility="Default">
+                <ListView.Behaviors>
+                    <infrastructure:EventToCommandBehavior Command="{Binding OpenCommand}"
+                                                           EventName="ItemTapped" />
+                </ListView.Behaviors>
+
+                <ListView.ItemTemplate>
+                    <DataTemplate x:DataType="services:DynamicCustomer">
+                        <ViewCell>
+                            <Grid Padding="5,5,5,10">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition />
+                                    <ColumnDefinition Width="Auto" />
+                                    <ColumnDefinition Width="Auto" />
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                </Grid.RowDefinitions>
+                                <!--  First Column  -->
+                                <Label Text="{Binding Name}" />
+                                <Label Grid.Row="1"
+                                       Text="{Binding PhoneNumber}" />
+                                <Label Grid.Row="2"
+                                       Text="{Binding Address}" />
+                                <Label Grid.Row="3"
+                                       Text="{Binding EmailAddress}" />
+                                <!--  Second Column  -->
+                                <Label Grid.Column="1"
+                                       HorizontalTextAlignment="End"
+                                       Text="{Binding Key}" />
+                                <Label Grid.Row="1"
+                                       Grid.Column="1"
+                                       HorizontalOptions="End"
+                                       Text="{Binding WarehouseNo}" />
+                                <Label Grid.Row="2"
+                                       Grid.Column="1"
+                                       HorizontalOptions="End"
+                                       Text="{Binding SalesGroup}" />
+                                <Label Grid.Row="3"
+                                       Grid.Column="1"
+                                       HorizontalOptions="End"
+                                       Text="{Binding ContactEmail}" />
+                                <Label Grid.RowSpan="4"
+                                       Grid.Column="2"
+                                       FontSize="40"
+                                       Style="{StaticResource IconLabel}"
+                                       Text="&#xf054;"
+                                       TextColor="{StaticResource DarkPrimaryBlue}" />
+                            </Grid>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            <components:NoResultsView Grid.Row="2"
+                                      IsVisible="{Binding NoResults}" />
+            <xForms:SfBusyIndicator Grid.Row="2" />
+            <components:RowCountView List="{Binding CustomerList}"
+                                     Grid.Row="3" />
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

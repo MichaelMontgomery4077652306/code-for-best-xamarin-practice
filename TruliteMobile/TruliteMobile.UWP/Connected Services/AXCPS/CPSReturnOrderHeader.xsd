@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xsd:schema xmlns="http://schemas.microsoft.com/dynamics/2006/02/documents/CPSReturnOrderHeader" elementFormDefault="qualified" targetNamespace="http://schemas.microsoft.com/dynamics/2006/02/documents/CPSReturnOrderHeader" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <xsd:element name="CPSReturnOrderHeader" type="CPSReturnOrderHeader" />
+  <xsd:complexType name="CPSReturnOrderHeader">
+    <xsd:sequence>
+      <xsd:element name="OrderNo" type="xsd:string" />
+      <xsd:element name="InvoiceNo" type="xsd:string" />
+      <xsd:element name="Amount" type="xsd:string" />
+      <xsd:element name="Status" type="xsd:string" />
+      <xsd:element name="DeliveryTerm" type="xsd:string" />
+      <xsd:element name="Site" type="xsd:string" />
+      <xsd:element name="Warehouse" type="xsd:string" />
+      <xsd:element name="ReturnDate" type="xsd:string" />
+      <xsd:element name="LinesQty" type="xsd:string" />
+      <xsd:element name="CustAccount" type="xsd:string" />
+      <xsd:element name="CustName" type="xsd:string" />
+    </xsd:sequence>
+  </xsd:complexType>
+</xsd:schema>

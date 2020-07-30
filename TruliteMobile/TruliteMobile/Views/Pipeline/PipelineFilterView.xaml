@@ -1,0 +1,134 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentView
+    x:Class="TruliteMobile.Views.Pipeline.PipelineFilterView"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:components="clr-namespace:TruliteMobile.Components;assembly=TruliteMobile"
+    xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+    xmlns:i18N="clr-namespace:TruliteMobile.i18n;assembly=TruliteMobile"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+    <ContentView.Content>
+        <ScrollView Padding="10,0">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+                <components:ResetFormView Grid.Column="1" Tapped="ResetFormView_Tapped" />
+                <Picker
+                    Title="{i18N:TranslateExtension Text=Plant}"
+                    Grid.Row="1"
+                    Grid.ColumnSpan="2"
+                    ItemDisplayBinding="{Binding DisplayText}"
+                    ItemsSource="{Binding FilterModel.BranchList}"
+                    SelectedItem="{Binding FilterModel.SelectedBranch}" />
+                <Entry
+                    Grid.Row="2"
+                    Grid.ColumnSpan="2"
+                    Keyboard="Default"
+                    Placeholder="{i18N:TranslateExtension Text=SalesResponsible}"
+                    ReturnType="Next"
+                    Text="{Binding FilterModel.SalesResponsible}" />
+
+                <Entry
+                    Grid.Row="3"
+                    Grid.ColumnSpan="2"
+                    Keyboard="Default"
+                    Placeholder="{i18N:TranslateExtension Text=Probability}"
+                    ReturnType="Next"
+                    Text="{Binding FilterModel.Probability}" />
+
+                <Entry
+                    Grid.Row="4"
+                    Keyboard="Default"
+                    Placeholder="{i18N:TranslateExtension Text=AccountName}"
+                    ReturnType="Next"
+                    Text="{Binding FilterModel.AccountName}" />
+
+                <Entry
+                    Grid.Row="4"
+                    Grid.Column="1"
+                    Keyboard="Default"
+                    Placeholder="{i18N:TranslateExtension Text=AccountNumber}"
+                    ReturnType="Next"
+                    Text="{Binding FilterModel.AccountNumber}" />
+
+
+                <Picker
+                    Title="{i18N:TranslateExtension Text=Status}"
+                    Grid.Row="5"
+                    ItemDisplayBinding="{Binding Value}"
+                    ItemsSource="{Binding FilterModel.StatusList}"
+                    SelectedItem="{Binding FilterModel.SelectedStatus}" />
+
+                <Picker
+                    Title="{i18N:TranslateExtension Text=LeadTime}"
+                    Grid.Row="5"
+                    Grid.Column="1"
+                    ItemDisplayBinding="{Binding Value}"
+                    ItemsSource="{Binding FilterModel.LeadTimeList}"
+                    SelectedItem="{Binding FilterModel.SelectedLeadTime}" />
+
+                <Entry
+                    Grid.Row="6"
+                    Keyboard="Default"
+                    Placeholder="{i18N:TranslateExtension Text=FromAmount}"
+                    ReturnType="Next"
+                    Text="{Binding FilterModel.FromAmount}" />
+
+
+                <Entry
+                    Grid.Row="6"
+                    Grid.Column="1"
+                    Keyboard="Default"
+                    Placeholder="{i18N:TranslateExtension Text=ToAmount}"
+                    Text="{Binding FilterModel.ToAmount}" />
+
+                <Label Grid.Row="7" Text="{i18N:TranslateExtension Text=FromExpiryDate}" />
+                <components:NullableDatePickerView
+                    x:Name="dpFrom"
+                    Grid.Row="8"
+                    Date="{Binding FilterModel.FromDate, Mode=TwoWay}" />
+
+                <Label
+                    Grid.Row="7"
+                    Grid.Column="1"
+                    Text="{i18N:TranslateExtension Text=ToExpiryDate}" />
+                <components:NullableDatePickerView
+                    x:Name="dpTo"
+                    Grid.Row="8"
+                    Grid.Column="1"
+                    Date="{Binding FilterModel.ToDate, Mode=TwoWay}" />
+
+                <components:ListSortView
+                    Grid.Row="9"
+                    Grid.ColumnSpan="2"
+                    Ascending="{Binding FilterModel.Ascending}"
+                    FilterTriggerCommand="{Binding FilterTriggerCommand}"
+                    SelectedSortColumn="{Binding FilterModel.SelectedSortColumn, Mode=TwoWay}"
+                    SortColumns="{Binding FilterModel.SortColumns}" />
+                <Button
+                    Grid.Row="10"
+                    Grid.Column="1"
+                    Clicked="Button_Clicked"
+                    Text="{i18N:TranslateExtension Text=Search}" />
+
+            </Grid>
+        </ScrollView>
+    </ContentView.Content>
+</ContentView>

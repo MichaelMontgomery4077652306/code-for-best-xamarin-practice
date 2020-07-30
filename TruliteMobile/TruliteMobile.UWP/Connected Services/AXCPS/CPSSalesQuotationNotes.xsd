@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xsd:schema xmlns="http://schemas.microsoft.com/dynamics/2006/02/documents/CPSSalesQuotationNotes" elementFormDefault="qualified" targetNamespace="http://schemas.microsoft.com/dynamics/2006/02/documents/CPSSalesQuotationNotes" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <xsd:element name="CPSSalesQuotationNotes" type="CPSSalesQuotationNotes" />
+  <xsd:complexType name="CPSSalesQuotationNotes">
+    <xsd:sequence>
+      <xsd:element name="QuotationId" type="xsd:string" />
+      <xsd:element name="DateTime" type="xsd:string" />
+      <xsd:element name="User" type="xsd:string" />
+      <xsd:element name="Notes" type="xsd:string" />
+    </xsd:sequence>
+  </xsd:complexType>
+</xsd:schema>

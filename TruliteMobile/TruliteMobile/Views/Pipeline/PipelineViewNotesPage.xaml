@@ -1,0 +1,62 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:i18N="clr-namespace:TruliteMobile.i18n;assembly=TruliteMobile"
+             xmlns:services="clr-namespace:TruliteMobile.Services;assembly=TruliteMobile"
+             xmlns:pipeline="clr-namespace:TruliteMobile.Views.Pipeline;assembly=TruliteMobile"
+             xmlns:components="clr-namespace:TruliteMobile.Components;assembly=TruliteMobile"
+             xmlns:converters="clr-namespace:XamarinUniversity.Converters;assembly=XamU.Infrastructure"
+             mc:Ignorable="d"
+             Title="{Binding Title}"
+             x:DataType="pipeline:PipelineViewNotesPageViewModel"
+             x:Class="TruliteMobile.Views.Pipeline.PipelineViewNotesPage">
+    <ContentPage.Content>
+        <Grid Style="{StaticResource RootGrid}"
+              Padding="10">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+            <ScrollView IsVisible="{Binding NoResults, Converter={ converters:NotBooleanConverter}}">
+                <StackLayout BindableLayout.ItemsSource="{Binding NoteList}">
+                    <BindableLayout.ItemTemplate>
+                        <DataTemplate x:DataType="services:QuotationNote">
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                </Grid.RowDefinitions>
+                                <Label FontAttributes="Bold">
+                                    <Label.FormattedText>
+                                        <FormattedString>
+                                            <FormattedString.Spans>
+                                                <Span Text="{i18N:TranslateExtension Text=NoteAddedBy}" />
+                                                <Span Text=" " />
+                                                <Span Text="{Binding User}" />
+                                                <Span Text=" - " />
+                                                <Span Text="{Binding DateTime, StringFormat='{0:g}'}" />
+                                            </FormattedString.Spans>
+                                        </FormattedString>
+                                    </Label.FormattedText>
+                                </Label>
+                                <Editor Grid.Row="1"
+                                        Text="{Binding Notes}"
+                                        IsReadOnly="True">
+                                </Editor>
+                            </Grid>
+                        </DataTemplate>
+                    </BindableLayout.ItemTemplate>
+                </StackLayout>
+            </ScrollView>
+            <components:NoResultsView IsVisible="{Binding NoResults}" />
+
+            <Button Text="{i18N:TranslateExtension Text=Close}"
+                    Style="{StaticResource WhiteButton}"
+                    Grid.Row="1"
+                    HorizontalOptions="End"
+                    Command="{Binding CloseCommand}" />
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

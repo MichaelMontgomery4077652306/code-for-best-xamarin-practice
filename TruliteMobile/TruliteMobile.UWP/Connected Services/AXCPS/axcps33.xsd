@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xsd:schema xmlns="http://schemas.microsoft.com/dynamics/2006/02/documents/CPSGetSalesOrdersResponse" xmlns:ek="http://schemas.microsoft.com/dynamics/2006/02/documents/CPSSalesOrderHeader" elementFormDefault="qualified" targetNamespace="http://schemas.microsoft.com/dynamics/2006/02/documents/CPSGetSalesOrdersResponse" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <xsd:import schemaLocation="CPSSalesOrderHeader.xsd" namespace="http://schemas.microsoft.com/dynamics/2006/02/documents/CPSSalesOrderHeader" />
+  <xsd:element name="CPSGetSalesOrdersResponse" type="CPSGetSalesOrdersResponse" />
+  <xsd:complexType name="CPSGetSalesOrdersResponse">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" maxOccurs="unbounded" ref="ek:CPSSalesOrderHeader" />
+    </xsd:sequence>
+  </xsd:complexType>
+</xsd:schema>

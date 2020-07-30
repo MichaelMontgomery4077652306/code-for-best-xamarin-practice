@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:i18N="clr-namespace:TruliteMobile.i18n;assembly=TruliteMobile"
+             xmlns:drvRoutes="clr-namespace:TruliteMobile.Views.DrvRoutes;assembly=TruliteMobile"
+             xmlns:converters="clr-namespace:TruliteMobile.Converters;assembly=TruliteMobile"
+             mc:Ignorable="d"
+             Title="{i18N:Translate NotifyCustomer}"
+             x:DataType="drvRoutes:DrvRoutesNotifyCustomerPageViewModel"
+             x:Class="TruliteMobile.Views.DrvRoutes.DrvRoutesNotifyCustomerPage">
+    <ContentPage.Content>
+        <StackLayout>
+            <Label Style="{StaticResource GridLinkLabel}"
+                   >
+                <Label.FormattedText>
+                    <FormattedString>
+                        <FormattedString.Spans>
+                            <Span Text="{Binding AccountName}"/>
+                            <Span Text=" - "/>
+                            <Span Text="{Binding AccountNumber, StringFormat='({0})'}"/>
+                        </FormattedString.Spans>
+                    </FormattedString>
+                </Label.FormattedText>
+                <Label.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding OpenAccountCommand}" />
+                </Label.GestureRecognizers>
+                
+            </Label>
+            <Picker Title="{i18N:Translate Text=SearchingSettings}" ItemsSource="{Binding DurationList}"
+                    SelectedItem="{Binding SelectedDuration}" ItemDisplayBinding="{Binding Value}"/>
+            <Label Text="{i18N:Translate Text=CustomEstimateMinutes, Suffix=':'}" FontAttributes="Bold"/>
+            <Entry Keyboard="Numeric" Text="{Binding CustomDuration}" IsEnabled="{Binding SelectedDuration.Key,
+                Converter={converters:IsEqualToBoolConverter},ConverterParameter='C'}"/>
+
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

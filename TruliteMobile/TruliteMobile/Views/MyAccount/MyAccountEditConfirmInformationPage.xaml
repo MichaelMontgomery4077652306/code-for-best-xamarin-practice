@@ -1,0 +1,67 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="TruliteMobile.Views.MyAccount.MyAccountEditConfirmInformationPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:components="clr-namespace:TruliteMobile.Components;assembly=TruliteMobile"
+    xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+    xmlns:i18N="clr-namespace:TruliteMobile.i18n;assembly=TruliteMobile"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:myAccount="clr-namespace:TruliteMobile.Views.MyAccount;assembly=TruliteMobile"
+    xmlns:xForms="clr-namespace:Syncfusion.SfBusyIndicator.XForms;assembly=Syncfusion.SfBusyIndicator.XForms"
+    Title="{i18N:TranslateExtension Text=EditCommunicationInformation}"
+    x:DataType="myAccount:MyAccountEditConfirmInformationPageViewModel"
+    mc:Ignorable="d">
+
+    <ContentPage.Content>
+        <Grid Padding="10" Style="{StaticResource RootGrid}">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+
+            </Grid.RowDefinitions>
+            <Label
+                HorizontalOptions="Start"
+                HorizontalTextAlignment="Start"
+                Style="{StaticResource GridHeaderLabel}"
+                Text="{i18N:TranslateExtension Text=CommunicationType}" />
+            <Picker
+                Grid.Row="1"
+                ItemDisplayBinding="{Binding Value}"
+                ItemsSource="{Binding TypeList}"
+                SelectedItem="{Binding SelectedType}" />
+            <Label
+                Grid.Row="2"
+                HorizontalOptions="Start"
+                HorizontalTextAlignment="Start"
+                Style="{StaticResource GridHeaderLabel}"
+                Text="{i18N:TranslateExtension Text=Value}" />
+            <Entry
+                Grid.Row="3"
+                Keyboard="Default"
+                Text="{Binding Value}" />
+
+            <Grid Grid.Row="4">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+                <components:ActionButtonView
+                    BackgroundColor="Gray"
+                    IconText="&#xf00d;"
+                    TappedCommand="{Binding CloseCommand}"
+                    Text="{i18N:TranslateExtension Text=Close}" />
+                <components:ActionButtonView
+                    Grid.Column="1"
+                    BackgroundColor="{StaticResource PrimaryBlue}"
+                    IconText="&#xf00c;"
+                    TappedCommand="{Binding SubmitCommand}"
+                    Text="{i18N:TranslateExtension Text=Submit}" />
+            </Grid>
+            <xForms:SfBusyIndicator Grid.RowSpan="3" />
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

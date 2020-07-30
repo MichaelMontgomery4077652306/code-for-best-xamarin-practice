@@ -1,0 +1,302 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage x:Class="TruliteMobile.Views.Settlements.SettlementViewReceiptPage"
+             xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:i18N="clr-namespace:TruliteMobile.i18n;assembly=TruliteMobile"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:settlements="clr-namespace:TruliteMobile.Views.Settlements;assembly=TruliteMobile"
+             xmlns:services="clr-namespace:TruliteMobile.Services;assembly=TruliteMobile"
+             xmlns:buttons="clr-namespace:Syncfusion.XForms.Buttons;assembly=Syncfusion.Buttons.XForms"
+             xmlns:converters="clr-namespace:TruliteMobile.Converters;assembly=TruliteMobile"
+             Title="{i18N:TranslateExtension Text=Receipt}"
+             x:DataType="settlements:SettlementViewReceiptPageViewModel"
+             mc:Ignorable="d">
+    <ContentPage.Content>
+        <Grid Style="{StaticResource RootGrid}"
+              Padding="10">
+            <Grid.RowDefinitions>
+
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+            <ScrollView Grid.Row="1">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+                    <!--#region Send email -->
+                    <Grid Grid.Row="0">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="*" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                            <ColumnDefinition Width="Auto"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+
+                        <Entry Placeholder="{i18N:Translate Text=Recipient}"
+                               Text="{Binding EmailText}" />
+                        <Button Grid.Column="1"
+                                Style="{StaticResource BlueButton}"
+                                Text="{i18N:Translate Text=Add}"
+                                VerticalOptions="Center"
+                                Command="{Binding AddEmailCommand}" />
+
+                        <buttons:SfChipGroup ItemsSource="{Binding EmailList}"
+                                             Grid.Row="1"
+                                             ItemHeight="40"
+                                             ChipBackgroundColor="{StaticResource PrimaryBlue}"
+                                             ChipTextColor="White"
+                                             VerticalOptions="Start"
+                                             CloseButtonColor="White"
+                                             ChipPadding="8,8,0,0">
+                            <buttons:SfChipGroup.ChipLayout>
+                                <StackLayout>
+
+                                </StackLayout>
+                            </buttons:SfChipGroup.ChipLayout>
+                        </buttons:SfChipGroup>
+                        <Button Grid.Row="1"
+                                Grid.Column="1"
+                                HorizontalOptions="End"
+                                VerticalOptions="End"
+                                Style="{StaticResource BlueButton}"
+                                Text="{i18N:Translate Text=SendEmail}"
+                                Command="{Binding SendEmailCommand}" />
+                        <BoxView BackgroundColor="{StaticResource PrimaryBlue}"
+                                 HeightRequest="1"
+                                 Grid.Row="2"
+                                 Grid.ColumnSpan="2" />
+                    </Grid>
+                    <!--#endregion-->
+                    <!--#region Receipt data -->
+                    <Grid Grid.Row="1">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition />
+                        </Grid.ColumnDefinitions>
+                        <Label Grid.ColumnSpan="2"
+                               FontSize="Large"
+                               HorizontalTextAlignment="Start"
+                               Style="{StaticResource GridHeaderLabel}"
+                               Text="{i18N:TranslateExtension Text=TransactionInformation, Suffix=':'}" />
+                        <!--  AuthorizationCode  -->
+                        <Label Grid.Row="1"
+                               Style="{StaticResource GridHeaderLabel}"
+                               Text="{i18N:TranslateExtension Text=AuthorizationCode, Suffix=':'}" />
+                        <Label Grid.Row="1"
+                               Grid.Column="1"
+                               Text="{Binding Invoice.AuthorizationCode}" />
+                        <!--  Date Processed  -->
+                        <Label Grid.Row="2"
+                               Style="{StaticResource GridHeaderLabel}"
+                               Text="{i18N:TranslateExtension Text=DateProcessed, Suffix=':'}" />
+                        <Label Grid.Row="2"
+                               Grid.Column="1"
+                               Text="{Binding Invoice.DateProcessed, StringFormat='{0:d}'}" />
+
+                        <!--  Transaction  -->
+                        <Label Grid.Row="3"
+                               Style="{StaticResource GridHeaderLabel}"
+                               Text="{i18N:TranslateExtension Text=Transaction, Suffix=':'}" />
+                        <Label Grid.Row="3"
+                               Grid.Column="1"
+                               Text="{Binding Invoice.InvoicePaymentId}" />
+
+                        <!--  Journal Entry  -->
+                        <Label Grid.Row="4"
+                               Style="{StaticResource GridHeaderLabel}"
+                               Text="{i18N:TranslateExtension Text=JournalEntry, Suffix=':'}" />
+                        <Label Grid.Row="4"
+                               Grid.Column="1"
+                               Text="{Binding Invoice.AXTransaction}" />
+
+                        <!--  Amount  -->
+                        <Label Grid.Row="5"
+                               Style="{StaticResource GridHeaderLabel}"
+                               Text="{i18N:TranslateExtension Text=Amount, Suffix=':'}" />
+                        <Label Grid.Row="5"
+                               Grid.Column="1"
+                               Text="{Binding Invoice.Amount, StringFormat='{0:C}'}" />
+                        <!--  Transaction Type  -->
+                        <Label Grid.Row="6"
+                               Style="{StaticResource GridHeaderLabel}"
+                               Text="{i18N:TranslateExtension Text=TransactionType, Suffix=':'}" />
+                        <Label Grid.Row="6"
+                               Grid.Column="1"
+                               Text="{Binding Invoice.TransactionType}" />
+
+                        <!--  Card Type  -->
+                        <Label Grid.Row="7"
+                               Style="{StaticResource GridHeaderLabel}"
+                               Text="{i18N:TranslateExtension Text=CardType, Suffix=':'}" />
+                        <Label Grid.Row="7"
+                               Grid.Column="1"
+                               Text="{Binding Receipt.CreditCardType}" />
+
+                        <!--  Card Number Type  -->
+                        <Label Grid.Row="8"
+                               Style="{StaticResource GridHeaderLabel}"
+                               Text="{i18N:TranslateExtension Text=CardNumber, Suffix=':'}" />
+                        <Label Grid.Row="8"
+                               Grid.Column="1"
+                               Text="{Binding Receipt.CardNumber}" />
+
+                        <!--  Paid By  -->
+
+                        <Label Grid.Row="9"
+                               Style="{StaticResource GridHeaderLabel}"
+                               Text="{i18N:TranslateExtension Text=PaidBy, Suffix=':'}" />
+                        <Label Grid.Row="9"
+                               Grid.Column="1"
+                               Text="{Binding Invoice.PaidBy}" />
+
+                        <!--  Note  -->
+                        <Label Grid.Row="10"
+                               Style="{StaticResource GridHeaderLabel}"
+                               Text="{i18N:TranslateExtension Text=Note, Suffix=':'}" />
+                        <Label Grid.Row="10"
+                               Grid.Column="1"
+                               Text="{Binding Invoice.Note}" />
+                        <!--  Money On Account  -->
+                        <Label Grid.Row="11"
+                               Style="{StaticResource GridHeaderLabel}"
+                               Text="{i18N:TranslateExtension Text=MoneyOnAccount, Suffix=':'}" />
+                        <Label Grid.Row="11"
+                               Grid.Column="1"
+                               Text="{i18N:Translate Text=No}">
+                            <Label.Triggers>
+                                <DataTrigger TargetType="Label"
+                                             Binding="{Binding Invoice.IsMoneyOnAccountRequest}"
+                                             Value="True">
+                                    <Setter Property="Text"
+                                            Value="{i18N:Translate Text=Yes}" />
+                                </DataTrigger>
+                            </Label.Triggers>
+                        </Label>
+                    </Grid>
+                    <!--#endregion-->
+                    <!--#region Amount Breakdown/Totals -->
+                    <Grid Grid.Row="2">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="*" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+                        <Label Text="{i18N:Translate Text=AmountBreakdown}"
+                               Style="{StaticResource GridHeaderLabel}"
+                               HorizontalTextAlignment="Start"
+                               HorizontalOptions="Start"
+                               FontSize="Large" />
+                        <StackLayout Grid.Row="1"
+                                     BindableLayout.ItemsSource="{Binding Receipt.Invoices}">
+                            <BindableLayout.ItemTemplate>
+                                <DataTemplate x:DataType="services:InvoicePaymentRecord">
+                                    <Grid>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="Auto" />
+                                            <ColumnDefinition />
+                                        </Grid.ColumnDefinitions>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="Auto" />
+                                            <RowDefinition Height="Auto" />
+                                            <RowDefinition Height="Auto" />
+                                        </Grid.RowDefinitions>
+
+                                        <Label Style="{StaticResource GridHeaderLabel}"
+                                               Text="{i18N:TranslateExtension Text=Invoice, Suffix=':'}" />
+                                        <Label Grid.Column="1"
+                                               Text="{Binding InvoiceKey}" />
+
+                                        <Label Style="{StaticResource GridHeaderLabel}"
+                                               Grid.Row="1"
+                                               Text="{i18N:TranslateExtension Text=PaymentAmount, Suffix=':'}" />
+                                        <Label Grid.Column="1"
+                                               Grid.Row="1"
+                                               Text="{Binding Amount,StringFormat='{0:C}'}" />
+                                        <BoxView Grid.ColumnSpan="2"
+                                                 Grid.Row="2"
+                                                 BackgroundColor="{StaticResource PrimaryBlue}"
+                                                 HeightRequest="1" />
+                                    </Grid>
+                                </DataTemplate>
+                            </BindableLayout.ItemTemplate>
+                            
+                        </StackLayout>
+
+                        <Grid Grid.Row="2">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition />
+                                <ColumnDefinition Width="Auto" />
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                            </Grid.RowDefinitions>
+                            <!--  Payment Amount  -->
+                            <Label Style="{StaticResource GridHeaderLabel}"
+                                   Text="{i18N:TranslateExtension Text=PaymentAmount, Suffix=':'}" />
+                            <Label Grid.Column="1"
+                                   HorizontalTextAlignment="End"
+                                   Text="{Binding Receipt.InvoicePayment.InvoiceAmount,StringFormat='{0:C}'}" />
+                            <!--  Fees  -->
+                            <Label Style="{StaticResource GridHeaderLabel}"
+                                   Grid.Row="1"
+                                   Text="{i18N:TranslateExtension Text=Fees, Suffix=':'}" />
+                            <Label Grid.Column="1"
+                                   Grid.Row="1"
+                                   HorizontalTextAlignment="End"
+                                   Text="{Binding FeeAmount,StringFormat='{0:C}'}" />
+                            <BoxView Grid.Column="1"
+                                                                                                                                          Grid.Row="2"
+                                                                                                                                          BackgroundColor="{StaticResource PrimaryBlue}"
+                                                                                                                                          HeightRequest="1" />
+                            <!--  Payment Amount  -->
+                            <Label Style="{StaticResource GridHeaderLabel}"
+                                   Grid.Row="3"
+                                   
+                                   Text="{i18N:TranslateExtension Text=TotalPayment, Suffix=':'}" />
+                            <Label Grid.Column="1"
+                                   Grid.Row="3"
+                                   HorizontalTextAlignment="End"
+                                   FontAttributes="Bold"
+                                   Text="{Binding Receipt.InvoicesAmount,StringFormat='{0:C}'}" />
+                        </Grid>
+                    </Grid>
+                    <!--#endregion-->
+
+                </Grid>
+            </ScrollView>
+
+            <Button Grid.Row="2"
+                    HorizontalOptions="End"
+                    Command="{Binding BackCommand}"
+                    Text="Back" />
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

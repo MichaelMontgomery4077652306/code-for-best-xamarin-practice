@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:converters="clr-namespace:XamarinUniversity.Converters;assembly=XamU.Infrastructure"
+             mc:Ignorable="d"
+             x:Class="TruliteMobile.Components.ExpanderButton">
+  <ContentView.Content>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+            <Label FontSize="Medium"
+                   HorizontalOptions="Center"
+                   Text="{Binding Text}"
+                   TextColor="{DynamicResource FilterHeaderTextColor}">
+                <Label.Triggers>
+                    <DataTrigger TargetType="Label"
+                                 Binding="{Binding IsExpanded}"
+                                 Value="True">
+                        <Setter Property="TextColor"
+                                Value="{DynamicResource PrimaryGray}" />
+                    </DataTrigger>
+                </Label.Triggers>
+            </Label>
+            <Label Style="{StaticResource FilterExpandIconLabel}"
+                   Grid.Column="1"
+                   FontSize="24"
+                   VerticalOptions="Center"
+                   HorizontalOptions="End">
+                <Label.Triggers>
+                    <DataTrigger TargetType="Label"
+                                 Binding="{Binding IsExpanded}"
+                                 Value="True">
+                        <Setter Property="Text"
+                                Value="&#xf139;" />
+                        <Setter Property="TextColor"
+                                Value="{DynamicResource PrimaryGray}" />
+                    </DataTrigger>
+                </Label.Triggers>
+            </Label>
+            <BoxView Grid.ColumnSpan="2"
+                     BackgroundColor="Transparent">
+                <BoxView.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"/>
+                </BoxView.GestureRecognizers>
+            </BoxView>
+        </Grid>
+  </ContentView.Content>
+</ContentView>

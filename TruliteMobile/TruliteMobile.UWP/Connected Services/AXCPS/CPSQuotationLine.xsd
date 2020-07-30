@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xsd:schema xmlns="http://schemas.microsoft.com/dynamics/2006/02/documents/CPSQuotationLine" elementFormDefault="qualified" targetNamespace="http://schemas.microsoft.com/dynamics/2006/02/documents/CPSQuotationLine" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <xsd:element name="CPSQuotationLine" type="CPSQuotationLine" />
+  <xsd:complexType name="CPSQuotationLine">
+    <xsd:sequence>
+      <xsd:element name="ItemId" type="xsd:string" />
+      <xsd:element name="ItemName" type="xsd:string" />
+      <xsd:element name="LineNo" type="xsd:string" />
+      <xsd:element name="Quantity" type="xsd:string" />
+      <xsd:element name="Unit" type="xsd:string" />
+      <xsd:element name="UnitPrice" type="xsd:string" />
+      <xsd:element name="DiscPercent" type="xsd:string" />
+      <xsd:element name="Amount" type="xsd:string" />
+      <xsd:element name="CurrencyCode" type="xsd:string" />
+      <xsd:element name="InventTransId" type="xsd:string" />
+    </xsd:sequence>
+  </xsd:complexType>
+</xsd:schema>

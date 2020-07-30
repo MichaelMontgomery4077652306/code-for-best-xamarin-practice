@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:i18N="clr-namespace:TruliteMobile.i18n;assembly=TruliteMobile"
+             xmlns:pipeline="clr-namespace:TruliteMobile.Views.Pipeline;assembly=TruliteMobile"
+             mc:Ignorable="d"
+             x:DataType="pipeline:PipelineAddNotePageViewModel"
+             Title="{i18N:TranslateExtension Text=UpdatePipelineNote}"
+             x:Class="TruliteMobile.Views.Pipeline.PipelineAddNotePage">
+    <ContentPage.Content>
+        <Grid Style="{StaticResource RootGrid}" Padding="10">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+
+            <Label Text="{i18N:TranslateExtension Text=Quotation}"
+                   Style="{StaticResource GridHeaderLabel}" />
+            <Label Grid.Column="1"
+                   Text="{Binding Inquiry.QuotationId}" />
+            <Label Text="{i18N:TranslateExtension Text=CustomerAccount}"
+                   Grid.Row="1"
+                   Style="{StaticResource GridHeaderLabel}" />
+            <Label Grid.Row="1"
+                   Grid.Column="1"
+                   Text="{Binding  Inquiry.CustAccount}" />
+            <Label Text="{i18N:TranslateExtension Text=Note}"
+                   Grid.Row="2"
+                   VerticalOptions="Start"
+                   Style="{StaticResource GridHeaderLabel}" />
+            <Editor Grid.Row="2"
+                    Grid.Column="1"
+                    VerticalOptions="FillAndExpand"
+                    Text="{Binding Note}" />
+            <StackLayout Orientation="Horizontal"
+                         Grid.Row="3"
+                         Grid.ColumnSpan="2"
+                         HorizontalOptions="End">
+                <Button Text="{i18N:TranslateExtension Text=Close}"
+                        Style="{StaticResource WhiteButton}"
+                        Command="{Binding CloseCommand}" />
+                <Button Text="{i18N:TranslateExtension Text=Save}"
+                        Command="{Binding SaveCommand}"
+                        Style="{StaticResource GreenButton}" />
+            </StackLayout>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

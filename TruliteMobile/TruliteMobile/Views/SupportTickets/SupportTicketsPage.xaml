@@ -1,0 +1,159 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage x:Class="TruliteMobile.Views.SupportTickets.SupportTicketsPage"
+             xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:components="clr-namespace:TruliteMobile.Components;assembly=TruliteMobile"
+             xmlns:i18N="clr-namespace:TruliteMobile.i18n;assembly=TruliteMobile"
+             xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+             xmlns:services="clr-namespace:TruliteMobile.Services;assembly=TruliteMobile"
+             xmlns:supportTickets="clr-namespace:TruliteMobile.Views.SupportTickets;assembly=TruliteMobile"
+             xmlns:xForms="clr-namespace:Syncfusion.SfBusyIndicator.XForms;assembly=Syncfusion.SfBusyIndicator.XForms"
+             Title="{i18N:TranslateExtension Text=SupportTickets}"
+             Padding="0,20,0,0"
+             ios:Page.UseSafeArea="true">
+    <!--#region Menu -->
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Command="{Binding OpenSettingsCommand}"
+                     IconImageSource="gears.png"
+                     Order="Primary"
+                     Priority="0"
+                     Text="{i18N:TranslateExtension Text=GiveFeedback}" />
+        <ToolbarItem Command="{Binding AddSupportTicketCommand}"
+                     IconImageSource="add.png"
+                     Order="Primary"
+                     Priority="2"
+                     Text="{i18N:TranslateExtension Text=Add}" />
+    </ContentPage.ToolbarItems>
+    <!--#endregion-->
+    <ContentPage.Content>
+        <Grid x:Name="root"
+              Padding="10,0"
+              Style="{StaticResource RootGrid}">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="AUto" />
+                <RowDefinition Height="AUto" />
+                <RowDefinition />
+                <RowDefinition Height="AUto" />
+            </Grid.RowDefinitions>
+            <StackLayout Margin="5"
+                         HorizontalOptions="End"
+                         Orientation="Horizontal">
+                <Label Style="{StaticResource FilterExpandIconLabel}">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding ToggleFilterCommand}" />
+                    </Label.GestureRecognizers>
+                </Label>
+            </StackLayout>
+            <supportTickets:SupportTicketsFilterView Grid.Row="1"
+                                                     BranchList="{Binding BranchList}"
+                                                     FilterTriggerCommand="{Binding FilterChangeCommand}"
+                                                     IsVisible="{Binding ShowFilter}"
+                                                     SearchCommand="{Binding SearchCommand}" />
+
+            <ListView Grid.Row="2"
+                      CachingStrategy="RecycleElement"
+                      ItemsSource="{Binding List}">
+                <ListView.ItemTemplate>
+                    <DataTemplate x:DataType="services:TruDeskItem">
+                        <ViewCell>
+                            <Grid Margin="5">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto" />
+                                    <ColumnDefinition />
+                                </Grid.ColumnDefinitions>
+                                <Label Style="{StaticResource GridHeaderLabel}"
+                                       Text="Id" />
+                                <Label Grid.Row="0"
+                                       Grid.Column="1"
+                                       Style="{StaticResource GridLabel}"
+                                       Text="{Binding Id}" />
+
+                                <Label Grid.Row="1"
+                                       Style="{StaticResource GridHeaderLabel}"
+                                       Text="{i18N:TranslateExtension Text=Status}" />
+                                <Label Grid.Row="1"
+                                       Grid.Column="1"
+                                       Style="{StaticResource GridLabel}"
+                                       Text="{Binding Status}" />
+
+                                <Label Grid.Row="2"
+                                       Style="{StaticResource GridHeaderLabel}"
+                                       Text="{i18N:TranslateExtension Text=Subject}" />
+                                <Label Grid.Row="2"
+                                       Grid.Column="1"
+                                       Style="{StaticResource GridLabel}"
+                                       Text="{Binding Subject}" />
+                                <Label Grid.Row="3"
+                                       Style="{StaticResource GridHeaderLabel}"
+                                       Text="{i18N:TranslateExtension Text=Contact}" />
+                                <Label Grid.Row="3"
+                                       Grid.Column="1"
+                                       Style="{StaticResource GridLabel}"
+                                       Text="{Binding Contact}" />
+
+                                <Label Grid.Row="4"
+                                       Style="{StaticResource GridHeaderLabel}"
+                                       Text="{i18N:TranslateExtension Text=LastUpdated}" />
+                                <Label Grid.Row="4"
+                                       Grid.Column="1"
+                                       Style="{StaticResource GridLabel}"
+                                       Text="{Binding UpdatedTime, StringFormat='{0:g}'}" />
+                                <Label Grid.Row="5"
+                                       Style="{StaticResource GridHeaderLabel}"
+                                       Text="{i18N:TranslateExtension Text=SupportRep}" />
+                                <Label Grid.Row="5"
+                                       Grid.Column="1"
+                                       Style="{StaticResource GridLabel}"
+                                       Text="{Binding SupportRep}" />
+                                <Label Grid.Row="6"
+                                       Style="{StaticResource GridHeaderLabel}"
+                                       Text="{i18N:TranslateExtension Text=Priority}" />
+                                <Label Grid.Row="6"
+                                       Grid.Column="1"
+                                       Style="{StaticResource GridLabel}"
+                                       Text="{Binding Priority}"
+                                       TextColor="{StaticResource PrimaryBlue}">
+                                    <Label.Triggers>
+                                        <DataTrigger Binding="{Binding Priority}"
+                                                     TargetType="Label"
+                                                     Value="High">
+                                            <Setter Property="TextColor"
+                                                    Value="{StaticResource OrderRed}" />
+                                        </DataTrigger>
+                                        <DataTrigger Binding="{Binding Priority}"
+                                                     TargetType="Label"
+                                                     Value="Medium">
+                                            <Setter Property="TextColor"
+                                                    Value="{StaticResource SupportOrange}" />
+                                        </DataTrigger>
+                                        <DataTrigger Binding="{Binding Priority}"
+                                                     TargetType="Label"
+                                                     Value="Low">
+                                            <Setter Property="TextColor"
+                                                    Value="{StaticResource PrimaryGray}" />
+                                        </DataTrigger>
+                                    </Label.Triggers>
+                                </Label>
+
+                            </Grid>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+
+            <components:RowCountView Grid.Row="3"
+                                     List="{Binding List}" />
+
+            <xForms:SfBusyIndicator Grid.Row="1" />
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

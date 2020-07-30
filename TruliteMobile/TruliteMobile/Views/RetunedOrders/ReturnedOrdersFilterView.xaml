@@ -1,0 +1,71 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:components="clr-namespace:TruliteMobile.Components;assembly=TruliteMobile"
+             xmlns:i18N="clr-namespace:TruliteMobile.i18n;assembly=TruliteMobile"
+             xmlns:retunedOrders="clr-namespace:TruliteMobile.Views.RetunedOrders;assembly=TruliteMobile"
+             mc:Ignorable="d"
+             x:Class="TruliteMobile.Views.RetunedOrders.ReturnedOrdersFilterView">
+    <ContentView.Content>
+        <Grid x:DataType="retunedOrders:ReturnedOrdersFilterView">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+            <components:ResetFormView Grid.Column="1"
+                                      Tapped="ResetFormView_Tapped" />
+            <Entry Grid.Row="1"
+                   Keyboard="Default"
+                   Placeholder="ID"
+                   Text="{Binding Filter.SalesOrderId}" />
+
+            <Grid Grid.Row="2"
+                  Grid.ColumnSpan="2">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+                <Label Text="{i18N:TranslateExtension Text=Status}"
+                       VerticalOptions="Center" />
+                <Picker Grid.Column="1"
+                        x:DataType="{x:Null}"
+                        ItemDisplayBinding="{Binding Value}"
+                        ItemsSource="{Binding StatusList}"
+                        SelectedItem="{Binding Filter.SelectedStatus}" />
+            </Grid>
+
+            <Label Grid.Row="4"
+                   Grid.ColumnSpan="2"
+                   Text="{i18N:TranslateExtension Text=StartEndDate}" />
+            <components:NullableDatePickerView Grid.Row="5"
+                                               Date="{Binding Filter.StartDate, Mode=TwoWay}" />
+            <components:NullableDatePickerView Grid.Row="5"
+                                               Grid.Column="1"
+                                               Date="{Binding Filter.EndDate, Mode=TwoWay}" />
+
+            <components:ListSortView Grid.Row="6"
+                                     Grid.ColumnSpan="2"
+                                     Ascending="{Binding Ascending}"
+                                     FilterTriggerCommand="{Binding FilterTriggerCommand}"
+                                     SelectedSortColumn="{Binding SelectedSortColumn}"
+                                     SortColumns="{Binding SortColumns}" />
+            <Button Grid.Row="7"
+                    Grid.Column="1"
+                    Clicked="Button_Clicked"
+                    Text="{i18N:TranslateExtension Text=Search}" />
+
+        </Grid>
+    </ContentView.Content>
+</ContentView>

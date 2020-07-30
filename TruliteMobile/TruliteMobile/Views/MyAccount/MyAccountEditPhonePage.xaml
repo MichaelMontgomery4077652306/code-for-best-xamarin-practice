@@ -1,0 +1,72 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:i18N="clr-namespace:TruliteMobile.i18n;assembly=TruliteMobile"
+             xmlns:components="clr-namespace:TruliteMobile.Components;assembly=TruliteMobile"
+             xmlns:converters="clr-namespace:XamarinUniversity.Converters;assembly=XamU.Infrastructure"
+             mc:Ignorable="d"
+             Title="{i18N:TranslateExtension Text=ChangePhoneNumber}"
+             x:Class="TruliteMobile.Views.MyAccount.MyAccountEditPhonePage">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Command="{Binding OpenSettingsCommand}"
+                     IconImageSource="gears.png"
+                     Order="Primary"
+                     Priority="0"
+                     Text="{i18N:TranslateExtension Text=GiveFeedback}" />
+    </ContentPage.ToolbarItems>
+    <ContentPage.Content>
+        <Grid Padding="10"
+              Style="{x:StaticResource RootGrid}">
+            <Grid IsVisible="{Binding VerificationMode, Converter={converters:NotBooleanConverter}}">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+                <Entry Text="{Binding PhoneNumber}"
+                       Keyboard="Telephone"
+                       Grid.ColumnSpan="2"
+                       Placeholder="{i18N:TranslateExtension Text=PhoneNumber}" />
+                <components:ActionButtonView Grid.Row="1"
+                                             Grid.Column="1"
+                                             ButtonColor="{StaticResource DarkPrimaryBlue}"
+                                             TappedCommand="{Binding SaveCommand}"
+                                             Text="{i18N:TranslateExtension Text=Save}"
+                                             IconText="&#xf0c7;" />
+            </Grid>
+            <!--Confirmation/Verification-->
+            <Grid IsVisible="{Binding VerificationMode}">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+                <Label Grid.ColumnSpan="2"
+                       Text="{i18N:TranslateExtension Text=VerificationCodeHeader}" />
+                <Entry Text="{Binding VerificationCode}"
+                       Keyboard="Default"
+                       Grid.Row="1"
+                       Grid.ColumnSpan="2"
+                       Placeholder="{i18N:TranslateExtension Text=VerificationCode}" />
+                <components:ActionButtonView Grid.Row="2"
+                                             Grid.Column="1"
+                                             BackgroundColor="{StaticResource DarkPrimaryBlue}"
+                                             TappedCommand="{Binding VerifyCommand}"
+                                             Text="{i18N:TranslateExtension Text=Submit}"
+                                             IconText="&#xf0c7;" />
+            </Grid>
+        </Grid>
+
+    </ContentPage.Content>
+</ContentPage>

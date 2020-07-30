@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xsd:schema xmlns="http://schemas.microsoft.com/dynamics/2006/02/documents/CPSInvoiceHeader" elementFormDefault="qualified" targetNamespace="http://schemas.microsoft.com/dynamics/2006/02/documents/CPSInvoiceHeader" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <xsd:element name="CPSInvoiceHeader" type="CPSInvoiceHeader" />
+  <xsd:complexType name="CPSInvoiceHeader">
+    <xsd:sequence>
+      <xsd:element name="InvoiceId" type="xsd:string" />
+      <xsd:element name="DueDate" type="xsd:string" />
+      <xsd:element name="Date" type="xsd:string" />
+      <xsd:element name="Amount" type="xsd:string" />
+      <xsd:element name="InvoiceStatus" type="xsd:string" />
+      <xsd:element name="SalesOrderId" type="xsd:string" />
+      <xsd:element name="ShippingName" type="xsd:string" />
+      <xsd:element name="ShippingStreet" type="xsd:string" />
+      <xsd:element name="ShippingCity" type="xsd:string" />
+      <xsd:element name="ShippingState" type="xsd:string" />
+      <xsd:element name="ShippingZipCode" type="xsd:string" />
+      <xsd:element name="Terms" type="xsd:string" />
+      <xsd:element name="CustInvoiceAccount" type="xsd:string" />
+      <xsd:element name="CustPurchaseOrder" type="xsd:string" />
+      <xsd:element name="Routing" type="xsd:string" />
+      <xsd:element name="SalesPerson" type="xsd:string" />
+      <xsd:element name="CustRef" type="xsd:string" />
+      <xsd:element name="Branch" type="xsd:string" />
+      <xsd:element name="BranchPhone" type="xsd:string" />
+      <xsd:element name="BranchFax" type="xsd:string" />
+      <xsd:element name="CellularPhone" type="xsd:string" />
+      <xsd:element name="ArchLockBoxAddress" type="xsd:string" />
+      <xsd:element name="BillToName" type="xsd:string" />
+      <xsd:element name="BillToStreet" type="xsd:string" />
+      <xsd:element name="BillToCity" type="xsd:string" />
+      <xsd:element name="BillToState" type="xsd:string" />
+      <xsd:element name="BillToZipCode" type="xsd:string" />
+      <xsd:element name="ShippingPhone" type="xsd:string" />
+      <xsd:element name="TotalWeight" type="xsd:string" />
+      <xsd:element name="TotalSqFootage" type="xsd:string" />
+      <xsd:element name="SalesBalance" type="xsd:string" />
+      <xsd:element name="EnergySurcharge" type="xsd:string" />
+      <xsd:element name="SandSurcharge" type="xsd:string" />
+      <xsd:element name="ShippingCharge" type="xsd:string" />
+      <xsd:element name="SalesTax" type="xsd:string" />
+      <xsd:element name="PackingSlipIds" type="xsd:string" />
+      <xsd:element name="CustAccount" type="xsd:string" />
+      <xsd:element name="CustName" type="xsd:string" />
+      <xsd:element name="InventLocationName" type="xsd:string" />
+      <xsd:element name="RecId" type="xsd:string" />
+      <xsd:element name="SalesGroup" type="xsd:string" />
+    </xsd:sequence>
+  </xsd:complexType>
+</xsd:schema>

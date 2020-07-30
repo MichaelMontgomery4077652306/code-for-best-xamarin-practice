@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="TruliteMobile.Components.ActionButtonView">
+  <ContentView.Content>
+        <Grid>
+            <BoxView BackgroundColor="{Binding ButtonColor}" CornerRadius="5"/>
+            <StackLayout Orientation="Horizontal" Margin="5">
+                <Label Text="{Binding IconText}"
+                       TextColor="White"
+                       Style="{StaticResource IconLabel}"/>
+                <Label Text="{Binding Text}" TextColor="White"/>
+            </StackLayout>
+            <BoxView BackgroundColor="Transparent">
+                <BoxView.GestureRecognizers>
+                    <TapGestureRecognizer  Tapped="TapGestureRecognizer_Tapped"/>
+                </BoxView.GestureRecognizers>
+            </BoxView>
+        </Grid>
+  </ContentView.Content>
+</ContentView>

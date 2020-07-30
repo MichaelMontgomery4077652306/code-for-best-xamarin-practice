@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             IconImageSource="logoSmall.png"
+             xmlns:drvRoutes="clr-namespace:TruliteMobile.Views.DrvRoutes;assembly=TruliteMobile"
+             xmlns:services="clr-namespace:TruliteMobile.Services;assembly=TruliteMobile"
+             xmlns:i18N="clr-namespace:TruliteMobile.i18n;assembly=TruliteMobile"
+             mc:Ignorable="d"
+             Title="{i18N:TranslateExtension Text=Routes}"
+             x:Class="TruliteMobile.Views.DrvRoutes.DrvRoutesPage">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Order="Primary"
+                     IconImageSource="gears.png"
+                     Text="{i18N:TranslateExtension Text=GiveFeedback}"
+                     Command="{Binding OpenSettingsCommand}"
+                     Priority="0" />
+    </ContentPage.ToolbarItems>
+    <ContentPage.Content>
+        <ScrollView x:Name="root" Padding="10,5">
+            <StackLayout x:DataType="drvRoutes:DrvRoutesPageViewModel"
+                         BindableLayout.ItemsSource="{Binding List}">
+                <BindableLayout.ItemTemplate>
+                    <DataTemplate x:DataType="services:SalesPool">
+                        <Button Text="{Binding String}"
+                                 Command="{Binding BindingContext.OpenRouteCommand, Source={x:Reference root}}"
+                                CommandParameter="{Binding}" />
+                    </DataTemplate>
+                </BindableLayout.ItemTemplate>
+            </StackLayout>
+        </ScrollView>
+
+    </ContentPage.Content>
+</ContentPage>

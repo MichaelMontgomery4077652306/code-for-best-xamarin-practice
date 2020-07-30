@@ -1,0 +1,117 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:i18N="clr-namespace:TruliteMobile.i18n;assembly=TruliteMobile"
+             xmlns:components="clr-namespace:TruliteMobile.Components;assembly=TruliteMobile"
+             xmlns:pipelinePaymentCreditCard="clr-namespace:TruliteMobile.Views.PipelinePaymentCreditCard;assembly=TruliteMobile"
+             mc:Ignorable="d"
+             Title="{i18N:TranslateExtension Text=EditCardInformation}"
+             x:DataType="pipelinePaymentCreditCard:PipelinePaymentCCEditPageViewModel"
+             x:Class="TruliteMobile.Views.PipelinePaymentCreditCard.PipelinePaymentCCEditPage">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Command="{Binding OpenSettingsCommand}"
+                     IconImageSource="gears.png"
+                     Order="Primary"
+                     Priority="0"
+                     Text="{i18N:TranslateExtension Text=GiveFeedback}" />
+    </ContentPage.ToolbarItems>
+    <ContentPage.Content>
+        <ScrollView>
+            <Grid Margin="10">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+                <Label FontAttributes="Bold"
+                       Text="{i18N:TranslateExtension Text=CardNumber}" />
+                <Label Grid.Row="1"
+                       Text="{Binding Card.FriendlyName}" />
+                <Label Grid.Column="1"
+                       FontAttributes="Bold"
+                       Text="{i18N:TranslateExtension Text=ExpiryDate}" />
+                <Label Grid.Row="1"
+                       Grid.Column="1"
+                       Text="{Binding Card.ExpiryDate, StringFormat='{0:MM-yyyy}'}" />
+
+                <Label Grid.Row="2"
+                       Grid.ColumnSpan="2"
+                       FontAttributes="Bold"
+                       Text="{i18N:TranslateExtension Text=Street}" />
+                <Entry Grid.Row="3"
+                       Grid.ColumnSpan="2"
+                       MaxLength="150"
+                       Text="{Binding Card.Street}" />
+
+                <Label Grid.Row="4"
+                       FontAttributes="Bold"
+                       Text="{i18N:TranslateExtension Text=City}" />
+                <Entry Grid.Row="5"
+                       MaxLength="50"
+                       Text="{Binding Card.City}" />
+
+                <Label Grid.Row="4"
+                       Grid.Column="1"
+                       FontAttributes="Bold"
+                       Text="{i18N:TranslateExtension Text=State}" />
+                <Entry Grid.Row="5"
+                       Grid.Column="1"
+                       MaxLength="5"
+                       Text="{Binding Card.State}" />
+
+                <Label Grid.Row="6"
+                       FontAttributes="Bold"
+                       Text="{i18N:TranslateExtension Text=ZipCode}" />
+                <Entry Grid.Row="7"
+                       MaxLength="15"
+                       Text="{Binding Card.ZipCode}" />
+
+                <Label Grid.Row="6"
+                       Grid.Column="1"
+                       FontAttributes="Bold"
+                       Text="{i18N:TranslateExtension Text=Country}" />
+                <Picker Grid.Row="7"
+                        Grid.Column="1"
+                        ItemDisplayBinding="{Binding Value}"
+                        ItemsSource="{Binding CountryList}"
+                        SelectedItem="{Binding SelectedCountry, Mode=TwoWay}" />
+                <Label Grid.Row="8"
+                       Grid.ColumnSpan="2"
+                       FontAttributes="Bold"
+                       Text="{i18N:TranslateExtension Text=CopyReceiptEmailAddress}" />
+                <Entry Grid.Row="9"
+                       Grid.ColumnSpan="2"
+                       MaxLength="50"
+                       Text="{Binding Card.ReceiptEmailAddress}" />
+
+                <components:ActionButtonView Grid.Row="11"
+                                             TappedCommand="{Binding CloseCommand}"
+                                             BackgroundColor="{StaticResource PrimaryGray}"
+                                             IconText="&#xf00d;"
+                                             Text="{i18N:TranslateExtension Text=Close}" />
+                <components:ActionButtonView Grid.Row="11"
+                                             Grid.Column="1"
+                                             BackgroundColor="{StaticResource PrimaryBlue}"
+                                             TappedCommand="{Binding SaveCommand}"
+                                             IconText="&#xf00c;"
+                                             Text="{i18N:TranslateExtension Text=Save}" />
+            </Grid>
+        </ScrollView>
+    </ContentPage.Content>
+
+</ContentPage>

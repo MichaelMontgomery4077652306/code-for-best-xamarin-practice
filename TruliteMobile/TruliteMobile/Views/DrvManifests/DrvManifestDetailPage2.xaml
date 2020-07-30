@@ -1,0 +1,317 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:components="clr-namespace:TruliteMobile.Components;assembly=TruliteMobile"
+             xmlns:converters="clr-namespace:XamarinUniversity.Converters;assembly=XamU.Infrastructure"
+             xmlns:drvManifests="clr-namespace:TruliteMobile.Views.DrvManifests;assembly=TruliteMobile"
+             xmlns:i18N="clr-namespace:TruliteMobile.i18n;assembly=TruliteMobile"
+             xmlns:converters1="clr-namespace:TruliteMobile.Converters;assembly=TruliteMobile"
+             mc:Ignorable="d"
+             Title="{i18N:TranslateExtension Text=Manifests}"
+             x:DataType="drvManifests:DrvManifestDetailPage2ViewModel"
+             x:Class="TruliteMobile.Views.DrvManifests.DrvManifestDetailPage2">
+    <!--#region Menu --> 
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Order="Primary"
+                     IconImageSource="gears.png"
+                     Text="{i18N:TranslateExtension Text=GiveFeedback}"
+                     Command="{Binding OpenSettingsCommand}"
+                     Priority="0" />
+    </ContentPage.ToolbarItems>
+    <!--#endregion-->
+   
+    <ContentPage.Content>
+        <ScrollView   BackgroundColor="{StaticResource DarkBlueButtonColor}">
+            <Grid Style="{StaticResource RootGrid}"
+                  Padding="10"
+                  RowSpacing="20"
+                  x:Name="root">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <!--#region Details -->
+                <Frame Margin="0,5"
+                       BackgroundColor="White">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="*" />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                      
+                        <Label Text="{i18N:TranslateExtension Text=MANIFEST}"
+                               HorizontalTextAlignment="Center"
+                               HorizontalOptions="Center"
+                               Grid.ColumnSpan="2"
+                               TextColor="{StaticResource DarkBlueButtonColor}"
+                               FontSize="Medium" />
+                        <components:ExpanderButton Grid.Column="1"
+                                                   VerticalOptions="Start"
+                                                   IsExpanded="{Binding ShowHeaderFrame}"
+                                                   ChangeExpandCommand="{Binding ToggleHeaderCommand}"
+                                                   HorizontalOptions="End">
+
+                        </components:ExpanderButton>
+                        <Grid IsVisible="{Binding ShowHeaderFrame}"
+                              Grid.Row="1"
+                              Grid.ColumnSpan="2">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                            </Grid.RowDefinitions>
+                            <Label Grid.Row="0"
+                                   Text="{i18N:TranslateExtension Text=PackingSlip, Suffix=':'}" />
+                            <Label Grid.Row="0"
+                                   Grid.Column="1"
+                                   Style="{StaticResource GridLinkLabel}"
+                                   Text="{Binding Manifest.PackingSlipId}">
+                                <Label.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding OpenPackingSlipCommand}" />
+                                </Label.GestureRecognizers>
+                            </Label>
+
+                            <Label Grid.Row="1"
+                                   Text="{i18N:TranslateExtension Text=DeliveryDate, Suffix=':'}" />
+                            <Label Grid.Row="1"
+                                   Grid.Column="1"
+                                   Text="{Binding Manifest.DeliveryDate}" />
+
+                            <Label Grid.Row="2"
+                                   Text="{i18N:TranslateExtension Text=CustomerAccount, Suffix=':'}" />
+
+                            <Label Grid.Row="2"
+                                   Grid.Column="1"
+                                   Text="{Binding Manifest.CustAccount}" />
+
+                            <Label Grid.Row="3"
+                                   Text="{i18N:TranslateExtension Text=CustomerName, Suffix=':'}" />
+
+                            <Label Grid.Row="3"
+                                   Grid.Column="1"
+                                   Text="{Binding Manifest.CustName}" />
+
+                            <Label Grid.Row="4"
+                                   VerticalOptions="Start"
+                                   Text="{i18N:TranslateExtension Text=Street, Suffix=':'}" />
+                            <Label Grid.Row="4"
+                                   VerticalOptions="Start"
+                                   Grid.Column="1"
+                                   LineBreakMode="WordWrap"
+                                   Text="{Binding Manifest.Street}" />
+                            <Label Grid.Row="5"
+                                   Text="{i18N:TranslateExtension Text=City, Suffix=':'}" />
+                            <Label Grid.Row="5"
+                                   Grid.Column="1"
+                                   Text="{Binding Manifest.City}" />
+
+                            <Label Grid.Row="6"
+                                   Text="{i18N:TranslateExtension Text=State, Suffix=':'}" />
+                            <Label Grid.Row="6"
+                                   Grid.Column="1"
+                                   Text="{Binding Manifest.State}" />
+                            <Label Grid.Row="7"
+                                   Text="{i18N:TranslateExtension Text=ZipCode, Suffix=':'}" />
+                            <Label Grid.Row="7"
+                                   Grid.Column="1"
+                                   Text="{Binding Manifest.ZipCode}" />
+                            <!--Stop-->
+                            <Label Grid.Row="8"
+                                   Text="{i18N:TranslateExtension Text=StopNumber, Suffix=':'}" />
+                            <Label Grid.Row="8"
+                                   Grid.Column="1"
+                                   Text="{Binding Manifest.StopNumber}" />
+                            <!--Safety-->
+                            <Label Grid.Row="9"
+                                   Text="{i18N:TranslateExtension Text=Safety, Suffix=':'}" />
+                            <Image  Grid.Column="1"
+                                    Grid.Row="9"
+                                    HeightRequest="30"
+                                    WidthRequest="30"
+                                    HorizontalOptions="Start"
+                                    VerticalOptions="Center">
+                                <Image.Triggers>
+                                    <DataTrigger TargetType="Image"
+                                                 Binding="{Binding Manifest.SafetyIndicator}"
+                                                 Value="Two Man Lift">
+                                        <Setter Property="Source"
+                                                Value="TwoPersonLiftBlack.png" />
+                                    </DataTrigger>
+                                    <DataTrigger TargetType="Image"
+                                                 Binding="{Binding  Manifest.SafetyIndicator}"
+                                                 Value="Machine Lift">
+                                        <Setter Property="Source"
+                                                Value="MachineLiftBlack.png" />
+                                    </DataTrigger>
+                                </Image.Triggers>
+                            </Image>
+                            <Label Grid.Row="10"
+                                   Text="{i18N:TranslateExtension Text=Status, Suffix=':'}" />
+                            <Label Grid.Row="10"
+                                   Grid.Column="1"
+                                   Text="{Binding Manifest.Status}" />
+
+                            <Label Grid.Row="11"
+                                   Text="{i18N:TranslateExtension Text=ClockOut, Suffix=':'}" />
+                            <Label Grid.Row="11"
+                                   Grid.Column="1"
+                                   Text="{Binding Manifest.ClockOutDateTime, StringFormat='{0:G}'}" />
+                            <Label Grid.Row="12"
+                                   Text="{i18N:TranslateExtension Text=ClockIn, Suffix=':'}" />
+                            <Label Grid.Row="12"
+                                   Grid.Column="1"
+                                   Text="{Binding Manifest.ClockInDateTime, StringFormat='{0:G}'}" />
+
+                        </Grid>
+                    </Grid>
+                </Frame>
+                <!--#endregion-->
+                <!--#region Actions -->
+                <Frame Margin="0,5"
+                       Grid.Row="1"
+                       BackgroundColor="White">
+                    <Grid> 
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition />
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
+                        <components:ExpanderButton Grid.Column="1"
+                                                   VerticalOptions="Start"
+                                                   IsExpanded="{Binding ShowActionFrame}"
+                                                   ChangeExpandCommand="{Binding ToggleActionCommand}"
+                                                   HorizontalOptions="End">
+
+                        </components:ExpanderButton>
+                        <Label Text="{i18N:TranslateExtension Text=ACTIONS}"
+                               HorizontalOptions="Center"
+                               TextColor="{StaticResource DarkBlueButtonColor}"
+                               FontSize="Medium" />
+                        <StackLayout IsVisible="{Binding ShowActionFrame}"
+                                     Grid.Row="1"
+                                    
+                                     Grid.ColumnSpan="2">
+                            <StackLayout Orientation="Horizontal">
+                                <StackLayout.Triggers>
+                                    <DataTrigger TargetType="StackLayout"
+                                                 Binding="{Binding Manifest.Status}"
+                                                 Value="Invoiced">
+                                        <Setter Property="IsVisible"
+                                                Value="False" />
+                                    </DataTrigger>
+                                </StackLayout.Triggers>
+                                <components:ActionButtonView BackgroundColor="{StaticResource GreenButtonColor}"
+                                                             IconText="&#xf058;"
+                                                             TappedCommand="{Binding MarkReadyForInvoicedCommand}"
+                                                             Text="{i18N:TranslateExtension Text=MarkReadyToBeInvoiced}">
+                                    <components:ActionButtonView.Triggers>
+                                        <DataTrigger TargetType="components:ActionButtonView"
+                                                     Binding="{Binding PackingSlip.Status}"
+                                                     Value="Pending">
+                                            <Setter Property="IsVisible"
+                                                    Value="False" />
+                                        </DataTrigger>
+                                    </components:ActionButtonView.Triggers>
+                                </components:ActionButtonView>
+                                <components:ActionButtonView BackgroundColor="{StaticResource DarkBlueButtonColor}"
+                                                             IconText="&#xf058;"
+                                                             TappedCommand="{Binding UndoMarkReadyCommand}"
+                                                             Text="{i18N:TranslateExtension Text=UndoReadyForInvoiced}">
+                                    <components:ActionButtonView.Triggers>
+                                        <DataTrigger TargetType="components:ActionButtonView"
+                                                     Binding="{Binding PackingSlip.Status}"
+                                                     Value="Ready">
+                                            <Setter Property="IsVisible"
+                                                    Value="False" />
+                                        </DataTrigger>
+
+                                    </components:ActionButtonView.Triggers>
+                                </components:ActionButtonView>
+                            </StackLayout>
+                            
+                            <components:ActionButtonView BackgroundColor="Red"
+                                                         IconText="&#xf1c1;"
+                                                         TappedCommand="{Binding  ViewPdfCommand}"
+                                                         Text="{i18N:TranslateExtension Text=DownloadPackingSlipPDF}" />
+                            <components:ActionButtonView BackgroundColor="{StaticResource CyanButtonColor}"
+                                                         IconText="&#xf124;"
+                                                         IsVisible="{Binding PackingSlip.ShowProductionTracking, Converter={converters1:BoolCoalescenceConverter}}"
+                                                         TappedCommand="{Binding  TrackSalesOrderCommand}"
+                                                         TappedCommandParameter="{Binding .}"
+                                                         Text="{i18N:TranslateExtension Text=TrackOrder}" />
+                            <components:ActionButtonView  BackgroundColor="Red"
+                                                          IconText="&#xf188;"
+                                                          TappedCommand="{Binding  ReportIssueCommand}"
+                                                          TappedCommandParameter="{Binding .}"
+                                                          Text="{i18N:TranslateExtension Text=ReportIssue}" />
+
+                            <components:ActionButtonView BackgroundColor="{StaticResource CyanButtonColor}"
+                                                         IconText="&#xf017;"
+                                                         IsVisible="{Binding ShowClockIn}"
+                                                         TappedCommand="{Binding  ClockInCommand}"
+                                                         TappedCommandParameter="{Binding .}"
+                                                         Text="{i18N:TranslateExtension Text=ClockIn}">
+                            </components:ActionButtonView>
+                            <components:ActionButtonView BackgroundColor="{StaticResource CyanButtonColor}"
+                                                         IconText="&#xf017;"
+                                                         IsVisible="{Binding ShowClockOut}"
+                                                         TappedCommand="{Binding  ClockOutCommand}"
+                                                         TappedCommandParameter="{Binding .}"
+                                                         Text="{i18N:TranslateExtension Text=ClockOut}">
+                            </components:ActionButtonView>
+                            <!--<components:ActionButtonView BackgroundColor="{StaticResource DarkPrimaryBlue}"
+                                                         IconText="&#xf124;"
+                                                         TappedCommand="{Binding  DirectionsCommand}"
+                                                         TappedCommandParameter="{Binding .}"
+                                                         Text="{i18N:TranslateExtension Text=Directions}" />-->
+                            <components:ActionButtonView BackgroundColor="{StaticResource PrimaryBlue}"
+                                                         IconText="&#xf0d1;"
+                                                         TappedCommand="{Binding  UpcomingDeliveriesCommand}"
+                                                         TappedCommandParameter="{Binding .}"
+                                                         Text="{i18N:TranslateExtension Text=UpcomingDeliveries}" />
+                            <!--<components:ActionButtonView BackgroundColor="{StaticResource DarkPrimaryBlue}"
+                                                         IconText="&#xf573;"
+                                                         TappedCommand="{Binding  SignCommand}"
+                                                         Text="{i18N:TranslateExtension Text=Sign}"
+                                                         TappedCommandParameter="{Binding .}" />-->
+                          
+                        </StackLayout>
+
+                    </Grid>
+                </Frame>
+                <!--#endregion-->
+                <ActivityIndicator IsRunning="{Binding IsBusy}"
+                                   IsVisible="{Binding IsBusy}" />
+            </Grid>
+
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

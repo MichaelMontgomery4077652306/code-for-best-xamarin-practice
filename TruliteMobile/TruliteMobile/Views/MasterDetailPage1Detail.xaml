@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="TruliteMobile.Views.MasterDetailPage1Detail"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:components="clr-namespace:TruliteMobile.Components;assembly=TruliteMobile"
+    xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+    xmlns:i18N="clr-namespace:TruliteMobile.i18n;assembly=TruliteMobile"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:xForms="clr-namespace:Syncfusion.SfChart.XForms;assembly=Syncfusion.SfChart.XForms"
+    xmlns:views="clr-namespace:TruliteMobile.Views;assembly=TruliteMobile"
+    Title="Dashboard"
+    x:DataType="views:MasterDetailPage1DetailViewModel"
+    Icon="logoSmall.png"
+    mc:Ignorable="d">
+    <!--#region Menu -->
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Command="{Binding RefreshCommand}"
+                     IconImageSource="refresh.png"
+                     Order="Primary"
+                     Priority="0"
+                     Text="{i18N:TranslateExtension Text=Refresh}" />
+    </ContentPage.ToolbarItems>
+    <!--#endregion-->
+    <ScrollView Padding="10">
+        <StackLayout>
+            <Label
+                HorizontalTextAlignment="Center"
+                Text="{Binding LastRefreshed}"
+                TextColor="{StaticResource MediumGray}" />
+            <components:DashboardHeaderView />
+            <components:DashboardHeaderView HeaderType="Orders" />
+            <components:DashboardHeaderView HeaderType="Support"
+                                            IsVisible="{Binding ShowSupportPanel}"/>
+            <components:DashboardHeaderView HeaderType="Returns" />
+            <components:CreditLimitView />
+            <components:ChartView  IsVisible="{Binding ShowOrdersDaily}"
+                                   ChartType="OrdersDaily"/>
+            <components:ChartView
+                x:Name="oy"
+                ChartType="OrdersYearly" 
+                IsVisible="{Binding ShowOrdersYearly}" />
+            <components:ChartView IsVisible="{Binding ShowOrdersMontly}"
+                                  ChartType="OrdersMontly" />
+            <components:ChartView  IsVisible="{Binding ShowSalesOrderSummary}"
+                                   ChartType="SalesOrderSummary"/>
+            <components:ChartView  IsVisible="{Binding ShowInvoicesQuartely}" ChartType="InvoicesQuarterly"  />
+            <components:ChartView  IsVisible="{Binding ShowInvoicesMontly}" ChartType="InvoicesMonthly" />
+            <components:ChartView  IsVisible="{Binding ShowInvoicesDaily}" ChartType="InvoicesDaily" />
+        </StackLayout>
+    </ScrollView>
+    <!--<Label Text="This is a detail page. To get the 'triple' line icon on each platform add a icon to each platform and update the 'Master' page with an Icon that references it."/>-->
+</ContentPage>

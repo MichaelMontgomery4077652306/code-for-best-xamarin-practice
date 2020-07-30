@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xsd:schema xmlns="http://schemas.microsoft.com/dynamics/2006/02/documents/CPSGetQuotationLineConfigResponse" xmlns:ek="http://schemas.microsoft.com/dynamics/2006/02/documents/CPSQuotationLineConfig" elementFormDefault="qualified" targetNamespace="http://schemas.microsoft.com/dynamics/2006/02/documents/CPSGetQuotationLineConfigResponse" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <xsd:import schemaLocation="CPSQuotationLineConfig.xsd" namespace="http://schemas.microsoft.com/dynamics/2006/02/documents/CPSQuotationLineConfig" />
+  <xsd:element name="CPSGetQuotationLineConfigResponse" type="CPSGetQuotationLineConfigResponse" />
+  <xsd:complexType name="CPSGetQuotationLineConfigResponse">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" maxOccurs="unbounded" ref="ek:CPSQuotationLineConfig" />
+    </xsd:sequence>
+  </xsd:complexType>
+</xsd:schema>

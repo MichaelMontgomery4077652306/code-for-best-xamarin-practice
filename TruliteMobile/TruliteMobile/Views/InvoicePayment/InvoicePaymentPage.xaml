@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:invoicePayment="clr-namespace:TruliteMobile.Views.InvoicePayment;assembly=TruliteMobile"
+             xmlns:components="clr-namespace:TruliteMobile.Components;assembly=TruliteMobile"
+             xmlns:converters="clr-namespace:TruliteMobile.Converters;assembly=TruliteMobile"
+             xmlns:xForms="clr-namespace:Syncfusion.SfBusyIndicator.XForms;assembly=Syncfusion.SfBusyIndicator.XForms"
+             mc:Ignorable="d"
+             Title="Invoice Payment"
+             x:Class="TruliteMobile.Views.InvoicePayment.InvoicePaymentPage">
+    <ContentPage.Content>
+        <Grid Style="{StaticResource RootGrid}">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+           
+            <Label Text="{Binding TotalAmount, StringFormat='Amount: {0:c}'}"
+                   Margin="18, 18, 18, 0" />
+
+            <WebView x:Name="_paymentView"
+                     Grid.Row="1"
+                     Navigated="OnNavigatedToNewPage">
+            </WebView>
+            <xForms:SfBusyIndicator Grid.Row="0"
+                                    Grid.RowSpan="2"
+                                    HeightRequest="80"
+                                    WidthRequest="80"
+                                    VerticalOptions="Center"
+                                    HorizontalOptions="Center"
+                                    IsVisible="{Binding IsBusy}" />
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

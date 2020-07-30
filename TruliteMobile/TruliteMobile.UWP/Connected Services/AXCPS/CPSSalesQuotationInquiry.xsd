@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xsd:schema xmlns="http://schemas.microsoft.com/dynamics/2006/02/documents/CPSSalesQuotationInquiry" elementFormDefault="qualified" targetNamespace="http://schemas.microsoft.com/dynamics/2006/02/documents/CPSSalesQuotationInquiry" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <xsd:element name="CPSSalesQuotationInquiry" type="CPSSalesQuotationInquiry" />
+  <xsd:complexType name="CPSSalesQuotationInquiry">
+    <xsd:sequence>
+      <xsd:element name="QuotationId" type="xsd:string" />
+      <xsd:element name="QuotationName" type="xsd:string" />
+      <xsd:element name="Status" type="xsd:string" />
+      <xsd:element name="ExpiryDate" type="xsd:string" />
+      <xsd:element name="CurrencyCode" type="xsd:string" />
+      <xsd:element name="LinesQty" type="xsd:string" />
+      <xsd:element name="CustAccount" type="xsd:string" />
+      <xsd:element name="CustName" type="xsd:string" />
+      <xsd:element name="CustomerRef" type="xsd:string" />
+      <xsd:element name="InventLocationId" type="xsd:string" />
+      <xsd:element name="InventLocationName" type="xsd:string" />
+      <xsd:element name="InventSiteId" type="xsd:string" />
+      <xsd:element name="TotalInvoiceAmount" type="xsd:string" />
+      <xsd:element name="CustPurchaseOrder" type="xsd:string" />
+      <xsd:element name="SalesResponsible" type="xsd:string" />
+      <xsd:element name="SalesGroup" type="xsd:string" />
+      <xsd:element name="LeadTime" type="xsd:string" />
+      <xsd:element name="Probability" type="xsd:string" />
+      <xsd:element name="Notes" type="xsd:string" />
+    </xsd:sequence>
+  </xsd:complexType>
+</xsd:schema>

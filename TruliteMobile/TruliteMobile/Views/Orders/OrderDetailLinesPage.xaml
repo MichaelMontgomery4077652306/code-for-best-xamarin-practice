@@ -1,0 +1,427 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="TruliteMobile.Views.Orders.OrderDetailLinesPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:components="clr-namespace:TruliteMobile.Components;assembly=TruliteMobile"
+    xmlns:converters="clr-namespace:XamarinUniversity.Converters;assembly=XamU.Infrastructure"
+    xmlns:converters1="clr-namespace:TruliteMobile.Converters;assembly=TruliteMobile"
+    xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+    xmlns:i18N="clr-namespace:TruliteMobile.i18n;assembly=TruliteMobile"
+    xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:orders="clr-namespace:TruliteMobile.Views.Orders;assembly=TruliteMobile"
+    xmlns:services="clr-namespace:TruliteMobile.Services;assembly=TruliteMobile"
+    xmlns:xForms="clr-namespace:Syncfusion.SfBusyIndicator.XForms;assembly=Syncfusion.SfBusyIndicator.XForms"
+    Title="{i18N:TranslateExtension Text=OrderDetails}"
+    ios:Page.UseSafeArea="true"
+    mc:Ignorable="d">
+    <!--#region Toolbar -->
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Command="{Binding OpenSettingsCommand}"
+                     IconImageSource="gears.png"
+                     Order="Primary"
+                     Priority="0"
+                     Text="{i18N:TranslateExtension Text=GiveFeedback}" />
+    </ContentPage.ToolbarItems>
+    <!--#endregion-->
+    <!--#region Resources -->
+    <ContentPage.Resources>
+        <Style x:Key="DateChangedRedLabel"
+               BasedOn="{StaticResource GridLabel}"
+               TargetType="Label">
+            <Style.Triggers>
+                <DataTrigger Binding="{Binding DateChanged}"
+                             TargetType="Label"
+                             Value="True">
+                    <Setter Property="TextColor"
+                            Value="Red" />
+                </DataTrigger>
+            </Style.Triggers>
+        </Style>
+    </ContentPage.Resources>
+    <!--#endregion-->
+    <ContentPage.Content>
+        <ScrollView>
+            <Grid
+                x:Name="root"
+                Padding="10"
+                x:DataType="orders:OrderDetailLinesPageViewModel"
+                BackgroundColor="{StaticResource DarkBlueButtonColor}"
+                RowSpacing="20">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+                <!--#region Details -->
+                <Frame Margin="0,5">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition />
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
+                        <components:ExpanderButton Grid.Column="1"
+                                                   ChangeExpandCommand="{Binding ToggleHeaderFrameCommand}"
+                                                   HorizontalOptions="End"
+                                                   IsExpanded="{Binding ShowHeaderFrame}"
+                                                   VerticalOptions="Start" />
+                        <Label FontSize="Medium"
+                               HorizontalOptions="Center"
+                               Text="{i18N:TranslateExtension Text=Order,
+                                                           TextCapitalization=Uppercase}"
+                               TextColor="{StaticResource DarkBlueButtonColor}" />
+
+                        <Grid IsVisible="{Binding ShowHeaderFrame}" Grid.Row="1">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition />
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                            </Grid.RowDefinitions>
+
+                            <Label Grid.Row="0"
+                                   Style="{StaticResource GridHeaderLabel}"
+                                   Text="{i18N:TranslateExtension Text=AccountNumber,
+                                                               Suffix=':'}" />
+                            <Label Grid.Row="0"
+                                   Grid.Column="1"
+                                   Style="{StaticResource GridLabel}"
+                                   Text="{Binding Order.Account.Key}" />
+
+                            <Label Grid.Row="1"
+                                   Style="{StaticResource GridHeaderLabel}"
+                                   Text="{i18N:TranslateExtension Text=Account,
+                                                               Suffix=':'}" />
+                            <Label Grid.Row="1"
+                                   Grid.Column="1"
+                                   Style="{StaticResource GridLabel}"
+                                   Text="{Binding Order.Account.Name}" />
+
+                            <Label Grid.Row="2"
+                                   Style="{StaticResource GridHeaderLabel}"
+                                   Text="{i18N:TranslateExtension Text=PurchaseOrder,
+                                                               Suffix=':'}" />
+                            <Label Grid.Row="2"
+                                   Grid.Column="1"
+                                   Style="{StaticResource GridLabel}"
+                                   Text="{Binding Order.CustomerPurchaseOrderNo}" />
+                            <Label Grid.Row="3"
+                                   Style="{StaticResource GridHeaderLabel}"
+                                   Text="{i18N:TranslateExtension Text=JobName,
+                                                               Suffix=':'}" />
+                            <Label Grid.Row="3"
+                                   Grid.Column="1"
+                                   Style="{StaticResource GridLabel}"
+                                   Text="{Binding Order.CustomerRef}" />
+                            <!--  Order number  -->
+                            <Label Grid.Row="4"
+                                   Style="{StaticResource GridHeaderLabel}"
+                                   Text="{i18N:TranslateExtension Text=OrderNumber,
+                                                               Suffix=':'}" />
+                            <Label Grid.Row="4"
+                                   Grid.Column="1"
+                                   Style="{StaticResource GridLabel}"
+                                   Text="{Binding Order.Key}" />
+                            <!--  Invoices  -->
+                            <Label Grid.Row="5"
+                                   Style="{StaticResource GridHeaderLabel}"
+                                   Text="{i18N:TranslateExtension Text=Invoices,
+                                                               Suffix=':'}" />
+                            <StackLayout Grid.Row="5"
+                                         Grid.Column="1"
+                                         BindableLayout.ItemsSource="{Binding Order.Invoices}">
+                                <BindableLayout.ItemTemplate>
+                                    <DataTemplate x:DataType="services:Invoice">
+                                        <Label Style="{StaticResource GridLinkLabel}"
+                                               Text="{Binding Key}">
+                                            <Label.GestureRecognizers>
+                                                <TapGestureRecognizer Command="{Binding BindingContext.ViewInvoiceCommand, Source={x:Reference root}}"
+                                                                      CommandParameter="{Binding .}" />
+                                            </Label.GestureRecognizers>
+                                        </Label>
+                                    </DataTemplate>
+                                </BindableLayout.ItemTemplate>
+                            </StackLayout>
+
+                            <Label Grid.Row="6"
+                                   Style="{StaticResource GridHeaderLabel}"
+                                   Text="{i18N:TranslateExtension Text=TrulitePlant,
+                                                               Suffix=':'}" />
+                            <Label Grid.Row="6"
+                                   Grid.Column="1"
+                                   Style="{StaticResource GridLabel}"
+                                   Text="{Binding Order.InventLocationName}" />
+
+                            <Label Grid.Row="7"
+                                   Style="{StaticResource GridHeaderLabel}"
+                                   Text="{i18N:TranslateExtension Text=PackingSlips,
+                                                               Suffix=':'}" />
+                            <StackLayout Grid.Row="7"
+                                         Grid.Column="1"
+                                         BindableLayout.ItemsSource="{Binding Order.PackingSlips}">
+                                <BindableLayout.ItemTemplate>
+                                    <DataTemplate x:DataType="services:PackingSlip">
+                                        <Label Style="{StaticResource GridLinkLabel}"
+                                               Text="{Binding Key}">
+                                            <Label.GestureRecognizers>
+                                                <TapGestureRecognizer Command="{Binding BindingContext.ViewPackingSlipCommand, Source={x:Reference root}}"
+                                                                      CommandParameter="{Binding}" />
+                                            </Label.GestureRecognizers>
+                                        </Label>
+                                    </DataTemplate>
+                                </BindableLayout.ItemTemplate>
+                            </StackLayout>
+
+                            <Label Grid.Row="8"
+                                   Style="{StaticResource GridHeaderLabel}"
+                                   Text="{i18N:TranslateExtension Text=Amount,
+                                                               Suffix=':'}" />
+                            <Label Grid.Row="8"
+                                   Grid.Column="1"
+                                   Style="{StaticResource GridLabel}"
+                                   Text="{Binding Order.NetAmount, StringFormat='{0:c}'}" />
+                            <Label Grid.Row="9"
+                                   Style="{StaticResource GridHeaderLabel}"
+                                   Text="{i18N:TranslateExtension Text=Status,
+                                                               Suffix=':'}" />
+                            <Label Grid.Row="9"
+                                   Grid.Column="1"
+                                   Style="{StaticResource GridLabel}"
+                                   Text="{Binding Order.SalesOrderStatus, Converter={converters1:SalesOrderStatusToString}}" />
+                            <Label Grid.Row="10"
+                                   Style="{StaticResource GridHeaderLabel}"
+                                   Text="{i18N:TranslateExtension Text=OrderDate,
+                                                               Suffix=':'}" />
+                            <Label Grid.Row="10"
+                                   Grid.Column="1"
+                                   Style="{StaticResource GridLabel}"
+                                   Text="{Binding Order.OrderDate, StringFormat='{0:d}'}" />
+                            <Label Grid.Row="11"
+                                   Style="{StaticResource GridHeaderLabel}"
+                                   Text="{i18N:TranslateExtension Text=DeliveryDate,
+                                                               Suffix=':'}" />
+
+                            <Label Grid.Row="11"
+                                   Grid.Column="1"
+                                   Style="{StaticResource GridLabel}"
+                                   Text="{Binding Order.DeliveryDate, StringFormat='{0:d}'}" />
+
+                        </Grid>
+                    </Grid>
+                </Frame>
+                <!--#endregion-->
+                <!--#region Actions -->
+                <Frame Grid.Row="1">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+                        <components:ExpanderButton ChangeExpandCommand="{Binding ToggleActionsFrameCommand}"
+                                                   HorizontalOptions="End"
+                                                   IsExpanded="{Binding ShowActionsFrame}"
+                                                   VerticalOptions="Start" />
+                        <Label FontSize="Medium"
+                               HorizontalOptions="Center"
+                               Text="{i18N:TranslateExtension Text=ACTIONS}"
+                               TextColor="{StaticResource DarkBlueButtonColor}" />
+
+                        <Grid Grid.Row="1"
+                              IsVisible="{Binding ShowActionsFrame}">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                            </Grid.RowDefinitions>
+
+                       
+                            <components:ActionButtonView Grid.Row="1"
+                                                         BackgroundColor="Red"
+                                                         IconText="&#xf1c1;"
+                                                         TappedCommand="{Binding ViewPdfCommand}"
+                                                         Text="{i18N:TranslateExtension Text=ViewPDF}" />
+                            <components:ActionButtonView Grid.Row="2"
+                                                         BackgroundColor="{StaticResource DarkPrimaryBlue}"
+                                                         IconText="&#xf381;"
+                                                         TappedCommand="{Binding DownloadPdfCommand}"
+                                                         Text="{i18N:TranslateExtension Text=DownloadPDF}" />
+                            <components:ActionButtonView Grid.Row="3"
+                                                         BackgroundColor="{StaticResource PrimaryBlue}"
+                                                         IconText="&#xf124;"
+                                                         IsVisible="{Binding ShowTrackingButton}"
+                                                         TappedCommand="{Binding TrackCommand}"
+                                                         Text="{i18N:TranslateExtension Text=Track}" />
+                            <components:ActionButtonView Grid.Row="4"
+                                                         BackgroundColor="{StaticResource PrimaryBlue}"
+                                                         IconText="&#xf1da;"
+                                                         TappedCommand="{Binding OpenDateChangesCommand}"
+                                                         Text="{i18N:TranslateExtension Text=DateChanges}" />
+                            <components:ActionButtonView Grid.Row="5"
+                                                         BackgroundColor="{StaticResource PrimaryBlue}"
+                                                         IconText="&#xf133;"
+                                                         TappedCommand="{Binding RequestDateChangeCommand}"
+                                                         Text="{i18N:TranslateExtension Text=RequestDateChange}" />
+                        </Grid>
+                    </Grid>
+                </Frame>
+                <!--#endregion-->
+                <!--#region Lines -->
+                <Frame Grid.Row="2">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+
+                        <Label FontSize="Medium"
+                               HorizontalOptions="Center"
+                               Text="{i18N:TranslateExtension Text=LINES}"
+                               TextColor="{StaticResource DarkBlueButtonColor}" />
+                        <components:ExpanderButton ChangeExpandCommand="{Binding ToggleLinesCommand}"
+                                                   HorizontalOptions="End"
+                                                   IsExpanded="{Binding ShowLines}"
+                                                   VerticalOptions="Start" />
+
+                        <StackLayout Grid.Row="1"
+                                     BindableLayout.ItemsSource="{Binding Lines}"
+                                     IsVisible="{Binding ShowLines}">
+
+                            <BindableLayout.ItemTemplate>
+                                <DataTemplate x:DataType="services:SalesOrderLine">
+                                    <Grid Margin="15,5">
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="Auto" />
+                                            <RowDefinition Height="Auto" />
+                                            <RowDefinition Height="Auto" />
+                                            <RowDefinition Height="Auto" />
+                                            <RowDefinition Height="Auto" />
+                                            <RowDefinition Height="Auto" />
+                                            <RowDefinition Height="Auto" />
+                                            <RowDefinition Height="Auto" />
+                                            <RowDefinition Height="Auto" />
+                                            <RowDefinition Height="Auto" />
+                                        </Grid.RowDefinitions>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="Auto" />
+                                            <ColumnDefinition />
+                                        </Grid.ColumnDefinitions>
+                                        <Label Style="{StaticResource GridHeaderLabel}"
+                                               Text="{i18N:TranslateExtension Text=LineNumber}" />
+                                        <Label Grid.Row="1"
+                                               Style="{StaticResource GridHeaderLabel}"
+                                               Text="{i18N:TranslateExtension Text=ItemNumber}" />
+                                        <Label Grid.Row="2"
+                                               Style="{StaticResource GridHeaderLabel}"
+                                               Text="{i18N:TranslateExtension Text=ItemName}"
+                                               VerticalOptions="Start" />
+                                        <Label Grid.Row="3"
+                                               Style="{StaticResource GridHeaderLabel}"
+                                               Text="{i18N:TranslateExtension Text=ShipDate}" />
+                                        <Label Grid.Row="4"
+                                               Style="{StaticResource GridHeaderLabel}"
+                                               Text="{i18N:TranslateExtension Text=UnitPrice}" />
+                                        <Label Grid.Row="5"
+                                               Style="{StaticResource GridHeaderLabel}"
+                                               Text="{i18N:TranslateExtension Text=Quantity}" />
+                                        <Label Grid.Row="6"
+                                               Style="{StaticResource GridHeaderLabel}"
+                                               Text="{i18N:TranslateExtension Text=Discount}" />
+                                        <Label Grid.Row="7"
+                                               Style="{StaticResource GridHeaderLabel}"
+                                               Text="{i18N:TranslateExtension Text=Price}" />
+
+                                        <Label Grid.Row="0"
+                                               Grid.Column="1"
+                                               Style="{StaticResource DateChangedRedLabel}"
+                                               Text="{Binding Key}" />
+                                        <Label Grid.Row="1"
+                                               Grid.Column="1"
+                                               Style="{StaticResource DateChangedRedLabel}"
+                                               Text="{Binding ItemId}" />
+
+                                        <Label Grid.Row="2"
+                                               Grid.Column="1"
+                                               Style="{StaticResource DateChangedRedLabel}"
+                                               Text="{Binding ItemName}"
+                                               VerticalOptions="Start">
+                                            <Label.GestureRecognizers>
+                                                <TapGestureRecognizer Command="{Binding BindingContext.OpenLinesCommand, Source={x:Reference root}}"
+                                                                      CommandParameter="{Binding .}" />
+                                            </Label.GestureRecognizers>
+                                        </Label>
+                                        <Label Grid.Row="3"
+                                               Grid.Column="1"
+                                               Style="{StaticResource DateChangedRedLabel}"
+                                               Text="{Binding ShippingDateRequested, StringFormat='{0:d}'}" />
+                                        <Label Grid.Row="4"
+                                               Grid.Column="1"
+                                               HorizontalTextAlignment="End"
+                                               Style="{StaticResource DateChangedRedLabel}"
+                                               Text="{Binding UnitPrice, StringFormat='$ {0:n2}'}" />
+                                        <Label Grid.Row="5"
+                                               Grid.Column="1"
+                                               HorizontalOptions="End"
+                                               HorizontalTextAlignment="End"
+                                               Style="{StaticResource DateChangedRedLabel}"
+                                               Text="{Binding Quantity}" />
+                                        <Label Grid.Row="6"
+                                               Grid.Column="1"
+                                               HorizontalTextAlignment="End"
+                                               Style="{StaticResource DateChangedRedLabel}"
+                                               Text="{Binding Discount, StringFormat='$ {0:n2}'}" />
+                                        <Label Grid.Row="7"
+                                               Grid.Column="1"
+                                               HorizontalTextAlignment="End"
+                                               Style="{StaticResource DateChangedRedLabel}"
+                                               Text="{Binding Price, StringFormat='$ {0:n2}'}" />
+                                        <components:ActionButtonView Grid.Row="8"
+                                                                     Grid.Column="1"
+                                                                     BackgroundColor="{StaticResource DarkPrimaryBlue}"
+                                                                     IconText="&#xf06e;"
+                                                                     TappedCommand="{Binding BindingContext.ViewImageCommand, Source={x:Reference root}}"
+                                                                     TappedCommandParameter="{Binding .}"
+                                                                     Text="{i18N:Translate Text=ViewImage}" />
+                                        <BoxView Grid.Row="9"
+                                                 Grid.ColumnSpan="2"
+                                                 BackgroundColor="{StaticResource DarkBlueButtonColor}"
+                                                 HeightRequest="1"
+                                                 VerticalOptions="End" />
+                                    </Grid>
+                                </DataTemplate>
+                            </BindableLayout.ItemTemplate>
+                        </StackLayout>
+                        <Label Grid.Row="2"
+                               Margin="10"
+                               FontAttributes="Bold"
+                               IsVisible="{Binding ShowLines}"
+                               Text="{i18N:TranslateExtension Text=OrderDetailLineNote}" />
+                    </Grid>
+                </Frame>
+                <!--#endregion-->
+                <xForms:SfBusyIndicator Grid.Row="2" />
+            </Grid>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

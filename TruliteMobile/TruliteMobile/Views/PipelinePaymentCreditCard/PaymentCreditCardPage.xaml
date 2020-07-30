@@ -1,0 +1,181 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage x:Class="TruliteMobile.Views.PaymentCreditCard.PaymentCreditCardPage"
+             xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:components="clr-namespace:TruliteMobile.Components;assembly=TruliteMobile"
+             xmlns:converters="clr-namespace:XamarinUniversity.Converters;assembly=XamU.Infrastructure"
+             xmlns:i18N="clr-namespace:TruliteMobile.i18n;assembly=TruliteMobile"
+             xmlns:services="clr-namespace:TruliteMobile.Services;assembly=TruliteMobile"
+             Title="{i18N:Translate Text=CreditCards}"
+             x:DataType="paymentCreditCard:PaymentCreditCardPageViewModel"
+             xmlns:xForms="clr-namespace:Syncfusion.SfBusyIndicator.XForms;assembly=Syncfusion.SfBusyIndicator.XForms"
+             xmlns:paymentCreditCard="clr-namespace:TruliteMobile.Views.PaymentCreditCard;assembly=TruliteMobile"
+             xmlns:converters1="clr-namespace:TruliteMobile.Converters;assembly=TruliteMobile">
+    <ContentPage.Content>
+        <Grid Style="{StaticResource RootGrid}"
+              x:Name="root">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="Auto" />
+
+            </Grid.RowDefinitions>
+            <components:ListSortView Grid.Row="0"
+                                     Margin="0,10"
+                                     FilterTriggerCommand="{Binding FilterTriggerCommand}"
+                                     SelectedSortColumn="{Binding SelectedSortColumn, Mode=TwoWay}"
+                                     SortColumns="{Binding SortColumns}" />
+            <ListView x:Name="listView"
+                      Grid.Row="1"
+                      CachingStrategy="RecycleElement"
+                      HasUnevenRows="True"
+                      IsVisible="{Binding NoResults, Converter={converters:NotBooleanConverter}}"
+                      ItemsSource="{Binding CreditCardList}"
+                      SelectedItem="{Binding SelectedCreditCard}"
+                      SeparatorColor="{StaticResource DarkPrimaryBlue}"
+                      SeparatorVisibility="Default">
+                <!--<ListView.Behaviors>
+                    <infrastructure:EventToCommandBehavior Command="{Binding OpenCommand}"
+                                                           EventName="ItemTapped" />
+                </ListView.Behaviors>-->
+
+                <ListView.ItemTemplate>
+                    <DataTemplate x:DataType="services:CustomerCreditCardTokenViewModel">
+                        <ViewCell>
+                            <Grid Padding="5,5,5,10">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto" />
+                                    <ColumnDefinition Width="*" />
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                </Grid.RowDefinitions>
+                                <!--  First Column  -->
+                                <Label Text="{i18N:TranslateExtension Text=CardType}"
+                                       Style="{StaticResource GridHeaderLabel}" />
+                                <Label Grid.Row="1"
+                                       Text="{i18N:TranslateExtension Text=CardNumber}"
+                                       Style="{StaticResource GridHeaderLabel}" />
+                                <Label Grid.Row="2"
+                                       Text="{i18N:TranslateExtension Text=ExpiryDate}"
+                                       Style="{StaticResource GridHeaderLabel}" />
+                                <Label Grid.Row="3"
+                                       Text="{i18N:TranslateExtension Text=AccountNumber}"
+                                       Style="{StaticResource GridHeaderLabel}" />
+                                <Label Grid.Row="4"
+                                       Text="{i18N:TranslateExtension Text=AccountName}"
+                                       Style="{StaticResource GridHeaderLabel}" />
+                                <Label Grid.Row="5"
+                                       Text="{i18N:TranslateExtension Text=AddressCamelcase}"
+                                       Style="{StaticResource GridHeaderLabel}" />
+                                <Label Grid.Row="6"
+                                       Text="{i18N:TranslateExtension Text=DateCreated}"
+                                       Style="{StaticResource GridHeaderLabel}" />
+                                <Label Grid.Row="7"
+                                       Text="{i18N:TranslateExtension Text=CreatedBy}"
+                                       Style="{StaticResource GridHeaderLabel}" />
+                                <Label Grid.Row="8"
+                                       Text="{i18N:TranslateExtension Text=DateUpdated}"
+                                       Style="{StaticResource GridHeaderLabel}" />
+                                <Label Grid.Row="9"
+                                       Text="{i18N:TranslateExtension Text=UpdatedBy}"
+                                       Style="{StaticResource GridHeaderLabel}" />
+                                <Label Grid.Row="10"
+                                       VerticalOptions="Start"
+                                       Text="{i18N:TranslateExtension Text=CopyReceiptEmailAddress}"
+                                       Style="{StaticResource GridHeaderLabel}" />
+                                <Label Grid.Row="11"
+                                       VerticalOptions="Start"
+                                       Text="{i18N:TranslateExtension Text=ActionsCamelCase}"
+                                       Style="{StaticResource GridHeaderLabel}" />
+                                <!--  Second Column  -->
+                                <Label Grid.Column="1"
+                                       FontFamily="{StaticResource FontAwesomeBrands}"
+                                       FontSize="Medium"
+                                       HorizontalTextAlignment="Start"
+                                       Style="{StaticResource IconLabel}"
+                                       Text="{Binding CardTypeIcon}" />
+                                <Label Grid.Row="1"
+                                       Grid.Column="1"
+                                       HorizontalOptions="Start"
+                                       Text="{Binding FriendlyName}" />
+                                <Label Grid.Row="2"
+                                       Grid.Column="1"
+                                       HorizontalOptions="Start"
+                                       Text="{Binding ExpiryDate, StringFormat='{0:MM-yyyy}'}" />
+                                <Label Grid.Row="3"
+                                       Grid.Column="1"
+                                       HorizontalOptions="Start"
+                                       Text="{Binding AccountNo}" />
+                                <Label Grid.Row="4"
+                                       Grid.Column="1"
+                                       HorizontalOptions="Start"
+                                       Text="{Binding Account}" />
+                                <Label Grid.Row="5"
+                                       Grid.Column="1"
+                                       HorizontalOptions="Start"
+                                       Text="{Binding Address}" />
+                                <Label Grid.Row="6"
+                                       Grid.Column="1"
+                                       HorizontalOptions="Start"
+                                       Text="{Binding DateCreated, StringFormat='{0:d}'}" />
+                                <Label Grid.Row="7"
+                                       Grid.Column="1"
+                                       HorizontalOptions="Start"
+                                       Text="{Binding CreatedBy}" />
+                                <Label Grid.Row="8"
+                                       Grid.Column="1"
+                                       HorizontalOptions="Start"
+                                       Text="{Binding DateUpdated, StringFormat='{0:d}'}" />
+                                <Label Grid.Row="9"
+                                       Grid.Column="1"
+                                       HorizontalOptions="Start"
+                                       Text="{Binding UpdatedBy}" />
+
+                                <Label Grid.Row="10"
+                                       Grid.Column="1"
+                                       LineBreakMode="TailTruncation"
+                                       Text="{Binding CopyReceiptEmailAddresses, Converter={converters1:StringCollectionToStringConverter}, Mode=OneTime}"/>
+                               
+                                <Button Text="{i18N:Translate Text=Edit}"
+                                        Grid.Row="11"
+                                        Grid.Column="1"
+                                        Style="{StaticResource BlueButton}"
+                                        IsVisible="{Binding CanEdit}"
+                                        Command="{Binding BindingContext.OpenCommand, Source={x:Reference root}}"
+                                        CommandParameter="{Binding .}" />
+                                <Button Text="{i18N:Translate Text=Delete}"
+                                        Style="{StaticResource BlueButton}"
+                                        BackgroundColor="Red"
+                                        Grid.Row="12"
+                                        Grid.Column="1"
+                                        IsVisible="{Binding CanDelete}"
+                                        Command="{Binding BindingContext.DeleteCommand, Source={x:Reference root}}"
+                                        CommandParameter="{Binding .}" />
+
+                            </Grid>
+
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            <components:NoResultsView Grid.Row="1"
+                                      IsVisible="{Binding NoResults}" />
+            <xForms:SfBusyIndicator Grid.Row="1" />
+            <components:RowCountView Grid.Row="2"
+                                     List="{Binding CreditCardList}" />
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

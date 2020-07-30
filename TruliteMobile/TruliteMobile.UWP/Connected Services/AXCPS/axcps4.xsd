@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xsd:schema xmlns="http://schemas.microsoft.com/dynamics/2006/02/documents/CPSSalesQuotationInquiryResponse" xmlns:ek="http://schemas.microsoft.com/dynamics/2006/02/documents/CPSSalesQuotationInquiry" elementFormDefault="qualified" targetNamespace="http://schemas.microsoft.com/dynamics/2006/02/documents/CPSSalesQuotationInquiryResponse" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <xsd:import schemaLocation="CPSSalesQuotationInquiry.xsd" namespace="http://schemas.microsoft.com/dynamics/2006/02/documents/CPSSalesQuotationInquiry" />
+  <xsd:element name="CPSSalesQuotationInquiryResponse" type="CPSSalesQuotationInquiryResponse" />
+  <xsd:complexType name="CPSSalesQuotationInquiryResponse">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" maxOccurs="unbounded" ref="ek:CPSSalesQuotationInquiry" />
+    </xsd:sequence>
+  </xsd:complexType>
+</xsd:schema>

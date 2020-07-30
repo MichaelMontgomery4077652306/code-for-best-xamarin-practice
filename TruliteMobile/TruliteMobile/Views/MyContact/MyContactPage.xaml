@@ -1,0 +1,300 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="TruliteMobile.Views.MyContact.MyContactPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+    xmlns:i18N="clr-namespace:TruliteMobile.i18n;assembly=TruliteMobile"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:myContact="clr-namespace:TruliteMobile.Views.MyContact;assembly=TruliteMobile"
+    xmlns:xForms="clr-namespace:Syncfusion.SfBusyIndicator.XForms;assembly=Syncfusion.SfBusyIndicator.XForms"
+    Title="{i18N:TranslateExtension Text=ContactInformation}"
+    BackgroundColor="{StaticResource DarkPrimaryBlue}"
+    mc:Ignorable="d">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem
+            Command="{Binding OpenSettingsCommand}"
+            IconImageSource="gears.png"
+            Order="Primary"
+            Priority="0"
+            Text="{i18N:TranslateExtension Text=GiveFeedback}" />
+    </ContentPage.ToolbarItems>
+    <ContentPage.Content>
+        <ScrollView Margin="20" x:DataType="myContact:MyContactPageViewModel">
+            <StackLayout>
+                <xForms:SfBusyIndicator />
+                <Frame
+                    Padding="5"
+                    CornerRadius="2"
+                    HasShadow="False">
+                    <Grid RowSpacing="0">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+                        <BoxView BackgroundColor="{DynamicResource HeaderBackgroundColor}" />
+                        <Label
+                            Margin="5"
+                            FontAttributes="Bold"
+                            FontSize="Medium"
+                            Text="{i18N:TranslateExtension Text=SALESREPRESENTATIVE}"
+                            TextColor="White" />
+                        <Grid
+                            Grid.Row="1"
+                            Padding="5"
+                            BackgroundColor="#50CCCCCC">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition />
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                            </Grid.RowDefinitions>
+                            <Label
+                                Grid.ColumnSpan="2"
+                                FontAttributes="Bold"
+                                Text="{Binding ContactInfo.SalesPersonName}" />
+                            <Label
+                                Grid.Row="1"
+                                Style="{StaticResource IconLabel}"
+                                Text="&#xf0e0;"
+                                TextColor="{DynamicResource FilterHeaderTextColor}"  />
+                            <Label
+                                Grid.Row="2"
+                                Style="{StaticResource IconLabel}"
+                                Text="&#xf095;"
+                                TextColor="{DynamicResource FilterHeaderTextColor}" />
+
+                            <Label
+                                Grid.Row="1"
+                                Grid.Column="1"
+                                Text="{Binding ContactInfo.SalesPersonEmail}"
+                                   TextColor="{DynamicResource HyperlinkColor}">
+                                <Label.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding OpenContactCommand}" CommandParameter="{x:Static myContact:ContactTypeEnum.SalesEmail}" />
+                                </Label.GestureRecognizers>
+                            </Label>
+
+                            <Label
+                                Grid.Row="2"
+                                Grid.Column="1"
+                                Text="{Binding ContactInfo.SalesPersonPhone}">
+                                <Label.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding OpenContactCommand}" CommandParameter="{x:Static myContact:ContactTypeEnum.SalesPhone}" />
+                                </Label.GestureRecognizers>
+                            </Label>
+
+                        </Grid>
+                    </Grid>
+                </Frame>
+                <Frame
+                    Padding="5"
+                    CornerRadius="2"
+                    HasShadow="False">
+                    <Grid RowSpacing="0">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+                        <BoxView BackgroundColor="{DynamicResource HeaderBackgroundColor}" />
+                        <Label
+                            Margin="5"
+                            FontAttributes="Bold"
+                            FontSize="Medium"
+                            Text="{i18N:TranslateExtension Text=CREDITREPRESENTATIVE}"
+                            TextColor="White" />
+                        <Grid
+                            Grid.Row="1"
+                            Padding="5"
+                            BackgroundColor="#50CCCCCC">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition />
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                            </Grid.RowDefinitions>
+                            <Label
+                                Grid.ColumnSpan="2"
+                                FontAttributes="Bold"
+                                Text="{Binding ContactInfo.CreditRepName}" />
+                            <Label
+                                Grid.Row="1"
+                                Style="{StaticResource IconLabel}"
+                                Text="&#xf0e0;"
+                                TextColor="{DynamicResource FilterHeaderTextColor}"  />
+                            <Label
+                                Grid.Row="2"
+                                Style="{StaticResource IconLabel}"
+                                Text="&#xf095;"
+                                TextColor="{DynamicResource FilterHeaderTextColor}" />
+                            <Label
+                                Grid.Row="1"
+                                Grid.Column="1"
+                                Text="{Binding ContactInfo.CreditRepEmail}"
+                                TextColor="{DynamicResource HyperlinkColor}">
+                                <Label.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding OpenContactCommand}" CommandParameter="{x:Static myContact:ContactTypeEnum.CreditEmail}" />
+                                </Label.GestureRecognizers>
+                            </Label>
+
+                            <Label
+                                Grid.Row="2"
+                                Grid.Column="1"
+                                Text="{Binding ContactInfo.CreditRepPhone}">
+                                <Label.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding OpenContactCommand}" CommandParameter="{x:Static myContact:ContactTypeEnum.CreditPhone}" />
+                                </Label.GestureRecognizers>
+                            </Label>
+
+                        </Grid>
+                    </Grid>
+                </Frame>
+                <Frame
+                    Padding="5"
+                    CornerRadius="2"
+                    HasShadow="False">
+                    <Grid RowSpacing="0">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+                        <BoxView BackgroundColor="{DynamicResource HeaderBackgroundColor}" />
+                        <Label
+                            Margin="5"
+                            FontAttributes="Bold"
+                            FontSize="Medium"
+                            Text="{i18N:TranslateExtension Text=PLANTINFORMATION}"
+                            TextColor="White" />
+                        <Label
+                            Margin="5"
+                            FontSize="Small"
+                            HorizontalTextAlignment="End"
+                            Text="{i18N:TranslateExtension Text=OpenMap}"
+                            TextColor="White"
+                            TextDecorations="Underline">
+                            <Label.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding OpenMapCommand}" />
+                            </Label.GestureRecognizers>
+                        </Label>
+                        <Grid
+                            Grid.Row="1"
+                            Padding="5"
+                            BackgroundColor="#50CCCCCC">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition />
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                            </Grid.RowDefinitions>
+
+                            <Label
+                                Grid.Row="0"
+                                Grid.ColumnSpan="2"
+                                LineBreakMode="WordWrap"
+                                Text="{Binding ContactInfo.BranchAddress}" />
+                            <Label
+                                Grid.Row="1"
+                                Style="{StaticResource IconLabel}"
+                                Text="&#xf095;"
+                                   TextColor="{DynamicResource FilterHeaderTextColor}" />
+                            <Label
+                                Grid.Row="2"
+                                Style="{StaticResource IconLabel}"
+                                Text="&#xf1ac;"
+                                   TextColor="{DynamicResource FilterHeaderTextColor}" />
+                            <Label
+                                Grid.Row="1"
+                                Grid.Column="1"
+                                Text="{Binding ContactInfo.BranchPhone}">
+                                <Label.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding OpenContactCommand}" CommandParameter="{x:Static myContact:ContactTypeEnum.PlantPhone}" />
+                                </Label.GestureRecognizers>
+                            </Label>
+
+                            <Label
+                                Grid.Row="2"
+                                Grid.Column="1"
+                                Text="{Binding ContactInfo.BranchFax}" />
+
+                        </Grid>
+                    </Grid>
+                </Frame>
+                <Frame
+                    Padding="5"
+                    CornerRadius="2"
+                    HasShadow="False">
+                    <Grid RowSpacing="0">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+                        <BoxView BackgroundColor="{DynamicResource HeaderBackgroundColor}" />
+                        <Label
+                            Margin="5"
+                            FontAttributes="Bold"
+                            FontSize="Medium"
+                            Text="{i18N:TranslateExtension Text=CorporateContactInformation}"
+                            TextColor="White" />
+                        <Label
+                            Margin="5"
+                            FontSize="Small"
+                            HorizontalTextAlignment="End"
+                            Text="{i18N:TranslateExtension Text=OpenMap}"
+                            TextColor="White"
+                            TextDecorations="Underline">
+                            <Label.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding OpenMapCommand}" CommandParameter="corporate" />
+                            </Label.GestureRecognizers>
+                        </Label>
+                        <Grid
+                            Grid.Row="1"
+                            Padding="5"
+                            BackgroundColor="#50CCCCCC">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition />
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                            </Grid.RowDefinitions>
+
+                            <Label Grid.ColumnSpan="2" Text="Trulite Glass &amp; Aluminum Solutions, LLC" />
+
+                            <Label
+                                Grid.Row="1"
+                                Grid.ColumnSpan="2"
+                                LineBreakMode="WordWrap"
+                                Text="{Binding CorporateAddress}" />
+                            <Label
+                                Grid.Row="2"
+                                Style="{StaticResource IconLabel}"
+                                Text="&#xf095;"
+                                TextColor="{DynamicResource FilterHeaderTextColor}" />
+
+                            <Label
+                                Grid.Row="2"
+                                Grid.Column="1"
+                                Text="{Binding CorporatePhone}">
+                                <Label.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding OpenContactCommand}" CommandParameter="{x:Static myContact:ContactTypeEnum.CorporatePhone}" />
+                                </Label.GestureRecognizers>
+                            </Label>
+                        </Grid>
+                    </Grid>
+                </Frame>
+            </StackLayout>
+        </ScrollView>
+
+    </ContentPage.Content>
+</ContentPage>

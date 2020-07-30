@@ -1,0 +1,1171 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://tempuri.org" elementFormDefault="qualified" targetNamespace="http://tempuri.org" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://tru-devaos.archaluminum.local/MicrosoftDynamicsAXAif50/axcps.svc?xsd=xsd3" namespace="http://schemas.microsoft.com/dynamics/2006/02/documents/CPSGetPackingSlipsResponse" />
+  <xs:import schemaLocation="http://tru-devaos.archaluminum.local/MicrosoftDynamicsAXAif50/axcps.svc?xsd=xsd5" namespace="http://schemas.microsoft.com/dynamics/2006/02/documents/CPSGetCustomersResponse" />
+  <xs:import schemaLocation="http://tru-devaos.archaluminum.local/MicrosoftDynamicsAXAif50/axcps.svc?xsd=xsd6" namespace="http://schemas.datacontract.org/2004/07/Microsoft.Dynamics.IntegrationFramework.Service" />
+  <xs:import schemaLocation="http://tru-devaos.archaluminum.local/MicrosoftDynamicsAXAif50/axcps.svc?xsd=xsd7" namespace="http://schemas.microsoft.com/dynamics/2006/02/documents/CPSSalesQuotationInquiryResponse" />
+  <xs:import schemaLocation="http://tru-devaos.archaluminum.local/MicrosoftDynamicsAXAif50/axcps.svc?xsd=xsd8" namespace="http://schemas.microsoft.com/dynamics/2006/02/documents/CPSProductsResponse" />
+  <xs:import schemaLocation="http://tru-devaos.archaluminum.local/MicrosoftDynamicsAXAif50/axcps.svc?xsd=xsd9" namespace="http://schemas.microsoft.com/dynamics/2006/02/documents/CPSGetSalesOrdersSummaryByStatusResponse" />
+  <xs:import schemaLocation="http://tru-devaos.archaluminum.local/MicrosoftDynamicsAXAif50/axcps.svc?xsd=xsd10" namespace="http://schemas.microsoft.com/dynamics/2006/02/documents/CPSGetReturnOrdersResponse" />
+  <xs:import schemaLocation="http://tru-devaos.archaluminum.local/MicrosoftDynamicsAXAif50/axcps.svc?xsd=xsd11" namespace="http://schemas.microsoft.com/dynamics/2006/02/documents/CPSShipManifestDetailResponse" />
+  <xs:import schemaLocation="http://tru-devaos.archaluminum.local/MicrosoftDynamicsAXAif50/axcps.svc?xsd=xsd12" namespace="http://schemas.microsoft.com/dynamics/2006/02/documents/CPSInterLayerInfoResponse" />
+  <xs:import schemaLocation="http://tru-devaos.archaluminum.local/MicrosoftDynamicsAXAif50/axcps.svc?xsd=xsd13" namespace="http://schemas.microsoft.com/dynamics/2006/02/documents/CPSShipManifestHeaderResponse" />
+  <xs:import schemaLocation="http://tru-devaos.archaluminum.local/MicrosoftDynamicsAXAif50/axcps.svc?xsd=xsd14" namespace="http://schemas.microsoft.com/dynamics/2006/02/documents/CPSGetSalesOrderDetailsResponse" />
+  <xs:import schemaLocation="http://tru-devaos.archaluminum.local/MicrosoftDynamicsAXAif50/axcps.svc?xsd=xsd15" namespace="http://schemas.microsoft.com/dynamics/2006/02/documents/CPSSalesPoolResponse" />
+  <xs:import schemaLocation="http://tru-devaos.archaluminum.local/MicrosoftDynamicsAXAif50/axcps.svc?xsd=xsd16" namespace="http://schemas.microsoft.com/dynamics/2006/02/documents/CPSInventSitesResponse" />
+  <xs:import schemaLocation="http://tru-devaos.archaluminum.local/MicrosoftDynamicsAXAif50/axcps.svc?xsd=xsd17" namespace="http://schemas.microsoft.com/dynamics/2006/02/documents/CPSGetQuotationDetailsResponse" />
+  <xs:import schemaLocation="http://tru-devaos.archaluminum.local/MicrosoftDynamicsAXAif50/axcps.svc?xsd=xsd18" namespace="http://schemas.microsoft.com/dynamics/2006/02/documents/CPSGetInvoicesSummaryResponse" />
+  <xs:import schemaLocation="http://tru-devaos.archaluminum.local/MicrosoftDynamicsAXAif50/axcps.svc?xsd=xsd19" namespace="http://schemas.microsoft.com/dynamics/2006/02/documents/CPSGetCustomerAddressesResponse" />
+  <xs:import schemaLocation="http://tru-devaos.archaluminum.local/MicrosoftDynamicsAXAif50/axcps.svc?xsd=xsd20" namespace="http://schemas.microsoft.com/dynamics/2006/02/documents/CPSGetSalesOrderLineConfigResponse" />
+  <xs:import schemaLocation="http://tru-devaos.archaluminum.local/MicrosoftDynamicsAXAif50/axcps.svc?xsd=xsd21" namespace="http://schemas.microsoft.com/dynamics/2006/02/documents/CPSGetArchRackInfoResponse" />
+  <xs:import schemaLocation="http://tru-devaos.archaluminum.local/MicrosoftDynamicsAXAif50/axcps.svc?xsd=xsd22" namespace="http://schemas.microsoft.com/dynamics/2006/02/documents/CPSWarehouseEdgeFabResponse" />
+  <xs:import schemaLocation="http://tru-devaos.archaluminum.local/MicrosoftDynamicsAXAif50/axcps.svc?xsd=xsd23" namespace="http://schemas.microsoft.com/dynamics/2006/02/documents/CPSSalesQuotationReasonResponse" />
+  <xs:import schemaLocation="http://tru-devaos.archaluminum.local/MicrosoftDynamicsAXAif50/axcps.svc?xsd=xsd24" namespace="http://schemas.microsoft.com/dynamics/2006/02/documents/CPSGetQuotationsResponse" />
+  <xs:import schemaLocation="http://tru-devaos.archaluminum.local/MicrosoftDynamicsAXAif50/axcps.svc?xsd=xsd25" namespace="http://schemas.microsoft.com/dynamics/2006/02/documents/CPSCustConfirmInfoResponse" />
+  <xs:import schemaLocation="http://tru-devaos.archaluminum.local/MicrosoftDynamicsAXAif50/axcps.svc?xsd=xsd26" namespace="http://schemas.microsoft.com/dynamics/2006/02/documents/CPSGetPackingSlipDetailsResponse" />
+  <xs:import schemaLocation="http://tru-devaos.archaluminum.local/MicrosoftDynamicsAXAif50/axcps.svc?xsd=xsd27" namespace="http://schemas.microsoft.com/dynamics/2006/02/documents/CPSCustomerNotificationsResponse" />
+  <xs:import schemaLocation="http://tru-devaos.archaluminum.local/MicrosoftDynamicsAXAif50/axcps.svc?xsd=xsd28" namespace="http://schemas.microsoft.com/dynamics/2006/02/documents/CPSCustomerContact" />
+  <xs:import schemaLocation="http://tru-devaos.archaluminum.local/MicrosoftDynamicsAXAif50/axcps.svc?xsd=xsd29" namespace="http://schemas.microsoft.com/dynamics/2006/02/documents/CPSGetQuotationLineConfigResponse" />
+  <xs:import schemaLocation="http://tru-devaos.archaluminum.local/MicrosoftDynamicsAXAif50/axcps.svc?xsd=xsd30" namespace="http://schemas.microsoft.com/dynamics/2006/02/documents/CPSGetReturnOrdersSummaryResponse" />
+  <xs:import schemaLocation="http://tru-devaos.archaluminum.local/MicrosoftDynamicsAXAif50/axcps.svc?xsd=xsd31" namespace="http://schemas.microsoft.com/dynamics/2006/02/documents/CPSSpacerInfoResponse" />
+  <xs:import schemaLocation="http://tru-devaos.archaluminum.local/MicrosoftDynamicsAXAif50/axcps.svc?xsd=xsd32" namespace="http://schemas.microsoft.com/dynamics/2006/02/documents/CPSGetReturnOrderDetailsResponse" />
+  <xs:import schemaLocation="http://tru-devaos.archaluminum.local/MicrosoftDynamicsAXAif50/axcps.svc?xsd=xsd33" namespace="http://schemas.microsoft.com/dynamics/2006/02/documents/CPSGetInvoicesResponse" />
+  <xs:import schemaLocation="http://tru-devaos.archaluminum.local/MicrosoftDynamicsAXAif50/axcps.svc?xsd=xsd34" namespace="http://schemas.microsoft.com/dynamics/2006/02/documents/CPSGetInvoiceDetailsResponse" />
+  <xs:import schemaLocation="http://tru-devaos.archaluminum.local/MicrosoftDynamicsAXAif50/axcps.svc?xsd=xsd35" namespace="http://schemas.microsoft.com/dynamics/2006/02/documents/CPSGetSalesOrdersSummaryResponse" />
+  <xs:import schemaLocation="http://tru-devaos.archaluminum.local/MicrosoftDynamicsAXAif50/axcps.svc?xsd=xsd36" namespace="http://schemas.microsoft.com/dynamics/2006/02/documents/CPSGetCustomer" />
+  <xs:import schemaLocation="http://tru-devaos.archaluminum.local/MicrosoftDynamicsAXAif50/axcps.svc?xsd=xsd37" namespace="http://schemas.microsoft.com/dynamics/2006/02/documents/CPSMuntinInfoResponse" />
+  <xs:import schemaLocation="http://tru-devaos.archaluminum.local/MicrosoftDynamicsAXAif50/axcps.svc?xsd=xsd38" namespace="http://schemas.microsoft.com/dynamics/2006/02/documents/CPSGetSalesOrdersResponse" />
+  <xs:import schemaLocation="http://tru-devaos.archaluminum.local/MicrosoftDynamicsAXAif50/axcps.svc?xsd=xsd39" namespace="http://schemas.microsoft.com/dynamics/2006/02/documents/CPSGetCatalogProductsResponse" />
+  <xs:import schemaLocation="http://tru-devaos.archaluminum.local/MicrosoftDynamicsAXAif50/axcps.svc?xsd=xsd40" namespace="http://schemas.microsoft.com/dynamics/2006/02/documents/CPSSalesQuotationNotesResponse" />
+  <xs:import schemaLocation="http://tru-devaos.archaluminum.local/MicrosoftDynamicsAXAif50/axcps.svc?xsd=xsd41" namespace="http://schemas.microsoft.com/dynamics/2006/02/documents/CPSGetProduct" />
+  <xs:element name="AXCPSGetConfigureQuoteLineXMLRequest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="_custAccount" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="_inventTransId" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AXCPSGetConfigureQuoteLineXMLResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="response" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AXCPSAddCustConfirmInfoRequest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="_communicationTypeId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="_custAccount" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="_email" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="_phone" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AXCPSAddCustConfirmInfoResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="response" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AXCPSLostQuotationRequest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="_quotationId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="_reasonId" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AXCPSLostQuotationResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="response" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AXCPSGetPackingSlipsRequest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="_chainInfo" type="xs:boolean" />
+        <xs:element minOccurs="0" name="_custAccount" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="_packingSlipDateFrom" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="_packingSlipDateTo" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="_packingSlipId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="_purchaseOrder" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="_salesGroup" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="_salesOrder" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AXCPSGetPackingSlipsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q1="http://schemas.microsoft.com/dynamics/2006/02/documents/CPSGetPackingSlipsResponse" minOccurs="0" ref="q1:CPSGetPackingSlipsResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AXCPSGetCustomerAccountsRequest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="_custAccount" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AXCPSGetCustomerAccountsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q2="http://schemas.microsoft.com/dynamics/2006/02/documents/CPSGetCustomersResponse" minOccurs="0" ref="q2:CPSGetCustomersResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AXCPSGetCopyQuotationRequest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="_custAccount" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="_quotationId" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AXCPSGetCopyQuotationResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="response" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AXCPSGetOpenSalesOrdersCountRequest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="_chainInfo" type="xs:boolean" />
+        <xs:element minOccurs="0" name="_custAccount" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AXCPSGetOpenSalesOrdersCountResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="response" type="xs:long" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AXCPSGetSalesQuotationInquiryRequest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="_inventSiteId" nillable="true" type="xs:string" />
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/Microsoft.Dynamics.IntegrationFramework.Service" minOccurs="0" name="_leadTime" type="q3:TRLSalesQuotationLeadTime" />
+        <xs:element minOccurs="0" name="_probability" type="xs:double" />
+        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/Microsoft.Dynamics.IntegrationFramework.Service" minOccurs="0" name="_quotationStatus" type="q4:TRLSalesQuotationStatusFilter" />
+        <xs:element minOccurs="0" name="_salesGroup" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="_salesResponsible" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AXCPSGetSalesQuotationInquiryResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q5="http://schemas.microsoft.com/dynamics/2006/02/documents/CPSSalesQuotationInquiryResponse" minOccurs="0" ref="q5:CPSSalesQuotationInquiryResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AXCPSGetCustAccountStatementRequest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="_chainInfo" type="xs:boolean" />
+        <xs:element minOccurs="0" name="_custAccount" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AXCPSGetCustAccountStatementResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="response" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AXCPSGetStockedProductsRequest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="_archThicknessId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="_inventSiteId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="_processID" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AXCPSGetStockedProductsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q6="http://schemas.microsoft.com/dynamics/2006/02/documents/CPSProductsResponse" minOccurs="0" ref="q6:CPSProductsResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AXCPSGetMonolithicProductsRequest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="_archThicknessId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="_inventSiteId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="_processID" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AXCPSGetMonolithicProductsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q7="http://schemas.microsoft.com/dynamics/2006/02/documents/CPSProductsResponse" minOccurs="0" ref="q7:CPSProductsResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AXCPSGetCopyInvoiceRequest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="_chainInfo" type="xs:boolean" />
+        <xs:element minOccurs="0" name="_custAccount" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="_invoiceId" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AXCPSGetCopyInvoiceResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="response" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AXCPSGetSalesOrdersSummaryByStatusRequest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="_chainInfo" type="xs:boolean" />
+        <xs:element minOccurs="0" name="_custAccount" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="_endDate" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="_fromDate" type="xs:dateTime" />
+        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/Microsoft.Dynamics.IntegrationFramework.Service" minOccurs="0" name="_period" type="q8:TRLSummaryPeriod" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AXCPSGetSalesOrdersSummaryByStatusResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q9="http://schemas.microsoft.com/dynamics/2006/02/documents/CPSGetSalesOrdersSummaryByStatusResponse" minOccurs="0" ref="q9:CPSGetSalesOrdersSummaryByStatusResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AXCPSGetReturnOrdersRequest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="_chainInfo" type="xs:boolean" />
+        <xs:element minOccurs="0" name="_custAccount" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="_endDate" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="_salesId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="_startDate" type="xs:dateTime" />
+        <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/Microsoft.Dynamics.IntegrationFramework.Service" minOccurs="0" name="_status" type="q10:SalesStatus" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AXCPSGetReturnOrdersResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q11="http://schemas.microsoft.com/dynamics/2006/02/documents/CPSGetReturnOrdersResponse" minOccurs="0" ref="q11:CPSGetReturnOrdersResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AXCPSGetShipManifestDetailsRequest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="_manifestId" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AXCPSGetShipManifestDetailsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q12="http://schemas.microsoft.com/dynamics/2006/02/documents/CPSShipManifestDetailResponse" minOccurs="0" ref="q12:CPSShipManifestDetailResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AXCPSGetInterLayersRequest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="_inventLocationId" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AXCPSGetInterLayersResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q13="http://schemas.microsoft.com/dynamics/2006/02/documents/CPSInterLayerInfoResponse" minOccurs="0" ref="q13:CPSInterLayerInfoResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AXCPSConfigureQuoteLineXMLRequest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="_inventTransID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="_quotationId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="_xml" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AXCPSConfigureQuoteLineXMLResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="response" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AXCPSGetOpenInvoicesCountRequest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="_chainInfo" type="xs:boolean" />
+        <xs:element minOccurs="0" name="_custAccount" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AXCPSGetOpenInvoicesCountResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="response" type="xs:long" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AXCPSGetShipManifestHeadersRequest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="_inventLocationId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="_salesPoolId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="_shippingDate" type="xs:dateTime" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AXCPSGetShipManifestHeadersResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q14="http://schemas.microsoft.com/dynamics/2006/02/documents/CPSShipManifestHeaderResponse" minOccurs="0" ref="q14:CPSShipManifestHeaderResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AXCPSGetSalesOrderDetailsRequest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="_salesId" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AXCPSGetSalesOrderDetailsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q15="http://schemas.microsoft.com/dynamics/2006/02/documents/CPSGetSalesOrderDetailsResponse" minOccurs="0" ref="q15:CPSGetSalesOrderDetailsResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AXCPSConfirmQuotationRequest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="_quotationId" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AXCPSConfirmQuotationResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="response" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AXCPSPostInvoicePackingSlipRequest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="_recId" type="xs:long" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AXCPSPostInvoicePackingSlipResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="response" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AXCPSGetSalesRoutesRequest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="_inventSiteId" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AXCPSGetSalesRoutesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q16="http://schemas.microsoft.com/dynamics/2006/02/documents/CPSSalesPoolResponse" minOccurs="0" ref="q16:CPSSalesPoolResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AXCPSGetCustomersBranchRequest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="_custAccount" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AXCPSGetCustomersBranchResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q17="http://schemas.microsoft.com/dynamics/2006/02/documents/CPSInventSitesResponse" minOccurs="0" ref="q17:CPSInventSitesResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AXCPSAssignCASEToInventTransIDRequest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="_inventBatchId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="_inventTransId" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AXCPSAssignCASEToInventTransIDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="response" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AXCPSGetQuotationDetailsRequest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="_custAccount" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="_quotationId" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AXCPSGetQuotationDetailsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q18="http://schemas.microsoft.com/dynamics/2006/02/documents/CPSGetQuotationDetailsResponse" minOccurs="0" ref="q18:CPSGetQuotationDetailsResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AXCPSGetInvoicesSummaryRequest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="_chainInfo" type="xs:boolean" />
+        <xs:element minOccurs="0" name="_custAccount" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="_endDate" type="xs:dateTime" />
+        <xs:element xmlns:q19="http://schemas.datacontract.org/2004/07/Microsoft.Dynamics.IntegrationFramework.Service" minOccurs="0" name="_period" type="q19:TRLSummaryPeriod" />
+        <xs:element minOccurs="0" name="_startDate" type="xs:dateTime" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AXCPSGetInvoicesSummaryResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q20="http://schemas.microsoft.com/dynamics/2006/02/documents/CPSGetInvoicesSummaryResponse" minOccurs="0" ref="q20:CPSGetInvoicesSummaryResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AXCPSCreateQuoteLineRequest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="_itemID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="_quotationId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="_salesQty" type="xs:double" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AXCPSCreateQuoteLineResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="response" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AXCPSGetCustomerAddressesRequest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="_custAccount" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AXCPSGetCustomerAddressesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q21="http://schemas.microsoft.com/dynamics/2006/02/documents/CPSGetCustomerAddressesResponse" minOccurs="0" ref="q21:CPSGetCustomerAddressesResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AXCPSGetCustomersCountRequest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="_custAccount" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="_custName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="_inventLocationId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="_salesGroup" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AXCPSGetCustomersCountResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="response" type="xs:long" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AXCPSGetCopyPackingSlipRequest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="_custAccount" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="_packingSlipDate" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="_packingSlipId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="_salesOrder" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AXCPSGetCopyPackingSlipResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="response" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AXCPSGetSalesOrderLineConfigRequest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="_inventTransId" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AXCPSGetSalesOrderLineConfigResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q22="http://schemas.microsoft.com/dynamics/2006/02/documents/CPSGetSalesOrderLineConfigResponse" minOccurs="0" ref="q22:CPSGetSalesOrderLineConfigResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AXCPSAddCreditCardTransactionRequest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="_ccAuthorizationCode" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="_custAccount" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="_invoicesList" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AXCPSAddCreditCardTransactionResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="response" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AXCPSGetOpenInvoicesAmountRequest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="_chainInfo" type="xs:boolean" />
+        <xs:element minOccurs="0" name="_custAccount" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AXCPSGetOpenInvoicesAmountResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="response" type="xs:double" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AXCPSGetCustomerArchRackInfoRequest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="_chainInfo" type="xs:boolean" />
+        <xs:element minOccurs="0" name="_custAccount" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AXCPSGetCustomerArchRackInfoResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q23="http://schemas.microsoft.com/dynamics/2006/02/documents/CPSGetArchRackInfoResponse" minOccurs="0" ref="q23:CPSGetArchRackInfoResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AXCPSGetWarehouseEdgeFabRequest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q24="http://schemas.datacontract.org/2004/07/Microsoft.Dynamics.IntegrationFramework.Service" minOccurs="0" name="_archChargeCategoryType" type="q24:ArchChargeCategoryType" />
+        <xs:element minOccurs="0" name="_archThicknessId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="_inventLocationId" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AXCPSGetWarehouseEdgeFabResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q25="http://schemas.microsoft.com/dynamics/2006/02/documents/CPSWarehouseEdgeFabResponse" minOccurs="0" ref="q25:CPSWarehouseEdgeFabResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AXCPSGetCustomersRequest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="_custAccount" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="_custName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="_inventLocationId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="_numberOfRecordsToFetch" type="xs:long" />
+        <xs:element minOccurs="0" name="_salesGroup" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="_startingPosition" type="xs:long" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AXCPSGetCustomersResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q26="http://schemas.microsoft.com/dynamics/2006/02/documents/CPSGetCustomersResponse" minOccurs="0" ref="q26:CPSGetCustomersResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AXCPSGetInRouteSalesOrdersCountRequest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="_chainInfo" type="xs:boolean" />
+        <xs:element minOccurs="0" name="_custAccount" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AXCPSGetInRouteSalesOrdersCountResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="response" type="xs:long" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AXCPSGetQuotationReasonsRequest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="_reasonId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="_reasonName" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AXCPSGetQuotationReasonsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q27="http://schemas.microsoft.com/dynamics/2006/02/documents/CPSSalesQuotationReasonResponse" minOccurs="0" ref="q27:CPSSalesQuotationReasonResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AXCPSGetOpenReturnOrdersCountRequest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="_chainInfo" type="xs:boolean" />
+        <xs:element minOccurs="0" name="_custAccount" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AXCPSGetOpenReturnOrdersCountResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="response" type="xs:long" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AXCPSGetQuotationsRequest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="_chainInfo" type="xs:boolean" />
+        <xs:element minOccurs="0" name="_custAccount" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="_expiryDateFrom" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="_expiryDateTo" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="_quotationId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="_quotationName" nillable="true" type="xs:string" />
+        <xs:element xmlns:q28="http://schemas.datacontract.org/2004/07/Microsoft.Dynamics.IntegrationFramework.Service" minOccurs="0" name="_quotationStatus" type="q28:TRLSalesQuotationStatus" />
+        <xs:element xmlns:q29="http://schemas.datacontract.org/2004/07/Microsoft.Dynamics.IntegrationFramework.Service" minOccurs="0" name="_quotationType" type="q29:TRLQuotationType" />
+        <xs:element minOccurs="0" name="_salesId" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AXCPSGetQuotationsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q30="http://schemas.microsoft.com/dynamics/2006/02/documents/CPSGetQuotationsResponse" minOccurs="0" ref="q30:CPSGetQuotationsResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AXCPSGetCustConfirmInfoRequest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="_custAccount" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="_recId" type="xs:long" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AXCPSGetCustConfirmInfoResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q31="http://schemas.microsoft.com/dynamics/2006/02/documents/CPSCustConfirmInfoResponse" minOccurs="0" ref="q31:CPSCustConfirmInfoResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AXCPSGetPackingSlipDetailsRequest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="_custAccount" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="_packingSlipDate" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="_packingSlipId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="_salesOrder" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AXCPSGetPackingSlipDetailsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q32="http://schemas.microsoft.com/dynamics/2006/02/documents/CPSGetPackingSlipDetailsResponse" minOccurs="0" ref="q32:CPSGetPackingSlipDetailsResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AXCPSRepackPackingSlipRequest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="_linesXML" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="_notes" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="_portalUser" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="_recId" type="xs:long" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AXCPSRepackPackingSlipResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="response" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AXCPSGetCustomerNotificationsRequest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="_chainInfo" type="xs:boolean" />
+        <xs:element minOccurs="0" name="_custAccount" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="_dateFrom" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="_dateTo" type="xs:dateTime" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AXCPSGetCustomerNotificationsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q33="http://schemas.microsoft.com/dynamics/2006/02/documents/CPSCustomerNotificationsResponse" minOccurs="0" ref="q33:CPSCustomerNotificationsResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AXCPSGetCustomerTruliteContactRequest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="_custAccount" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AXCPSGetCustomerTruliteContactResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q34="http://schemas.microsoft.com/dynamics/2006/02/documents/CPSCustomerContact" minOccurs="0" ref="q34:CPSCustomerContact" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AXCPSGenerateTypesRequest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q35="http://schemas.datacontract.org/2004/07/Microsoft.Dynamics.IntegrationFramework.Service" minOccurs="0" name="_lineType" type="q35:TRLInvoiceLineType" />
+        <xs:element xmlns:q36="http://schemas.datacontract.org/2004/07/Microsoft.Dynamics.IntegrationFramework.Service" minOccurs="0" name="_packingSlipLineType" type="q36:TRLPackingSlipLineType" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AXCPSGetCopyPriceLetterRequest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="_custAccount" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AXCPSGetCopyPriceLetterResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="response" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AXCPSGetQuotationLineConfigRequest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="_inventTransId" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AXCPSGetQuotationLineConfigResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q37="http://schemas.microsoft.com/dynamics/2006/02/documents/CPSGetQuotationLineConfigResponse" minOccurs="0" ref="q37:CPSGetQuotationLineConfigResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AXCPSGetReturnOrdersSummaryRequest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="_chainInfo" type="xs:boolean" />
+        <xs:element minOccurs="0" name="_custAccount" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="_endDate" type="xs:dateTime" />
+        <xs:element xmlns:q38="http://schemas.datacontract.org/2004/07/Microsoft.Dynamics.IntegrationFramework.Service" minOccurs="0" name="_period" type="q38:TRLSummaryPeriod" />
+        <xs:element minOccurs="0" name="_startDate" type="xs:dateTime" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AXCPSGetReturnOrdersSummaryResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q39="http://schemas.microsoft.com/dynamics/2006/02/documents/CPSGetReturnOrdersSummaryResponse" minOccurs="0" ref="q39:CPSGetReturnOrdersSummaryResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AXCPSCreateQuoteHeaderRequest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="_custAccount" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="_custPurchaseOrder" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="_custRef" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="_deliveryCity" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="_deliveryName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="_deliveryState" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="_deliveryStreet" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="_deliveryZipCode" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="_inventSiteId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="_shippingDateRequested" type="xs:dateTime" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AXCPSCreateQuoteHeaderResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="response" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AXCPSGetCustomersSalesGroupRequest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="_custAccount" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="_custName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="_inventLocationId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="_numberOfRecordsToFetch" type="xs:long" />
+        <xs:element minOccurs="0" name="_salesGroup" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="_startingPosition" type="xs:long" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AXCPSGetCustomersSalesGroupResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q40="http://schemas.microsoft.com/dynamics/2006/02/documents/CPSGetCustomersResponse" minOccurs="0" ref="q40:CPSGetCustomersResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AXCPSGetSpacersRequest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="_inventLocationId" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AXCPSGetSpacersResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q41="http://schemas.microsoft.com/dynamics/2006/02/documents/CPSSpacerInfoResponse" minOccurs="0" ref="q41:CPSSpacerInfoResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AXCPSGetReturnOrderDetailsRequest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="_salesId" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AXCPSGetReturnOrderDetailsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q42="http://schemas.microsoft.com/dynamics/2006/02/documents/CPSGetReturnOrderDetailsResponse" minOccurs="0" ref="q42:CPSGetReturnOrderDetailsResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AXCPSGetInvoicesRequest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="_chainInfo" type="xs:boolean" />
+        <xs:element minOccurs="0" name="_custAccount" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="_dueDateFrom" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="_dueDateTo" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="_invoiceDateFrom" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="_invoiceDateTo" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="_invoiceId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="_orderId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="_purchaseOrder" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="_returnAllFields" type="xs:boolean" />
+        <xs:element minOccurs="0" name="_salesGroup" nillable="true" type="xs:string" />
+        <xs:element xmlns:q43="http://schemas.datacontract.org/2004/07/Microsoft.Dynamics.IntegrationFramework.Service" minOccurs="0" name="_status" type="q43:TRLInvoiceStatus" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AXCPSGetInvoicesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q44="http://schemas.microsoft.com/dynamics/2006/02/documents/CPSGetInvoicesResponse" minOccurs="0" ref="q44:CPSGetInvoicesResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AXCPSGetInvoiceDetailsRequest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="_chainInfo" type="xs:boolean" />
+        <xs:element minOccurs="0" name="_custAccount" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="_invoiceId" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AXCPSGetInvoiceDetailsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q45="http://schemas.microsoft.com/dynamics/2006/02/documents/CPSGetInvoiceDetailsResponse" minOccurs="0" ref="q45:CPSGetInvoiceDetailsResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AXCPSUpdateCustConfirmInfoRequest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="_communicationTypeId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="_custAccount" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="_email" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="_phone" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="_recId" type="xs:long" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AXCPSUpdateCustConfirmInfoResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="response" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AXCPSGetSalesOrdersSummaryRequest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="_chainInfo" type="xs:boolean" />
+        <xs:element minOccurs="0" name="_custAccount" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="_endDate" type="xs:dateTime" />
+        <xs:element xmlns:q46="http://schemas.datacontract.org/2004/07/Microsoft.Dynamics.IntegrationFramework.Service" minOccurs="0" name="_period" type="q46:TRLSummaryPeriod" />
+        <xs:element minOccurs="0" name="_startDate" type="xs:dateTime" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AXCPSGetSalesOrdersSummaryResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q47="http://schemas.microsoft.com/dynamics/2006/02/documents/CPSGetSalesOrdersSummaryResponse" minOccurs="0" ref="q47:CPSGetSalesOrdersSummaryResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AXCPSPostQuotationUpdateRequest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="_custAccount" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="_expireDate" type="xs:dateTime" />
+        <xs:element xmlns:q48="http://schemas.datacontract.org/2004/07/Microsoft.Dynamics.IntegrationFramework.Service" minOccurs="0" name="_leadTime" type="q48:TRLSalesQuotationLeadTime" />
+        <xs:element minOccurs="0" name="_notes" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="_probability" type="xs:double" />
+        <xs:element minOccurs="0" name="_quotationId" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AXCPSPostQuotationUpdateResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="response" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AXCPSGetCustomerRequest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="_custAccount" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AXCPSGetCustomerResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q49="http://schemas.microsoft.com/dynamics/2006/02/documents/CPSGetCustomer" minOccurs="0" ref="q49:CPSGetCustomer" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AXCPSCreateQuoteLinesRequest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="_custAccount" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="_quotationId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="_xml" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AXCPSCreateQuoteLinesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="response" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AXCPSGetMuntinsRequest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="_inventLocationId" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AXCPSGetMuntinsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q50="http://schemas.microsoft.com/dynamics/2006/02/documents/CPSMuntinInfoResponse" minOccurs="0" ref="q50:CPSMuntinInfoResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AXCPSGetSalesOrdersRequest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="_chainInfo" type="xs:boolean" />
+        <xs:element minOccurs="0" name="_custAccount" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="_endDate" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="_purchaseOrder" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="_salesGroup" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="_salesId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="_startDate" type="xs:dateTime" />
+        <xs:element xmlns:q51="http://schemas.datacontract.org/2004/07/Microsoft.Dynamics.IntegrationFramework.Service" minOccurs="0" name="_status" type="q51:SalesStatus" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AXCPSGetSalesOrdersResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q52="http://schemas.microsoft.com/dynamics/2006/02/documents/CPSGetSalesOrdersResponse" minOccurs="0" ref="q52:CPSGetSalesOrdersResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AXCPSGetCopyConfirmationRequest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="_custAccount" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="_salesId" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AXCPSGetCopyConfirmationResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="response" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AXCPSGetCatalogProductsRequest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="_custAccount" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="_itemId" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AXCPSGetCatalogProductsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q53="http://schemas.microsoft.com/dynamics/2006/02/documents/CPSGetCatalogProductsResponse" minOccurs="0" ref="q53:CPSGetCatalogProductsResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AXCPSDeleteCustConfirmInfoRequest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="_communicationTypeId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="_custAccount" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="_recId" type="xs:long" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AXCPSDeleteCustConfirmInfoResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="response" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AXCPSConfigureQuoteLineRequest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="_inventTransID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="_quotationId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="_values" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="_variables" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AXCPSConfigureQuoteLineResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="response" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AXCPSGetPackingSlipsNotInvoicedRequest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="_chainInfo" type="xs:boolean" />
+        <xs:element minOccurs="0" name="_custAccount" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="_inventLocationId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="_packingSlipDateFrom" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="_packingSlipDateTo" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="_packingSlipId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="_purchaseOrder" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="_salesGroup" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="_salesOrder" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="_salesPoolId" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AXCPSGetPackingSlipsNotInvoicedResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q54="http://schemas.microsoft.com/dynamics/2006/02/documents/CPSGetPackingSlipsResponse" minOccurs="0" ref="q54:CPSGetPackingSlipsResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AXCPSGetQuotationNotesRequest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="_custAccount" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="_quotationId" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AXCPSGetQuotationNotesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q55="http://schemas.microsoft.com/dynamics/2006/02/documents/CPSSalesQuotationNotesResponse" minOccurs="0" ref="q55:CPSSalesQuotationNotesResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AXCPSGetProductRequest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="_itemId" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AXCPSGetProductResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q56="http://schemas.microsoft.com/dynamics/2006/02/documents/CPSGetProduct" minOccurs="0" ref="q56:CPSGetProduct" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

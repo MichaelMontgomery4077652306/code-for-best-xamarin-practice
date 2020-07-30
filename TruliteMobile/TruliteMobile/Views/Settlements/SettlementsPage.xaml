@@ -1,0 +1,263 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage x:Class="TruliteMobile.Views.Settlements.SettlementsPage"
+             xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:components="clr-namespace:TruliteMobile.Components;assembly=TruliteMobile"
+             xmlns:converters1="clr-namespace:TruliteMobile.Converters;assembly=TruliteMobile"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:i18N="clr-namespace:TruliteMobile.i18n;assembly=TruliteMobile"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:services="clr-namespace:TruliteMobile.Services;assembly=TruliteMobile"
+             xmlns:settlements="clr-namespace:TruliteMobile.Views.Settlements;assembly=TruliteMobile"
+             xmlns:xForms="clr-namespace:Syncfusion.SfBusyIndicator.XForms;assembly=Syncfusion.SfBusyIndicator.XForms"
+             Title="{i18N:TranslateExtension Text=Settlements}"
+             x:DataType="settlements:SettlementsPageViewModel"
+             mc:Ignorable="d">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Command="{Binding OpenSettingsCommand}"
+                     IconImageSource="gears.png"
+                     Order="Primary"
+                     Priority="0"
+                     Text="{i18N:TranslateExtension Text=GiveFeedback}" />
+
+    </ContentPage.ToolbarItems>
+    <ContentPage.Content>
+        <Grid x:Name="root"
+              Padding="10,0"
+              Style="{StaticResource RootGrid}">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="AUto" />
+                <RowDefinition Height="AUto" />
+                <RowDefinition Height="AUto" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="AUto" />
+            </Grid.RowDefinitions>
+            <StackLayout Margin="5"
+                         HorizontalOptions="End"
+                         Orientation="Horizontal">
+                <Label Text="{i18N:TranslateExtension Text=SearchFilter}"
+                       TextColor="{DynamicResource FilterHeaderTextColor}" />
+                <Label Style="{StaticResource FilterExpandIconLabel}">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding ToggleFilterCommand}" />
+                    </Label.GestureRecognizers>
+                </Label>
+            </StackLayout>
+            <settlements:SettlementsFilterView Grid.Row="1"
+                                               IsVisible="{Binding ShowFilter}"
+                                               FilterTriggerCommand="{Binding FilterChangeCommand}"
+                                               SearchCommand="{Binding SearchCommand}" />
+            <BoxView Grid.Row="2"
+                     Margin="0,5"
+                     BackgroundColor="{StaticResource DarkPrimaryBlue}"
+                     HeightRequest="1" />
+            <ScrollView Grid.Row="3">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+                    <Frame Padding="5"
+                           VerticalOptions="Start">
+                        <Grid VerticalOptions="Start">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                            </Grid.RowDefinitions>
+                            <components:ExpanderButton ChangeExpandCommand="{Binding TogglePendingCommand}"
+                                                       IsExpanded="{Binding ShowPending}"
+                                                       Text="{i18N:TranslateExtension Text=PendingSettlements}" />
+                            <StackLayout Grid.Row="1"
+                                         BindableLayout.ItemsSource="{Binding PendingList}"
+                                         IsVisible="{Binding ShowPending}">
+                                <BindableLayout.ItemTemplate>
+                                    <DataTemplate x:DataType="services:InvoicePaymentView">
+                                        <Grid Padding="5,5,5,10">
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="Auto" />
+                                                <ColumnDefinition />
+                                                <ColumnDefinition Width="Auto" />
+                                            </Grid.ColumnDefinitions>
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="Auto" />
+                                                <RowDefinition Height="Auto" />
+                                                <RowDefinition Height="Auto" />
+                                                <RowDefinition Height="1" />
+                                            </Grid.RowDefinitions>
+                                            <!--  First Column  -->
+                                            <Label Text="{Binding AXCustomerId}" />
+                                            <Label Grid.Row="1"
+                                                   Text="{Binding CustomerName}" />
+                                            <Label Grid.Row="2"
+                                                   Text="{Binding PaidBy}" />
+                                            <!--  Second Column  -->
+                                            <Label Grid.Column="1"
+                                                   HorizontalTextAlignment="End"
+                                                   Text="{Binding DateCreated, StringFormat='{0:d}'}" />
+                                            <Label Grid.Row="2"
+                                                   Grid.Column="1"
+                                                   HorizontalOptions="End"
+                                                   Text="{Binding InvoiceNumbers, Converter={converters1:InvoiceNumberListToStringConverter}}" />
+                                            <Label Grid.RowSpan="3"
+                                                   Grid.Column="2"
+                                                   FontSize="40"
+                                                   Style="{StaticResource IconLabel}"
+                                                   Text="&#xf054;"
+                                                   TextColor="{StaticResource DarkPrimaryBlue}" />
+                                            <BoxView Grid.Row="3"
+                                                     Grid.ColumnSpan="3"
+                                                     BackgroundColor="{StaticResource DarkPrimaryBlue}" />
+                                            <BoxView Grid.RowSpan="3"
+                                                     Grid.ColumnSpan="3"
+                                                     BackgroundColor="Transparent">
+                                                <BoxView.GestureRecognizers>
+                                                    <TapGestureRecognizer Command="{Binding BindingContext.ViewPendingReceiptCommand, Source={x:Reference root}}"
+                                                                          CommandParameter="{Binding .}" />
+                                                </BoxView.GestureRecognizers>
+                                            </BoxView>
+                                        </Grid>
+                                    </DataTemplate>
+                                </BindableLayout.ItemTemplate>
+                            </StackLayout>
+                            <components:NoResultsView Grid.Row="1"
+                                                      IsVisible="{Binding ShowNoPendingResults}" />
+                        </Grid>
+                    </Frame>
+                    <Frame Grid.Row="1"
+                           Padding="5"
+                           VerticalOptions="Start">
+                        <Grid VerticalOptions="Start">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                            </Grid.RowDefinitions>
+                            <components:ExpanderButton ChangeExpandCommand="{Binding ToggleCompletedCommand}"
+                                                       IsExpanded="{Binding ShowCompleted}"
+                                                       Text="{i18N:TranslateExtension Text=CompletedECheckCreditCard}" />
+
+                            <StackLayout Grid.Row="1"
+                                         BindableLayout.ItemsSource="{Binding Completed}"
+                                         IsVisible="{Binding ShowCompleted}">
+                                <BindableLayout.ItemTemplate>
+                                    <DataTemplate x:DataType="services:InvoicePaymentView">
+                                        <Grid Padding="5,5,5,10">
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="Auto" />
+                                                <ColumnDefinition />
+                                                <ColumnDefinition Width="Auto" />
+                                            </Grid.ColumnDefinitions>
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="Auto" />
+                                                <RowDefinition Height="Auto" />
+                                                <RowDefinition Height="Auto" />
+                                                <RowDefinition Height="1" />
+                                            </Grid.RowDefinitions>
+                                            <!--  First Column  -->
+                                            <Label Text="{Binding AXCustomerId}" />
+                                            <Label Grid.Row="1"
+                                                   Text="{Binding CustomerName}" />
+                                            <Label Grid.Row="2"
+                                                   Text="{Binding PaidBy}" />
+                                            <!--  Second Column  -->
+                                            <Label Grid.Column="1"
+                                                   HorizontalTextAlignment="End"
+                                                   Text="{Binding DateCreated, StringFormat='{0:d}'}" />
+                                            <Label Grid.Row="2"
+                                                   Grid.Column="1"
+                                                   HorizontalOptions="End"
+                                                   Text="{Binding InvoiceNumbers, Converter={converters1:InvoiceNumberListToStringConverter}}" />
+                                            <Label Grid.RowSpan="3"
+                                                   Grid.Column="2"
+                                                   FontSize="40"
+                                                   Style="{StaticResource IconLabel}"
+                                                   Text="&#xf054;"
+                                                   TextColor="{StaticResource DarkPrimaryBlue}" />
+                                            <BoxView Grid.Row="3"
+                                                     Grid.ColumnSpan="3"
+                                                     BackgroundColor="{StaticResource DarkPrimaryBlue}" />
+                                            <BoxView Grid.RowSpan="3"
+                                                     Grid.ColumnSpan="3"
+                                                     BackgroundColor="Transparent">
+                                                <BoxView.GestureRecognizers>
+                                                    <TapGestureRecognizer Command="{Binding BindingContext.ViewSettledReceiptCommand, Source={x:Reference root}}"
+                                                                          CommandParameter="{Binding .}" />
+                                                </BoxView.GestureRecognizers>
+                                            </BoxView>
+                                        </Grid>
+                                    </DataTemplate>
+                                </BindableLayout.ItemTemplate>
+                            </StackLayout>
+
+                            <components:NoResultsView Grid.Row="1"
+                                                      IsVisible="{Binding ShowNoCompletedResults}" />
+                        </Grid>
+                    </Frame>
+
+                    <Frame Grid.Row="2"
+                           Padding="5"
+                           VerticalOptions="Start">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                            </Grid.RowDefinitions>
+                            <components:ExpanderButton ChangeExpandCommand="{Binding ToggleSettledCommand}"
+                                                       IsExpanded="{Binding ShowSettled}"
+                                                       Text="{i18N:TranslateExtension Text=Settlements}" />
+
+                            <StackLayout Grid.Row="1"
+                                         BindableLayout.ItemsSource="{Binding SettledList}"
+                                         IsVisible="{Binding ShowSettled}">
+                                <BindableLayout.ItemTemplate>
+                                    <DataTemplate x:DataType="services:InvoiceSettlement">
+                                        <Grid Padding="5,5,5,10">
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="Auto" />
+                                                <ColumnDefinition />
+                                                <ColumnDefinition Width="Auto" />
+                                            </Grid.ColumnDefinitions>
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="Auto" />
+                                                <RowDefinition Height="Auto" />
+                                                <RowDefinition Height="Auto" />
+                                                <RowDefinition Height="1" />
+                                            </Grid.RowDefinitions>
+                                            <!--  First Column  -->
+                                            <Label Text="{Binding CustomerId}" />
+                                            <Label Grid.Row="1"
+                                                   Text="{Binding CustomerName}" />
+                                            <Label Grid.Row="2"
+                                                   Text="{Binding SettlementTransactionText}" />
+                                            <!--  Second Column  -->
+                                            <Label Grid.Column="1"
+                                                   HorizontalTextAlignment="End"
+                                                   Text="{Binding TransactionDate, StringFormat='{0:d}'}" />
+                                            <Label Grid.Row="1"
+                                                   Grid.Column="1"
+                                                   HorizontalOptions="End"
+                                                   Text="{Binding SettlementAmount}" />
+                                            <Label Grid.Row="2"
+                                                   Grid.Column="1"
+                                                   HorizontalOptions="End"
+                                                   Text="{Binding InvoiceId}" />
+                                            <BoxView Grid.Row="3"
+                                                     Grid.ColumnSpan="3"
+                                                     BackgroundColor="{StaticResource DarkPrimaryBlue}" />
+
+                                        </Grid>
+                                    </DataTemplate>
+                                </BindableLayout.ItemTemplate>
+                            </StackLayout>
+
+                            <components:NoResultsView Grid.Row="1"
+                                                      IsVisible="{Binding ShowNoSettledResults}" />
+                        </Grid>
+                    </Frame>
+                </Grid>
+            </ScrollView>
+
+            <xForms:SfBusyIndicator Grid.Row="1" />
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

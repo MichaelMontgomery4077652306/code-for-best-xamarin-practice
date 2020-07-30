@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xsd:schema xmlns="http://schemas.microsoft.com/dynamics/2006/02/documents/CPSCustConfirmInfo" elementFormDefault="qualified" targetNamespace="http://schemas.microsoft.com/dynamics/2006/02/documents/CPSCustConfirmInfo" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <xsd:element name="CPSCustConfirmInfo" type="CPSCustConfirmInfo" />
+  <xsd:complexType name="CPSCustConfirmInfo">
+    <xsd:sequence>
+      <xsd:element name="CommunicationTypeId" type="xsd:string" />
+      <xsd:element name="Email" type="xsd:string" />
+      <xsd:element name="Phone" type="xsd:string" />
+      <xsd:element name="RecId" type="xsd:string" />
+    </xsd:sequence>
+  </xsd:complexType>
+</xsd:schema>

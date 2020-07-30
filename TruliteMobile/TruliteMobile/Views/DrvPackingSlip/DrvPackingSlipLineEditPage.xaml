@@ -1,0 +1,175 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:infrastructure="clr-namespace:XamarinUniversity.Infrastructure;assembly=XamU.Infrastructure"
+             xmlns:drvPackingSlip="clr-namespace:TruliteMobile.Views.DrvPackingSlip;assembly=TruliteMobile"
+             xmlns:components="clr-namespace:TruliteMobile.Components;assembly=TruliteMobile"
+             xmlns:services="clr-namespace:TruliteMobile.Services;assembly=TruliteMobile"
+             xmlns:i18N="clr-namespace:TruliteMobile.i18n;assembly=TruliteMobile"
+             mc:Ignorable="d"
+             Title="{Binding Title}"
+             x:DataType="drvPackingSlip:DrvPackingSlipLineEditPageViewModel"
+             x:Class="TruliteMobile.Views.DrvPackingSlip.DrvPackingSlipLineEditPage">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Order="Primary"
+                     IconImageSource="gears.png"
+                     Text="{i18N:TranslateExtension Text=GiveFeedback}"
+                     Command="{Binding OpenSettingsCommand}"
+                     Priority="0" />
+    </ContentPage.ToolbarItems>
+    <ContentPage.Content>
+        <ScrollView>
+            <Grid Padding="10"
+                  Style="{StaticResource RootGrid}"
+                  x:Name="root">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition  Height="Auto" />
+                    <RowDefinition  Height="Auto" />
+                    <RowDefinition  Height="Auto" />
+                    <RowDefinition  Height="Auto" />
+                    <RowDefinition  Height="Auto" />
+                    <RowDefinition  Height="Auto" />
+                    <RowDefinition  Height="*" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+                <Label Grid.Row="0"
+                       Text="{i18N:TranslateExtension Text=LineNum, Suffix=':'}" />
+                <Label Grid.Row="0"
+                       Grid.Column="1"
+                       Text="{Binding Line.Key}" />
+                <Label Grid.Row="1"
+                       Text="{i18N:TranslateExtension Text=QuantityOrdered, Suffix=':'}" />
+                <Label Grid.Row="1"
+                       Grid.Column="1"
+                       Text="{Binding  Line.QuantityOrdered, StringFormat='{0:N2}'}" />
+                <Label Grid.Row="2"
+                       Text="{i18N:TranslateExtension Text=Unit, Suffix=':'}" />
+                <Label Grid.Row="2"
+                       Grid.Column="1"
+                       Text="{Binding  Line.Unit}" />
+                <Label Grid.Row="3"
+                       Text="{i18N:TranslateExtension Text=WorkOrder, Suffix=':'}" />
+                <Label Grid.Row="3"
+                       Grid.Column="1"
+                       Text="{Binding  Line.WorkOrder}" />
+                <Label Grid.Row="4"
+                       Text="{i18N:TranslateExtension Text=Safety, Suffix=':'}" />
+                <Image  Grid.Column="1"
+                        Grid.Row="4"
+                        HeightRequest="30"
+                        WidthRequest="30"
+                        HorizontalOptions="Start"
+                        VerticalOptions="Center">
+                    <Image.Triggers>
+                        <DataTrigger TargetType="Image"
+                                     Binding="{Binding SafetyIndicator}"
+                                     Value="Two Man Lift">
+                            <Setter Property="Source"
+                                    Value="TwoPersonLiftBlack.png" />
+                        </DataTrigger>
+                        <DataTrigger TargetType="Image"
+                                     Binding="{Binding  SafetyIndicator}"
+                                     Value="Machine Lift">
+                            <Setter Property="Source"
+                                    Value="MachineLiftBlack.png" />
+                        </DataTrigger>
+                    </Image.Triggers>
+                </Image>
+                <Label Grid.Row="5"
+                       Text="{i18N:TranslateExtension Text=DescriptionOfItems, Suffix=':'}" />
+                <Label Grid.Row="6"
+                       Grid.ColumnSpan="2"
+                       Margin="10,2,0,5"
+                       LineBreakMode="WordWrap"
+                       Text="{Binding  Line.Description}" />
+                <Label Grid.Row="7"
+                       Text="{i18N:TranslateExtension Text=QuantityShipped, Suffix=':'}" />
+                <Label Grid.Row="7"
+                       Grid.Column="1"
+                       Text="{Binding  Line.ShippedQuantity}" />
+
+                <Label Grid.Row="8"
+                       Text="{i18N:TranslateExtension Text=DeliveredQuantity, Suffix=':'}" />
+                <Picker Grid.Row="8"
+                        ItemsSource="{Binding QuantityList}"
+                        SelectedItem="{Binding  SelectedDeliveredQuantity}"
+                        Grid.Column="1">
+                    <Picker.Behaviors>
+                        <infrastructure:EventToCommandBehavior EventName="SelectedIndexChanged"
+                                                               Command="{Binding QuantityChangedCommand}" />
+                    </Picker.Behaviors>
+                </Picker>
+                <components:ActionButtonView Text="{i18N:TranslateExtension Text=AddReason}"
+                                             Grid.Row="9"
+                                             Grid.ColumnSpan="2"
+                                             BackgroundColor="{StaticResource PrimaryBlue}"
+                                             IconText="&#xf067;"
+                                             TappedCommand="{Binding AddReasonCommand}" />
+                <Grid Grid.Row="10"
+                      Grid.ColumnSpan="2">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition />
+                        <ColumnDefinition />
+                        <ColumnDefinition />
+                        <ColumnDefinition Width="30" />
+                    </Grid.ColumnDefinitions>
+                    <Label Text="{i18N:TranslateExtension Text=Quantity}" />
+                    <Label Text="{i18N:TranslateExtension Text=Action}"
+                           Grid.Column="1" />
+                    <Label Text="{i18N:TranslateExtension Text=Readon}"
+                           Grid.Column="2" />
+                </Grid>
+
+                <StackLayout Grid.Row="11"
+                             Grid.ColumnSpan="2"
+                             BindableLayout.ItemsSource="{Binding PackReasonList}">
+                    <BindableLayout.ItemTemplate>
+                        <DataTemplate x:DataType="drvPackingSlip:PackReasonEventArgs">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition />
+                                    <ColumnDefinition />
+                                    <ColumnDefinition />
+                                    <ColumnDefinition Width="30" />
+                                </Grid.ColumnDefinitions>
+                                <Label Text="{Binding Quantity}" />
+                                <Label Text="{Binding Action.Name}"
+                                       Grid.Column="1" />
+                                <Label Text="{Binding Reason.Name}"
+                                       Grid.Column="2" />
+                                <Label Grid.Column="3"
+                                       Text="&#xf2ed;"
+                                       Style="{StaticResource IconLabel}">
+                                    <Label.GestureRecognizers>
+                                        <TapGestureRecognizer Command="{Binding BindingContext.DeleteReasonCommand, Source={x:Reference root}}"
+                                                              CommandParameter="{Binding .}" />
+                                    </Label.GestureRecognizers>
+                                </Label>
+                            </Grid>
+                        </DataTemplate>
+                    </BindableLayout.ItemTemplate>
+                </StackLayout>
+                <!--Popup-->
+                <drvPackingSlip:DrvPackingSlipIssueView Grid.ColumnSpan="2"
+                                                        Quantity="{Binding AvailableQuantity}"
+                                                        ClosePopupCommand="{Binding ClosePopupCommand}"
+                                                        SubmitCommand="{Binding SubmitPopupCommand}"
+                                                        IsVisible="{Binding ShowPopup}"
+                                                        Grid.RowSpan="13" />
+
+            </Grid>
+        </ScrollView>
+
+    </ContentPage.Content>
+</ContentPage>

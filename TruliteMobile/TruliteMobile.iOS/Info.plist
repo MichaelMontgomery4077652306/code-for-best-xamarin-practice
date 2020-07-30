@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>UIDeviceFamily</key>
+	<array>
+		<integer>1</integer>
+	</array>
+	<key>UISupportedInterfaceOrientations</key>
+	<array>
+		<string>UIInterfaceOrientationPortrait</string>
+	</array>
+	<key>MinimumOSVersion</key>
+	<string>9.0</string>
+	<key>CFBundleDisplayName</key>
+	<string>Trulite Mobile</string>
+	<key>CFBundleIdentifier</key>
+	<string>com.trulite.mobile</string>
+	<key>UILaunchStoryboardName</key>
+	<string>LaunchScreen</string>
+	<key>CFBundleName</key>
+	<string>TruliteMobile</string>
+	<key>UIAppFonts</key>
+	<array>
+		<string>FontAwesome5BrandsRegular.otf</string>
+		<string>FontAwesome5Regular.otf</string>
+		<string>FontAwesome5Solid.otf</string>
+	</array>
+	<key>NSCalendarsUsageDescription</key>
+	<string>Needs Calendar Permission</string>
+	<key>NSLocationAlwaysUsageDescription</key>
+	<string>Trulite needs access to your location</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>Trulite needs access to your location</string>
+	<key>UIBackgroundModes</key>
+	<array>
+		<string>remote-notification</string>
+	</array>
+	<key>XSAppIconAssets</key>
+	<string>Assets.xcassets/AppIcon.appiconset</string>
+	<key>NSCameraUsageDescription</key>
+	<string>Trulite needs access to the camera to take photos that are attached to issue reports.</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>Trulite needs access to photos that are attached to issue reports.</string>
+	<key>NSMicrophoneUsageDescription</key>
+	<string>Trulite needs access to microphone.</string>
+	<key>NSPhotoLibraryAddUsageDescription</key>
+	<string>Trulite app needs access to the photo gallery to be able to attach photo to issue reports.</string>
+	<key>CFBundleVersion</key>
+	<string>0.1160</string>
+	<key>CFBundleShortVersionString</key>
+	<string>0.116</string>
+</dict>
+</plist>

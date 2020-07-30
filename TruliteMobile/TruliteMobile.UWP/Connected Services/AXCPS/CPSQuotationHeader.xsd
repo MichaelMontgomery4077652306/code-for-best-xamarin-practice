@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xsd:schema xmlns="http://schemas.microsoft.com/dynamics/2006/02/documents/CPSQuotationHeader" elementFormDefault="qualified" targetNamespace="http://schemas.microsoft.com/dynamics/2006/02/documents/CPSQuotationHeader" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <xsd:element name="CPSQuotationHeader" type="CPSQuotationHeader" />
+  <xsd:complexType name="CPSQuotationHeader">
+    <xsd:sequence>
+      <xsd:element name="QuotationId" type="xsd:string" />
+      <xsd:element name="Contact" type="xsd:string" />
+      <xsd:element name="Status" type="xsd:string" />
+      <xsd:element name="Type" type="xsd:string" />
+      <xsd:element name="SalesOrder" type="xsd:string" />
+      <xsd:element name="ExpiryDate" type="xsd:string" />
+      <xsd:element name="QuotationName" type="xsd:string" />
+      <xsd:element name="DeliveryName" type="xsd:string" />
+      <xsd:element name="DeliveryAddress" type="xsd:string" />
+      <xsd:element name="ConfirmDate" type="xsd:string" />
+      <xsd:element name="ShippingDateRequested" type="xsd:string" />
+      <xsd:element name="ReceiptDateRequested" type="xsd:string" />
+      <xsd:element name="CurrencyCode" type="xsd:string" />
+      <xsd:element name="LinesQty" type="xsd:string" />
+      <xsd:element name="CustAccount" type="xsd:string" />
+      <xsd:element name="CustName" type="xsd:string" />
+      <xsd:element name="CustomerRef" type="xsd:string" />
+      <xsd:element name="InventLocationId" type="xsd:string" />
+      <xsd:element name="CustPurchaseOrder" type="xsd:string" />
+      <xsd:element name="InventLocationName" type="xsd:string" />
+      <xsd:element name="CustPaymTermId" type="xsd:string" />
+    </xsd:sequence>
+  </xsd:complexType>
+</xsd:schema>

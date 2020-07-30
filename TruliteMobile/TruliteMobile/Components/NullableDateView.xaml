@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="TruliteMobile.Components.NullableDateView">
+    <ContentView.Content>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition Width="Auto" />
+            </Grid.ColumnDefinitions>
+            <Label HorizontalOptions="StartAndExpand"
+                   x:Name="lb1"
+                   Text="{Binding Date, StringFormat='{0:d}'}">
+            </Label>
+            <Label Text="Select"
+                   x:Name="lbPlaceholder"
+                   TextColor="Gray"
+                   HorizontalTextAlignment="Center"
+                   IsVisible="True" />
+            <BoxView BackgroundColor="Transparent">
+                <BoxView.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped" />
+                </BoxView.GestureRecognizers>
+            </BoxView>
+            <Label Style="{StaticResource IconLabel}"
+                   BackgroundColor="Transparent"
+                   Text="&#xf00d;"
+                   FontSize="24"
+                   Margin="0,10"
+                   IsVisible="False"
+                   x:Name="clearIcon"
+                   TextColor="Black"
+                   Grid.Column="1">
+                <Label.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="Clear_Tapped" />
+                </Label.GestureRecognizers>
+            </Label>
+        </Grid>
+    </ContentView.Content>
+</ContentView>

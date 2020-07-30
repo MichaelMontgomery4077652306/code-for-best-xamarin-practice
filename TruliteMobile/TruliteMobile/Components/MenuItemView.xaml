@@ -1,0 +1,117 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentView
+    x:Class="TruliteMobile.Components.MenuItemView"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:components="clr-namespace:TruliteMobile.Components;assembly=TruliteMobile"
+    xmlns:converters="clr-namespace:XamarinUniversity.Converters;assembly=XamU.Infrastructure"
+    xmlns:converters1="clr-namespace:TruliteMobile.Converters;assembly=TruliteMobile"
+    xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:views="clr-namespace:TruliteMobile.Views;assembly=TruliteMobile"
+    BackgroundColor="{DynamicResource BackgroundColor}"
+    mc:Ignorable="d">
+    <ContentView.Content>
+        <StackLayout x:Name="ctrRoot">
+            <Grid Padding="15,10" IsVisible="{Binding Item.IsSeparator, Converter={converters:NotBooleanConverter}}">
+                <Grid.RowDefinitions>
+                    <RowDefinition />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="30" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+                <Label
+                    FontSize="Medium"
+                    Style="{DynamicResource IconLabel}"
+                    Text="{Binding Item.IconText}" />
+                <Image
+                    HeightRequest="25"
+                    HorizontalOptions="Center"
+                    Source="{Binding Item.Icon}"
+                    VerticalOptions="Center"
+                    WidthRequest="25" />
+
+                <Label
+                    Grid.Column="1"
+                    FontSize="Large"
+                    Text="{Binding Item.Title}"
+                    TextColor="{DynamicResource DefaultTextColor}"
+                    VerticalOptions="FillAndExpand"
+                    VerticalTextAlignment="Center">
+                    <Label.Triggers>
+                        <DataTrigger
+                            Binding="{Binding IsExpanded}"
+                            TargetType="Label"
+                            Value="True">
+                            <Setter Property="TextColor" Value="{StaticResource DarkPrimaryBlue}" />
+                        </DataTrigger>
+                    </Label.Triggers>
+                </Label>
+                <Grid
+                    Grid.Column="1"
+                    Grid.ColumnSpan="2"
+                    Margin="5,0"
+                    HeightRequest="30"
+                    HorizontalOptions="End"
+                    IsVisible="{Binding Item.HasExtraInfo}"
+                    VerticalOptions="Center">
+                    <BoxView
+                        BackgroundColor="{Binding Item.NotificationBalloonColor}"
+                        CornerRadius="15"
+                        IsVisible="{Binding Item.ExtraInfo, Converter={converters1:NotNullEmptyToVisibleConverter}}" />
+
+                    <Label
+                        Margin="10,0"
+                        FontSize="Small"
+                        HorizontalOptions="Center"
+                        IsVisible="{Binding IsBusy, Converter={converters:NotBooleanConverter}}"
+                        Text="{Binding Item.ExtraInfo}"
+                        TextColor="White"
+                        VerticalOptions="Center" />
+                    <Label
+                        IsVisible="{Binding IsBusy}"
+                        Style="{StaticResource IconLabel}"
+                        Text="&#xf021;" />
+                </Grid>
+                <StackLayout
+                    Grid.Row="1"
+                    Grid.Column="1"
+                    Grid.ColumnSpan="2"
+                    BindableLayout.ItemsSource="{Binding Item.SubMenuList}"
+                    IsVisible="{Binding IsExpanded}">
+                    <BindableLayout.ItemTemplate>
+                        <DataTemplate x:DataType="views:MenuItemModel">
+                            <Grid>
+                                <Label
+                                    Margin="20,0,0,0"
+                                    FontSize="Large"
+                                    Text="{Binding Title}"
+                                    TextColor="{DynamicResource DefaultTextColor}">
+                                    <Label.GestureRecognizers>
+                                        <TapGestureRecognizer Command="{Binding BindingContext.SubmenuSelectedCommand, Source={x:Reference ctrRoot}}" CommandParameter="{Binding .}" />
+                                    </Label.GestureRecognizers>
+                                </Label>
+                            </Grid>
+                        </DataTemplate>
+                    </BindableLayout.ItemTemplate>
+                </StackLayout>
+
+                <BoxView Grid.ColumnSpan="3" BackgroundColor="Transparent">
+                    <BoxView.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped" />
+                    </BoxView.GestureRecognizers>
+                </BoxView>
+
+            </Grid>
+            <BoxView
+                Margin="0,5"
+                BackgroundColor="{StaticResource PrimaryGray}"
+                HeightRequest="1"
+                IsVisible="{Binding Item.IsSeparator}"
+                VerticalOptions="End" />
+        </StackLayout>
+    </ContentView.Content>
+</ContentView>

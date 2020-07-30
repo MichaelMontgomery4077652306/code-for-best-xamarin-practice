@@ -1,0 +1,504 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProjectGuid>{A5CD1CA0-D05A-4C25-B812-BA223E08806F}</ProjectGuid>
+    <OutputType>AppContainerExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>TruliteMobile.UWP</RootNamespace>
+    <AssemblyName>TruliteMobile.UWP</AssemblyName>
+    <DefaultLanguage>en-US</DefaultLanguage>
+    <TargetPlatformIdentifier>UAP</TargetPlatformIdentifier>
+    <TargetPlatformVersion>10.0.18362.0</TargetPlatformVersion>
+    <TargetPlatformMinVersion>10.0.17134.0</TargetPlatformMinVersion>
+    <MinimumVisualStudioVersion>14</MinimumVisualStudioVersion>
+    <EnableDotNetNativeCompatibleProfile>true</EnableDotNetNativeCompatibleProfile>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{A5A43C5B-DE2A-4C0C-9213-0A381AF9435A};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <PackageCertificateKeyFile>TruliteMobile.UWP_TemporaryKey.pfx</PackageCertificateKeyFile>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|ARM'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\ARM\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>full</DebugType>
+    <PlatformTarget>ARM</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|ARM'">
+    <OutputPath>bin\ARM\Release\</OutputPath>
+    <DefineConstants>TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
+    <Optimize>true</Optimize>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>ARM</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+    <UseDotNetNativeToolchain>true</UseDotNetNativeToolchain>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x64\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <OutputPath>bin\x64\Release\</OutputPath>
+    <DefineConstants>TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
+    <Optimize>true</Optimize>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+    <UseDotNetNativeToolchain>true</UseDotNetNativeToolchain>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
+    <Optimize>true</Optimize>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+    <UseDotNetNativeToolchain>true</UseDotNetNativeToolchain>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Connected Services\AXCPS\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="MainPage.xaml.cs">
+      <DependentUpon>MainPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PlatformSpecific\FileHelper.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ResourceManager.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <AppxManifest Include="Package.appxmanifest">
+      <SubType>Designer</SubType>
+    </AppxManifest>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="add.png" />
+    <Content Include="Assets\LargeTile.scale-100.png" />
+    <Content Include="Assets\LargeTile.scale-125.png" />
+    <Content Include="Assets\LargeTile.scale-150.png" />
+    <Content Include="Assets\LargeTile.scale-200.png" />
+    <Content Include="Assets\LargeTile.scale-400.png" />
+    <Content Include="Assets\SmallTile.scale-100.png" />
+    <Content Include="Assets\SmallTile.scale-125.png" />
+    <Content Include="Assets\SmallTile.scale-150.png" />
+    <Content Include="Assets\SmallTile.scale-200.png" />
+    <Content Include="Assets\SmallTile.scale-400.png" />
+    <Content Include="Assets\SplashScreen.scale-100.png" />
+    <Content Include="Assets\SplashScreen.scale-125.png" />
+    <Content Include="Assets\SplashScreen.scale-150.png" />
+    <Content Include="Assets\SplashScreen.scale-200.png" />
+    <Content Include="Assets\SplashScreen.scale-400.png" />
+    <Content Include="Assets\Square150x150Logo.scale-100.png" />
+    <Content Include="Assets\Square150x150Logo.scale-125.png" />
+    <Content Include="Assets\Square150x150Logo.scale-150.png" />
+    <Content Include="Assets\Square150x150Logo.scale-200.png" />
+    <Content Include="Assets\Square150x150Logo.scale-400.png" />
+    <Content Include="Assets\Square44x44Logo.altform-unplated_targetsize-16.png" />
+    <Content Include="Assets\Square44x44Logo.altform-unplated_targetsize-24.png" />
+    <Content Include="Assets\Square44x44Logo.altform-unplated_targetsize-256.png" />
+    <Content Include="Assets\Square44x44Logo.altform-unplated_targetsize-32.png" />
+    <Content Include="Assets\Square44x44Logo.altform-unplated_targetsize-48.png" />
+    <Content Include="Assets\Square44x44Logo.scale-100.png" />
+    <Content Include="Assets\Square44x44Logo.scale-125.png" />
+    <Content Include="Assets\Square44x44Logo.scale-150.png" />
+    <Content Include="Assets\Square44x44Logo.scale-200.png" />
+    <Content Include="Assets\Square44x44Logo.scale-400.png" />
+    <Content Include="Assets\Square44x44Logo.targetsize-16.png" />
+    <Content Include="Assets\Square44x44Logo.targetsize-24.png" />
+    <Content Include="Assets\Square44x44Logo.targetsize-256.png" />
+    <Content Include="Assets\Square44x44Logo.targetsize-32.png" />
+    <Content Include="Assets\Square44x44Logo.targetsize-48.png" />
+    <Content Include="Assets\StoreLogo.scale-100.png" />
+    <Content Include="Assets\StoreLogo.scale-125.png" />
+    <Content Include="Assets\StoreLogo.scale-150.png" />
+    <Content Include="Assets\StoreLogo.scale-200.png" />
+    <Content Include="Assets\StoreLogo.scale-400.png" />
+    <Content Include="Assets\Wide310x150Logo.scale-100.png" />
+    <Content Include="Assets\Wide310x150Logo.scale-125.png" />
+    <Content Include="Assets\Wide310x150Logo.scale-150.png" />
+    <Content Include="Assets\Wide310x150Logo.scale-200.png" />
+    <Content Include="Assets\Wide310x150Logo.scale-400.png" />
+    <Content Include="gears.png" />
+    <BundleResource Include="refresh.png" />
+    <Content Include="TwoPersonLiftBlack.png" />
+    <Content Include="TwoPersonLiftWhite.png" />
+    <Content Include="WhiteTruliteLogo.png" />
+    <None Include="Connected Services\AXCPS\configuration91.svcinfo" />
+    <None Include="Connected Services\AXCPS\configuration.svcinfo" />
+    <None Include="Connected Services\AXCPS\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <Content Include="comments.png" />
+    <Content Include="logoSmall.png" />
+    <Content Include="MachineLiftBlack.png" />
+    <Content Include="MachineLiftWhite.png" />
+    <Content Include="trueliteLogo.png" />
+    <Content Include="Assets\FontAwesome5Brands.otf" />
+    <Content Include="Assets\FontAwesome5Solid.otf" />
+    <Content Include="Assets\FontAwesome5Regular.otf" />
+    <None Include="Connected Services\AXCPS\AXCPS.wsdl" />
+    <None Include="Connected Services\AXCPS\axcps.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\AXCPS\axcps1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\AXCPS\axcps10.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\AXCPS\axcps11.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\AXCPS\axcps12.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\AXCPS\axcps13.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\AXCPS\axcps14.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\AXCPS\axcps15.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\AXCPS\axcps16.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\AXCPS\axcps17.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\AXCPS\axcps18.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\AXCPS\axcps19.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\AXCPS\axcps2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\AXCPS\axcps20.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\AXCPS\axcps21.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\AXCPS\axcps22.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\AXCPS\axcps23.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\AXCPS\axcps24.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\AXCPS\axcps25.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\AXCPS\axcps26.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\AXCPS\axcps27.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\AXCPS\axcps28.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\AXCPS\axcps29.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\AXCPS\axcps3.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\AXCPS\axcps30.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\AXCPS\axcps31.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\AXCPS\axcps32.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\AXCPS\axcps33.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\AXCPS\axcps34.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\AXCPS\axcps35.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\AXCPS\axcps36.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\AXCPS\axcps37.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\AXCPS\axcps38.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\AXCPS\axcps39.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\AXCPS\axcps4.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\AXCPS\axcps40.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\AXCPS\axcps41.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\AXCPS\axcps5.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\AXCPS\axcps6.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\AXCPS\axcps7.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\AXCPS\axcps8.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\AXCPS\axcps9.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\AXCPS\CPSArchRackInfo.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\AXCPS\CPSCatalogProduct.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\AXCPS\CPSCustConfirmInfo.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\AXCPS\CPSCustomer.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\AXCPS\CPSCustomerAddress.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\AXCPS\CPSCustomerNotifications.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\AXCPS\CPSInterLayerInfo.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\AXCPS\CPSInventSite.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\AXCPS\CPSInvoiceHeader.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\AXCPS\CPSInvoiceLine.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\AXCPS\CPSInvoiceSummary.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\AXCPS\CPSMuntinInfo.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\AXCPS\CPSPackingSlipHeader.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\AXCPS\CPSPackingSlipLine.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\AXCPS\CPSProduct.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\AXCPS\CPSQuotationHeader.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\AXCPS\CPSQuotationLine.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\AXCPS\CPSQuotationLineConfig.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\AXCPS\CPSReturnOrderHeader.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\AXCPS\CPSReturnOrderLine.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\AXCPS\CPSReturnOrderSummary.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\AXCPS\CPSSalesOrderHeader.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\AXCPS\CPSSalesOrderLine.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\AXCPS\CPSSalesOrderLineConfig.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\AXCPS\CPSSalesOrdersSummaryByStatus.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\AXCPS\CPSSalesOrderSummary.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\AXCPS\CPSSalesPool.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\AXCPS\CPSSalesQuotationInquiry.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\AXCPS\CPSSalesQuotationNotes.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\AXCPS\CPSSalesQuotationReason.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\AXCPS\CPSShipManifestDetail.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\AXCPS\CPSShipManifestHeader.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\AXCPS\CPSSpacerInfo.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\AXCPS\CPSWarehouseEdgeFab.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <Content Include="Properties\Default.rd.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Page Include="MainPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Microcharts">
+      <Version>0.7.1</Version>
+    </PackageReference>
+    <PackageReference Include="Microcharts.Forms">
+      <Version>0.7.1</Version>
+    </PackageReference>
+    <PackageReference Include="Microsoft.AppCenter">
+      <Version>2.6.4</Version>
+    </PackageReference>
+    <PackageReference Include="Microsoft.AppCenter.Analytics">
+      <Version>2.6.4</Version>
+    </PackageReference>
+    <PackageReference Include="Microsoft.AppCenter.Crashes">
+      <Version>2.6.4</Version>
+    </PackageReference>
+    <PackageReference Include="MvvmLightLibsStd10">
+      <Version>5.4.1.1</Version>
+    </PackageReference>
+    <PackageReference Include="Newtonsoft.Json">
+      <Version>12.0.3</Version>
+    </PackageReference>
+    <PackageReference Include="Plugin.Permissions">
+      <Version>3.0.0.12</Version>
+    </PackageReference>
+    <PackageReference Include="Syncfusion.Xamarin.Buttons">
+      <Version>17.2.0.41</Version>
+    </PackageReference>
+    <PackageReference Include="Syncfusion.Xamarin.SfBusyIndicator">
+      <Version>17.2.0.40</Version>
+    </PackageReference>
+    <PackageReference Include="Syncfusion.Xamarin.SfChart">
+      <Version>17.2.0.34</Version>
+    </PackageReference>
+    <PackageReference Include="Syncfusion.Xamarin.SfPdfViewer">
+      <Version>17.2.0.34</Version>
+    </PackageReference>
+    <PackageReference Include="System.Threading.Tasks.Extensions">
+      <Version>4.5.3</Version>
+    </PackageReference>
+    <PackageReference Include="Xam.Plugin.Media">
+      <Version>4.0.1.5</Version>
+    </PackageReference>
+    <PackageReference Include="Xam.Plugins.DownloadManager">
+      <Version>1.4.0</Version>
+    </PackageReference>
+    <PackageReference Include="Xamarin.Controls.SignaturePad.Forms">
+      <Version>3.0.0</Version>
+    </PackageReference>
+    <PackageReference Include="Xamarin.Forms" Version="4.4.0.991640" />
+    <PackageReference Include="Microsoft.NETCore.UniversalWindowsPlatform" Version="6.2.9" />
+    <PackageReference Include="Xamarin.Essentials" Version="1.3.1" />
+    <PackageReference Include="Xamarin.Plugin.FilePicker">
+      <Version>2.1.34</Version>
+    </PackageReference>
+    <PackageReference Include="XamarinUniversity.Core">
+      <Version>2.2.0</Version>
+    </PackageReference>
+    <PackageReference Include="XamarinUniversity.Infrastructure">
+      <Version>2.2.0</Version>
+    </PackageReference>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\TruliteMobile\TruliteMobile.csproj">
+      <Project>{B0D8BE8C-8C08-4ABC-92D1-B3A16E24B90D}</Project>
+      <Name>TruliteMobile</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\ServiceReferences.Designer.ClientConfig" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Connected Services\AXCPS\" />
+  </ItemGroup>
+  <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
+    <VisualStudioVersion>14.0</VisualStudioVersion>
+  </PropertyGroup>
+  <Import Project="$(MSBuildExtensionsPath)\Microsoft\WindowsXaml\v$(VisualStudioVersion)\Microsoft.Windows.UI.Xaml.CSharp.targets" />
+</Project>

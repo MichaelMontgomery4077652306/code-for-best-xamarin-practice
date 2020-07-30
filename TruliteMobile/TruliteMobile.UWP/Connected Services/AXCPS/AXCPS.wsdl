@@ -1,0 +1,1885 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="AXCPS" targetNamespace="http://tempuri.org" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsp:Policy wsu:Id="BasicHttpBinding_AXCPS_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <http:NegotiateAuthentication xmlns:http="http://schemas.microsoft.com/ws/06/2004/policy/http" />
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://tru-devaos.archaluminum.local/MicrosoftDynamicsAXAif50/axcps.svc?xsd=xsd0" namespace="http://tempuri.org" />
+      <xsd:import schemaLocation="http://tru-devaos.archaluminum.local/MicrosoftDynamicsAXAif50/axcps.svc?xsd=xsd2" namespace="http://schemas.microsoft.com/dynamics/2008/01/documents/Fault" />
+      <xsd:import schemaLocation="http://tru-devaos.archaluminum.local/MicrosoftDynamicsAXAif50/axcps.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://tru-devaos.archaluminum.local/MicrosoftDynamicsAXAif50/axcps.svc?xsd=xsd3" namespace="http://schemas.microsoft.com/dynamics/2006/02/documents/CPSGetPackingSlipsResponse" />
+      <xsd:import schemaLocation="http://tru-devaos.archaluminum.local/MicrosoftDynamicsAXAif50/axcps.svc?xsd=xsd4" />
+      <xsd:import schemaLocation="http://tru-devaos.archaluminum.local/MicrosoftDynamicsAXAif50/axcps.svc?xsd=xsd5" namespace="http://schemas.microsoft.com/dynamics/2006/02/documents/CPSGetCustomersResponse" />
+      <xsd:import schemaLocation="http://tru-devaos.archaluminum.local/MicrosoftDynamicsAXAif50/axcps.svc?xsd=xsd6" namespace="http://schemas.datacontract.org/2004/07/Microsoft.Dynamics.IntegrationFramework.Service" />
+      <xsd:import schemaLocation="http://tru-devaos.archaluminum.local/MicrosoftDynamicsAXAif50/axcps.svc?xsd=xsd7" namespace="http://schemas.microsoft.com/dynamics/2006/02/documents/CPSSalesQuotationInquiryResponse" />
+      <xsd:import schemaLocation="http://tru-devaos.archaluminum.local/MicrosoftDynamicsAXAif50/axcps.svc?xsd=xsd8" namespace="http://schemas.microsoft.com/dynamics/2006/02/documents/CPSProductsResponse" />
+      <xsd:import schemaLocation="http://tru-devaos.archaluminum.local/MicrosoftDynamicsAXAif50/axcps.svc?xsd=xsd9" namespace="http://schemas.microsoft.com/dynamics/2006/02/documents/CPSGetSalesOrdersSummaryByStatusResponse" />
+      <xsd:import schemaLocation="http://tru-devaos.archaluminum.local/MicrosoftDynamicsAXAif50/axcps.svc?xsd=xsd10" namespace="http://schemas.microsoft.com/dynamics/2006/02/documents/CPSGetReturnOrdersResponse" />
+      <xsd:import schemaLocation="http://tru-devaos.archaluminum.local/MicrosoftDynamicsAXAif50/axcps.svc?xsd=xsd11" namespace="http://schemas.microsoft.com/dynamics/2006/02/documents/CPSShipManifestDetailResponse" />
+      <xsd:import schemaLocation="http://tru-devaos.archaluminum.local/MicrosoftDynamicsAXAif50/axcps.svc?xsd=xsd12" namespace="http://schemas.microsoft.com/dynamics/2006/02/documents/CPSInterLayerInfoResponse" />
+      <xsd:import schemaLocation="http://tru-devaos.archaluminum.local/MicrosoftDynamicsAXAif50/axcps.svc?xsd=xsd13" namespace="http://schemas.microsoft.com/dynamics/2006/02/documents/CPSShipManifestHeaderResponse" />
+      <xsd:import schemaLocation="http://tru-devaos.archaluminum.local/MicrosoftDynamicsAXAif50/axcps.svc?xsd=xsd14" namespace="http://schemas.microsoft.com/dynamics/2006/02/documents/CPSGetSalesOrderDetailsResponse" />
+      <xsd:import schemaLocation="http://tru-devaos.archaluminum.local/MicrosoftDynamicsAXAif50/axcps.svc?xsd=xsd15" namespace="http://schemas.microsoft.com/dynamics/2006/02/documents/CPSSalesPoolResponse" />
+      <xsd:import schemaLocation="http://tru-devaos.archaluminum.local/MicrosoftDynamicsAXAif50/axcps.svc?xsd=xsd16" namespace="http://schemas.microsoft.com/dynamics/2006/02/documents/CPSInventSitesResponse" />
+      <xsd:import schemaLocation="http://tru-devaos.archaluminum.local/MicrosoftDynamicsAXAif50/axcps.svc?xsd=xsd17" namespace="http://schemas.microsoft.com/dynamics/2006/02/documents/CPSGetQuotationDetailsResponse" />
+      <xsd:import schemaLocation="http://tru-devaos.archaluminum.local/MicrosoftDynamicsAXAif50/axcps.svc?xsd=xsd18" namespace="http://schemas.microsoft.com/dynamics/2006/02/documents/CPSGetInvoicesSummaryResponse" />
+      <xsd:import schemaLocation="http://tru-devaos.archaluminum.local/MicrosoftDynamicsAXAif50/axcps.svc?xsd=xsd19" namespace="http://schemas.microsoft.com/dynamics/2006/02/documents/CPSGetCustomerAddressesResponse" />
+      <xsd:import schemaLocation="http://tru-devaos.archaluminum.local/MicrosoftDynamicsAXAif50/axcps.svc?xsd=xsd20" namespace="http://schemas.microsoft.com/dynamics/2006/02/documents/CPSGetSalesOrderLineConfigResponse" />
+      <xsd:import schemaLocation="http://tru-devaos.archaluminum.local/MicrosoftDynamicsAXAif50/axcps.svc?xsd=xsd21" namespace="http://schemas.microsoft.com/dynamics/2006/02/documents/CPSGetArchRackInfoResponse" />
+      <xsd:import schemaLocation="http://tru-devaos.archaluminum.local/MicrosoftDynamicsAXAif50/axcps.svc?xsd=xsd22" namespace="http://schemas.microsoft.com/dynamics/2006/02/documents/CPSWarehouseEdgeFabResponse" />
+      <xsd:import schemaLocation="http://tru-devaos.archaluminum.local/MicrosoftDynamicsAXAif50/axcps.svc?xsd=xsd23" namespace="http://schemas.microsoft.com/dynamics/2006/02/documents/CPSSalesQuotationReasonResponse" />
+      <xsd:import schemaLocation="http://tru-devaos.archaluminum.local/MicrosoftDynamicsAXAif50/axcps.svc?xsd=xsd24" namespace="http://schemas.microsoft.com/dynamics/2006/02/documents/CPSGetQuotationsResponse" />
+      <xsd:import schemaLocation="http://tru-devaos.archaluminum.local/MicrosoftDynamicsAXAif50/axcps.svc?xsd=xsd25" namespace="http://schemas.microsoft.com/dynamics/2006/02/documents/CPSCustConfirmInfoResponse" />
+      <xsd:import schemaLocation="http://tru-devaos.archaluminum.local/MicrosoftDynamicsAXAif50/axcps.svc?xsd=xsd26" namespace="http://schemas.microsoft.com/dynamics/2006/02/documents/CPSGetPackingSlipDetailsResponse" />
+      <xsd:import schemaLocation="http://tru-devaos.archaluminum.local/MicrosoftDynamicsAXAif50/axcps.svc?xsd=xsd27" namespace="http://schemas.microsoft.com/dynamics/2006/02/documents/CPSCustomerNotificationsResponse" />
+      <xsd:import schemaLocation="http://tru-devaos.archaluminum.local/MicrosoftDynamicsAXAif50/axcps.svc?xsd=xsd28" namespace="http://schemas.microsoft.com/dynamics/2006/02/documents/CPSCustomerContact" />
+      <xsd:import schemaLocation="http://tru-devaos.archaluminum.local/MicrosoftDynamicsAXAif50/axcps.svc?xsd=xsd29" namespace="http://schemas.microsoft.com/dynamics/2006/02/documents/CPSGetQuotationLineConfigResponse" />
+      <xsd:import schemaLocation="http://tru-devaos.archaluminum.local/MicrosoftDynamicsAXAif50/axcps.svc?xsd=xsd30" namespace="http://schemas.microsoft.com/dynamics/2006/02/documents/CPSGetReturnOrdersSummaryResponse" />
+      <xsd:import schemaLocation="http://tru-devaos.archaluminum.local/MicrosoftDynamicsAXAif50/axcps.svc?xsd=xsd31" namespace="http://schemas.microsoft.com/dynamics/2006/02/documents/CPSSpacerInfoResponse" />
+      <xsd:import schemaLocation="http://tru-devaos.archaluminum.local/MicrosoftDynamicsAXAif50/axcps.svc?xsd=xsd32" namespace="http://schemas.microsoft.com/dynamics/2006/02/documents/CPSGetReturnOrderDetailsResponse" />
+      <xsd:import schemaLocation="http://tru-devaos.archaluminum.local/MicrosoftDynamicsAXAif50/axcps.svc?xsd=xsd33" namespace="http://schemas.microsoft.com/dynamics/2006/02/documents/CPSGetInvoicesResponse" />
+      <xsd:import schemaLocation="http://tru-devaos.archaluminum.local/MicrosoftDynamicsAXAif50/axcps.svc?xsd=xsd34" namespace="http://schemas.microsoft.com/dynamics/2006/02/documents/CPSGetInvoiceDetailsResponse" />
+      <xsd:import schemaLocation="http://tru-devaos.archaluminum.local/MicrosoftDynamicsAXAif50/axcps.svc?xsd=xsd35" namespace="http://schemas.microsoft.com/dynamics/2006/02/documents/CPSGetSalesOrdersSummaryResponse" />
+      <xsd:import schemaLocation="http://tru-devaos.archaluminum.local/MicrosoftDynamicsAXAif50/axcps.svc?xsd=xsd36" namespace="http://schemas.microsoft.com/dynamics/2006/02/documents/CPSGetCustomer" />
+      <xsd:import schemaLocation="http://tru-devaos.archaluminum.local/MicrosoftDynamicsAXAif50/axcps.svc?xsd=xsd37" namespace="http://schemas.microsoft.com/dynamics/2006/02/documents/CPSMuntinInfoResponse" />
+      <xsd:import schemaLocation="http://tru-devaos.archaluminum.local/MicrosoftDynamicsAXAif50/axcps.svc?xsd=xsd38" namespace="http://schemas.microsoft.com/dynamics/2006/02/documents/CPSGetSalesOrdersResponse" />
+      <xsd:import schemaLocation="http://tru-devaos.archaluminum.local/MicrosoftDynamicsAXAif50/axcps.svc?xsd=xsd39" namespace="http://schemas.microsoft.com/dynamics/2006/02/documents/CPSGetCatalogProductsResponse" />
+      <xsd:import schemaLocation="http://tru-devaos.archaluminum.local/MicrosoftDynamicsAXAif50/axcps.svc?xsd=xsd40" namespace="http://schemas.microsoft.com/dynamics/2006/02/documents/CPSSalesQuotationNotesResponse" />
+      <xsd:import schemaLocation="http://tru-devaos.archaluminum.local/MicrosoftDynamicsAXAif50/axcps.svc?xsd=xsd41" namespace="http://schemas.microsoft.com/dynamics/2006/02/documents/CPSGetProduct" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="AXCPSGetConfigureQuoteLineXMLRequest">
+    <wsdl:part name="parameters" element="tns:AXCPSGetConfigureQuoteLineXMLRequest" />
+  </wsdl:message>
+  <wsdl:message name="AXCPSGetConfigureQuoteLineXMLResponse">
+    <wsdl:part name="parameters" element="tns:AXCPSGetConfigureQuoteLineXMLResponse" />
+  </wsdl:message>
+  <wsdl:message name="AXCPS_GetConfigureQuoteLineXML_AifFaultFault_FaultMessage">
+    <wsdl:part xmlns:q1="http://schemas.microsoft.com/dynamics/2008/01/documents/Fault" name="detail" element="q1:AifFault" />
+  </wsdl:message>
+  <wsdl:message name="AXCPSAddCustConfirmInfoRequest">
+    <wsdl:part name="parameters" element="tns:AXCPSAddCustConfirmInfoRequest" />
+  </wsdl:message>
+  <wsdl:message name="AXCPSAddCustConfirmInfoResponse">
+    <wsdl:part name="parameters" element="tns:AXCPSAddCustConfirmInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="AXCPS_AddCustConfirmInfo_AifFaultFault_FaultMessage">
+    <wsdl:part xmlns:q2="http://schemas.microsoft.com/dynamics/2008/01/documents/Fault" name="detail" element="q2:AifFault" />
+  </wsdl:message>
+  <wsdl:message name="AXCPSLostQuotationRequest">
+    <wsdl:part name="parameters" element="tns:AXCPSLostQuotationRequest" />
+  </wsdl:message>
+  <wsdl:message name="AXCPSLostQuotationResponse">
+    <wsdl:part name="parameters" element="tns:AXCPSLostQuotationResponse" />
+  </wsdl:message>
+  <wsdl:message name="AXCPS_LostQuotation_AifFaultFault_FaultMessage">
+    <wsdl:part xmlns:q3="http://schemas.microsoft.com/dynamics/2008/01/documents/Fault" name="detail" element="q3:AifFault" />
+  </wsdl:message>
+  <wsdl:message name="AXCPSGetPackingSlipsRequest">
+    <wsdl:part name="parameters" element="tns:AXCPSGetPackingSlipsRequest" />
+  </wsdl:message>
+  <wsdl:message name="AXCPSGetPackingSlipsResponse">
+    <wsdl:part name="parameters" element="tns:AXCPSGetPackingSlipsResponse" />
+  </wsdl:message>
+  <wsdl:message name="AXCPS_GetPackingSlips_AifFaultFault_FaultMessage">
+    <wsdl:part xmlns:q4="http://schemas.microsoft.com/dynamics/2008/01/documents/Fault" name="detail" element="q4:AifFault" />
+  </wsdl:message>
+  <wsdl:message name="AXCPSGetCustomerAccountsRequest">
+    <wsdl:part name="parameters" element="tns:AXCPSGetCustomerAccountsRequest" />
+  </wsdl:message>
+  <wsdl:message name="AXCPSGetCustomerAccountsResponse">
+    <wsdl:part name="parameters" element="tns:AXCPSGetCustomerAccountsResponse" />
+  </wsdl:message>
+  <wsdl:message name="AXCPS_GetCustomerAccounts_AifFaultFault_FaultMessage">
+    <wsdl:part xmlns:q5="http://schemas.microsoft.com/dynamics/2008/01/documents/Fault" name="detail" element="q5:AifFault" />
+  </wsdl:message>
+  <wsdl:message name="AXCPSGetCopyQuotationRequest">
+    <wsdl:part name="parameters" element="tns:AXCPSGetCopyQuotationRequest" />
+  </wsdl:message>
+  <wsdl:message name="AXCPSGetCopyQuotationResponse">
+    <wsdl:part name="parameters" element="tns:AXCPSGetCopyQuotationResponse" />
+  </wsdl:message>
+  <wsdl:message name="AXCPS_GetCopyQuotation_AifFaultFault_FaultMessage">
+    <wsdl:part xmlns:q6="http://schemas.microsoft.com/dynamics/2008/01/documents/Fault" name="detail" element="q6:AifFault" />
+  </wsdl:message>
+  <wsdl:message name="AXCPSGetOpenSalesOrdersCountRequest">
+    <wsdl:part name="parameters" element="tns:AXCPSGetOpenSalesOrdersCountRequest" />
+  </wsdl:message>
+  <wsdl:message name="AXCPSGetOpenSalesOrdersCountResponse">
+    <wsdl:part name="parameters" element="tns:AXCPSGetOpenSalesOrdersCountResponse" />
+  </wsdl:message>
+  <wsdl:message name="AXCPS_GetOpenSalesOrdersCount_AifFaultFault_FaultMessage">
+    <wsdl:part xmlns:q7="http://schemas.microsoft.com/dynamics/2008/01/documents/Fault" name="detail" element="q7:AifFault" />
+  </wsdl:message>
+  <wsdl:message name="AXCPSGetSalesQuotationInquiryRequest">
+    <wsdl:part name="parameters" element="tns:AXCPSGetSalesQuotationInquiryRequest" />
+  </wsdl:message>
+  <wsdl:message name="AXCPSGetSalesQuotationInquiryResponse">
+    <wsdl:part name="parameters" element="tns:AXCPSGetSalesQuotationInquiryResponse" />
+  </wsdl:message>
+  <wsdl:message name="AXCPS_GetSalesQuotationInquiry_AifFaultFault_FaultMessage">
+    <wsdl:part xmlns:q8="http://schemas.microsoft.com/dynamics/2008/01/documents/Fault" name="detail" element="q8:AifFault" />
+  </wsdl:message>
+  <wsdl:message name="AXCPSGetCustAccountStatementRequest">
+    <wsdl:part name="parameters" element="tns:AXCPSGetCustAccountStatementRequest" />
+  </wsdl:message>
+  <wsdl:message name="AXCPSGetCustAccountStatementResponse">
+    <wsdl:part name="parameters" element="tns:AXCPSGetCustAccountStatementResponse" />
+  </wsdl:message>
+  <wsdl:message name="AXCPS_GetCustAccountStatement_AifFaultFault_FaultMessage">
+    <wsdl:part xmlns:q9="http://schemas.microsoft.com/dynamics/2008/01/documents/Fault" name="detail" element="q9:AifFault" />
+  </wsdl:message>
+  <wsdl:message name="AXCPSGetStockedProductsRequest">
+    <wsdl:part name="parameters" element="tns:AXCPSGetStockedProductsRequest" />
+  </wsdl:message>
+  <wsdl:message name="AXCPSGetStockedProductsResponse">
+    <wsdl:part name="parameters" element="tns:AXCPSGetStockedProductsResponse" />
+  </wsdl:message>
+  <wsdl:message name="AXCPS_GetStockedProducts_AifFaultFault_FaultMessage">
+    <wsdl:part xmlns:q10="http://schemas.microsoft.com/dynamics/2008/01/documents/Fault" name="detail" element="q10:AifFault" />
+  </wsdl:message>
+  <wsdl:message name="AXCPSGetMonolithicProductsRequest">
+    <wsdl:part name="parameters" element="tns:AXCPSGetMonolithicProductsRequest" />
+  </wsdl:message>
+  <wsdl:message name="AXCPSGetMonolithicProductsResponse">
+    <wsdl:part name="parameters" element="tns:AXCPSGetMonolithicProductsResponse" />
+  </wsdl:message>
+  <wsdl:message name="AXCPS_GetMonolithicProducts_AifFaultFault_FaultMessage">
+    <wsdl:part xmlns:q11="http://schemas.microsoft.com/dynamics/2008/01/documents/Fault" name="detail" element="q11:AifFault" />
+  </wsdl:message>
+  <wsdl:message name="AXCPSGetCopyInvoiceRequest">
+    <wsdl:part name="parameters" element="tns:AXCPSGetCopyInvoiceRequest" />
+  </wsdl:message>
+  <wsdl:message name="AXCPSGetCopyInvoiceResponse">
+    <wsdl:part name="parameters" element="tns:AXCPSGetCopyInvoiceResponse" />
+  </wsdl:message>
+  <wsdl:message name="AXCPS_GetCopyInvoice_AifFaultFault_FaultMessage">
+    <wsdl:part xmlns:q12="http://schemas.microsoft.com/dynamics/2008/01/documents/Fault" name="detail" element="q12:AifFault" />
+  </wsdl:message>
+  <wsdl:message name="AXCPSGetSalesOrdersSummaryByStatusRequest">
+    <wsdl:part name="parameters" element="tns:AXCPSGetSalesOrdersSummaryByStatusRequest" />
+  </wsdl:message>
+  <wsdl:message name="AXCPSGetSalesOrdersSummaryByStatusResponse">
+    <wsdl:part name="parameters" element="tns:AXCPSGetSalesOrdersSummaryByStatusResponse" />
+  </wsdl:message>
+  <wsdl:message name="AXCPS_GetSalesOrdersSummaryByStatus_AifFaultFault_FaultMessage">
+    <wsdl:part xmlns:q13="http://schemas.microsoft.com/dynamics/2008/01/documents/Fault" name="detail" element="q13:AifFault" />
+  </wsdl:message>
+  <wsdl:message name="AXCPSGetReturnOrdersRequest">
+    <wsdl:part name="parameters" element="tns:AXCPSGetReturnOrdersRequest" />
+  </wsdl:message>
+  <wsdl:message name="AXCPSGetReturnOrdersResponse">
+    <wsdl:part name="parameters" element="tns:AXCPSGetReturnOrdersResponse" />
+  </wsdl:message>
+  <wsdl:message name="AXCPS_GetReturnOrders_AifFaultFault_FaultMessage">
+    <wsdl:part xmlns:q14="http://schemas.microsoft.com/dynamics/2008/01/documents/Fault" name="detail" element="q14:AifFault" />
+  </wsdl:message>
+  <wsdl:message name="AXCPSGetShipManifestDetailsRequest">
+    <wsdl:part name="parameters" element="tns:AXCPSGetShipManifestDetailsRequest" />
+  </wsdl:message>
+  <wsdl:message name="AXCPSGetShipManifestDetailsResponse">
+    <wsdl:part name="parameters" element="tns:AXCPSGetShipManifestDetailsResponse" />
+  </wsdl:message>
+  <wsdl:message name="AXCPS_GetShipManifestDetails_AifFaultFault_FaultMessage">
+    <wsdl:part xmlns:q15="http://schemas.microsoft.com/dynamics/2008/01/documents/Fault" name="detail" element="q15:AifFault" />
+  </wsdl:message>
+  <wsdl:message name="AXCPSGetInterLayersRequest">
+    <wsdl:part name="parameters" element="tns:AXCPSGetInterLayersRequest" />
+  </wsdl:message>
+  <wsdl:message name="AXCPSGetInterLayersResponse">
+    <wsdl:part name="parameters" element="tns:AXCPSGetInterLayersResponse" />
+  </wsdl:message>
+  <wsdl:message name="AXCPS_GetInterLayers_AifFaultFault_FaultMessage">
+    <wsdl:part xmlns:q16="http://schemas.microsoft.com/dynamics/2008/01/documents/Fault" name="detail" element="q16:AifFault" />
+  </wsdl:message>
+  <wsdl:message name="AXCPSConfigureQuoteLineXMLRequest">
+    <wsdl:part name="parameters" element="tns:AXCPSConfigureQuoteLineXMLRequest" />
+  </wsdl:message>
+  <wsdl:message name="AXCPSConfigureQuoteLineXMLResponse">
+    <wsdl:part name="parameters" element="tns:AXCPSConfigureQuoteLineXMLResponse" />
+  </wsdl:message>
+  <wsdl:message name="AXCPS_ConfigureQuoteLineXML_AifFaultFault_FaultMessage">
+    <wsdl:part xmlns:q17="http://schemas.microsoft.com/dynamics/2008/01/documents/Fault" name="detail" element="q17:AifFault" />
+  </wsdl:message>
+  <wsdl:message name="AXCPSGetOpenInvoicesCountRequest">
+    <wsdl:part name="parameters" element="tns:AXCPSGetOpenInvoicesCountRequest" />
+  </wsdl:message>
+  <wsdl:message name="AXCPSGetOpenInvoicesCountResponse">
+    <wsdl:part name="parameters" element="tns:AXCPSGetOpenInvoicesCountResponse" />
+  </wsdl:message>
+  <wsdl:message name="AXCPS_GetOpenInvoicesCount_AifFaultFault_FaultMessage">
+    <wsdl:part xmlns:q18="http://schemas.microsoft.com/dynamics/2008/01/documents/Fault" name="detail" element="q18:AifFault" />
+  </wsdl:message>
+  <wsdl:message name="AXCPSGetShipManifestHeadersRequest">
+    <wsdl:part name="parameters" element="tns:AXCPSGetShipManifestHeadersRequest" />
+  </wsdl:message>
+  <wsdl:message name="AXCPSGetShipManifestHeadersResponse">
+    <wsdl:part name="parameters" element="tns:AXCPSGetShipManifestHeadersResponse" />
+  </wsdl:message>
+  <wsdl:message name="AXCPS_GetShipManifestHeaders_AifFaultFault_FaultMessage">
+    <wsdl:part xmlns:q19="http://schemas.microsoft.com/dynamics/2008/01/documents/Fault" name="detail" element="q19:AifFault" />
+  </wsdl:message>
+  <wsdl:message name="AXCPSGetSalesOrderDetailsRequest">
+    <wsdl:part name="parameters" element="tns:AXCPSGetSalesOrderDetailsRequest" />
+  </wsdl:message>
+  <wsdl:message name="AXCPSGetSalesOrderDetailsResponse">
+    <wsdl:part name="parameters" element="tns:AXCPSGetSalesOrderDetailsResponse" />
+  </wsdl:message>
+  <wsdl:message name="AXCPS_GetSalesOrderDetails_AifFaultFault_FaultMessage">
+    <wsdl:part xmlns:q20="http://schemas.microsoft.com/dynamics/2008/01/documents/Fault" name="detail" element="q20:AifFault" />
+  </wsdl:message>
+  <wsdl:message name="AXCPSConfirmQuotationRequest">
+    <wsdl:part name="parameters" element="tns:AXCPSConfirmQuotationRequest" />
+  </wsdl:message>
+  <wsdl:message name="AXCPSConfirmQuotationResponse">
+    <wsdl:part name="parameters" element="tns:AXCPSConfirmQuotationResponse" />
+  </wsdl:message>
+  <wsdl:message name="AXCPS_ConfirmQuotation_AifFaultFault_FaultMessage">
+    <wsdl:part xmlns:q21="http://schemas.microsoft.com/dynamics/2008/01/documents/Fault" name="detail" element="q21:AifFault" />
+  </wsdl:message>
+  <wsdl:message name="AXCPSPostInvoicePackingSlipRequest">
+    <wsdl:part name="parameters" element="tns:AXCPSPostInvoicePackingSlipRequest" />
+  </wsdl:message>
+  <wsdl:message name="AXCPSPostInvoicePackingSlipResponse">
+    <wsdl:part name="parameters" element="tns:AXCPSPostInvoicePackingSlipResponse" />
+  </wsdl:message>
+  <wsdl:message name="AXCPS_PostInvoicePackingSlip_AifFaultFault_FaultMessage">
+    <wsdl:part xmlns:q22="http://schemas.microsoft.com/dynamics/2008/01/documents/Fault" name="detail" element="q22:AifFault" />
+  </wsdl:message>
+  <wsdl:message name="AXCPSGetSalesRoutesRequest">
+    <wsdl:part name="parameters" element="tns:AXCPSGetSalesRoutesRequest" />
+  </wsdl:message>
+  <wsdl:message name="AXCPSGetSalesRoutesResponse">
+    <wsdl:part name="parameters" element="tns:AXCPSGetSalesRoutesResponse" />
+  </wsdl:message>
+  <wsdl:message name="AXCPS_GetSalesRoutes_AifFaultFault_FaultMessage">
+    <wsdl:part xmlns:q23="http://schemas.microsoft.com/dynamics/2008/01/documents/Fault" name="detail" element="q23:AifFault" />
+  </wsdl:message>
+  <wsdl:message name="AXCPSGetCustomersBranchRequest">
+    <wsdl:part name="parameters" element="tns:AXCPSGetCustomersBranchRequest" />
+  </wsdl:message>
+  <wsdl:message name="AXCPSGetCustomersBranchResponse">
+    <wsdl:part name="parameters" element="tns:AXCPSGetCustomersBranchResponse" />
+  </wsdl:message>
+  <wsdl:message name="AXCPS_GetCustomersBranch_AifFaultFault_FaultMessage">
+    <wsdl:part xmlns:q24="http://schemas.microsoft.com/dynamics/2008/01/documents/Fault" name="detail" element="q24:AifFault" />
+  </wsdl:message>
+  <wsdl:message name="AXCPSAssignCASEToInventTransIDRequest">
+    <wsdl:part name="parameters" element="tns:AXCPSAssignCASEToInventTransIDRequest" />
+  </wsdl:message>
+  <wsdl:message name="AXCPSAssignCASEToInventTransIDResponse">
+    <wsdl:part name="parameters" element="tns:AXCPSAssignCASEToInventTransIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="AXCPS_AssignCASEToInventTransID_AifFaultFault_FaultMessage">
+    <wsdl:part xmlns:q25="http://schemas.microsoft.com/dynamics/2008/01/documents/Fault" name="detail" element="q25:AifFault" />
+  </wsdl:message>
+  <wsdl:message name="AXCPSGetQuotationDetailsRequest">
+    <wsdl:part name="parameters" element="tns:AXCPSGetQuotationDetailsRequest" />
+  </wsdl:message>
+  <wsdl:message name="AXCPSGetQuotationDetailsResponse">
+    <wsdl:part name="parameters" element="tns:AXCPSGetQuotationDetailsResponse" />
+  </wsdl:message>
+  <wsdl:message name="AXCPS_GetQuotationDetails_AifFaultFault_FaultMessage">
+    <wsdl:part xmlns:q26="http://schemas.microsoft.com/dynamics/2008/01/documents/Fault" name="detail" element="q26:AifFault" />
+  </wsdl:message>
+  <wsdl:message name="AXCPSGetInvoicesSummaryRequest">
+    <wsdl:part name="parameters" element="tns:AXCPSGetInvoicesSummaryRequest" />
+  </wsdl:message>
+  <wsdl:message name="AXCPSGetInvoicesSummaryResponse">
+    <wsdl:part name="parameters" element="tns:AXCPSGetInvoicesSummaryResponse" />
+  </wsdl:message>
+  <wsdl:message name="AXCPS_GetInvoicesSummary_AifFaultFault_FaultMessage">
+    <wsdl:part xmlns:q27="http://schemas.microsoft.com/dynamics/2008/01/documents/Fault" name="detail" element="q27:AifFault" />
+  </wsdl:message>
+  <wsdl:message name="AXCPSCreateQuoteLineRequest">
+    <wsdl:part name="parameters" element="tns:AXCPSCreateQuoteLineRequest" />
+  </wsdl:message>
+  <wsdl:message name="AXCPSCreateQuoteLineResponse">
+    <wsdl:part name="parameters" element="tns:AXCPSCreateQuoteLineResponse" />
+  </wsdl:message>
+  <wsdl:message name="AXCPS_CreateQuoteLine_AifFaultFault_FaultMessage">
+    <wsdl:part xmlns:q28="http://schemas.microsoft.com/dynamics/2008/01/documents/Fault" name="detail" element="q28:AifFault" />
+  </wsdl:message>
+  <wsdl:message name="AXCPSGetCustomerAddressesRequest">
+    <wsdl:part name="parameters" element="tns:AXCPSGetCustomerAddressesRequest" />
+  </wsdl:message>
+  <wsdl:message name="AXCPSGetCustomerAddressesResponse">
+    <wsdl:part name="parameters" element="tns:AXCPSGetCustomerAddressesResponse" />
+  </wsdl:message>
+  <wsdl:message name="AXCPS_GetCustomerAddresses_AifFaultFault_FaultMessage">
+    <wsdl:part xmlns:q29="http://schemas.microsoft.com/dynamics/2008/01/documents/Fault" name="detail" element="q29:AifFault" />
+  </wsdl:message>
+  <wsdl:message name="AXCPSGetCustomersCountRequest">
+    <wsdl:part name="parameters" element="tns:AXCPSGetCustomersCountRequest" />
+  </wsdl:message>
+  <wsdl:message name="AXCPSGetCustomersCountResponse">
+    <wsdl:part name="parameters" element="tns:AXCPSGetCustomersCountResponse" />
+  </wsdl:message>
+  <wsdl:message name="AXCPS_GetCustomersCount_AifFaultFault_FaultMessage">
+    <wsdl:part xmlns:q30="http://schemas.microsoft.com/dynamics/2008/01/documents/Fault" name="detail" element="q30:AifFault" />
+  </wsdl:message>
+  <wsdl:message name="AXCPSGetCopyPackingSlipRequest">
+    <wsdl:part name="parameters" element="tns:AXCPSGetCopyPackingSlipRequest" />
+  </wsdl:message>
+  <wsdl:message name="AXCPSGetCopyPackingSlipResponse">
+    <wsdl:part name="parameters" element="tns:AXCPSGetCopyPackingSlipResponse" />
+  </wsdl:message>
+  <wsdl:message name="AXCPS_GetCopyPackingSlip_AifFaultFault_FaultMessage">
+    <wsdl:part xmlns:q31="http://schemas.microsoft.com/dynamics/2008/01/documents/Fault" name="detail" element="q31:AifFault" />
+  </wsdl:message>
+  <wsdl:message name="AXCPSGetSalesOrderLineConfigRequest">
+    <wsdl:part name="parameters" element="tns:AXCPSGetSalesOrderLineConfigRequest" />
+  </wsdl:message>
+  <wsdl:message name="AXCPSGetSalesOrderLineConfigResponse">
+    <wsdl:part name="parameters" element="tns:AXCPSGetSalesOrderLineConfigResponse" />
+  </wsdl:message>
+  <wsdl:message name="AXCPS_GetSalesOrderLineConfig_AifFaultFault_FaultMessage">
+    <wsdl:part xmlns:q32="http://schemas.microsoft.com/dynamics/2008/01/documents/Fault" name="detail" element="q32:AifFault" />
+  </wsdl:message>
+  <wsdl:message name="AXCPSAddCreditCardTransactionRequest">
+    <wsdl:part name="parameters" element="tns:AXCPSAddCreditCardTransactionRequest" />
+  </wsdl:message>
+  <wsdl:message name="AXCPSAddCreditCardTransactionResponse">
+    <wsdl:part name="parameters" element="tns:AXCPSAddCreditCardTransactionResponse" />
+  </wsdl:message>
+  <wsdl:message name="AXCPS_addCreditCardTransaction_AifFaultFault_FaultMessage">
+    <wsdl:part xmlns:q33="http://schemas.microsoft.com/dynamics/2008/01/documents/Fault" name="detail" element="q33:AifFault" />
+  </wsdl:message>
+  <wsdl:message name="AXCPSGetOpenInvoicesAmountRequest">
+    <wsdl:part name="parameters" element="tns:AXCPSGetOpenInvoicesAmountRequest" />
+  </wsdl:message>
+  <wsdl:message name="AXCPSGetOpenInvoicesAmountResponse">
+    <wsdl:part name="parameters" element="tns:AXCPSGetOpenInvoicesAmountResponse" />
+  </wsdl:message>
+  <wsdl:message name="AXCPS_GetOpenInvoicesAmount_AifFaultFault_FaultMessage">
+    <wsdl:part xmlns:q34="http://schemas.microsoft.com/dynamics/2008/01/documents/Fault" name="detail" element="q34:AifFault" />
+  </wsdl:message>
+  <wsdl:message name="AXCPSGetCustomerArchRackInfoRequest">
+    <wsdl:part name="parameters" element="tns:AXCPSGetCustomerArchRackInfoRequest" />
+  </wsdl:message>
+  <wsdl:message name="AXCPSGetCustomerArchRackInfoResponse">
+    <wsdl:part name="parameters" element="tns:AXCPSGetCustomerArchRackInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="AXCPS_GetCustomerArchRackInfo_AifFaultFault_FaultMessage">
+    <wsdl:part xmlns:q35="http://schemas.microsoft.com/dynamics/2008/01/documents/Fault" name="detail" element="q35:AifFault" />
+  </wsdl:message>
+  <wsdl:message name="AXCPSGetWarehouseEdgeFabRequest">
+    <wsdl:part name="parameters" element="tns:AXCPSGetWarehouseEdgeFabRequest" />
+  </wsdl:message>
+  <wsdl:message name="AXCPSGetWarehouseEdgeFabResponse">
+    <wsdl:part name="parameters" element="tns:AXCPSGetWarehouseEdgeFabResponse" />
+  </wsdl:message>
+  <wsdl:message name="AXCPS_GetWarehouseEdgeFab_AifFaultFault_FaultMessage">
+    <wsdl:part xmlns:q36="http://schemas.microsoft.com/dynamics/2008/01/documents/Fault" name="detail" element="q36:AifFault" />
+  </wsdl:message>
+  <wsdl:message name="AXCPSGetCustomersRequest">
+    <wsdl:part name="parameters" element="tns:AXCPSGetCustomersRequest" />
+  </wsdl:message>
+  <wsdl:message name="AXCPSGetCustomersResponse">
+    <wsdl:part name="parameters" element="tns:AXCPSGetCustomersResponse" />
+  </wsdl:message>
+  <wsdl:message name="AXCPS_GetCustomers_AifFaultFault_FaultMessage">
+    <wsdl:part xmlns:q37="http://schemas.microsoft.com/dynamics/2008/01/documents/Fault" name="detail" element="q37:AifFault" />
+  </wsdl:message>
+  <wsdl:message name="AXCPSGetInRouteSalesOrdersCountRequest">
+    <wsdl:part name="parameters" element="tns:AXCPSGetInRouteSalesOrdersCountRequest" />
+  </wsdl:message>
+  <wsdl:message name="AXCPSGetInRouteSalesOrdersCountResponse">
+    <wsdl:part name="parameters" element="tns:AXCPSGetInRouteSalesOrdersCountResponse" />
+  </wsdl:message>
+  <wsdl:message name="AXCPS_GetInRouteSalesOrdersCount_AifFaultFault_FaultMessage">
+    <wsdl:part xmlns:q38="http://schemas.microsoft.com/dynamics/2008/01/documents/Fault" name="detail" element="q38:AifFault" />
+  </wsdl:message>
+  <wsdl:message name="AXCPSGetQuotationReasonsRequest">
+    <wsdl:part name="parameters" element="tns:AXCPSGetQuotationReasonsRequest" />
+  </wsdl:message>
+  <wsdl:message name="AXCPSGetQuotationReasonsResponse">
+    <wsdl:part name="parameters" element="tns:AXCPSGetQuotationReasonsResponse" />
+  </wsdl:message>
+  <wsdl:message name="AXCPS_GetQuotationReasons_AifFaultFault_FaultMessage">
+    <wsdl:part xmlns:q39="http://schemas.microsoft.com/dynamics/2008/01/documents/Fault" name="detail" element="q39:AifFault" />
+  </wsdl:message>
+  <wsdl:message name="AXCPSGetOpenReturnOrdersCountRequest">
+    <wsdl:part name="parameters" element="tns:AXCPSGetOpenReturnOrdersCountRequest" />
+  </wsdl:message>
+  <wsdl:message name="AXCPSGetOpenReturnOrdersCountResponse">
+    <wsdl:part name="parameters" element="tns:AXCPSGetOpenReturnOrdersCountResponse" />
+  </wsdl:message>
+  <wsdl:message name="AXCPS_GetOpenReturnOrdersCount_AifFaultFault_FaultMessage">
+    <wsdl:part xmlns:q40="http://schemas.microsoft.com/dynamics/2008/01/documents/Fault" name="detail" element="q40:AifFault" />
+  </wsdl:message>
+  <wsdl:message name="AXCPSGetQuotationsRequest">
+    <wsdl:part name="parameters" element="tns:AXCPSGetQuotationsRequest" />
+  </wsdl:message>
+  <wsdl:message name="AXCPSGetQuotationsResponse">
+    <wsdl:part name="parameters" element="tns:AXCPSGetQuotationsResponse" />
+  </wsdl:message>
+  <wsdl:message name="AXCPS_GetQuotations_AifFaultFault_FaultMessage">
+    <wsdl:part xmlns:q41="http://schemas.microsoft.com/dynamics/2008/01/documents/Fault" name="detail" element="q41:AifFault" />
+  </wsdl:message>
+  <wsdl:message name="AXCPSGetCustConfirmInfoRequest">
+    <wsdl:part name="parameters" element="tns:AXCPSGetCustConfirmInfoRequest" />
+  </wsdl:message>
+  <wsdl:message name="AXCPSGetCustConfirmInfoResponse">
+    <wsdl:part name="parameters" element="tns:AXCPSGetCustConfirmInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="AXCPS_GetCustConfirmInfo_AifFaultFault_FaultMessage">
+    <wsdl:part xmlns:q42="http://schemas.microsoft.com/dynamics/2008/01/documents/Fault" name="detail" element="q42:AifFault" />
+  </wsdl:message>
+  <wsdl:message name="AXCPSGetPackingSlipDetailsRequest">
+    <wsdl:part name="parameters" element="tns:AXCPSGetPackingSlipDetailsRequest" />
+  </wsdl:message>
+  <wsdl:message name="AXCPSGetPackingSlipDetailsResponse">
+    <wsdl:part name="parameters" element="tns:AXCPSGetPackingSlipDetailsResponse" />
+  </wsdl:message>
+  <wsdl:message name="AXCPS_GetPackingSlipDetails_AifFaultFault_FaultMessage">
+    <wsdl:part xmlns:q43="http://schemas.microsoft.com/dynamics/2008/01/documents/Fault" name="detail" element="q43:AifFault" />
+  </wsdl:message>
+  <wsdl:message name="AXCPSRepackPackingSlipRequest">
+    <wsdl:part name="parameters" element="tns:AXCPSRepackPackingSlipRequest" />
+  </wsdl:message>
+  <wsdl:message name="AXCPSRepackPackingSlipResponse">
+    <wsdl:part name="parameters" element="tns:AXCPSRepackPackingSlipResponse" />
+  </wsdl:message>
+  <wsdl:message name="AXCPS_RepackPackingSlip_AifFaultFault_FaultMessage">
+    <wsdl:part xmlns:q44="http://schemas.microsoft.com/dynamics/2008/01/documents/Fault" name="detail" element="q44:AifFault" />
+  </wsdl:message>
+  <wsdl:message name="AXCPSGetCustomerNotificationsRequest">
+    <wsdl:part name="parameters" element="tns:AXCPSGetCustomerNotificationsRequest" />
+  </wsdl:message>
+  <wsdl:message name="AXCPSGetCustomerNotificationsResponse">
+    <wsdl:part name="parameters" element="tns:AXCPSGetCustomerNotificationsResponse" />
+  </wsdl:message>
+  <wsdl:message name="AXCPS_GetCustomerNotifications_AifFaultFault_FaultMessage">
+    <wsdl:part xmlns:q45="http://schemas.microsoft.com/dynamics/2008/01/documents/Fault" name="detail" element="q45:AifFault" />
+  </wsdl:message>
+  <wsdl:message name="AXCPSGetCustomerTruliteContactRequest">
+    <wsdl:part name="parameters" element="tns:AXCPSGetCustomerTruliteContactRequest" />
+  </wsdl:message>
+  <wsdl:message name="AXCPSGetCustomerTruliteContactResponse">
+    <wsdl:part name="parameters" element="tns:AXCPSGetCustomerTruliteContactResponse" />
+  </wsdl:message>
+  <wsdl:message name="AXCPS_GetCustomerTruliteContact_AifFaultFault_FaultMessage">
+    <wsdl:part xmlns:q46="http://schemas.microsoft.com/dynamics/2008/01/documents/Fault" name="detail" element="q46:AifFault" />
+  </wsdl:message>
+  <wsdl:message name="AXCPSGenerateTypesRequest">
+    <wsdl:part name="parameters" element="tns:AXCPSGenerateTypesRequest" />
+  </wsdl:message>
+  <wsdl:message name="AXCPS_GenerateTypes_OutputMessage" />
+  <wsdl:message name="AXCPS_GenerateTypes_AifFaultFault_FaultMessage">
+    <wsdl:part xmlns:q47="http://schemas.microsoft.com/dynamics/2008/01/documents/Fault" name="detail" element="q47:AifFault" />
+  </wsdl:message>
+  <wsdl:message name="AXCPSGetCopyPriceLetterRequest">
+    <wsdl:part name="parameters" element="tns:AXCPSGetCopyPriceLetterRequest" />
+  </wsdl:message>
+  <wsdl:message name="AXCPSGetCopyPriceLetterResponse">
+    <wsdl:part name="parameters" element="tns:AXCPSGetCopyPriceLetterResponse" />
+  </wsdl:message>
+  <wsdl:message name="AXCPS_GetCopyPriceLetter_AifFaultFault_FaultMessage">
+    <wsdl:part xmlns:q48="http://schemas.microsoft.com/dynamics/2008/01/documents/Fault" name="detail" element="q48:AifFault" />
+  </wsdl:message>
+  <wsdl:message name="AXCPSGetQuotationLineConfigRequest">
+    <wsdl:part name="parameters" element="tns:AXCPSGetQuotationLineConfigRequest" />
+  </wsdl:message>
+  <wsdl:message name="AXCPSGetQuotationLineConfigResponse">
+    <wsdl:part name="parameters" element="tns:AXCPSGetQuotationLineConfigResponse" />
+  </wsdl:message>
+  <wsdl:message name="AXCPS_GetQuotationLineConfig_AifFaultFault_FaultMessage">
+    <wsdl:part xmlns:q49="http://schemas.microsoft.com/dynamics/2008/01/documents/Fault" name="detail" element="q49:AifFault" />
+  </wsdl:message>
+  <wsdl:message name="AXCPSGetReturnOrdersSummaryRequest">
+    <wsdl:part name="parameters" element="tns:AXCPSGetReturnOrdersSummaryRequest" />
+  </wsdl:message>
+  <wsdl:message name="AXCPSGetReturnOrdersSummaryResponse">
+    <wsdl:part name="parameters" element="tns:AXCPSGetReturnOrdersSummaryResponse" />
+  </wsdl:message>
+  <wsdl:message name="AXCPS_GetReturnOrdersSummary_AifFaultFault_FaultMessage">
+    <wsdl:part xmlns:q50="http://schemas.microsoft.com/dynamics/2008/01/documents/Fault" name="detail" element="q50:AifFault" />
+  </wsdl:message>
+  <wsdl:message name="AXCPSCreateQuoteHeaderRequest">
+    <wsdl:part name="parameters" element="tns:AXCPSCreateQuoteHeaderRequest" />
+  </wsdl:message>
+  <wsdl:message name="AXCPSCreateQuoteHeaderResponse">
+    <wsdl:part name="parameters" element="tns:AXCPSCreateQuoteHeaderResponse" />
+  </wsdl:message>
+  <wsdl:message name="AXCPS_CreateQuoteHeader_AifFaultFault_FaultMessage">
+    <wsdl:part xmlns:q51="http://schemas.microsoft.com/dynamics/2008/01/documents/Fault" name="detail" element="q51:AifFault" />
+  </wsdl:message>
+  <wsdl:message name="AXCPSGetCustomersSalesGroupRequest">
+    <wsdl:part name="parameters" element="tns:AXCPSGetCustomersSalesGroupRequest" />
+  </wsdl:message>
+  <wsdl:message name="AXCPSGetCustomersSalesGroupResponse">
+    <wsdl:part name="parameters" element="tns:AXCPSGetCustomersSalesGroupResponse" />
+  </wsdl:message>
+  <wsdl:message name="AXCPS_GetCustomersSalesGroup_AifFaultFault_FaultMessage">
+    <wsdl:part xmlns:q52="http://schemas.microsoft.com/dynamics/2008/01/documents/Fault" name="detail" element="q52:AifFault" />
+  </wsdl:message>
+  <wsdl:message name="AXCPSGetSpacersRequest">
+    <wsdl:part name="parameters" element="tns:AXCPSGetSpacersRequest" />
+  </wsdl:message>
+  <wsdl:message name="AXCPSGetSpacersResponse">
+    <wsdl:part name="parameters" element="tns:AXCPSGetSpacersResponse" />
+  </wsdl:message>
+  <wsdl:message name="AXCPS_GetSpacers_AifFaultFault_FaultMessage">
+    <wsdl:part xmlns:q53="http://schemas.microsoft.com/dynamics/2008/01/documents/Fault" name="detail" element="q53:AifFault" />
+  </wsdl:message>
+  <wsdl:message name="AXCPSGetReturnOrderDetailsRequest">
+    <wsdl:part name="parameters" element="tns:AXCPSGetReturnOrderDetailsRequest" />
+  </wsdl:message>
+  <wsdl:message name="AXCPSGetReturnOrderDetailsResponse">
+    <wsdl:part name="parameters" element="tns:AXCPSGetReturnOrderDetailsResponse" />
+  </wsdl:message>
+  <wsdl:message name="AXCPS_GetReturnOrderDetails_AifFaultFault_FaultMessage">
+    <wsdl:part xmlns:q54="http://schemas.microsoft.com/dynamics/2008/01/documents/Fault" name="detail" element="q54:AifFault" />
+  </wsdl:message>
+  <wsdl:message name="AXCPSGetInvoicesRequest">
+    <wsdl:part name="parameters" element="tns:AXCPSGetInvoicesRequest" />
+  </wsdl:message>
+  <wsdl:message name="AXCPSGetInvoicesResponse">
+    <wsdl:part name="parameters" element="tns:AXCPSGetInvoicesResponse" />
+  </wsdl:message>
+  <wsdl:message name="AXCPS_GetInvoices_AifFaultFault_FaultMessage">
+    <wsdl:part xmlns:q55="http://schemas.microsoft.com/dynamics/2008/01/documents/Fault" name="detail" element="q55:AifFault" />
+  </wsdl:message>
+  <wsdl:message name="AXCPSGetInvoiceDetailsRequest">
+    <wsdl:part name="parameters" element="tns:AXCPSGetInvoiceDetailsRequest" />
+  </wsdl:message>
+  <wsdl:message name="AXCPSGetInvoiceDetailsResponse">
+    <wsdl:part name="parameters" element="tns:AXCPSGetInvoiceDetailsResponse" />
+  </wsdl:message>
+  <wsdl:message name="AXCPS_GetInvoiceDetails_AifFaultFault_FaultMessage">
+    <wsdl:part xmlns:q56="http://schemas.microsoft.com/dynamics/2008/01/documents/Fault" name="detail" element="q56:AifFault" />
+  </wsdl:message>
+  <wsdl:message name="AXCPSUpdateCustConfirmInfoRequest">
+    <wsdl:part name="parameters" element="tns:AXCPSUpdateCustConfirmInfoRequest" />
+  </wsdl:message>
+  <wsdl:message name="AXCPSUpdateCustConfirmInfoResponse">
+    <wsdl:part name="parameters" element="tns:AXCPSUpdateCustConfirmInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="AXCPS_UpdateCustConfirmInfo_AifFaultFault_FaultMessage">
+    <wsdl:part xmlns:q57="http://schemas.microsoft.com/dynamics/2008/01/documents/Fault" name="detail" element="q57:AifFault" />
+  </wsdl:message>
+  <wsdl:message name="AXCPSGetSalesOrdersSummaryRequest">
+    <wsdl:part name="parameters" element="tns:AXCPSGetSalesOrdersSummaryRequest" />
+  </wsdl:message>
+  <wsdl:message name="AXCPSGetSalesOrdersSummaryResponse">
+    <wsdl:part name="parameters" element="tns:AXCPSGetSalesOrdersSummaryResponse" />
+  </wsdl:message>
+  <wsdl:message name="AXCPS_GetSalesOrdersSummary_AifFaultFault_FaultMessage">
+    <wsdl:part xmlns:q58="http://schemas.microsoft.com/dynamics/2008/01/documents/Fault" name="detail" element="q58:AifFault" />
+  </wsdl:message>
+  <wsdl:message name="AXCPSPostQuotationUpdateRequest">
+    <wsdl:part name="parameters" element="tns:AXCPSPostQuotationUpdateRequest" />
+  </wsdl:message>
+  <wsdl:message name="AXCPSPostQuotationUpdateResponse">
+    <wsdl:part name="parameters" element="tns:AXCPSPostQuotationUpdateResponse" />
+  </wsdl:message>
+  <wsdl:message name="AXCPS_PostQuotationUpdate_AifFaultFault_FaultMessage">
+    <wsdl:part xmlns:q59="http://schemas.microsoft.com/dynamics/2008/01/documents/Fault" name="detail" element="q59:AifFault" />
+  </wsdl:message>
+  <wsdl:message name="AXCPSGetCustomerRequest">
+    <wsdl:part name="parameters" element="tns:AXCPSGetCustomerRequest" />
+  </wsdl:message>
+  <wsdl:message name="AXCPSGetCustomerResponse">
+    <wsdl:part name="parameters" element="tns:AXCPSGetCustomerResponse" />
+  </wsdl:message>
+  <wsdl:message name="AXCPS_GetCustomer_AifFaultFault_FaultMessage">
+    <wsdl:part xmlns:q60="http://schemas.microsoft.com/dynamics/2008/01/documents/Fault" name="detail" element="q60:AifFault" />
+  </wsdl:message>
+  <wsdl:message name="AXCPSCreateQuoteLinesRequest">
+    <wsdl:part name="parameters" element="tns:AXCPSCreateQuoteLinesRequest" />
+  </wsdl:message>
+  <wsdl:message name="AXCPSCreateQuoteLinesResponse">
+    <wsdl:part name="parameters" element="tns:AXCPSCreateQuoteLinesResponse" />
+  </wsdl:message>
+  <wsdl:message name="AXCPS_CreateQuoteLines_AifFaultFault_FaultMessage">
+    <wsdl:part xmlns:q61="http://schemas.microsoft.com/dynamics/2008/01/documents/Fault" name="detail" element="q61:AifFault" />
+  </wsdl:message>
+  <wsdl:message name="AXCPSGetMuntinsRequest">
+    <wsdl:part name="parameters" element="tns:AXCPSGetMuntinsRequest" />
+  </wsdl:message>
+  <wsdl:message name="AXCPSGetMuntinsResponse">
+    <wsdl:part name="parameters" element="tns:AXCPSGetMuntinsResponse" />
+  </wsdl:message>
+  <wsdl:message name="AXCPS_GetMuntins_AifFaultFault_FaultMessage">
+    <wsdl:part xmlns:q62="http://schemas.microsoft.com/dynamics/2008/01/documents/Fault" name="detail" element="q62:AifFault" />
+  </wsdl:message>
+  <wsdl:message name="AXCPSGetSalesOrdersRequest">
+    <wsdl:part name="parameters" element="tns:AXCPSGetSalesOrdersRequest" />
+  </wsdl:message>
+  <wsdl:message name="AXCPSGetSalesOrdersResponse">
+    <wsdl:part name="parameters" element="tns:AXCPSGetSalesOrdersResponse" />
+  </wsdl:message>
+  <wsdl:message name="AXCPS_GetSalesOrders_AifFaultFault_FaultMessage">
+    <wsdl:part xmlns:q63="http://schemas.microsoft.com/dynamics/2008/01/documents/Fault" name="detail" element="q63:AifFault" />
+  </wsdl:message>
+  <wsdl:message name="AXCPSGetCopyConfirmationRequest">
+    <wsdl:part name="parameters" element="tns:AXCPSGetCopyConfirmationRequest" />
+  </wsdl:message>
+  <wsdl:message name="AXCPSGetCopyConfirmationResponse">
+    <wsdl:part name="parameters" element="tns:AXCPSGetCopyConfirmationResponse" />
+  </wsdl:message>
+  <wsdl:message name="AXCPS_GetCopyConfirmation_AifFaultFault_FaultMessage">
+    <wsdl:part xmlns:q64="http://schemas.microsoft.com/dynamics/2008/01/documents/Fault" name="detail" element="q64:AifFault" />
+  </wsdl:message>
+  <wsdl:message name="AXCPSGetCatalogProductsRequest">
+    <wsdl:part name="parameters" element="tns:AXCPSGetCatalogProductsRequest" />
+  </wsdl:message>
+  <wsdl:message name="AXCPSGetCatalogProductsResponse">
+    <wsdl:part name="parameters" element="tns:AXCPSGetCatalogProductsResponse" />
+  </wsdl:message>
+  <wsdl:message name="AXCPS_GetCatalogProducts_AifFaultFault_FaultMessage">
+    <wsdl:part xmlns:q65="http://schemas.microsoft.com/dynamics/2008/01/documents/Fault" name="detail" element="q65:AifFault" />
+  </wsdl:message>
+  <wsdl:message name="AXCPSDeleteCustConfirmInfoRequest">
+    <wsdl:part name="parameters" element="tns:AXCPSDeleteCustConfirmInfoRequest" />
+  </wsdl:message>
+  <wsdl:message name="AXCPSDeleteCustConfirmInfoResponse">
+    <wsdl:part name="parameters" element="tns:AXCPSDeleteCustConfirmInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="AXCPS_DeleteCustConfirmInfo_AifFaultFault_FaultMessage">
+    <wsdl:part xmlns:q66="http://schemas.microsoft.com/dynamics/2008/01/documents/Fault" name="detail" element="q66:AifFault" />
+  </wsdl:message>
+  <wsdl:message name="AXCPSConfigureQuoteLineRequest">
+    <wsdl:part name="parameters" element="tns:AXCPSConfigureQuoteLineRequest" />
+  </wsdl:message>
+  <wsdl:message name="AXCPSConfigureQuoteLineResponse">
+    <wsdl:part name="parameters" element="tns:AXCPSConfigureQuoteLineResponse" />
+  </wsdl:message>
+  <wsdl:message name="AXCPS_ConfigureQuoteLine_AifFaultFault_FaultMessage">
+    <wsdl:part xmlns:q67="http://schemas.microsoft.com/dynamics/2008/01/documents/Fault" name="detail" element="q67:AifFault" />
+  </wsdl:message>
+  <wsdl:message name="AXCPSGetPackingSlipsNotInvoicedRequest">
+    <wsdl:part name="parameters" element="tns:AXCPSGetPackingSlipsNotInvoicedRequest" />
+  </wsdl:message>
+  <wsdl:message name="AXCPSGetPackingSlipsNotInvoicedResponse">
+    <wsdl:part name="parameters" element="tns:AXCPSGetPackingSlipsNotInvoicedResponse" />
+  </wsdl:message>
+  <wsdl:message name="AXCPS_GetPackingSlipsNotInvoiced_AifFaultFault_FaultMessage">
+    <wsdl:part xmlns:q68="http://schemas.microsoft.com/dynamics/2008/01/documents/Fault" name="detail" element="q68:AifFault" />
+  </wsdl:message>
+  <wsdl:message name="AXCPSGetQuotationNotesRequest">
+    <wsdl:part name="parameters" element="tns:AXCPSGetQuotationNotesRequest" />
+  </wsdl:message>
+  <wsdl:message name="AXCPSGetQuotationNotesResponse">
+    <wsdl:part name="parameters" element="tns:AXCPSGetQuotationNotesResponse" />
+  </wsdl:message>
+  <wsdl:message name="AXCPS_GetQuotationNotes_AifFaultFault_FaultMessage">
+    <wsdl:part xmlns:q69="http://schemas.microsoft.com/dynamics/2008/01/documents/Fault" name="detail" element="q69:AifFault" />
+  </wsdl:message>
+  <wsdl:message name="AXCPSGetProductRequest">
+    <wsdl:part name="parameters" element="tns:AXCPSGetProductRequest" />
+  </wsdl:message>
+  <wsdl:message name="AXCPSGetProductResponse">
+    <wsdl:part name="parameters" element="tns:AXCPSGetProductResponse" />
+  </wsdl:message>
+  <wsdl:message name="AXCPS_GetProduct_AifFaultFault_FaultMessage">
+    <wsdl:part xmlns:q70="http://schemas.microsoft.com/dynamics/2008/01/documents/Fault" name="detail" element="q70:AifFault" />
+  </wsdl:message>
+  <wsdl:portType name="AXCPS">
+    <wsdl:operation name="GetConfigureQuoteLineXML">
+      <wsdl:input wsaw:Action="http://tempuri.org/AXCPS/GetConfigureQuoteLineXML" name="AXCPSGetConfigureQuoteLineXMLRequest" message="tns:AXCPSGetConfigureQuoteLineXMLRequest" />
+      <wsdl:output wsaw:Action="http://tempuri.org/AXCPS/GetConfigureQuoteLineXMLResponse" name="AXCPSGetConfigureQuoteLineXMLResponse" message="tns:AXCPSGetConfigureQuoteLineXMLResponse" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/AXCPS/GetConfigureQuoteLineXMLAifFaultFault" name="AifFaultFault" message="tns:AXCPS_GetConfigureQuoteLineXML_AifFaultFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddCustConfirmInfo">
+      <wsdl:input wsaw:Action="http://tempuri.org/AXCPS/AddCustConfirmInfo" name="AXCPSAddCustConfirmInfoRequest" message="tns:AXCPSAddCustConfirmInfoRequest" />
+      <wsdl:output wsaw:Action="http://tempuri.org/AXCPS/AddCustConfirmInfoResponse" name="AXCPSAddCustConfirmInfoResponse" message="tns:AXCPSAddCustConfirmInfoResponse" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/AXCPS/AddCustConfirmInfoAifFaultFault" name="AifFaultFault" message="tns:AXCPS_AddCustConfirmInfo_AifFaultFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="LostQuotation">
+      <wsdl:input wsaw:Action="http://tempuri.org/AXCPS/LostQuotation" name="AXCPSLostQuotationRequest" message="tns:AXCPSLostQuotationRequest" />
+      <wsdl:output wsaw:Action="http://tempuri.org/AXCPS/LostQuotationResponse" name="AXCPSLostQuotationResponse" message="tns:AXCPSLostQuotationResponse" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/AXCPS/LostQuotationAifFaultFault" name="AifFaultFault" message="tns:AXCPS_LostQuotation_AifFaultFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPackingSlips">
+      <wsdl:input wsaw:Action="http://tempuri.org/AXCPS/GetPackingSlips" name="AXCPSGetPackingSlipsRequest" message="tns:AXCPSGetPackingSlipsRequest" />
+      <wsdl:output wsaw:Action="http://tempuri.org/AXCPS/GetPackingSlipsResponse" name="AXCPSGetPackingSlipsResponse" message="tns:AXCPSGetPackingSlipsResponse" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/AXCPS/GetPackingSlipsAifFaultFault" name="AifFaultFault" message="tns:AXCPS_GetPackingSlips_AifFaultFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCustomerAccounts">
+      <wsdl:input wsaw:Action="http://tempuri.org/AXCPS/GetCustomerAccounts" name="AXCPSGetCustomerAccountsRequest" message="tns:AXCPSGetCustomerAccountsRequest" />
+      <wsdl:output wsaw:Action="http://tempuri.org/AXCPS/GetCustomerAccountsResponse" name="AXCPSGetCustomerAccountsResponse" message="tns:AXCPSGetCustomerAccountsResponse" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/AXCPS/GetCustomerAccountsAifFaultFault" name="AifFaultFault" message="tns:AXCPS_GetCustomerAccounts_AifFaultFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCopyQuotation">
+      <wsdl:input wsaw:Action="http://tempuri.org/AXCPS/GetCopyQuotation" name="AXCPSGetCopyQuotationRequest" message="tns:AXCPSGetCopyQuotationRequest" />
+      <wsdl:output wsaw:Action="http://tempuri.org/AXCPS/GetCopyQuotationResponse" name="AXCPSGetCopyQuotationResponse" message="tns:AXCPSGetCopyQuotationResponse" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/AXCPS/GetCopyQuotationAifFaultFault" name="AifFaultFault" message="tns:AXCPS_GetCopyQuotation_AifFaultFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetOpenSalesOrdersCount">
+      <wsdl:input wsaw:Action="http://tempuri.org/AXCPS/GetOpenSalesOrdersCount" name="AXCPSGetOpenSalesOrdersCountRequest" message="tns:AXCPSGetOpenSalesOrdersCountRequest" />
+      <wsdl:output wsaw:Action="http://tempuri.org/AXCPS/GetOpenSalesOrdersCountResponse" name="AXCPSGetOpenSalesOrdersCountResponse" message="tns:AXCPSGetOpenSalesOrdersCountResponse" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/AXCPS/GetOpenSalesOrdersCountAifFaultFault" name="AifFaultFault" message="tns:AXCPS_GetOpenSalesOrdersCount_AifFaultFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSalesQuotationInquiry">
+      <wsdl:input wsaw:Action="http://tempuri.org/AXCPS/GetSalesQuotationInquiry" name="AXCPSGetSalesQuotationInquiryRequest" message="tns:AXCPSGetSalesQuotationInquiryRequest" />
+      <wsdl:output wsaw:Action="http://tempuri.org/AXCPS/GetSalesQuotationInquiryResponse" name="AXCPSGetSalesQuotationInquiryResponse" message="tns:AXCPSGetSalesQuotationInquiryResponse" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/AXCPS/GetSalesQuotationInquiryAifFaultFault" name="AifFaultFault" message="tns:AXCPS_GetSalesQuotationInquiry_AifFaultFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCustAccountStatement">
+      <wsdl:input wsaw:Action="http://tempuri.org/AXCPS/GetCustAccountStatement" name="AXCPSGetCustAccountStatementRequest" message="tns:AXCPSGetCustAccountStatementRequest" />
+      <wsdl:output wsaw:Action="http://tempuri.org/AXCPS/GetCustAccountStatementResponse" name="AXCPSGetCustAccountStatementResponse" message="tns:AXCPSGetCustAccountStatementResponse" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/AXCPS/GetCustAccountStatementAifFaultFault" name="AifFaultFault" message="tns:AXCPS_GetCustAccountStatement_AifFaultFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetStockedProducts">
+      <wsdl:input wsaw:Action="http://tempuri.org/AXCPS/GetStockedProducts" name="AXCPSGetStockedProductsRequest" message="tns:AXCPSGetStockedProductsRequest" />
+      <wsdl:output wsaw:Action="http://tempuri.org/AXCPS/GetStockedProductsResponse" name="AXCPSGetStockedProductsResponse" message="tns:AXCPSGetStockedProductsResponse" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/AXCPS/GetStockedProductsAifFaultFault" name="AifFaultFault" message="tns:AXCPS_GetStockedProducts_AifFaultFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMonolithicProducts">
+      <wsdl:input wsaw:Action="http://tempuri.org/AXCPS/GetMonolithicProducts" name="AXCPSGetMonolithicProductsRequest" message="tns:AXCPSGetMonolithicProductsRequest" />
+      <wsdl:output wsaw:Action="http://tempuri.org/AXCPS/GetMonolithicProductsResponse" name="AXCPSGetMonolithicProductsResponse" message="tns:AXCPSGetMonolithicProductsResponse" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/AXCPS/GetMonolithicProductsAifFaultFault" name="AifFaultFault" message="tns:AXCPS_GetMonolithicProducts_AifFaultFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCopyInvoice">
+      <wsdl:input wsaw:Action="http://tempuri.org/AXCPS/GetCopyInvoice" name="AXCPSGetCopyInvoiceRequest" message="tns:AXCPSGetCopyInvoiceRequest" />
+      <wsdl:output wsaw:Action="http://tempuri.org/AXCPS/GetCopyInvoiceResponse" name="AXCPSGetCopyInvoiceResponse" message="tns:AXCPSGetCopyInvoiceResponse" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/AXCPS/GetCopyInvoiceAifFaultFault" name="AifFaultFault" message="tns:AXCPS_GetCopyInvoice_AifFaultFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSalesOrdersSummaryByStatus">
+      <wsdl:input wsaw:Action="http://tempuri.org/AXCPS/GetSalesOrdersSummaryByStatus" name="AXCPSGetSalesOrdersSummaryByStatusRequest" message="tns:AXCPSGetSalesOrdersSummaryByStatusRequest" />
+      <wsdl:output wsaw:Action="http://tempuri.org/AXCPS/GetSalesOrdersSummaryByStatusResponse" name="AXCPSGetSalesOrdersSummaryByStatusResponse" message="tns:AXCPSGetSalesOrdersSummaryByStatusResponse" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/AXCPS/GetSalesOrdersSummaryByStatusAifFaultFault" name="AifFaultFault" message="tns:AXCPS_GetSalesOrdersSummaryByStatus_AifFaultFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetReturnOrders">
+      <wsdl:input wsaw:Action="http://tempuri.org/AXCPS/GetReturnOrders" name="AXCPSGetReturnOrdersRequest" message="tns:AXCPSGetReturnOrdersRequest" />
+      <wsdl:output wsaw:Action="http://tempuri.org/AXCPS/GetReturnOrdersResponse" name="AXCPSGetReturnOrdersResponse" message="tns:AXCPSGetReturnOrdersResponse" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/AXCPS/GetReturnOrdersAifFaultFault" name="AifFaultFault" message="tns:AXCPS_GetReturnOrders_AifFaultFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetShipManifestDetails">
+      <wsdl:input wsaw:Action="http://tempuri.org/AXCPS/GetShipManifestDetails" name="AXCPSGetShipManifestDetailsRequest" message="tns:AXCPSGetShipManifestDetailsRequest" />
+      <wsdl:output wsaw:Action="http://tempuri.org/AXCPS/GetShipManifestDetailsResponse" name="AXCPSGetShipManifestDetailsResponse" message="tns:AXCPSGetShipManifestDetailsResponse" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/AXCPS/GetShipManifestDetailsAifFaultFault" name="AifFaultFault" message="tns:AXCPS_GetShipManifestDetails_AifFaultFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetInterLayers">
+      <wsdl:input wsaw:Action="http://tempuri.org/AXCPS/GetInterLayers" name="AXCPSGetInterLayersRequest" message="tns:AXCPSGetInterLayersRequest" />
+      <wsdl:output wsaw:Action="http://tempuri.org/AXCPS/GetInterLayersResponse" name="AXCPSGetInterLayersResponse" message="tns:AXCPSGetInterLayersResponse" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/AXCPS/GetInterLayersAifFaultFault" name="AifFaultFault" message="tns:AXCPS_GetInterLayers_AifFaultFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ConfigureQuoteLineXML">
+      <wsdl:input wsaw:Action="http://tempuri.org/AXCPS/ConfigureQuoteLineXML" name="AXCPSConfigureQuoteLineXMLRequest" message="tns:AXCPSConfigureQuoteLineXMLRequest" />
+      <wsdl:output wsaw:Action="http://tempuri.org/AXCPS/ConfigureQuoteLineXMLResponse" name="AXCPSConfigureQuoteLineXMLResponse" message="tns:AXCPSConfigureQuoteLineXMLResponse" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/AXCPS/ConfigureQuoteLineXMLAifFaultFault" name="AifFaultFault" message="tns:AXCPS_ConfigureQuoteLineXML_AifFaultFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetOpenInvoicesCount">
+      <wsdl:input wsaw:Action="http://tempuri.org/AXCPS/GetOpenInvoicesCount" name="AXCPSGetOpenInvoicesCountRequest" message="tns:AXCPSGetOpenInvoicesCountRequest" />
+      <wsdl:output wsaw:Action="http://tempuri.org/AXCPS/GetOpenInvoicesCountResponse" name="AXCPSGetOpenInvoicesCountResponse" message="tns:AXCPSGetOpenInvoicesCountResponse" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/AXCPS/GetOpenInvoicesCountAifFaultFault" name="AifFaultFault" message="tns:AXCPS_GetOpenInvoicesCount_AifFaultFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetShipManifestHeaders">
+      <wsdl:input wsaw:Action="http://tempuri.org/AXCPS/GetShipManifestHeaders" name="AXCPSGetShipManifestHeadersRequest" message="tns:AXCPSGetShipManifestHeadersRequest" />
+      <wsdl:output wsaw:Action="http://tempuri.org/AXCPS/GetShipManifestHeadersResponse" name="AXCPSGetShipManifestHeadersResponse" message="tns:AXCPSGetShipManifestHeadersResponse" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/AXCPS/GetShipManifestHeadersAifFaultFault" name="AifFaultFault" message="tns:AXCPS_GetShipManifestHeaders_AifFaultFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSalesOrderDetails">
+      <wsdl:input wsaw:Action="http://tempuri.org/AXCPS/GetSalesOrderDetails" name="AXCPSGetSalesOrderDetailsRequest" message="tns:AXCPSGetSalesOrderDetailsRequest" />
+      <wsdl:output wsaw:Action="http://tempuri.org/AXCPS/GetSalesOrderDetailsResponse" name="AXCPSGetSalesOrderDetailsResponse" message="tns:AXCPSGetSalesOrderDetailsResponse" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/AXCPS/GetSalesOrderDetailsAifFaultFault" name="AifFaultFault" message="tns:AXCPS_GetSalesOrderDetails_AifFaultFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ConfirmQuotation">
+      <wsdl:input wsaw:Action="http://tempuri.org/AXCPS/ConfirmQuotation" name="AXCPSConfirmQuotationRequest" message="tns:AXCPSConfirmQuotationRequest" />
+      <wsdl:output wsaw:Action="http://tempuri.org/AXCPS/ConfirmQuotationResponse" name="AXCPSConfirmQuotationResponse" message="tns:AXCPSConfirmQuotationResponse" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/AXCPS/ConfirmQuotationAifFaultFault" name="AifFaultFault" message="tns:AXCPS_ConfirmQuotation_AifFaultFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="PostInvoicePackingSlip">
+      <wsdl:input wsaw:Action="http://tempuri.org/AXCPS/PostInvoicePackingSlip" name="AXCPSPostInvoicePackingSlipRequest" message="tns:AXCPSPostInvoicePackingSlipRequest" />
+      <wsdl:output wsaw:Action="http://tempuri.org/AXCPS/PostInvoicePackingSlipResponse" name="AXCPSPostInvoicePackingSlipResponse" message="tns:AXCPSPostInvoicePackingSlipResponse" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/AXCPS/PostInvoicePackingSlipAifFaultFault" name="AifFaultFault" message="tns:AXCPS_PostInvoicePackingSlip_AifFaultFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSalesRoutes">
+      <wsdl:input wsaw:Action="http://tempuri.org/AXCPS/GetSalesRoutes" name="AXCPSGetSalesRoutesRequest" message="tns:AXCPSGetSalesRoutesRequest" />
+      <wsdl:output wsaw:Action="http://tempuri.org/AXCPS/GetSalesRoutesResponse" name="AXCPSGetSalesRoutesResponse" message="tns:AXCPSGetSalesRoutesResponse" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/AXCPS/GetSalesRoutesAifFaultFault" name="AifFaultFault" message="tns:AXCPS_GetSalesRoutes_AifFaultFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCustomersBranch">
+      <wsdl:input wsaw:Action="http://tempuri.org/AXCPS/GetCustomersBranch" name="AXCPSGetCustomersBranchRequest" message="tns:AXCPSGetCustomersBranchRequest" />
+      <wsdl:output wsaw:Action="http://tempuri.org/AXCPS/GetCustomersBranchResponse" name="AXCPSGetCustomersBranchResponse" message="tns:AXCPSGetCustomersBranchResponse" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/AXCPS/GetCustomersBranchAifFaultFault" name="AifFaultFault" message="tns:AXCPS_GetCustomersBranch_AifFaultFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AssignCASEToInventTransID">
+      <wsdl:input wsaw:Action="http://tempuri.org/AXCPS/AssignCASEToInventTransID" name="AXCPSAssignCASEToInventTransIDRequest" message="tns:AXCPSAssignCASEToInventTransIDRequest" />
+      <wsdl:output wsaw:Action="http://tempuri.org/AXCPS/AssignCASEToInventTransIDResponse" name="AXCPSAssignCASEToInventTransIDResponse" message="tns:AXCPSAssignCASEToInventTransIDResponse" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/AXCPS/AssignCASEToInventTransIDAifFaultFault" name="AifFaultFault" message="tns:AXCPS_AssignCASEToInventTransID_AifFaultFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetQuotationDetails">
+      <wsdl:input wsaw:Action="http://tempuri.org/AXCPS/GetQuotationDetails" name="AXCPSGetQuotationDetailsRequest" message="tns:AXCPSGetQuotationDetailsRequest" />
+      <wsdl:output wsaw:Action="http://tempuri.org/AXCPS/GetQuotationDetailsResponse" name="AXCPSGetQuotationDetailsResponse" message="tns:AXCPSGetQuotationDetailsResponse" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/AXCPS/GetQuotationDetailsAifFaultFault" name="AifFaultFault" message="tns:AXCPS_GetQuotationDetails_AifFaultFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetInvoicesSummary">
+      <wsdl:input wsaw:Action="http://tempuri.org/AXCPS/GetInvoicesSummary" name="AXCPSGetInvoicesSummaryRequest" message="tns:AXCPSGetInvoicesSummaryRequest" />
+      <wsdl:output wsaw:Action="http://tempuri.org/AXCPS/GetInvoicesSummaryResponse" name="AXCPSGetInvoicesSummaryResponse" message="tns:AXCPSGetInvoicesSummaryResponse" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/AXCPS/GetInvoicesSummaryAifFaultFault" name="AifFaultFault" message="tns:AXCPS_GetInvoicesSummary_AifFaultFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateQuoteLine">
+      <wsdl:input wsaw:Action="http://tempuri.org/AXCPS/CreateQuoteLine" name="AXCPSCreateQuoteLineRequest" message="tns:AXCPSCreateQuoteLineRequest" />
+      <wsdl:output wsaw:Action="http://tempuri.org/AXCPS/CreateQuoteLineResponse" name="AXCPSCreateQuoteLineResponse" message="tns:AXCPSCreateQuoteLineResponse" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/AXCPS/CreateQuoteLineAifFaultFault" name="AifFaultFault" message="tns:AXCPS_CreateQuoteLine_AifFaultFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCustomerAddresses">
+      <wsdl:input wsaw:Action="http://tempuri.org/AXCPS/GetCustomerAddresses" name="AXCPSGetCustomerAddressesRequest" message="tns:AXCPSGetCustomerAddressesRequest" />
+      <wsdl:output wsaw:Action="http://tempuri.org/AXCPS/GetCustomerAddressesResponse" name="AXCPSGetCustomerAddressesResponse" message="tns:AXCPSGetCustomerAddressesResponse" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/AXCPS/GetCustomerAddressesAifFaultFault" name="AifFaultFault" message="tns:AXCPS_GetCustomerAddresses_AifFaultFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCustomersCount">
+      <wsdl:input wsaw:Action="http://tempuri.org/AXCPS/GetCustomersCount" name="AXCPSGetCustomersCountRequest" message="tns:AXCPSGetCustomersCountRequest" />
+      <wsdl:output wsaw:Action="http://tempuri.org/AXCPS/GetCustomersCountResponse" name="AXCPSGetCustomersCountResponse" message="tns:AXCPSGetCustomersCountResponse" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/AXCPS/GetCustomersCountAifFaultFault" name="AifFaultFault" message="tns:AXCPS_GetCustomersCount_AifFaultFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCopyPackingSlip">
+      <wsdl:input wsaw:Action="http://tempuri.org/AXCPS/GetCopyPackingSlip" name="AXCPSGetCopyPackingSlipRequest" message="tns:AXCPSGetCopyPackingSlipRequest" />
+      <wsdl:output wsaw:Action="http://tempuri.org/AXCPS/GetCopyPackingSlipResponse" name="AXCPSGetCopyPackingSlipResponse" message="tns:AXCPSGetCopyPackingSlipResponse" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/AXCPS/GetCopyPackingSlipAifFaultFault" name="AifFaultFault" message="tns:AXCPS_GetCopyPackingSlip_AifFaultFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSalesOrderLineConfig">
+      <wsdl:input wsaw:Action="http://tempuri.org/AXCPS/GetSalesOrderLineConfig" name="AXCPSGetSalesOrderLineConfigRequest" message="tns:AXCPSGetSalesOrderLineConfigRequest" />
+      <wsdl:output wsaw:Action="http://tempuri.org/AXCPS/GetSalesOrderLineConfigResponse" name="AXCPSGetSalesOrderLineConfigResponse" message="tns:AXCPSGetSalesOrderLineConfigResponse" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/AXCPS/GetSalesOrderLineConfigAifFaultFault" name="AifFaultFault" message="tns:AXCPS_GetSalesOrderLineConfig_AifFaultFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="addCreditCardTransaction">
+      <wsdl:input wsaw:Action="http://tempuri.org/AXCPS/addCreditCardTransaction" name="AXCPSAddCreditCardTransactionRequest" message="tns:AXCPSAddCreditCardTransactionRequest" />
+      <wsdl:output wsaw:Action="http://tempuri.org/AXCPS/addCreditCardTransactionResponse" name="AXCPSAddCreditCardTransactionResponse" message="tns:AXCPSAddCreditCardTransactionResponse" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/AXCPS/addCreditCardTransactionAifFaultFault" name="AifFaultFault" message="tns:AXCPS_addCreditCardTransaction_AifFaultFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetOpenInvoicesAmount">
+      <wsdl:input wsaw:Action="http://tempuri.org/AXCPS/GetOpenInvoicesAmount" name="AXCPSGetOpenInvoicesAmountRequest" message="tns:AXCPSGetOpenInvoicesAmountRequest" />
+      <wsdl:output wsaw:Action="http://tempuri.org/AXCPS/GetOpenInvoicesAmountResponse" name="AXCPSGetOpenInvoicesAmountResponse" message="tns:AXCPSGetOpenInvoicesAmountResponse" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/AXCPS/GetOpenInvoicesAmountAifFaultFault" name="AifFaultFault" message="tns:AXCPS_GetOpenInvoicesAmount_AifFaultFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCustomerArchRackInfo">
+      <wsdl:input wsaw:Action="http://tempuri.org/AXCPS/GetCustomerArchRackInfo" name="AXCPSGetCustomerArchRackInfoRequest" message="tns:AXCPSGetCustomerArchRackInfoRequest" />
+      <wsdl:output wsaw:Action="http://tempuri.org/AXCPS/GetCustomerArchRackInfoResponse" name="AXCPSGetCustomerArchRackInfoResponse" message="tns:AXCPSGetCustomerArchRackInfoResponse" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/AXCPS/GetCustomerArchRackInfoAifFaultFault" name="AifFaultFault" message="tns:AXCPS_GetCustomerArchRackInfo_AifFaultFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetWarehouseEdgeFab">
+      <wsdl:input wsaw:Action="http://tempuri.org/AXCPS/GetWarehouseEdgeFab" name="AXCPSGetWarehouseEdgeFabRequest" message="tns:AXCPSGetWarehouseEdgeFabRequest" />
+      <wsdl:output wsaw:Action="http://tempuri.org/AXCPS/GetWarehouseEdgeFabResponse" name="AXCPSGetWarehouseEdgeFabResponse" message="tns:AXCPSGetWarehouseEdgeFabResponse" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/AXCPS/GetWarehouseEdgeFabAifFaultFault" name="AifFaultFault" message="tns:AXCPS_GetWarehouseEdgeFab_AifFaultFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCustomers">
+      <wsdl:input wsaw:Action="http://tempuri.org/AXCPS/GetCustomers" name="AXCPSGetCustomersRequest" message="tns:AXCPSGetCustomersRequest" />
+      <wsdl:output wsaw:Action="http://tempuri.org/AXCPS/GetCustomersResponse" name="AXCPSGetCustomersResponse" message="tns:AXCPSGetCustomersResponse" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/AXCPS/GetCustomersAifFaultFault" name="AifFaultFault" message="tns:AXCPS_GetCustomers_AifFaultFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetInRouteSalesOrdersCount">
+      <wsdl:input wsaw:Action="http://tempuri.org/AXCPS/GetInRouteSalesOrdersCount" name="AXCPSGetInRouteSalesOrdersCountRequest" message="tns:AXCPSGetInRouteSalesOrdersCountRequest" />
+      <wsdl:output wsaw:Action="http://tempuri.org/AXCPS/GetInRouteSalesOrdersCountResponse" name="AXCPSGetInRouteSalesOrdersCountResponse" message="tns:AXCPSGetInRouteSalesOrdersCountResponse" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/AXCPS/GetInRouteSalesOrdersCountAifFaultFault" name="AifFaultFault" message="tns:AXCPS_GetInRouteSalesOrdersCount_AifFaultFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetQuotationReasons">
+      <wsdl:input wsaw:Action="http://tempuri.org/AXCPS/GetQuotationReasons" name="AXCPSGetQuotationReasonsRequest" message="tns:AXCPSGetQuotationReasonsRequest" />
+      <wsdl:output wsaw:Action="http://tempuri.org/AXCPS/GetQuotationReasonsResponse" name="AXCPSGetQuotationReasonsResponse" message="tns:AXCPSGetQuotationReasonsResponse" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/AXCPS/GetQuotationReasonsAifFaultFault" name="AifFaultFault" message="tns:AXCPS_GetQuotationReasons_AifFaultFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetOpenReturnOrdersCount">
+      <wsdl:input wsaw:Action="http://tempuri.org/AXCPS/GetOpenReturnOrdersCount" name="AXCPSGetOpenReturnOrdersCountRequest" message="tns:AXCPSGetOpenReturnOrdersCountRequest" />
+      <wsdl:output wsaw:Action="http://tempuri.org/AXCPS/GetOpenReturnOrdersCountResponse" name="AXCPSGetOpenReturnOrdersCountResponse" message="tns:AXCPSGetOpenReturnOrdersCountResponse" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/AXCPS/GetOpenReturnOrdersCountAifFaultFault" name="AifFaultFault" message="tns:AXCPS_GetOpenReturnOrdersCount_AifFaultFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetQuotations">
+      <wsdl:input wsaw:Action="http://tempuri.org/AXCPS/GetQuotations" name="AXCPSGetQuotationsRequest" message="tns:AXCPSGetQuotationsRequest" />
+      <wsdl:output wsaw:Action="http://tempuri.org/AXCPS/GetQuotationsResponse" name="AXCPSGetQuotationsResponse" message="tns:AXCPSGetQuotationsResponse" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/AXCPS/GetQuotationsAifFaultFault" name="AifFaultFault" message="tns:AXCPS_GetQuotations_AifFaultFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCustConfirmInfo">
+      <wsdl:input wsaw:Action="http://tempuri.org/AXCPS/GetCustConfirmInfo" name="AXCPSGetCustConfirmInfoRequest" message="tns:AXCPSGetCustConfirmInfoRequest" />
+      <wsdl:output wsaw:Action="http://tempuri.org/AXCPS/GetCustConfirmInfoResponse" name="AXCPSGetCustConfirmInfoResponse" message="tns:AXCPSGetCustConfirmInfoResponse" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/AXCPS/GetCustConfirmInfoAifFaultFault" name="AifFaultFault" message="tns:AXCPS_GetCustConfirmInfo_AifFaultFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPackingSlipDetails">
+      <wsdl:input wsaw:Action="http://tempuri.org/AXCPS/GetPackingSlipDetails" name="AXCPSGetPackingSlipDetailsRequest" message="tns:AXCPSGetPackingSlipDetailsRequest" />
+      <wsdl:output wsaw:Action="http://tempuri.org/AXCPS/GetPackingSlipDetailsResponse" name="AXCPSGetPackingSlipDetailsResponse" message="tns:AXCPSGetPackingSlipDetailsResponse" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/AXCPS/GetPackingSlipDetailsAifFaultFault" name="AifFaultFault" message="tns:AXCPS_GetPackingSlipDetails_AifFaultFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RepackPackingSlip">
+      <wsdl:input wsaw:Action="http://tempuri.org/AXCPS/RepackPackingSlip" name="AXCPSRepackPackingSlipRequest" message="tns:AXCPSRepackPackingSlipRequest" />
+      <wsdl:output wsaw:Action="http://tempuri.org/AXCPS/RepackPackingSlipResponse" name="AXCPSRepackPackingSlipResponse" message="tns:AXCPSRepackPackingSlipResponse" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/AXCPS/RepackPackingSlipAifFaultFault" name="AifFaultFault" message="tns:AXCPS_RepackPackingSlip_AifFaultFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCustomerNotifications">
+      <wsdl:input wsaw:Action="http://tempuri.org/AXCPS/GetCustomerNotifications" name="AXCPSGetCustomerNotificationsRequest" message="tns:AXCPSGetCustomerNotificationsRequest" />
+      <wsdl:output wsaw:Action="http://tempuri.org/AXCPS/GetCustomerNotificationsResponse" name="AXCPSGetCustomerNotificationsResponse" message="tns:AXCPSGetCustomerNotificationsResponse" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/AXCPS/GetCustomerNotificationsAifFaultFault" name="AifFaultFault" message="tns:AXCPS_GetCustomerNotifications_AifFaultFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCustomerTruliteContact">
+      <wsdl:input wsaw:Action="http://tempuri.org/AXCPS/GetCustomerTruliteContact" name="AXCPSGetCustomerTruliteContactRequest" message="tns:AXCPSGetCustomerTruliteContactRequest" />
+      <wsdl:output wsaw:Action="http://tempuri.org/AXCPS/GetCustomerTruliteContactResponse" name="AXCPSGetCustomerTruliteContactResponse" message="tns:AXCPSGetCustomerTruliteContactResponse" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/AXCPS/GetCustomerTruliteContactAifFaultFault" name="AifFaultFault" message="tns:AXCPS_GetCustomerTruliteContact_AifFaultFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GenerateTypes">
+      <wsdl:input wsaw:Action="http://tempuri.org/AXCPS/GenerateTypes" name="AXCPSGenerateTypesRequest" message="tns:AXCPSGenerateTypesRequest" />
+      <wsdl:output wsaw:Action="http://tempuri.org/AXCPS/GenerateTypesResponse" message="tns:AXCPS_GenerateTypes_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/AXCPS/GenerateTypesAifFaultFault" name="AifFaultFault" message="tns:AXCPS_GenerateTypes_AifFaultFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCopyPriceLetter">
+      <wsdl:input wsaw:Action="http://tempuri.org/AXCPS/GetCopyPriceLetter" name="AXCPSGetCopyPriceLetterRequest" message="tns:AXCPSGetCopyPriceLetterRequest" />
+      <wsdl:output wsaw:Action="http://tempuri.org/AXCPS/GetCopyPriceLetterResponse" name="AXCPSGetCopyPriceLetterResponse" message="tns:AXCPSGetCopyPriceLetterResponse" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/AXCPS/GetCopyPriceLetterAifFaultFault" name="AifFaultFault" message="tns:AXCPS_GetCopyPriceLetter_AifFaultFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetQuotationLineConfig">
+      <wsdl:input wsaw:Action="http://tempuri.org/AXCPS/GetQuotationLineConfig" name="AXCPSGetQuotationLineConfigRequest" message="tns:AXCPSGetQuotationLineConfigRequest" />
+      <wsdl:output wsaw:Action="http://tempuri.org/AXCPS/GetQuotationLineConfigResponse" name="AXCPSGetQuotationLineConfigResponse" message="tns:AXCPSGetQuotationLineConfigResponse" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/AXCPS/GetQuotationLineConfigAifFaultFault" name="AifFaultFault" message="tns:AXCPS_GetQuotationLineConfig_AifFaultFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetReturnOrdersSummary">
+      <wsdl:input wsaw:Action="http://tempuri.org/AXCPS/GetReturnOrdersSummary" name="AXCPSGetReturnOrdersSummaryRequest" message="tns:AXCPSGetReturnOrdersSummaryRequest" />
+      <wsdl:output wsaw:Action="http://tempuri.org/AXCPS/GetReturnOrdersSummaryResponse" name="AXCPSGetReturnOrdersSummaryResponse" message="tns:AXCPSGetReturnOrdersSummaryResponse" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/AXCPS/GetReturnOrdersSummaryAifFaultFault" name="AifFaultFault" message="tns:AXCPS_GetReturnOrdersSummary_AifFaultFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateQuoteHeader">
+      <wsdl:input wsaw:Action="http://tempuri.org/AXCPS/CreateQuoteHeader" name="AXCPSCreateQuoteHeaderRequest" message="tns:AXCPSCreateQuoteHeaderRequest" />
+      <wsdl:output wsaw:Action="http://tempuri.org/AXCPS/CreateQuoteHeaderResponse" name="AXCPSCreateQuoteHeaderResponse" message="tns:AXCPSCreateQuoteHeaderResponse" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/AXCPS/CreateQuoteHeaderAifFaultFault" name="AifFaultFault" message="tns:AXCPS_CreateQuoteHeader_AifFaultFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCustomersSalesGroup">
+      <wsdl:input wsaw:Action="http://tempuri.org/AXCPS/GetCustomersSalesGroup" name="AXCPSGetCustomersSalesGroupRequest" message="tns:AXCPSGetCustomersSalesGroupRequest" />
+      <wsdl:output wsaw:Action="http://tempuri.org/AXCPS/GetCustomersSalesGroupResponse" name="AXCPSGetCustomersSalesGroupResponse" message="tns:AXCPSGetCustomersSalesGroupResponse" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/AXCPS/GetCustomersSalesGroupAifFaultFault" name="AifFaultFault" message="tns:AXCPS_GetCustomersSalesGroup_AifFaultFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSpacers">
+      <wsdl:input wsaw:Action="http://tempuri.org/AXCPS/GetSpacers" name="AXCPSGetSpacersRequest" message="tns:AXCPSGetSpacersRequest" />
+      <wsdl:output wsaw:Action="http://tempuri.org/AXCPS/GetSpacersResponse" name="AXCPSGetSpacersResponse" message="tns:AXCPSGetSpacersResponse" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/AXCPS/GetSpacersAifFaultFault" name="AifFaultFault" message="tns:AXCPS_GetSpacers_AifFaultFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetReturnOrderDetails">
+      <wsdl:input wsaw:Action="http://tempuri.org/AXCPS/GetReturnOrderDetails" name="AXCPSGetReturnOrderDetailsRequest" message="tns:AXCPSGetReturnOrderDetailsRequest" />
+      <wsdl:output wsaw:Action="http://tempuri.org/AXCPS/GetReturnOrderDetailsResponse" name="AXCPSGetReturnOrderDetailsResponse" message="tns:AXCPSGetReturnOrderDetailsResponse" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/AXCPS/GetReturnOrderDetailsAifFaultFault" name="AifFaultFault" message="tns:AXCPS_GetReturnOrderDetails_AifFaultFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetInvoices">
+      <wsdl:input wsaw:Action="http://tempuri.org/AXCPS/GetInvoices" name="AXCPSGetInvoicesRequest" message="tns:AXCPSGetInvoicesRequest" />
+      <wsdl:output wsaw:Action="http://tempuri.org/AXCPS/GetInvoicesResponse" name="AXCPSGetInvoicesResponse" message="tns:AXCPSGetInvoicesResponse" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/AXCPS/GetInvoicesAifFaultFault" name="AifFaultFault" message="tns:AXCPS_GetInvoices_AifFaultFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetInvoiceDetails">
+      <wsdl:input wsaw:Action="http://tempuri.org/AXCPS/GetInvoiceDetails" name="AXCPSGetInvoiceDetailsRequest" message="tns:AXCPSGetInvoiceDetailsRequest" />
+      <wsdl:output wsaw:Action="http://tempuri.org/AXCPS/GetInvoiceDetailsResponse" name="AXCPSGetInvoiceDetailsResponse" message="tns:AXCPSGetInvoiceDetailsResponse" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/AXCPS/GetInvoiceDetailsAifFaultFault" name="AifFaultFault" message="tns:AXCPS_GetInvoiceDetails_AifFaultFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateCustConfirmInfo">
+      <wsdl:input wsaw:Action="http://tempuri.org/AXCPS/UpdateCustConfirmInfo" name="AXCPSUpdateCustConfirmInfoRequest" message="tns:AXCPSUpdateCustConfirmInfoRequest" />
+      <wsdl:output wsaw:Action="http://tempuri.org/AXCPS/UpdateCustConfirmInfoResponse" name="AXCPSUpdateCustConfirmInfoResponse" message="tns:AXCPSUpdateCustConfirmInfoResponse" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/AXCPS/UpdateCustConfirmInfoAifFaultFault" name="AifFaultFault" message="tns:AXCPS_UpdateCustConfirmInfo_AifFaultFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSalesOrdersSummary">
+      <wsdl:input wsaw:Action="http://tempuri.org/AXCPS/GetSalesOrdersSummary" name="AXCPSGetSalesOrdersSummaryRequest" message="tns:AXCPSGetSalesOrdersSummaryRequest" />
+      <wsdl:output wsaw:Action="http://tempuri.org/AXCPS/GetSalesOrdersSummaryResponse" name="AXCPSGetSalesOrdersSummaryResponse" message="tns:AXCPSGetSalesOrdersSummaryResponse" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/AXCPS/GetSalesOrdersSummaryAifFaultFault" name="AifFaultFault" message="tns:AXCPS_GetSalesOrdersSummary_AifFaultFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="PostQuotationUpdate">
+      <wsdl:input wsaw:Action="http://tempuri.org/AXCPS/PostQuotationUpdate" name="AXCPSPostQuotationUpdateRequest" message="tns:AXCPSPostQuotationUpdateRequest" />
+      <wsdl:output wsaw:Action="http://tempuri.org/AXCPS/PostQuotationUpdateResponse" name="AXCPSPostQuotationUpdateResponse" message="tns:AXCPSPostQuotationUpdateResponse" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/AXCPS/PostQuotationUpdateAifFaultFault" name="AifFaultFault" message="tns:AXCPS_PostQuotationUpdate_AifFaultFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCustomer">
+      <wsdl:input wsaw:Action="http://tempuri.org/AXCPS/GetCustomer" name="AXCPSGetCustomerRequest" message="tns:AXCPSGetCustomerRequest" />
+      <wsdl:output wsaw:Action="http://tempuri.org/AXCPS/GetCustomerResponse" name="AXCPSGetCustomerResponse" message="tns:AXCPSGetCustomerResponse" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/AXCPS/GetCustomerAifFaultFault" name="AifFaultFault" message="tns:AXCPS_GetCustomer_AifFaultFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateQuoteLines">
+      <wsdl:input wsaw:Action="http://tempuri.org/AXCPS/CreateQuoteLines" name="AXCPSCreateQuoteLinesRequest" message="tns:AXCPSCreateQuoteLinesRequest" />
+      <wsdl:output wsaw:Action="http://tempuri.org/AXCPS/CreateQuoteLinesResponse" name="AXCPSCreateQuoteLinesResponse" message="tns:AXCPSCreateQuoteLinesResponse" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/AXCPS/CreateQuoteLinesAifFaultFault" name="AifFaultFault" message="tns:AXCPS_CreateQuoteLines_AifFaultFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMuntins">
+      <wsdl:input wsaw:Action="http://tempuri.org/AXCPS/GetMuntins" name="AXCPSGetMuntinsRequest" message="tns:AXCPSGetMuntinsRequest" />
+      <wsdl:output wsaw:Action="http://tempuri.org/AXCPS/GetMuntinsResponse" name="AXCPSGetMuntinsResponse" message="tns:AXCPSGetMuntinsResponse" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/AXCPS/GetMuntinsAifFaultFault" name="AifFaultFault" message="tns:AXCPS_GetMuntins_AifFaultFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSalesOrders">
+      <wsdl:input wsaw:Action="http://tempuri.org/AXCPS/GetSalesOrders" name="AXCPSGetSalesOrdersRequest" message="tns:AXCPSGetSalesOrdersRequest" />
+      <wsdl:output wsaw:Action="http://tempuri.org/AXCPS/GetSalesOrdersResponse" name="AXCPSGetSalesOrdersResponse" message="tns:AXCPSGetSalesOrdersResponse" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/AXCPS/GetSalesOrdersAifFaultFault" name="AifFaultFault" message="tns:AXCPS_GetSalesOrders_AifFaultFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCopyConfirmation">
+      <wsdl:input wsaw:Action="http://tempuri.org/AXCPS/GetCopyConfirmation" name="AXCPSGetCopyConfirmationRequest" message="tns:AXCPSGetCopyConfirmationRequest" />
+      <wsdl:output wsaw:Action="http://tempuri.org/AXCPS/GetCopyConfirmationResponse" name="AXCPSGetCopyConfirmationResponse" message="tns:AXCPSGetCopyConfirmationResponse" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/AXCPS/GetCopyConfirmationAifFaultFault" name="AifFaultFault" message="tns:AXCPS_GetCopyConfirmation_AifFaultFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCatalogProducts">
+      <wsdl:input wsaw:Action="http://tempuri.org/AXCPS/GetCatalogProducts" name="AXCPSGetCatalogProductsRequest" message="tns:AXCPSGetCatalogProductsRequest" />
+      <wsdl:output wsaw:Action="http://tempuri.org/AXCPS/GetCatalogProductsResponse" name="AXCPSGetCatalogProductsResponse" message="tns:AXCPSGetCatalogProductsResponse" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/AXCPS/GetCatalogProductsAifFaultFault" name="AifFaultFault" message="tns:AXCPS_GetCatalogProducts_AifFaultFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteCustConfirmInfo">
+      <wsdl:input wsaw:Action="http://tempuri.org/AXCPS/DeleteCustConfirmInfo" name="AXCPSDeleteCustConfirmInfoRequest" message="tns:AXCPSDeleteCustConfirmInfoRequest" />
+      <wsdl:output wsaw:Action="http://tempuri.org/AXCPS/DeleteCustConfirmInfoResponse" name="AXCPSDeleteCustConfirmInfoResponse" message="tns:AXCPSDeleteCustConfirmInfoResponse" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/AXCPS/DeleteCustConfirmInfoAifFaultFault" name="AifFaultFault" message="tns:AXCPS_DeleteCustConfirmInfo_AifFaultFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ConfigureQuoteLine">
+      <wsdl:input wsaw:Action="http://tempuri.org/AXCPS/ConfigureQuoteLine" name="AXCPSConfigureQuoteLineRequest" message="tns:AXCPSConfigureQuoteLineRequest" />
+      <wsdl:output wsaw:Action="http://tempuri.org/AXCPS/ConfigureQuoteLineResponse" name="AXCPSConfigureQuoteLineResponse" message="tns:AXCPSConfigureQuoteLineResponse" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/AXCPS/ConfigureQuoteLineAifFaultFault" name="AifFaultFault" message="tns:AXCPS_ConfigureQuoteLine_AifFaultFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPackingSlipsNotInvoiced">
+      <wsdl:input wsaw:Action="http://tempuri.org/AXCPS/GetPackingSlipsNotInvoiced" name="AXCPSGetPackingSlipsNotInvoicedRequest" message="tns:AXCPSGetPackingSlipsNotInvoicedRequest" />
+      <wsdl:output wsaw:Action="http://tempuri.org/AXCPS/GetPackingSlipsNotInvoicedResponse" name="AXCPSGetPackingSlipsNotInvoicedResponse" message="tns:AXCPSGetPackingSlipsNotInvoicedResponse" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/AXCPS/GetPackingSlipsNotInvoicedAifFaultFault" name="AifFaultFault" message="tns:AXCPS_GetPackingSlipsNotInvoiced_AifFaultFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetQuotationNotes">
+      <wsdl:input wsaw:Action="http://tempuri.org/AXCPS/GetQuotationNotes" name="AXCPSGetQuotationNotesRequest" message="tns:AXCPSGetQuotationNotesRequest" />
+      <wsdl:output wsaw:Action="http://tempuri.org/AXCPS/GetQuotationNotesResponse" name="AXCPSGetQuotationNotesResponse" message="tns:AXCPSGetQuotationNotesResponse" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/AXCPS/GetQuotationNotesAifFaultFault" name="AifFaultFault" message="tns:AXCPS_GetQuotationNotes_AifFaultFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetProduct">
+      <wsdl:input wsaw:Action="http://tempuri.org/AXCPS/GetProduct" name="AXCPSGetProductRequest" message="tns:AXCPSGetProductRequest" />
+      <wsdl:output wsaw:Action="http://tempuri.org/AXCPS/GetProductResponse" name="AXCPSGetProductResponse" message="tns:AXCPSGetProductResponse" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/AXCPS/GetProductAifFaultFault" name="AifFaultFault" message="tns:AXCPS_GetProduct_AifFaultFault_FaultMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_AXCPS" type="tns:AXCPS">
+    <wsp:PolicyReference URI="#BasicHttpBinding_AXCPS_policy" />
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetConfigureQuoteLineXML">
+      <soap:operation soapAction="http://tempuri.org/AXCPS/GetConfigureQuoteLineXML" style="document" />
+      <wsdl:input name="AXCPSGetConfigureQuoteLineXMLRequest">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="AXCPSGetConfigureQuoteLineXMLResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="AifFaultFault">
+        <soap:fault use="literal" name="AifFaultFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="AddCustConfirmInfo">
+      <soap:operation soapAction="http://tempuri.org/AXCPS/AddCustConfirmInfo" style="document" />
+      <wsdl:input name="AXCPSAddCustConfirmInfoRequest">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="AXCPSAddCustConfirmInfoResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="AifFaultFault">
+        <soap:fault use="literal" name="AifFaultFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="LostQuotation">
+      <soap:operation soapAction="http://tempuri.org/AXCPS/LostQuotation" style="document" />
+      <wsdl:input name="AXCPSLostQuotationRequest">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="AXCPSLostQuotationResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="AifFaultFault">
+        <soap:fault use="literal" name="AifFaultFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetPackingSlips">
+      <soap:operation soapAction="http://tempuri.org/AXCPS/GetPackingSlips" style="document" />
+      <wsdl:input name="AXCPSGetPackingSlipsRequest">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="AXCPSGetPackingSlipsResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="AifFaultFault">
+        <soap:fault use="literal" name="AifFaultFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetCustomerAccounts">
+      <soap:operation soapAction="http://tempuri.org/AXCPS/GetCustomerAccounts" style="document" />
+      <wsdl:input name="AXCPSGetCustomerAccountsRequest">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="AXCPSGetCustomerAccountsResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="AifFaultFault">
+        <soap:fault use="literal" name="AifFaultFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetCopyQuotation">
+      <soap:operation soapAction="http://tempuri.org/AXCPS/GetCopyQuotation" style="document" />
+      <wsdl:input name="AXCPSGetCopyQuotationRequest">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="AXCPSGetCopyQuotationResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="AifFaultFault">
+        <soap:fault use="literal" name="AifFaultFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetOpenSalesOrdersCount">
+      <soap:operation soapAction="http://tempuri.org/AXCPS/GetOpenSalesOrdersCount" style="document" />
+      <wsdl:input name="AXCPSGetOpenSalesOrdersCountRequest">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="AXCPSGetOpenSalesOrdersCountResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="AifFaultFault">
+        <soap:fault use="literal" name="AifFaultFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetSalesQuotationInquiry">
+      <soap:operation soapAction="http://tempuri.org/AXCPS/GetSalesQuotationInquiry" style="document" />
+      <wsdl:input name="AXCPSGetSalesQuotationInquiryRequest">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="AXCPSGetSalesQuotationInquiryResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="AifFaultFault">
+        <soap:fault use="literal" name="AifFaultFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetCustAccountStatement">
+      <soap:operation soapAction="http://tempuri.org/AXCPS/GetCustAccountStatement" style="document" />
+      <wsdl:input name="AXCPSGetCustAccountStatementRequest">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="AXCPSGetCustAccountStatementResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="AifFaultFault">
+        <soap:fault use="literal" name="AifFaultFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetStockedProducts">
+      <soap:operation soapAction="http://tempuri.org/AXCPS/GetStockedProducts" style="document" />
+      <wsdl:input name="AXCPSGetStockedProductsRequest">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="AXCPSGetStockedProductsResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="AifFaultFault">
+        <soap:fault use="literal" name="AifFaultFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetMonolithicProducts">
+      <soap:operation soapAction="http://tempuri.org/AXCPS/GetMonolithicProducts" style="document" />
+      <wsdl:input name="AXCPSGetMonolithicProductsRequest">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="AXCPSGetMonolithicProductsResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="AifFaultFault">
+        <soap:fault use="literal" name="AifFaultFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetCopyInvoice">
+      <soap:operation soapAction="http://tempuri.org/AXCPS/GetCopyInvoice" style="document" />
+      <wsdl:input name="AXCPSGetCopyInvoiceRequest">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="AXCPSGetCopyInvoiceResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="AifFaultFault">
+        <soap:fault use="literal" name="AifFaultFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetSalesOrdersSummaryByStatus">
+      <soap:operation soapAction="http://tempuri.org/AXCPS/GetSalesOrdersSummaryByStatus" style="document" />
+      <wsdl:input name="AXCPSGetSalesOrdersSummaryByStatusRequest">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="AXCPSGetSalesOrdersSummaryByStatusResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="AifFaultFault">
+        <soap:fault use="literal" name="AifFaultFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetReturnOrders">
+      <soap:operation soapAction="http://tempuri.org/AXCPS/GetReturnOrders" style="document" />
+      <wsdl:input name="AXCPSGetReturnOrdersRequest">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="AXCPSGetReturnOrdersResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="AifFaultFault">
+        <soap:fault use="literal" name="AifFaultFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetShipManifestDetails">
+      <soap:operation soapAction="http://tempuri.org/AXCPS/GetShipManifestDetails" style="document" />
+      <wsdl:input name="AXCPSGetShipManifestDetailsRequest">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="AXCPSGetShipManifestDetailsResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="AifFaultFault">
+        <soap:fault use="literal" name="AifFaultFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetInterLayers">
+      <soap:operation soapAction="http://tempuri.org/AXCPS/GetInterLayers" style="document" />
+      <wsdl:input name="AXCPSGetInterLayersRequest">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="AXCPSGetInterLayersResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="AifFaultFault">
+        <soap:fault use="literal" name="AifFaultFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="ConfigureQuoteLineXML">
+      <soap:operation soapAction="http://tempuri.org/AXCPS/ConfigureQuoteLineXML" style="document" />
+      <wsdl:input name="AXCPSConfigureQuoteLineXMLRequest">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="AXCPSConfigureQuoteLineXMLResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="AifFaultFault">
+        <soap:fault use="literal" name="AifFaultFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetOpenInvoicesCount">
+      <soap:operation soapAction="http://tempuri.org/AXCPS/GetOpenInvoicesCount" style="document" />
+      <wsdl:input name="AXCPSGetOpenInvoicesCountRequest">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="AXCPSGetOpenInvoicesCountResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="AifFaultFault">
+        <soap:fault use="literal" name="AifFaultFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetShipManifestHeaders">
+      <soap:operation soapAction="http://tempuri.org/AXCPS/GetShipManifestHeaders" style="document" />
+      <wsdl:input name="AXCPSGetShipManifestHeadersRequest">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="AXCPSGetShipManifestHeadersResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="AifFaultFault">
+        <soap:fault use="literal" name="AifFaultFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetSalesOrderDetails">
+      <soap:operation soapAction="http://tempuri.org/AXCPS/GetSalesOrderDetails" style="document" />
+      <wsdl:input name="AXCPSGetSalesOrderDetailsRequest">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="AXCPSGetSalesOrderDetailsResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="AifFaultFault">
+        <soap:fault use="literal" name="AifFaultFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="ConfirmQuotation">
+      <soap:operation soapAction="http://tempuri.org/AXCPS/ConfirmQuotation" style="document" />
+      <wsdl:input name="AXCPSConfirmQuotationRequest">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="AXCPSConfirmQuotationResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="AifFaultFault">
+        <soap:fault use="literal" name="AifFaultFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="PostInvoicePackingSlip">
+      <soap:operation soapAction="http://tempuri.org/AXCPS/PostInvoicePackingSlip" style="document" />
+      <wsdl:input name="AXCPSPostInvoicePackingSlipRequest">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="AXCPSPostInvoicePackingSlipResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="AifFaultFault">
+        <soap:fault use="literal" name="AifFaultFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetSalesRoutes">
+      <soap:operation soapAction="http://tempuri.org/AXCPS/GetSalesRoutes" style="document" />
+      <wsdl:input name="AXCPSGetSalesRoutesRequest">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="AXCPSGetSalesRoutesResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="AifFaultFault">
+        <soap:fault use="literal" name="AifFaultFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetCustomersBranch">
+      <soap:operation soapAction="http://tempuri.org/AXCPS/GetCustomersBranch" style="document" />
+      <wsdl:input name="AXCPSGetCustomersBranchRequest">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="AXCPSGetCustomersBranchResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="AifFaultFault">
+        <soap:fault use="literal" name="AifFaultFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="AssignCASEToInventTransID">
+      <soap:operation soapAction="http://tempuri.org/AXCPS/AssignCASEToInventTransID" style="document" />
+      <wsdl:input name="AXCPSAssignCASEToInventTransIDRequest">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="AXCPSAssignCASEToInventTransIDResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="AifFaultFault">
+        <soap:fault use="literal" name="AifFaultFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetQuotationDetails">
+      <soap:operation soapAction="http://tempuri.org/AXCPS/GetQuotationDetails" style="document" />
+      <wsdl:input name="AXCPSGetQuotationDetailsRequest">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="AXCPSGetQuotationDetailsResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="AifFaultFault">
+        <soap:fault use="literal" name="AifFaultFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetInvoicesSummary">
+      <soap:operation soapAction="http://tempuri.org/AXCPS/GetInvoicesSummary" style="document" />
+      <wsdl:input name="AXCPSGetInvoicesSummaryRequest">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="AXCPSGetInvoicesSummaryResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="AifFaultFault">
+        <soap:fault use="literal" name="AifFaultFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="CreateQuoteLine">
+      <soap:operation soapAction="http://tempuri.org/AXCPS/CreateQuoteLine" style="document" />
+      <wsdl:input name="AXCPSCreateQuoteLineRequest">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="AXCPSCreateQuoteLineResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="AifFaultFault">
+        <soap:fault use="literal" name="AifFaultFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetCustomerAddresses">
+      <soap:operation soapAction="http://tempuri.org/AXCPS/GetCustomerAddresses" style="document" />
+      <wsdl:input name="AXCPSGetCustomerAddressesRequest">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="AXCPSGetCustomerAddressesResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="AifFaultFault">
+        <soap:fault use="literal" name="AifFaultFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetCustomersCount">
+      <soap:operation soapAction="http://tempuri.org/AXCPS/GetCustomersCount" style="document" />
+      <wsdl:input name="AXCPSGetCustomersCountRequest">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="AXCPSGetCustomersCountResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="AifFaultFault">
+        <soap:fault use="literal" name="AifFaultFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetCopyPackingSlip">
+      <soap:operation soapAction="http://tempuri.org/AXCPS/GetCopyPackingSlip" style="document" />
+      <wsdl:input name="AXCPSGetCopyPackingSlipRequest">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="AXCPSGetCopyPackingSlipResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="AifFaultFault">
+        <soap:fault use="literal" name="AifFaultFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetSalesOrderLineConfig">
+      <soap:operation soapAction="http://tempuri.org/AXCPS/GetSalesOrderLineConfig" style="document" />
+      <wsdl:input name="AXCPSGetSalesOrderLineConfigRequest">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="AXCPSGetSalesOrderLineConfigResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="AifFaultFault">
+        <soap:fault use="literal" name="AifFaultFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="addCreditCardTransaction">
+      <soap:operation soapAction="http://tempuri.org/AXCPS/addCreditCardTransaction" style="document" />
+      <wsdl:input name="AXCPSAddCreditCardTransactionRequest">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="AXCPSAddCreditCardTransactionResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="AifFaultFault">
+        <soap:fault use="literal" name="AifFaultFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetOpenInvoicesAmount">
+      <soap:operation soapAction="http://tempuri.org/AXCPS/GetOpenInvoicesAmount" style="document" />
+      <wsdl:input name="AXCPSGetOpenInvoicesAmountRequest">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="AXCPSGetOpenInvoicesAmountResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="AifFaultFault">
+        <soap:fault use="literal" name="AifFaultFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetCustomerArchRackInfo">
+      <soap:operation soapAction="http://tempuri.org/AXCPS/GetCustomerArchRackInfo" style="document" />
+      <wsdl:input name="AXCPSGetCustomerArchRackInfoRequest">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="AXCPSGetCustomerArchRackInfoResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="AifFaultFault">
+        <soap:fault use="literal" name="AifFaultFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetWarehouseEdgeFab">
+      <soap:operation soapAction="http://tempuri.org/AXCPS/GetWarehouseEdgeFab" style="document" />
+      <wsdl:input name="AXCPSGetWarehouseEdgeFabRequest">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="AXCPSGetWarehouseEdgeFabResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="AifFaultFault">
+        <soap:fault use="literal" name="AifFaultFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetCustomers">
+      <soap:operation soapAction="http://tempuri.org/AXCPS/GetCustomers" style="document" />
+      <wsdl:input name="AXCPSGetCustomersRequest">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="AXCPSGetCustomersResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="AifFaultFault">
+        <soap:fault use="literal" name="AifFaultFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetInRouteSalesOrdersCount">
+      <soap:operation soapAction="http://tempuri.org/AXCPS/GetInRouteSalesOrdersCount" style="document" />
+      <wsdl:input name="AXCPSGetInRouteSalesOrdersCountRequest">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="AXCPSGetInRouteSalesOrdersCountResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="AifFaultFault">
+        <soap:fault use="literal" name="AifFaultFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetQuotationReasons">
+      <soap:operation soapAction="http://tempuri.org/AXCPS/GetQuotationReasons" style="document" />
+      <wsdl:input name="AXCPSGetQuotationReasonsRequest">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="AXCPSGetQuotationReasonsResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="AifFaultFault">
+        <soap:fault use="literal" name="AifFaultFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetOpenReturnOrdersCount">
+      <soap:operation soapAction="http://tempuri.org/AXCPS/GetOpenReturnOrdersCount" style="document" />
+      <wsdl:input name="AXCPSGetOpenReturnOrdersCountRequest">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="AXCPSGetOpenReturnOrdersCountResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="AifFaultFault">
+        <soap:fault use="literal" name="AifFaultFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetQuotations">
+      <soap:operation soapAction="http://tempuri.org/AXCPS/GetQuotations" style="document" />
+      <wsdl:input name="AXCPSGetQuotationsRequest">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="AXCPSGetQuotationsResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="AifFaultFault">
+        <soap:fault use="literal" name="AifFaultFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetCustConfirmInfo">
+      <soap:operation soapAction="http://tempuri.org/AXCPS/GetCustConfirmInfo" style="document" />
+      <wsdl:input name="AXCPSGetCustConfirmInfoRequest">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="AXCPSGetCustConfirmInfoResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="AifFaultFault">
+        <soap:fault use="literal" name="AifFaultFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetPackingSlipDetails">
+      <soap:operation soapAction="http://tempuri.org/AXCPS/GetPackingSlipDetails" style="document" />
+      <wsdl:input name="AXCPSGetPackingSlipDetailsRequest">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="AXCPSGetPackingSlipDetailsResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="AifFaultFault">
+        <soap:fault use="literal" name="AifFaultFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="RepackPackingSlip">
+      <soap:operation soapAction="http://tempuri.org/AXCPS/RepackPackingSlip" style="document" />
+      <wsdl:input name="AXCPSRepackPackingSlipRequest">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="AXCPSRepackPackingSlipResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="AifFaultFault">
+        <soap:fault use="literal" name="AifFaultFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetCustomerNotifications">
+      <soap:operation soapAction="http://tempuri.org/AXCPS/GetCustomerNotifications" style="document" />
+      <wsdl:input name="AXCPSGetCustomerNotificationsRequest">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="AXCPSGetCustomerNotificationsResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="AifFaultFault">
+        <soap:fault use="literal" name="AifFaultFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetCustomerTruliteContact">
+      <soap:operation soapAction="http://tempuri.org/AXCPS/GetCustomerTruliteContact" style="document" />
+      <wsdl:input name="AXCPSGetCustomerTruliteContactRequest">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="AXCPSGetCustomerTruliteContactResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="AifFaultFault">
+        <soap:fault use="literal" name="AifFaultFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GenerateTypes">
+      <soap:operation soapAction="http://tempuri.org/AXCPS/GenerateTypes" style="document" />
+      <wsdl:input name="AXCPSGenerateTypesRequest">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="AifFaultFault">
+        <soap:fault use="literal" name="AifFaultFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetCopyPriceLetter">
+      <soap:operation soapAction="http://tempuri.org/AXCPS/GetCopyPriceLetter" style="document" />
+      <wsdl:input name="AXCPSGetCopyPriceLetterRequest">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="AXCPSGetCopyPriceLetterResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="AifFaultFault">
+        <soap:fault use="literal" name="AifFaultFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetQuotationLineConfig">
+      <soap:operation soapAction="http://tempuri.org/AXCPS/GetQuotationLineConfig" style="document" />
+      <wsdl:input name="AXCPSGetQuotationLineConfigRequest">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="AXCPSGetQuotationLineConfigResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="AifFaultFault">
+        <soap:fault use="literal" name="AifFaultFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetReturnOrdersSummary">
+      <soap:operation soapAction="http://tempuri.org/AXCPS/GetReturnOrdersSummary" style="document" />
+      <wsdl:input name="AXCPSGetReturnOrdersSummaryRequest">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="AXCPSGetReturnOrdersSummaryResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="AifFaultFault">
+        <soap:fault use="literal" name="AifFaultFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="CreateQuoteHeader">
+      <soap:operation soapAction="http://tempuri.org/AXCPS/CreateQuoteHeader" style="document" />
+      <wsdl:input name="AXCPSCreateQuoteHeaderRequest">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="AXCPSCreateQuoteHeaderResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="AifFaultFault">
+        <soap:fault use="literal" name="AifFaultFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetCustomersSalesGroup">
+      <soap:operation soapAction="http://tempuri.org/AXCPS/GetCustomersSalesGroup" style="document" />
+      <wsdl:input name="AXCPSGetCustomersSalesGroupRequest">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="AXCPSGetCustomersSalesGroupResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="AifFaultFault">
+        <soap:fault use="literal" name="AifFaultFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetSpacers">
+      <soap:operation soapAction="http://tempuri.org/AXCPS/GetSpacers" style="document" />
+      <wsdl:input name="AXCPSGetSpacersRequest">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="AXCPSGetSpacersResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="AifFaultFault">
+        <soap:fault use="literal" name="AifFaultFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetReturnOrderDetails">
+      <soap:operation soapAction="http://tempuri.org/AXCPS/GetReturnOrderDetails" style="document" />
+      <wsdl:input name="AXCPSGetReturnOrderDetailsRequest">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="AXCPSGetReturnOrderDetailsResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="AifFaultFault">
+        <soap:fault use="literal" name="AifFaultFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetInvoices">
+      <soap:operation soapAction="http://tempuri.org/AXCPS/GetInvoices" style="document" />
+      <wsdl:input name="AXCPSGetInvoicesRequest">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="AXCPSGetInvoicesResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="AifFaultFault">
+        <soap:fault use="literal" name="AifFaultFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetInvoiceDetails">
+      <soap:operation soapAction="http://tempuri.org/AXCPS/GetInvoiceDetails" style="document" />
+      <wsdl:input name="AXCPSGetInvoiceDetailsRequest">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="AXCPSGetInvoiceDetailsResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="AifFaultFault">
+        <soap:fault use="literal" name="AifFaultFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateCustConfirmInfo">
+      <soap:operation soapAction="http://tempuri.org/AXCPS/UpdateCustConfirmInfo" style="document" />
+      <wsdl:input name="AXCPSUpdateCustConfirmInfoRequest">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="AXCPSUpdateCustConfirmInfoResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="AifFaultFault">
+        <soap:fault use="literal" name="AifFaultFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetSalesOrdersSummary">
+      <soap:operation soapAction="http://tempuri.org/AXCPS/GetSalesOrdersSummary" style="document" />
+      <wsdl:input name="AXCPSGetSalesOrdersSummaryRequest">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="AXCPSGetSalesOrdersSummaryResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="AifFaultFault">
+        <soap:fault use="literal" name="AifFaultFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="PostQuotationUpdate">
+      <soap:operation soapAction="http://tempuri.org/AXCPS/PostQuotationUpdate" style="document" />
+      <wsdl:input name="AXCPSPostQuotationUpdateRequest">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="AXCPSPostQuotationUpdateResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="AifFaultFault">
+        <soap:fault use="literal" name="AifFaultFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetCustomer">
+      <soap:operation soapAction="http://tempuri.org/AXCPS/GetCustomer" style="document" />
+      <wsdl:input name="AXCPSGetCustomerRequest">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="AXCPSGetCustomerResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="AifFaultFault">
+        <soap:fault use="literal" name="AifFaultFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="CreateQuoteLines">
+      <soap:operation soapAction="http://tempuri.org/AXCPS/CreateQuoteLines" style="document" />
+      <wsdl:input name="AXCPSCreateQuoteLinesRequest">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="AXCPSCreateQuoteLinesResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="AifFaultFault">
+        <soap:fault use="literal" name="AifFaultFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetMuntins">
+      <soap:operation soapAction="http://tempuri.org/AXCPS/GetMuntins" style="document" />
+      <wsdl:input name="AXCPSGetMuntinsRequest">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="AXCPSGetMuntinsResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="AifFaultFault">
+        <soap:fault use="literal" name="AifFaultFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetSalesOrders">
+      <soap:operation soapAction="http://tempuri.org/AXCPS/GetSalesOrders" style="document" />
+      <wsdl:input name="AXCPSGetSalesOrdersRequest">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="AXCPSGetSalesOrdersResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="AifFaultFault">
+        <soap:fault use="literal" name="AifFaultFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetCopyConfirmation">
+      <soap:operation soapAction="http://tempuri.org/AXCPS/GetCopyConfirmation" style="document" />
+      <wsdl:input name="AXCPSGetCopyConfirmationRequest">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="AXCPSGetCopyConfirmationResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="AifFaultFault">
+        <soap:fault use="literal" name="AifFaultFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetCatalogProducts">
+      <soap:operation soapAction="http://tempuri.org/AXCPS/GetCatalogProducts" style="document" />
+      <wsdl:input name="AXCPSGetCatalogProductsRequest">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="AXCPSGetCatalogProductsResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="AifFaultFault">
+        <soap:fault use="literal" name="AifFaultFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteCustConfirmInfo">
+      <soap:operation soapAction="http://tempuri.org/AXCPS/DeleteCustConfirmInfo" style="document" />
+      <wsdl:input name="AXCPSDeleteCustConfirmInfoRequest">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="AXCPSDeleteCustConfirmInfoResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="AifFaultFault">
+        <soap:fault use="literal" name="AifFaultFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="ConfigureQuoteLine">
+      <soap:operation soapAction="http://tempuri.org/AXCPS/ConfigureQuoteLine" style="document" />
+      <wsdl:input name="AXCPSConfigureQuoteLineRequest">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="AXCPSConfigureQuoteLineResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="AifFaultFault">
+        <soap:fault use="literal" name="AifFaultFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetPackingSlipsNotInvoiced">
+      <soap:operation soapAction="http://tempuri.org/AXCPS/GetPackingSlipsNotInvoiced" style="document" />
+      <wsdl:input name="AXCPSGetPackingSlipsNotInvoicedRequest">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="AXCPSGetPackingSlipsNotInvoicedResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="AifFaultFault">
+        <soap:fault use="literal" name="AifFaultFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetQuotationNotes">
+      <soap:operation soapAction="http://tempuri.org/AXCPS/GetQuotationNotes" style="document" />
+      <wsdl:input name="AXCPSGetQuotationNotesRequest">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="AXCPSGetQuotationNotesResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="AifFaultFault">
+        <soap:fault use="literal" name="AifFaultFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetProduct">
+      <soap:operation soapAction="http://tempuri.org/AXCPS/GetProduct" style="document" />
+      <wsdl:input name="AXCPSGetProductRequest">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="AXCPSGetProductResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="AifFaultFault">
+        <soap:fault use="literal" name="AifFaultFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="AXCPS">
+    <wsdl:port name="BasicHttpBinding_AXCPS" binding="tns:BasicHttpBinding_AXCPS">
+      <soap:address location="http://tru-devaos.archaluminum.local/MicrosoftDynamicsAXAif50/axcps.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

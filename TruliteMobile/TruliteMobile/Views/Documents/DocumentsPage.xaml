@@ -1,0 +1,134 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage x:Class="TruliteMobile.Views.Documents.DocumentsPage"
+             xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:components="clr-namespace:TruliteMobile.Components;assembly=TruliteMobile"
+             xmlns:converters="clr-namespace:TruliteMobile.Converters;assembly=TruliteMobile"
+             xmlns:documents="clr-namespace:TruliteMobile.Views.Documents;assembly=TruliteMobile"
+             xmlns:i18N="clr-namespace:TruliteMobile.i18n;assembly=TruliteMobile"
+             xmlns:services="clr-namespace:TruliteMobile.Services;assembly=TruliteMobile"
+             xmlns:xForms="clr-namespace:Syncfusion.SfBusyIndicator.XForms;assembly=Syncfusion.SfBusyIndicator.XForms"
+             xmlns:converters1="clr-namespace:XamarinUniversity.Converters;assembly=XamU.Infrastructure"
+             Title="{i18N:TranslateExtension Text=Documents}"
+             x:DataType="documents:DocumentsPageViewModel">
+
+    <!--#region Menu -->
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Command="{Binding OpenSettingsCommand}"
+                     IconImageSource="gears.png"
+                     Order="Primary"
+                     Priority="0"
+                     Text="{i18N:TranslateExtension Text=GiveFeedback}" />
+    </ContentPage.ToolbarItems>
+    <!--#endregion-->
+
+    <ContentPage.Content>
+        <Grid x:Name="root"
+              Style="{StaticResource RootGrid}"
+              Padding="10">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="1" />
+                <RowDefinition />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+
+            <components:ListSortView SortColumns="{Binding SortColumns}"
+                                     IsVisible="{Binding NoResults, Converter={converters1:NotBooleanConverter}}"
+                                     SelectedSortColumn="{Binding SelectedSortColumn}"
+                                     FilterTriggerCommand="{Binding FilterTriggerCommand}"
+                                     Grid.Row="0" />
+
+            <BoxView  BackgroundColor="{StaticResource DarkPrimaryBlue}"
+                      Grid.Row="1" />
+            <!--#region List -->
+            <ScrollView Grid.Row="2">
+                <StackLayout BindableLayout.ItemsSource="{Binding List}">
+                    <BindableLayout.ItemTemplate>
+                        <DataTemplate x:DataType="services:DocumentUploadView">
+                            <Grid Margin="5">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto" />
+                                    <ColumnDefinition />
+                                </Grid.ColumnDefinitions>
+                                <Label Style="{StaticResource GridHeaderLabel}"
+                                       Text="{i18N:TranslateExtension Text=Name, Suffix=':'}" />
+                                <Label Grid.Row="1"
+                                       Style="{StaticResource GridHeaderLabel}"
+                                       Text="{i18N:TranslateExtension Text=CreatedBy,
+                                                                   Suffix=':'}" />
+                                <Label Grid.Row="2"
+                                       Style="{StaticResource GridHeaderLabel}"
+                                       Text="{i18N:TranslateExtension Text=Date,
+                                                                   Suffix=':'}" />
+                                <Label Grid.Row="3"
+                                       Style="{StaticResource GridHeaderLabel}"
+                                       Text="{i18N:TranslateExtension Text=Global,
+                                                                   Suffix=':'}" />
+                                <Label Grid.Row="4"
+                                       Style="{StaticResource GridHeaderLabel}"
+                                       Text="{i18N:TranslateExtension Text=Action,
+                                                                   Suffix=':'}" />
+
+                                <Label Grid.Row="0"
+                                       Grid.Column="1"
+                                       Style="{StaticResource GridLabel}"
+                                       Text="{Binding Name}" />
+                                <Label Grid.Row="1"
+                                       Grid.Column="1"
+                                       Style="{StaticResource GridLabel}"
+                                       Text="{Binding CreatedBy}" />
+                                <Label Grid.Row="2"
+                                       Grid.Column="1"
+                                       Style="{StaticResource GridLabel}"
+                                       Text="{Binding DateCreated, StringFormat='{0:MM/dd/yyyy H:mm:ss tt}'}" />
+
+                                <Label Grid.Row="3"
+                                       Grid.Column="1"
+                                       Text="{i18N:Translate Text=No}"
+                                       Style="{StaticResource GridLabel}">
+                                    <Label.Triggers>
+                                        <DataTrigger Binding="{Binding HasCustomer}"
+                                                     TargetType="Label"
+                                                     Value="False">
+                                            <Setter Property="Text"
+                                                    Value="{i18N:Translate Text=Yes}" />
+                                        </DataTrigger>
+                                    </Label.Triggers>
+                                </Label>
+
+                                <components:ActionButtonView Grid.Row="4"
+                                                             Grid.ColumnSpan="2"
+                                                             BackgroundColor="Red"
+                                                             IconText="&#xf1c1;"
+                                                             TappedCommand="{Binding BindingContext.ViewPdfCommand, Source={x:Reference root}}"
+                                                             TappedCommandParameter="{Binding .}"
+                                                             Text="{i18N:TranslateExtension Text=ViewPDF}" />
+                                <components:ActionButtonView Grid.Row="5"
+                                                             Grid.ColumnSpan="2"
+                                                             BackgroundColor="{StaticResource DarkPrimaryBlue}"
+                                                             IconText="&#xf381;"
+                                                             TappedCommand="{Binding BindingContext.DownloadDocumentCommand, Source={x:Reference root}}"
+                                                             TappedCommandParameter="{Binding .}"
+                                                             Text="{i18N:TranslateExtension Text=Download PDF}" />
+
+                            </Grid>
+                        </DataTemplate>
+                    </BindableLayout.ItemTemplate>
+                </StackLayout>
+            </ScrollView>
+            <!--#endregion-->
+            <xForms:SfBusyIndicator Grid.Row="2" />
+            <components:RowCountView Grid.Row="3"
+                                     List="{Binding List}" />
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

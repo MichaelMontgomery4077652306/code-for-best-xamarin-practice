@@ -1,0 +1,71 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage x:Class="TruliteMobile.Views.Orders.OrderRequestDateChangePage"
+             xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:components="clr-namespace:TruliteMobile.Components;assembly=TruliteMobile"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:i18N="clr-namespace:TruliteMobile.i18n;assembly=TruliteMobile"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:orders="clr-namespace:TruliteMobile.Views.Orders;assembly=TruliteMobile"
+             Title="{Binding Title}"
+             x:DataType="orders:OrderRequestDateChangePageViewModel"
+             mc:Ignorable="d">
+    <!--#region Menu -->
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Command="{Binding OpenSettingsCommand}"
+                     IconImageSource="gears.png"
+                     Order="Primary"
+                     Priority="0"
+                     Text="{i18N:TranslateExtension Text=GiveFeedback}" />
+    </ContentPage.ToolbarItems>
+    <!--#endregion-->
+    <ContentPage.Content>
+        <Grid Padding="10"
+              Style="{StaticResource RootGrid}">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="200" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+            <Label Text="{i18N:TranslateExtension Text=CurrentDeliveryDate}" />
+            <DatePicker Grid.Column="1"
+                        Date="{Binding CurrentDate}"
+                        IsEnabled="False" />
+            <Label Grid.Row="1"
+                   Text="{i18N:TranslateExtension Text=NewDeliveryDate}" />
+            <components:NullableDatePickerView Grid.Row="1"
+                                               Grid.Column="1"
+                                               Date="{Binding NewDate}" />
+            <Label Grid.Row="2"
+                   Grid.ColumnSpan="2"
+                   Text="{i18N:TranslateExtension Text=Note}" />
+            <Editor Grid.Row="3"
+                    Grid.ColumnSpan="2"
+                    HeightRequest="200"
+                    Text="{Binding Notes}"
+                    VerticalOptions="FillAndExpand" />
+
+            <!--#region Action Buttons -->
+            <components:ActionButtonView Grid.Row="4"
+                                         BackgroundColor="Gray"
+                                         IconText="&#xf00d;"
+                                         TappedCommand="{Binding CancelCommand}"
+                                         Text="{i18N:TranslateExtension Text=Close}" />
+            <components:ActionButtonView Grid.Row="4"
+                                         Grid.Column="1"
+                                         BackgroundColor="{StaticResource PrimaryBlue}"
+                                         IconText="&#xf00c;"
+                                         TappedCommand="{Binding SubmitCommand}"
+                                         Text="{i18N:TranslateExtension Text=Submit}" />
+
+<!--#endregion-->
+            </Grid>
+    </ContentPage.Content>
+</ContentPage>

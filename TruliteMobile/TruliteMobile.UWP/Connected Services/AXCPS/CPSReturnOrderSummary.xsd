@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xsd:schema xmlns="http://schemas.microsoft.com/dynamics/2006/02/documents/CPSReturnOrderSummary" elementFormDefault="qualified" targetNamespace="http://schemas.microsoft.com/dynamics/2006/02/documents/CPSReturnOrderSummary" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <xsd:element name="CPSReturnOrderSummary" type="CPSReturnOrderSummary" />
+  <xsd:complexType name="CPSReturnOrderSummary">
+    <xsd:sequence>
+      <xsd:element name="DatePoint" type="xsd:string" />
+      <xsd:element name="Amount" type="xsd:string" />
+    </xsd:sequence>
+  </xsd:complexType>
+</xsd:schema>

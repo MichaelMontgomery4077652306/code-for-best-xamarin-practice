@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xsd:schema xmlns="http://schemas.microsoft.com/dynamics/2006/02/documents/CPSShipManifestDetail" elementFormDefault="qualified" targetNamespace="http://schemas.microsoft.com/dynamics/2006/02/documents/CPSShipManifestDetail" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <xsd:element name="CPSShipManifestDetail" type="CPSShipManifestDetail" />
+  <xsd:complexType name="CPSShipManifestDetail">
+    <xsd:sequence>
+      <xsd:element name="PackingSlipId" type="xsd:string" />
+      <xsd:element name="DeliveryDate" type="xsd:string" />
+      <xsd:element name="CustAccount" type="xsd:string" />
+      <xsd:element name="CustName" type="xsd:string" />
+      <xsd:element name="ZipCode" type="xsd:string" />
+      <xsd:element name="Country" type="xsd:string" />
+      <xsd:element name="State" type="xsd:string" />
+      <xsd:element name="County" type="xsd:string" />
+      <xsd:element name="City" type="xsd:string" />
+      <xsd:element name="Street" type="xsd:string" />
+      <xsd:element name="Status" type="xsd:string" />
+    </xsd:sequence>
+  </xsd:complexType>
+</xsd:schema>

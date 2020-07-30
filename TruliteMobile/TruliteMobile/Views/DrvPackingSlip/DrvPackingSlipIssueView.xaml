@@ -1,0 +1,74 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:components="clr-namespace:TruliteMobile.Components;assembly=TruliteMobile"
+             xmlns:drvPackingSlip="clr-namespace:TruliteMobile.Views.DrvPackingSlip;assembly=TruliteMobile"
+             xmlns:i18N="clr-namespace:TruliteMobile.i18n;assembly=TruliteMobile"
+             mc:Ignorable="d"
+             x:DataType="drvPackingSlip:DrvPackingSlipIssueView"
+             x:Class="TruliteMobile.Views.DrvPackingSlip.DrvPackingSlipIssueView">
+    <ContentView.Content>
+        <Grid BackgroundColor="#30000000">
+            <Frame BackgroundColor="White"
+                   VerticalOptions="Center"
+                   Margin="20">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition />
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+                    <Label Grid.ColumnSpan="2"
+                           Text="{i18N:TranslateExtension Text=AddUpdateIssue}" />
+                    <Label Text="{i18N:TranslateExtension Text=Quantity}"
+                           Grid.ColumnSpan="2"
+                           Grid.Row="1" />
+                    <Picker Grid.Row="2"
+                            ItemsSource="{Binding QuantityList}"
+                            SelectedItem="{Binding SelectedQuantity}"
+                            Grid.ColumnSpan="2" />
+                    <Label Grid.Row="3"
+                           Grid.ColumnSpan="2"
+                           Text="{i18N:TranslateExtension Text=Action}" />
+                    <Picker Grid.Row="4"
+                            Grid.ColumnSpan="2"
+                            ItemsSource="{Binding ActionList}"
+                            SelectedItem="{Binding SelectedAction}"
+                            ItemDisplayBinding="{Binding Name}" />
+                    <Label Grid.Row="5"
+                           Grid.ColumnSpan="2"
+                           Text="{i18N:TranslateExtension Text=Reason}" />
+                    <Picker Grid.Row="6"
+                            Grid.ColumnSpan="2"
+                            ItemDisplayBinding="{Binding Name}"
+                            ItemsSource="{Binding ReasonList}"
+                            SelectedItem="{Binding SelectedReason}" />
+                    <components:ActionButtonView Text="{i18N:TranslateExtension Text=Close}"
+                                                 Grid.Row="7"
+                                                 BackgroundColor="Gray"
+                                                 IconText="&#xf00d;"
+                                                 TappedCommand="{Binding ClosePopupCommand}" />
+                    <components:ActionButtonView Text="{i18N:TranslateExtension Text=Submit}"
+                                                 Grid.Row="7"
+                                                 Grid.Column="1"
+                                                 TappedEvent="ActionButtonView_TappedEvent"
+                                                 BackgroundColor="{StaticResource GreenButtonColor}"
+                                                 IconText="&#xf00c;" />
+                </Grid>
+            </Frame>
+        </Grid>
+
+    </ContentView.Content>
+</ContentView>

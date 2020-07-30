@@ -1,0 +1,138 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage x:Class="TruliteMobile.Views.Settings.SettingsPage"
+             xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:settings="clr-namespace:TruliteMobile.Views.Settings;assembly=TruliteMobile"
+             xmlns:i18N="clr-namespace:TruliteMobile.i18n;assembly=TruliteMobile"
+             Title="{i18N:TranslateExtension Text=Settings}"
+             x:DataType="settings:SettingsPageViewModel"
+             mc:Ignorable="d">
+    <ContentPage.Content>
+        <ScrollView>
+            <Grid Margin="20">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition />
+
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <Switch IsToggled="{Binding GroupByAccount}"/>
+               
+                <Label Grid.Column="1"
+                       
+                       Text="{i18N:TranslateExtension Text=GroupByAccount}">
+                </Label>
+
+                <Switch Grid.Row="1" IsToggled="{Binding ShowSelectAccountDropdown}" />
+
+                <Label Grid.Column="1"
+                       Grid.Row="1"
+                       Text="{i18N:TranslateExtension Text=SelectAccountDropdown}">
+                </Label>
+
+                <!--<Label FontSize="40"
+                       Grid.Row="1"
+                       Style="{StaticResource IconLabel}"
+                       Text="&#xf150;"
+                       TextColor="{StaticResource DarkPrimaryBlue}">
+                </Label>-->
+
+
+                <!--<Label Grid.Column="1"
+                       Grid.Row="1"
+                       Text="{i18N:TranslateExtension Text=SelectAccountDropdown}">
+                </Label>
+
+                <BoxView Grid.ColumnSpan="2"
+                         BackgroundColor="Transparent">
+                    <BoxView.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding ChangeGroupingCommand}" />
+                    </BoxView.GestureRecognizers>
+                </BoxView>-->
+
+                <BoxView Grid.Row="2"
+                         Grid.ColumnSpan="2"
+                         Margin="0,10"
+                         BackgroundColor="{StaticResource DarkBlueButtonColor}"
+                         HeightRequest="1"
+                         VerticalOptions="Center" />
+                <Label Grid.Row="3"
+                       FontSize="40"
+                       Style="{StaticResource IconLabel}"
+                       Text="&#xf084;"
+                       TextColor="{StaticResource DarkPrimaryBlue}" />
+                
+                <!--Change Password-->
+                <Label Grid.Row="3"
+                       Grid.Column="1"
+                       Text="{i18N:TranslateExtension Text=ChangePassword}" />
+
+                <Label Grid.Row="4"
+                       FontSize="40"
+                       Style="{StaticResource IconLabel}"
+                       Text="&#xf4ad;"
+                       TextColor="{StaticResource DarkPrimaryBlue}" />
+                <BoxView Grid.Row="3"
+                         Grid.ColumnSpan="2"
+                         BackgroundColor="Transparent">
+                    <BoxView.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding ChangePasswordCommand}" />
+                    </BoxView.GestureRecognizers>
+                </BoxView>
+
+                <Label Grid.Row="4"
+                       Grid.Column="1"
+                       Text="{i18N:TranslateExtension Text=Feedback}" />
+
+                <Label Grid.Row="5"
+                       FontSize="40"
+                       Style="{StaticResource IconLabel}"
+                       Text="&#xf05a;"
+                       TextColor="{StaticResource DarkPrimaryBlue}" />
+                <BoxView Grid.Row="5"
+                         Grid.ColumnSpan="2"
+                         BackgroundColor="Transparent">
+                    <BoxView.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding OpenFeedbackCommand}" />
+                    </BoxView.GestureRecognizers>
+                </BoxView>
+                <Label Grid.Row="5"
+                       Grid.Column="1"
+                       Text="{i18N:TranslateExtension Text=About}" />
+                <BoxView Grid.Row="6"
+                         Grid.ColumnSpan="2"
+                         Margin="0,10"
+                         BackgroundColor="{StaticResource DarkBlueButtonColor}"
+                         HeightRequest="1"
+                         VerticalOptions="Center" />
+                <BoxView Grid.Row="6"
+                         Grid.ColumnSpan="2"
+                         BackgroundColor="Transparent">
+                    <BoxView.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding OpenAboutCommand}" />
+                    </BoxView.GestureRecognizers>
+                </BoxView>
+                <StackLayout Grid.Row="7"
+                             Grid.ColumnSpan="2"
+                             IsVisible="{Binding ShowSelectAccountDropdown}">
+                    <Label Text="{i18N:TranslateExtension Text=SwitchAccounts}" />
+                    <Picker x:DataType="{x:Null}"
+                            ItemDisplayBinding="{Binding Name}"
+                            ItemsSource="{Binding AccountList}"
+                            SelectedItem="{Binding SelectedAccount}" />
+                </StackLayout>
+            </Grid>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

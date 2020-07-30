@@ -1,0 +1,95 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:converters="clr-namespace:XamarinUniversity.Converters;assembly=XamU.Infrastructure"
+             xmlns:i18N="clr-namespace:TruliteMobile.i18n;assembly=TruliteMobile"
+             xmlns:signUp="clr-namespace:TruliteMobile.Views.SignUp;assembly=TruliteMobile"
+             mc:Ignorable="d"
+             Title="{i18N:Translate Text=SignUp}"
+             BackgroundColor="{StaticResource DarkPrimaryBlue}"
+             x:DataType="signUp:SignUpPageViewModel"
+             x:Class="TruliteMobile.Views.SignUp.SignUpPage">
+    <ContentPage.Content>
+        <ScrollView>
+            <Grid Margin="15"
+                  Style="{StaticResource RootGrid}"
+                  x:Name="root"
+                  VerticalOptions="Center">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+                <Frame HasShadow="False">
+                    <StackLayout>
+                        <Entry Margin="5"
+                               HorizontalOptions="FillAndExpand"
+                               Keyboard="Email"
+                               Placeholder="{i18N:TranslateExtension Text=EmailAddress}"
+                               ReturnType="Next"
+                               Text="{Binding NewUser.UserId}"
+                               WidthRequest="200" />
+                        <Entry Margin="5"
+                               HorizontalOptions="FillAndExpand"
+                               IsPassword="True"
+                               Text="{Binding NewUser.Password}"
+                               Keyboard="Default"
+                               Placeholder="{i18N:TranslateExtension Text=Password}" />
+                        <Entry Margin="5"
+                               HorizontalOptions="FillAndExpand"
+                               Text="{Binding NewUser.FirstName}"
+                               Keyboard="Default"
+                               Placeholder="{i18N:TranslateExtension Text=FirstName}" />
+                        <Entry Margin="5"
+                               HorizontalOptions="FillAndExpand"
+                               Text="{Binding NewUser.LastName}"
+                               Keyboard="Default"
+                               Placeholder="{i18N:TranslateExtension Text=LastName}" />
+
+                        <Entry Margin="5"
+                               HorizontalOptions="FillAndExpand"
+                               Text="{Binding NewUser.AccountNo}"
+                               Keyboard="Default"
+                               Placeholder="{i18N:TranslateExtension Text=AccountNumber}" />
+                        <Entry Margin="5"
+                               HorizontalOptions="FillAndExpand"
+                               Text="{Binding NewUser.InvoiceNo}"
+                               Keyboard="Default"
+                               Placeholder="{i18N:TranslateExtension Text=InvoiceNumber}" />
+                        <Entry Margin="5"
+                               HorizontalOptions="FillAndExpand"
+                               Text="{Binding NewUser.InviteCode}"
+                               Keyboard="Default"
+                               Placeholder="{i18N:TranslateExtension Text=InviteCode}" />
+                        <Picker Margin="5"
+                                ItemsSource="{Binding CompanyList}"
+                                SelectedItem="{Binding SelectedCompany}"
+                                HorizontalOptions="FillAndExpand"
+                                ItemDisplayBinding="{Binding Value}"
+                                Title="{i18N:Translate Text=Company}" />
+                        <Picker ItemsSource="{Binding LanguageList}"
+                                Title="{i18N:Translate Text=Language}"
+                                SelectedItem="{Binding SelectedLanguage}"
+                                ItemDisplayBinding="{Binding Value}" />
+                        <Button BackgroundColor="Green"
+                                Margin="0,20"
+                                Command="{Binding SignUpCommand}"
+                                IsEnabled="{Binding IsBusy, Converter={converters:NotBooleanConverter}}"
+                                Text="{i18N:TranslateExtension Text=SignUp}"
+                                TextColor="White" />
+
+                    </StackLayout>
+
+                </Frame>
+                <ActivityIndicator HeightRequest="80"
+                                   HorizontalOptions="Center"
+                                   IsRunning="{Binding IsBusy}"
+                                   IsVisible="{Binding IsBusy}"
+                                   VerticalOptions="Center"
+                                   WidthRequest="80" />
+
+            </Grid>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

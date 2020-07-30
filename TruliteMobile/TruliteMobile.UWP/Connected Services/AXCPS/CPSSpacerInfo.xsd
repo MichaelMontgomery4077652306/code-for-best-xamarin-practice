@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xsd:schema xmlns="http://schemas.microsoft.com/dynamics/2006/02/documents/CPSSpacerInfo" elementFormDefault="qualified" targetNamespace="http://schemas.microsoft.com/dynamics/2006/02/documents/CPSSpacerInfo" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <xsd:element name="CPSSpacerInfo" type="CPSSpacerInfo" />
+  <xsd:complexType name="CPSSpacerInfo">
+    <xsd:sequence>
+      <xsd:element name="Id" type="xsd:string" />
+      <xsd:element name="Name" type="xsd:string" />
+      <xsd:element name="SortOrder" type="xsd:string" />
+      <xsd:element name="ThicknessNum" type="xsd:string" />
+    </xsd:sequence>
+  </xsd:complexType>
+</xsd:schema>

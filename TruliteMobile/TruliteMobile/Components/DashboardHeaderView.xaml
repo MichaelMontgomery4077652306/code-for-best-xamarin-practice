@@ -1,0 +1,254 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentView
+    x:Class="TruliteMobile.Components.DashboardHeaderView"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:components="clr-namespace:TruliteMobile.Components;assembly=TruliteMobile"
+    xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:xForms="clr-namespace:Syncfusion.SfBusyIndicator.XForms;assembly=Syncfusion.SfBusyIndicator.XForms"
+    mc:Ignorable="d">
+    <ContentView.Resources>
+        <ResourceDictionary>
+
+            <Style x:Key="ColorLabel" TargetType="Label">
+                <Style.Triggers>
+                    <DataTrigger
+                        Binding="{Binding HeaderType}"
+                        TargetType="Label"
+                        Value="{x:Static components:DashboardHeaderTypeEnum.Invoices}">
+                        <Setter Property="TextColor" Value="{StaticResource InvoiceBlue}" />
+
+                    </DataTrigger>
+                    <DataTrigger
+                        Binding="{Binding HeaderType}"
+                        TargetType="Label"
+                        Value="{x:Static components:DashboardHeaderTypeEnum.Orders}">
+                        <Setter Property="TextColor" Value="{StaticResource OrderRed}" />
+
+                    </DataTrigger>
+                    <DataTrigger
+                        Binding="{Binding HeaderType}"
+                        TargetType="Label"
+                        Value="{x:Static components:DashboardHeaderTypeEnum.Support}">
+                        <Setter Property="TextColor" Value="{StaticResource SupportOrange}" />
+
+                    </DataTrigger>
+                    <DataTrigger
+                        Binding="{Binding HeaderType}"
+                        TargetType="Label"
+                        Value="{x:Static components:DashboardHeaderTypeEnum.Returns}">
+                        <Setter Property="TextColor" Value="{StaticResource ReturnsGreen}" />
+
+                    </DataTrigger>
+                </Style.Triggers>
+            </Style>
+        </ResourceDictionary>
+    </ContentView.Resources>
+    <ContentView.Content>
+        <Frame Padding="2">
+            <Frame.Triggers>
+                <DataTrigger
+                    Binding="{Binding HeaderType}"
+                    TargetType="Frame"
+                    Value="{x:Static components:DashboardHeaderTypeEnum.Invoices}">
+                    <Setter Property="BackgroundColor" Value="{StaticResource InvoiceBlue}" />
+
+                </DataTrigger>
+                <DataTrigger
+                    Binding="{Binding HeaderType}"
+                    TargetType="Frame"
+                    Value="{x:Static components:DashboardHeaderTypeEnum.Orders}">
+                    <Setter Property="BackgroundColor" Value="{StaticResource OrderRed}" />
+
+                </DataTrigger>
+                <DataTrigger
+                    Binding="{Binding HeaderType}"
+                    TargetType="Frame"
+                    Value="{x:Static components:DashboardHeaderTypeEnum.Support}">
+                    <Setter Property="BackgroundColor" Value="{StaticResource SupportOrange}" />
+
+                </DataTrigger>
+                <DataTrigger
+                    Binding="{Binding HeaderType}"
+                    TargetType="Frame"
+                    Value="{x:Static components:DashboardHeaderTypeEnum.Returns}">
+                    <Setter Property="BackgroundColor" Value="{StaticResource ReturnsGreen}" />
+
+                </DataTrigger>
+            </Frame.Triggers>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Label
+                    Grid.Column="1"
+                    Margin="10,5"
+                    HorizontalOptions="End"
+                    HorizontalTextAlignment="End"
+                    Style="{StaticResource IconLabel}"
+                    Text="&#xf059;"
+                    TextColor="White">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="ShowHelpMessage_Tapped" />
+                    </Label.GestureRecognizers>
+                </Label>
+
+                <Label
+                    Grid.Row="1"
+                    Grid.Column="1"
+                    Margin="10,5"
+                    FontSize="40"
+                    HorizontalTextAlignment="End"
+                    Text="{Binding Text}"
+                    TextColor="White" />
+
+                <Label
+                    Grid.RowSpan="2"
+                    Margin="10,5"
+                    FontSize="48"
+                    Style="{StaticResource IconLabel}"
+                    TextColor="White">
+                    <Label.Triggers>
+                        <DataTrigger
+                            Binding="{Binding HeaderType}"
+                            TargetType="Label"
+                            Value="{x:Static components:DashboardHeaderTypeEnum.Invoices}">
+                            <Setter Property="Text" Value="&#xf155;" />
+
+                        </DataTrigger>
+                        <DataTrigger
+                            Binding="{Binding HeaderType}"
+                            TargetType="Label"
+                            Value="{x:Static components:DashboardHeaderTypeEnum.Orders}">
+                            <Setter Property="Text" Value="&#xf07a;" />
+
+                        </DataTrigger>
+                        <DataTrigger
+                            Binding="{Binding HeaderType}"
+                            TargetType="Label"
+                            Value="{x:Static components:DashboardHeaderTypeEnum.Support}">
+                            <Setter Property="Text" Value="&#xf1cd;" />
+
+                        </DataTrigger>
+                        <DataTrigger
+                            Binding="{Binding HeaderType}"
+                            TargetType="Label"
+                            Value="{x:Static components:DashboardHeaderTypeEnum.Returns}">
+                            <Setter Property="Text" Value="&#xf0d1;" />
+
+                        </DataTrigger>
+                    </Label.Triggers>
+                </Label>
+                <Label
+                    Grid.Row="2"
+                    Grid.Column="1"
+                    Margin="10,5"
+                    HorizontalTextAlignment="End"
+                    TextColor="White">
+                    <Label.Triggers>
+                        <DataTrigger
+                            Binding="{Binding HeaderType}"
+                            TargetType="Label"
+                            Value="{x:Static components:DashboardHeaderTypeEnum.Invoices}">
+                            <Setter Property="Text" Value="Balance Due" />
+
+                        </DataTrigger>
+                        <DataTrigger
+                            Binding="{Binding HeaderType}"
+                            TargetType="Label"
+                            Value="{x:Static components:DashboardHeaderTypeEnum.Orders}">
+                            <Setter Property="Text" Value="Open Orders" />
+
+                        </DataTrigger>
+                        <DataTrigger
+                            Binding="{Binding HeaderType}"
+                            TargetType="Label"
+                            Value="{x:Static components:DashboardHeaderTypeEnum.Support}">
+                            <Setter Property="Text" Value="Open Support Tickets" />
+
+                        </DataTrigger>
+                        <DataTrigger
+                            Binding="{Binding HeaderType}"
+                            TargetType="Label"
+                            Value="{x:Static components:DashboardHeaderTypeEnum.Returns}">
+                            <Setter Property="Text" Value="Pending Returns" />
+
+                        </DataTrigger>
+                    </Label.Triggers>
+                </Label>
+                <BoxView
+                    Grid.Row="4"
+                    Grid.ColumnSpan="2"
+                         BackgroundColor="{DynamicResource FrameBackground}" />
+                <Label
+                    Grid.Row="4"
+                    Margin="10,0"
+                    Style="{StaticResource ColorLabel}"
+                    Text="View Details"
+                    VerticalTextAlignment="Center" />
+
+                <Label
+                    Grid.Row="4"
+                    Grid.Column="1"
+                    Margin="10,0"
+                    HorizontalOptions="End"
+                    HorizontalTextAlignment="End"
+                    Style="{StaticResource IconLabel}"
+                    Text="&#xf138;"
+                    VerticalTextAlignment="Center">
+                    <Label.Triggers>
+                        <DataTrigger
+                            Binding="{Binding HeaderType}"
+                            TargetType="Label"
+                            Value="{x:Static components:DashboardHeaderTypeEnum.Invoices}">
+                            <Setter Property="TextColor" Value="{StaticResource InvoiceBlue}" />
+
+                        </DataTrigger>
+                        <DataTrigger
+                            Binding="{Binding HeaderType}"
+                            TargetType="Label"
+                            Value="{x:Static components:DashboardHeaderTypeEnum.Orders}">
+                            <Setter Property="TextColor" Value="{StaticResource OrderRed}" />
+
+                        </DataTrigger>
+                        <DataTrigger
+                            Binding="{Binding HeaderType}"
+                            TargetType="Label"
+                            Value="{x:Static components:DashboardHeaderTypeEnum.Support}">
+                            <Setter Property="TextColor" Value="{StaticResource SupportOrange}" />
+
+                        </DataTrigger>
+                        <DataTrigger
+                            Binding="{Binding HeaderType}"
+                            TargetType="Label"
+                            Value="{x:Static components:DashboardHeaderTypeEnum.Returns}">
+                            <Setter Property="TextColor" Value="{StaticResource ReturnsGreen}" />
+
+                        </DataTrigger>
+                    </Label.Triggers>
+                </Label>
+                <BoxView
+                    Grid.Row="4"
+                    Grid.ColumnSpan="2"
+                    BackgroundColor="Transparent">
+                    <BoxView.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="ViewDetails_Tapped" />
+                    </BoxView.GestureRecognizers>
+                </BoxView>
+                <xForms:SfBusyIndicator
+                    Grid.RowSpan="3"
+                    Grid.ColumnSpan="2"
+                    TextColor="{DynamicResource BackgroundColor}" />
+            </Grid>
+        </Frame>
+    </ContentView.Content>
+</ContentView>

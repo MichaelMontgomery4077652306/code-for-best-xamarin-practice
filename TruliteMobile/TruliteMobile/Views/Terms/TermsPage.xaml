@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:i18N="clr-namespace:TruliteMobile.i18n;assembly=TruliteMobile"
+             mc:Ignorable="d"
+             Title="{i18N:Translate Text=Terms}"
+             x:Class="TruliteMobile.Views.Terms.TermsPage">
+    <ContentPage.Content>
+        <Grid Padding="10">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+            <StackLayout>
+                <Image HorizontalOptions="Center"
+                       Source="trueliteLogo.png"
+                       VerticalOptions="Center"
+                       HeightRequest="100" />
+                <Label Text="{i18N:Translate Text=TermsHeader}"
+                       FontAttributes="Bold" />
+            </StackLayout>
+            <ScrollView Grid.Row="1" x:Name="scroll1">
+                <Label  Text="{Binding TermsText}"
+                        LineBreakMode="WordWrap" />
+            </ScrollView>
+            <Label Grid.Row="2"
+                   HorizontalTextAlignment="End"
+                   Text="{Binding PolicyUpdateText}"
+                   TextColor="Gray"
+                   FontAttributes="Italic" />
+            <Button Style="{StaticResource BlueButton}"
+                    Grid.Row="3"
+                    Margin="0,10"
+                    Command="{Binding AcceptCommand}"
+                    Text="{i18N:Translate Text=AcceptTerms}" />
+
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

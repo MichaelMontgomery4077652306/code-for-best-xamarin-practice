@@ -1,0 +1,130 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:forms="clr-namespace:SignaturePad.Forms;assembly=SignaturePad.Forms"
+             xmlns:drvRoutes="clr-namespace:TruliteMobile.Views.DrvRoutes;assembly=TruliteMobile"
+             xmlns:components="clr-namespace:TruliteMobile.Components;assembly=TruliteMobile"
+             xmlns:i18N="clr-namespace:TruliteMobile.i18n;assembly=TruliteMobile"
+             xmlns:services="clr-namespace:TruliteMobile.Services;assembly=TruliteMobile"
+             mc:Ignorable="d"
+             x:DataType="drvRoutes:DrvPackingSlipSignPageViewModel"
+             Title="{Binding Title}"
+             x:Class="TruliteMobile.Views.DrvRoutes.DrvPackingSlipSignPage">
+    <!--#region Menu -->
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Order="Primary"
+                     IconImageSource="gears.png"
+                     Text="{i18N:TranslateExtension Text=GiveFeedback}"
+                     Command="{Binding OpenSettingsCommand}"
+                     Priority="0" />
+    </ContentPage.ToolbarItems>
+    <!--#endregion-->
+    <ContentPage.Content>
+        <ScrollView>
+            <Grid Style="{StaticResource RootGrid}"
+                  x:Name="root"
+                  Padding="10">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="200" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+                <!--#region Signature -->
+                <forms:SignaturePadView x:Name="signatureView"
+                                        StrokeWidth="3"
+                                        Grid.ColumnSpan="2"
+                                        CaptionText="{i18N:Translate Text=SignAboveTheLine}"
+                                        StrokeColor="{StaticResource DarkBlueButtonColor}"
+                                        BackgroundColor="White" />
+                <Grid Grid.Row="1"
+                      Grid.ColumnSpan="2">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+                    <Label Text="{i18N:TranslateExtension Text=Pictures, Suffix=':'}" />
+                    <Button HorizontalOptions="Start"
+                            Style="{StaticResource BlueButton}"
+                            Text="{i18N:TranslateExtension Text=ChoosePictures}"
+                            Grid.Row="1"
+                            Command="{Binding ChoosePicturesCommand}" />
+                    <StackLayout BindableLayout.ItemsSource="{Binding PictureList}"
+                                 Grid.Row="2">
+                        <BindableLayout.ItemTemplate>
+                            <DataTemplate x:DataType="{x:Null}">
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="40" />
+                                    </Grid.ColumnDefinitions>
+                                    <Label Text="{Binding FileName}"
+                                           LineBreakMode="HeadTruncation" />
+                                    <Label Grid.Column="1"
+                                           BackgroundColor="Transparent"
+                                           FontSize="Large"
+                                           Text="X"
+                                           TextColor="Red"
+                                           VerticalOptions="Center">
+                                        <Label.GestureRecognizers>
+                                            <TapGestureRecognizer Command="{Binding BindingContext.DeletePictureCommand, Source={x:Reference root}}"
+                                                                  CommandParameter="{Binding}" />
+                                        </Label.GestureRecognizers>
+                                    </Label>
+                                </Grid>
+                            </DataTemplate>
+                        </BindableLayout.ItemTemplate>
+                    </StackLayout>
+                    <Label Text="{i18N:TranslateExtension Text=Email, Suffix=':'}"
+                           Grid.Row="3" />
+                    <Entry Keyboard="Email"
+                           Grid.Row="4"
+                           Text="{Binding Email}"
+                           ReturnType="Next" />
+                    <Label Grid.Row="5"
+                           Text="{i18N:TranslateExtension Text=PrintedName, Suffix=':'}">
+                    </Label>
+                    <Entry Grid.Row="6"
+                           Text="{Binding PrintedName}" />
+                </Grid>
+                <!--#endregion-->
+                <!--#region Actions -->
+                <components:ActionButtonView BackgroundColor="Red"
+                                             IconText="&#xf12d;"
+                                             Grid.ColumnSpan="2"
+                                             Grid.Row="2"
+                                             TappedCommand="{Binding ClearCommand}"
+                                             Text="{i18N:TranslateExtension Text=Clear}" />
+
+                <components:ActionButtonView BackgroundColor="Gray"
+                                             IconText="&#xf00d;"
+                                             Grid.Column="0"
+                                             Grid.Row="3"
+                                             TappedCommand="{Binding CloseCommand}"
+                                             Text="{i18N:TranslateExtension Text=Close}" />
+                <components:ActionButtonView BackgroundColor="Green"
+                                             IconText="&#xf00c;"
+                                             Grid.Column="1"
+                                             Grid.Row="3"
+                                             TappedCommand="{Binding SubmitCommand}"
+                                             Text="{i18N:TranslateExtension Text=Submit}" />
+                <!--#endregion-->
+                <ActivityIndicator IsRunning="{Binding IsBusy}"
+                                   IsVisible="{Binding IsBusy}" />
+            </Grid>
+        </ScrollView>
+       
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,320 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage x:Class="TruliteMobile.Views.Pipeline.PipelineDetailPage"
+             xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:components="clr-namespace:TruliteMobile.Components;assembly=TruliteMobile"
+             xmlns:converters="clr-namespace:XamarinUniversity.Converters;assembly=XamU.Infrastructure"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:i18N="clr-namespace:TruliteMobile.i18n;assembly=TruliteMobile"
+             xmlns:iOsSpecific="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:pipeline="clr-namespace:TruliteMobile.Views.Pipeline;assembly=TruliteMobile"
+             xmlns:xForms="clr-namespace:Syncfusion.SfBusyIndicator.XForms;assembly=Syncfusion.SfBusyIndicator.XForms"
+             xmlns:converters1="clr-namespace:KimGate.Converters;assembly=TruliteMobile"
+             Title="{i18N:TranslateExtension Text=Pipeline}"
+             iOsSpecific:Page.UseSafeArea="true"
+             x:DataType="pipeline:PipelineDetailPageViewModel"
+             mc:Ignorable="d">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Command="{Binding OpenSettingsCommand}"
+                     IconImageSource="gears.png"
+                     Order="Primary"
+                     Priority="0"
+                     Text="{i18N:TranslateExtension Text=GiveFeedback}" />
+    </ContentPage.ToolbarItems>
+    <ContentPage.Content>
+        <ScrollView>
+            <Grid x:Name="root"
+                  Padding="10"
+                  BackgroundColor="{StaticResource DarkBlueButtonColor}"
+                  RowSpacing="20">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="{Binding ShowHeaderFrame, Converter={converters1:BooleanToValueConverter}, ConverterParameter='500:100'}"  />
+                    <RowDefinition Height="{Binding ShowActionsFrame, Converter={converters1:BooleanToValueConverter}, ConverterParameter='650:100'}" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+                <!--#region Data -->
+                <Frame Margin="0,5"
+                       BackgroundColor="White">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition />
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
+
+                        <components:ExpanderButton Grid.ColumnSpan="2"
+                                                   ChangeExpandCommand="{Binding ToggleHeaderFrameCommand}"
+                                                   IsExpanded="{Binding ShowHeaderFrame}"
+                                                   Text="{i18N:TranslateExtension Text=Pipeline,
+                                                           TextCapitalization=Uppercase}" />
+
+                        <Grid Grid.Row="1"
+                              IsVisible="{Binding ShowHeaderFrame}">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition />
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                            </Grid.RowDefinitions>
+                            <!--  Plant  -->
+                            <Label Grid.Row="0"
+                                   Style="{StaticResource GridHeaderLabel}"
+                                   Text="{i18N:TranslateExtension Text=Plant,
+                                                               Suffix=':'}" />
+
+                            <Label Grid.Row="0"
+                                   Grid.Column="1"
+                                   Style="{StaticResource GridLabel}"
+                                   Text="{Binding Inquiry.InventSiteId}" />
+                            <!--  Quotation  -->
+                            <Label Grid.Row="1"
+                                   Style="{StaticResource GridHeaderLabel}"
+                                   Text="{i18N:TranslateExtension Text=Quotation,
+                                                               Suffix=':'}" />
+                            <Label Grid.Row="1"
+                                   Grid.Column="1"
+                                   Style="{StaticResource GridLabel}"
+                                   Text="{Binding Inquiry.QuotationId}" />
+                            <!--  Cust Account  -->
+                            <Label Grid.Row="2"
+                                   Style="{StaticResource GridHeaderLabel}"
+                                   Text="{i18N:TranslateExtension Text=CustAccount,
+                                                               Suffix=':'}" />
+                            <Label Grid.Row="2"
+                                   Grid.Column="1"
+                                   Style="{StaticResource GridLabel}"
+                                   Text="{Binding Inquiry.CustAccount}" />
+                            <!--  Cust Name  -->
+                            <Label Grid.Row="3"
+                                   Style="{StaticResource GridHeaderLabel}"
+                                   Text="{i18N:TranslateExtension Text=CustName,
+                                                               Suffix=':'}" />
+                            <Label Grid.Row="3"
+                                   Grid.Column="1"
+                                   Style="{StaticResource GridLabel}"
+                                   Text="{Binding Inquiry.CustName}" />
+                            <!--  Status  -->
+                            <Label Grid.Row="4"
+                                   Style="{StaticResource GridHeaderLabel}"
+                                   Text="{i18N:TranslateExtension Text=Status,
+                                                               Suffix=':'}" />
+                            <Label Grid.Row="4"
+                                   Grid.Column="1"
+                                   Style="{StaticResource GridLabel}"
+                                   Text="{Binding Inquiry.Status}" />
+                            <!--  Amount  -->
+                            <Label Grid.Row="5"
+                                   Style="{StaticResource GridHeaderLabel}"
+                                   Text="{i18N:TranslateExtension Text=Amount,
+                                                               Suffix=':'}" />
+                            <Label Grid.Row="5"
+                                   Grid.Column="1"
+                                   Style="{StaticResource GridLabel}"
+                                   Text="{Binding Inquiry.TotalInvoiceAmount, StringFormat='{0:c}'}" />
+                            <!--  Cust Ref  -->
+                            <Label Grid.Row="6"
+                                   Style="{StaticResource GridHeaderLabel}"
+                                   Text="{i18N:TranslateExtension Text=CustRef,
+                                                               Suffix=':'}" />
+                            <Label Grid.Row="6"
+                                   Grid.Column="1"
+                                   Style="{StaticResource GridLabel}"
+                                   Text="{Binding Inquiry.CustomerRef}" />
+                            <!--  %  -->
+                            <Label Grid.Row="7"
+                                   Style="{StaticResource GridHeaderLabel}"
+                                   Text="%:" />
+                            <Label Grid.Row="7"
+                                   Grid.Column="1"
+                                   Style="{StaticResource GridLabel}"
+                                   Text="{Binding Inquiry.Probability}" />
+                            <!--  LeadTime  -->
+                            <Label Grid.Row="8"
+                                   Style="{StaticResource GridHeaderLabel}"
+                                   Text="{i18N:TranslateExtension Text=LeadTime,
+                                                               Suffix=':'}" />
+                            <Label Grid.Row="8"
+                                   Grid.Column="1"
+                                   Style="{StaticResource GridLabel}"
+                                   Text="{Binding Inquiry.LeadTime}" />
+                            <!--  Date Created  -->
+                            <Label Grid.Row="9"
+                                   Style="{StaticResource GridHeaderLabel}"
+                                   Text="{i18N:TranslateExtension Text=DateCreated,
+                                                               Suffix=':'}" />
+                            <Label Grid.Row="9"
+                                   Grid.Column="1"
+                                   Style="{StaticResource GridLabel}"
+                                   Text="{Binding Inquiry.DateCreated, StringFormat='{0:d}'}" />
+                            <!--  Sales Respo:  -->
+                            <Label Grid.Row="10"
+                                   Style="{StaticResource GridHeaderLabel}"
+                                   Text="{i18N:TranslateExtension Text=SalesResp,
+                                                               Suffix=':'}" />
+                            <Label Grid.Row="10"
+                                   Grid.Column="1"
+                                   Style="{StaticResource GridLabel}"
+                                   Text="{Binding Inquiry.SalesResponsible}" />
+                            <!--  Expiry Date  -->
+                            <Label Grid.Row="11"
+                                   Style="{StaticResource GridHeaderLabel}"
+                                   Text="{i18N:TranslateExtension Text=ExpiryDate,
+                                                               Suffix=':'}" />
+
+                            <Label Grid.Row="11"
+                                   Grid.Column="1"
+                                   Style="{StaticResource GridLabel}"
+                                   Text="{Binding Inquiry.ExpiryDate, StringFormat='{0:d}'}" />
+                            <!--  Follow Up Date  -->
+                            <Label Grid.Row="12"
+                                   Style="{StaticResource GridHeaderLabel}"
+                                   Text="{i18N:TranslateExtension Text=FollowUpDate,
+                                                               Suffix=':'}" />
+
+                            <Label Grid.Row="12"
+                                   Grid.Column="1"
+                                   Style="{StaticResource GridLabel}"
+                                   Text="{Binding Inquiry.FollowUpDate, StringFormat='{0:d}'}" />
+                            <!--  Notes  -->
+
+                            <Label Grid.Row="13"
+                                   Style="{StaticResource GridHeaderLabel}"
+                                   Text="{i18N:TranslateExtension Text=Note,
+                                                               Suffix=':'}"
+                                   VerticalOptions="Start" />
+
+                            <Label Grid.Row="13"
+                                   Grid.Column="1"
+                                   LineBreakMode="WordWrap"
+                                   Style="{StaticResource GridLabel}"
+                                   Text="{Binding Inquiry.Note}"
+                                   VerticalOptions="Start" />
+                            <!--  Contract Name  -->
+                            <Label Grid.Row="14"
+                                   Style="{StaticResource GridHeaderLabel}"
+                                   Text="{i18N:TranslateExtension Text=ContactName,
+                                                               Suffix=':'}" />
+
+                            <Label Grid.Row="14"
+                                   Grid.Column="1"
+                                   Style="{StaticResource GridLabel}"
+                                   Text="{Binding Inquiry.ContactName}" />
+
+                        </Grid>
+                    </Grid>
+                </Frame>
+                <!--#endregion-->
+                <!--#region Actions -->
+                <Frame Grid.Row="1"
+                       BackgroundColor="White">
+
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="*" />
+                        </Grid.RowDefinitions>
+                        <components:ExpanderButton ChangeExpandCommand="{Binding ToggleActionsFrameCommand}"
+                                                   IsExpanded="{Binding ShowActionsFrame}"
+                                                   Text="{i18N:TranslateExtension Text=ACTIONS}" />
+
+                        <Grid Grid.Row="1"
+                              IsVisible="{Binding ShowActionsFrame}">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="50" />
+                                <RowDefinition Height="50" />
+                                <RowDefinition Height="50" />
+                                <RowDefinition Height="50" />
+                                <RowDefinition Height="50" />
+                                <RowDefinition Height="50" />
+                                <RowDefinition Height="50" />
+                                <RowDefinition Height="50" />
+                                <RowDefinition Height="50" />
+                                <RowDefinition Height="50" />
+                            </Grid.RowDefinitions>
+
+                            <components:ActionButtonView Grid.Row="0"
+                                                         BackgroundColor="Orange"
+                                                         IconText="&#xf0cc;"
+                                                         TappedCommand="{Binding LoseQuotationCommand}"
+                                                         Text="{i18N:TranslateExtension Text=LoseQuotation}" />
+
+                            <components:ActionButtonView Grid.Row="1"
+                                                         BackgroundColor="{StaticResource DarkPrimaryBlue}"
+                                                         IconText="&#xf086;"
+                                                         TappedCommand="{Binding ViewNotesCommand}"
+                                                         Text="{i18N:TranslateExtension Text=ViewNotes}" />
+
+                            <components:ActionButtonView Grid.Row="2"
+                                                         BackgroundColor="SlateGray"
+                                                         IconText="&#xf055;"
+                                                         TappedCommand="{Binding AddNoteCommand}"
+                                                         Text="{i18N:TranslateExtension Text=AddNote}" />
+
+                            <components:ActionButtonView Grid.Row="3"
+                                                         BackgroundColor="{StaticResource PrimaryBlue}"
+                                                         IconText="&#xf044;"
+                                                         TappedCommand="{Binding UpdateCommand}"
+                                                         Text="{i18N:TranslateExtension Text=Update}" />
+                            <components:ActionButtonView Grid.Row="4"
+                                                         BackgroundColor="{StaticResource PrimaryBlue}"
+                                                         IconText="&#xf271;"
+                                                         TappedCommand="{Binding UpdateExpiryDateCommand}"
+                                                         Text="{i18N:TranslateExtension Text=UpdateExpiryDate}" />
+                            <components:ActionButtonView Grid.Row="5"
+                                                         BackgroundColor="{StaticResource PrimaryBlue}"
+                                                         IconText="&#xf251;"
+                                                         TappedCommand="{Binding UpdateFollowUpDateCommand}"
+                                                         Text="{i18N:TranslateExtension Text=UpdateFollowUpDate}" />
+
+                            <components:ActionButtonView Grid.Row="6"
+                                                         BackgroundColor="{StaticResource PrimaryBlue}"
+                                                         IconText="&#xf017;"
+                                                         TappedCommand="{Binding UpdateLeadTimeCommand}"
+                                                         Text="{i18N:TranslateExtension Text=UpdateLeadTime}" />
+                            <components:ActionButtonView Grid.Row="7"
+                                                         BackgroundColor="{StaticResource PrimaryBlue}"
+                                                         IconText="&#xf541;"
+                                                         TappedCommand="{Binding UpdateProbabilityCommand}"
+                                                         Text="{i18N:TranslateExtension Text=UpdateProbability}" />
+
+                            <components:ActionButtonView Grid.Row="8"
+                                                         BackgroundColor="Red"
+                                                         IconText="&#xf1c1;"
+                                                         TappedCommand="{Binding ViewPdfCommand}"
+                                                         Text="{i18N:TranslateExtension Text=ViewPDF}" />
+                            <components:ActionButtonView Grid.Row="9"
+                                                         BackgroundColor="Red"
+                                                         IconText="&#xf381;"
+                                                         TappedCommand="{Binding DownloadPdfCommand}"
+                                                         Text="{i18N:TranslateExtension Text=DownloadPDF}" />
+
+                        </Grid>
+                    </Grid>
+                </Frame>
+                <!--#endregion-->
+
+                <xForms:SfBusyIndicator Grid.Row="1" />
+            </Grid>
+
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

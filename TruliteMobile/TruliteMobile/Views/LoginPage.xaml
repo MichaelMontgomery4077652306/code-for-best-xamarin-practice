@@ -1,0 +1,193 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage x:Class="TruliteMobile.Views.LoginPage"
+             xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:converters="clr-namespace:XamarinUniversity.Converters;assembly=XamU.Infrastructure"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:enums="clr-namespace:TruliteMobile.Enums;assembly=TruliteMobile"
+             xmlns:i18N="clr-namespace:TruliteMobile.i18n;assembly=TruliteMobile"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:misc="clr-namespace:TruliteMobile.Misc;assembly=TruliteMobile"
+             xmlns:views="clr-namespace:TruliteMobile.Views;assembly=TruliteMobile"
+             BackgroundColor="{DynamicResource DarkPrimaryBlue}"
+             x:DataType="views:LoginViewModel"
+             Visual="Material"
+             mc:Ignorable="d">
+    <ContentPage.Content>
+        <ScrollView>
+            <Grid Margin="30,20"
+                  RowSpacing="15"
+                  VerticalOptions="Center">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="60" />
+                    <RowDefinition Height="5" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+                <Image HorizontalOptions="Center"
+                       Source="WhiteTruliteLogo.png"
+                       VerticalOptions="Center"
+                       WidthRequest="300" />
+
+                <Frame Grid.Row="2"
+                       Padding="5"
+                       HasShadow="False">
+                    <Grid IsEnabled="{Binding IsBusy, Converter={converters:NotBooleanConverter}}"
+                          RowSpacing="20">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition />
+                        </Grid.RowDefinitions>
+                        <Entry Grid.Row="2"
+                               Margin="5"
+                               HorizontalOptions="FillAndExpand"
+                               Keyboard="Email"
+                               Placeholder="{i18N:TranslateExtension Text=EmailAddress}"
+                               ReturnType="Next"
+                               Text="{Binding Email}"
+                               WidthRequest="200" />
+                        <Entry Grid.Row="3"
+                               Margin="5"
+                               HorizontalOptions="FillAndExpand"
+                               IsPassword="True"
+                               Keyboard="Default"
+                               Placeholder="{i18N:TranslateExtension Text=Password}"
+                               Text="{Binding Password}" />
+
+                        <Picker Margin="5"
+                                Grid.Row="4"
+                                ItemsSource="{Binding CompanyList}"
+                                SelectedItem="{Binding SelectedCompany}"
+                                HorizontalOptions="FillAndExpand"
+                                ItemDisplayBinding="{Binding Value}"
+                                Title="{i18N:Translate Text=Company}" />
+
+                        <StackLayout Grid.Row="5">
+                            <StackLayout Orientation="Horizontal">
+                                <Label HorizontalOptions="End"
+                                       Text="{i18N:TranslateExtension Text=Driver}"
+                                       VerticalOptions="Center" />
+                                <Switch HorizontalOptions="End"
+                                        IsToggled="{Binding IsDriver}"
+                                        VerticalOptions="Center" />
+                            </StackLayout>
+                            <StackLayout Orientation="Horizontal">
+                                <Label HorizontalOptions="End"
+                                       Text="{i18N:TranslateExtension Text=RememberMe}"
+                                       VerticalOptions="Center" />
+                                <Switch HorizontalOptions="End"
+                                        IsToggled="{Binding RememberMe}"
+                                        VerticalOptions="Center" />
+                            </StackLayout>
+
+                        </StackLayout>
+
+                            <Button BackgroundColor="{DynamicResource DarkBlueButtonColor}"
+                                    Command="{Binding LoginCommand}"
+                                    Grid.Row="6"
+                                    IsEnabled="{Binding IsBusy, Converter={converters:NotBooleanConverter}}"
+                                    Text="{i18N:TranslateExtension Text=LogIn}"
+                                    TextColor="White" />
+                            
+                 
+                       
+                        <Picker ItemsSource="{Binding LanguageList}"
+                                Grid.Row="7"
+                                Title="{i18N:Translate Text=Language}"
+                                SelectedItem="{Binding SelectedLanguage}"
+                                ItemDisplayBinding="{Binding Value}" />
+                        <Label Grid.Row="8"
+                               HorizontalTextAlignment="Center"
+                               Text="{i18N:TranslateExtension Text=ForgotPassword}"
+                               TextColor="{DynamicResource DarkBlueButtonColor}">
+                            <Label.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding ForgotPasswordCommand}" />
+                            </Label.GestureRecognizers>
+                        </Label>
+
+                        <Button BackgroundColor="Green"
+                                Margin="0,10,0,0"
+                                Grid.Row="9"
+                                Command="{Binding SignUpCommand}"
+                                IsEnabled="{Binding IsBusy, Converter={converters:NotBooleanConverter}}"
+                                Text="{i18N:TranslateExtension Text=SignUp}"
+                                TextColor="White" />
+                    </Grid>
+                </Frame>
+                <ActivityIndicator HeightRequest="80"
+                                   HorizontalOptions="Center"
+                                   IsRunning="{Binding IsBusy}"
+                                   IsVisible="{Binding IsBusy}"
+                                   VerticalOptions="Center"
+                                   WidthRequest="80" />
+                <Grid Grid.Row="3"
+                      VerticalOptions="Start">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition />
+                        <ColumnDefinition />
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+                    <Label Style="{StaticResource WhiteLinkLabel}"
+                           Text="{i18N:TranslateExtension Text=Locations}">
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding OpenLinkCommand}"
+                                                  CommandParameter="{x:Static enums:ExternalLinks.Locations}" />
+                        </Label.GestureRecognizers>
+
+                    </Label>
+                    <Label Grid.Column="1"
+                           Style="{StaticResource WhiteLinkLabel}"
+                           Text="{i18N:TranslateExtension Text=ContactUs}">
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding OpenLinkCommand}"
+                                                  CommandParameter="{x:Static enums:ExternalLinks.ContactUs}" />
+                        </Label.GestureRecognizers>
+
+                    </Label>
+                    <Label Grid.Column="2"
+                           Style="{StaticResource WhiteLinkLabel}"
+                           Text="Trulite.com">
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding OpenLinkCommand}"
+                                                  CommandParameter="{x:Static enums:ExternalLinks.TruliteHomePage}" />
+                        </Label.GestureRecognizers>
+
+                    </Label>
+                </Grid>
+                <StackLayout Grid.Row="5">
+                    <Label FontSize="Micro"
+                           HorizontalTextAlignment="Start"
+                           TextColor="{DynamicResource LightTextColor}"
+                           VerticalTextAlignment="End">
+                        <Label.FormattedText>
+                            <FormattedString>
+                                <FormattedString.Spans>
+                                    <Span Text="{i18N:TranslateExtension Text=Version}" />
+                                    <Span Text=": " />
+                                    <Span Text="{x:Static misc:Constants.Version}" />
+                                </FormattedString.Spans>
+                            </FormattedString>
+                        </Label.FormattedText>
+                    </Label>
+                    <Label FontSize="Micro"
+                           HorizontalTextAlignment="Start"
+                           Text="{i18N:TranslateExtension Text=CopyrightMessage}"
+                           TextColor="{DynamicResource LightTextColor}"
+                           VerticalTextAlignment="End" />
+                </StackLayout>
+
+            </Grid>
+        </ScrollView>
+     
+    </ContentPage.Content>
+</ContentPage>

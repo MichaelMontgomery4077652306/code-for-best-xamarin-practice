@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="6aba0acd-4c3d-4692-ada3-18b3cdb600c1" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings>
+      <CollectionMapping TypeName="System.Collections.ObjectModel.ObservableCollection`1" Category="List" />
+    </CollectionMappings>
+    <GenerateSerializableTypes>false</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://tru-devaos.archaluminum.local/MicrosoftDynamicsAXAif50/axcps.svc?wsdl" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="axcps.xsd" MetadataType="Schema" ID="33a50bcc-7bd4-4725-8c3f-96ad59f30c98" SourceId="1" SourceUrl="http://tru-devaos.archaluminum.local/MicrosoftDynamicsAXAif50/axcps.svc?xsd=xsd13" />
+    <MetadataFile FileName="CPSPackingSlipLine.xsd" MetadataType="Schema" ID="a12523a2-efff-413c-bb6f-c588097c054e" SourceId="1" SourceUrl="http://tru-devaos.archaluminum.local/MicrosoftDynamicsAXAif50/CPSPackingSlipLine.xsd" />
+    <MetadataFile FileName="CPSSalesQuotationReason.xsd" MetadataType="Schema" ID="dfa11cea-02ad-436a-8073-6569b3cc98ce" SourceId="1" SourceUrl="http://tru-devaos.archaluminum.local/MicrosoftDynamicsAXAif50/CPSSalesQuotationReason.xsd" />
+    <MetadataFile FileName="CPSInvoiceLine.xsd" MetadataType="Schema" ID="9cf58ee3-8a62-46d9-9f79-69e43fe91876" SourceId="1" SourceUrl="http://tru-devaos.archaluminum.local/MicrosoftDynamicsAXAif50/CPSInvoiceLine.xsd" />
+    <MetadataFile FileName="axcps1.xsd" MetadataType="Schema" ID="1eff7097-3b18-4c62-9922-f4d7a0d3ff5d" SourceId="1" SourceUrl="http://tru-devaos.archaluminum.local/MicrosoftDynamicsAXAif50/axcps.svc?xsd=xsd18" />
+    <MetadataFile FileName="axcps2.xsd" MetadataType="Schema" ID="99a61852-94bd-492d-a8cc-250a5e17e98f" SourceId="1" SourceUrl="http://tru-devaos.archaluminum.local/MicrosoftDynamicsAXAif50/axcps.svc?xsd=xsd19" />
+    <MetadataFile FileName="CPSSalesOrderSummary.xsd" MetadataType="Schema" ID="48e7aee8-9cd2-4c58-8c2b-51d77e37d6b4" SourceId="1" SourceUrl="http://tru-devaos.archaluminum.local/MicrosoftDynamicsAXAif50/CPSSalesOrderSummary.xsd" />
+    <MetadataFile FileName="CPSSalesQuotationInquiry.xsd" MetadataType="Schema" ID="a590fbd3-5341-4d71-85b5-d619bd432deb" SourceId="1" SourceUrl="http://tru-devaos.archaluminum.local/MicrosoftDynamicsAXAif50/CPSSalesQuotationInquiry.xsd" />
+    <MetadataFile FileName="CPSQuotationLine.xsd" MetadataType="Schema" ID="4d7618e3-17a2-467e-a06a-a999807aea98" SourceId="1" SourceUrl="http://tru-devaos.archaluminum.local/MicrosoftDynamicsAXAif50/CPSQuotationLine.xsd" />
+    <MetadataFile FileName="CPSCustomerNotifications.xsd" MetadataType="Schema" ID="89e9c1b6-f7f0-4c30-9ed1-e253e5989daa" SourceId="1" SourceUrl="http://tru-devaos.archaluminum.local/MicrosoftDynamicsAXAif50/CPSCustomerNotifications.xsd" />
+    <MetadataFile FileName="CPSShipManifestDetail.xsd" MetadataType="Schema" ID="9999dc6a-93d8-4db2-9854-e733b4b2e13b" SourceId="1" SourceUrl="http://tru-devaos.archaluminum.local/MicrosoftDynamicsAXAif50/CPSShipManifestDetail.xsd" />
+    <MetadataFile FileName="axcps3.xsd" MetadataType="Schema" ID="237cc6d8-46b1-49c8-bd9f-00c3b0609a0b" SourceId="1" SourceUrl="http://tru-devaos.archaluminum.local/MicrosoftDynamicsAXAif50/axcps.svc?xsd=xsd1" />
+    <MetadataFile FileName="CPSArchRackInfo.xsd" MetadataType="Schema" ID="ea2c74cb-09f4-416a-b258-0d837d0869da" SourceId="1" SourceUrl="http://tru-devaos.archaluminum.local/MicrosoftDynamicsAXAif50/CPSArchRackInfo.xsd" />
+    <MetadataFile FileName="CPSReturnOrderSummary.xsd" MetadataType="Schema" ID="bf3d5d5d-533d-485b-8a25-83cb4592f7db" SourceId="1" SourceUrl="http://tru-devaos.archaluminum.local/MicrosoftDynamicsAXAif50/CPSReturnOrderSummary.xsd" />
+    <MetadataFile FileName="CPSInventSite.xsd" MetadataType="Schema" ID="ecbcf5ca-2fd5-45f1-8dfb-dbb29a1ee2c0" SourceId="1" SourceUrl="http://tru-devaos.archaluminum.local/MicrosoftDynamicsAXAif50/CPSInventSite.xsd" />
+    <MetadataFile FileName="axcps4.xsd" MetadataType="Schema" ID="364e4790-318b-49e1-9fb1-c3895967e7bc" SourceId="1" SourceUrl="http://tru-devaos.archaluminum.local/MicrosoftDynamicsAXAif50/axcps.svc?xsd=xsd7" />
+    <MetadataFile FileName="CPSWarehouseEdgeFab.xsd" MetadataType="Schema" ID="f20d9847-6104-4bad-b7c6-72cbc4d6cd92" SourceId="1" SourceUrl="http://tru-devaos.archaluminum.local/MicrosoftDynamicsAXAif50/CPSWarehouseEdgeFab.xsd" />
+    <MetadataFile FileName="CPSQuotationLineConfig.xsd" MetadataType="Schema" ID="c32307f0-0e08-450b-8d38-c40b7565807d" SourceId="1" SourceUrl="http://tru-devaos.archaluminum.local/MicrosoftDynamicsAXAif50/CPSQuotationLineConfig.xsd" />
+    <MetadataFile FileName="CPSCustomer.xsd" MetadataType="Schema" ID="a75b7253-f9bd-4a5a-9623-c8f5ed88b219" SourceId="1" SourceUrl="http://tru-devaos.archaluminum.local/MicrosoftDynamicsAXAif50/CPSCustomer.xsd" />
+    <MetadataFile FileName="axcps5.xsd" MetadataType="Schema" ID="e03e9a17-c0fb-4d2f-a5c1-5fca779b0470" SourceId="1" SourceUrl="http://tru-devaos.archaluminum.local/MicrosoftDynamicsAXAif50/axcps.svc?xsd=xsd3" />
+    <MetadataFile FileName="axcps6.xsd" MetadataType="Schema" ID="ff379b5b-f503-41ce-8d6f-58d22398edec" SourceId="1" SourceUrl="http://tru-devaos.archaluminum.local/MicrosoftDynamicsAXAif50/axcps.svc?xsd=xsd5" />
+    <MetadataFile FileName="CPSInvoiceHeader.xsd" MetadataType="Schema" ID="314d4c56-56e3-49c9-bdac-1443b70642c1" SourceId="1" SourceUrl="http://tru-devaos.archaluminum.local/MicrosoftDynamicsAXAif50/CPSInvoiceHeader.xsd" />
+    <MetadataFile FileName="CPSShipManifestHeader.xsd" MetadataType="Schema" ID="536b26cd-fc76-4b17-a3c7-5ed74b152dbc" SourceId="1" SourceUrl="http://tru-devaos.archaluminum.local/MicrosoftDynamicsAXAif50/CPSShipManifestHeader.xsd" />
+    <MetadataFile FileName="CPSInvoiceSummary.xsd" MetadataType="Schema" ID="0aeec971-241a-4833-9e57-edf5989d970a" SourceId="1" SourceUrl="http://tru-devaos.archaluminum.local/MicrosoftDynamicsAXAif50/CPSInvoiceSummary.xsd" />
+    <MetadataFile FileName="axcps7.xsd" MetadataType="Schema" ID="792a5045-bd87-46b0-806c-4bc21b169278" SourceId="1" SourceUrl="http://tru-devaos.archaluminum.local/MicrosoftDynamicsAXAif50/axcps.svc?xsd=xsd24" />
+    <MetadataFile FileName="axcps8.xsd" MetadataType="Schema" ID="090db67a-3093-46a0-968d-396b1bd13ea9" SourceId="1" SourceUrl="http://tru-devaos.archaluminum.local/MicrosoftDynamicsAXAif50/axcps.svc?xsd=xsd25" />
+    <MetadataFile FileName="axcps9.xsd" MetadataType="Schema" ID="35877a2c-564e-4acd-941e-f1e8deb79441" SourceId="1" SourceUrl="http://tru-devaos.archaluminum.local/MicrosoftDynamicsAXAif50/axcps.svc?xsd=xsd26" />
+    <MetadataFile FileName="axcps10.xsd" MetadataType="Schema" ID="5a98af00-9834-4ebc-89dc-6e49f72b8733" SourceId="1" SourceUrl="http://tru-devaos.archaluminum.local/MicrosoftDynamicsAXAif50/axcps.svc?xsd=xsd27" />
+    <MetadataFile FileName="axcps11.xsd" MetadataType="Schema" ID="7722b8a3-b531-4444-a5c1-d93e08aff957" SourceId="1" SourceUrl="http://tru-devaos.archaluminum.local/MicrosoftDynamicsAXAif50/axcps.svc?xsd=xsd20" />
+    <MetadataFile FileName="axcps12.xsd" MetadataType="Schema" ID="f232e096-1e76-41dd-bdf0-2536067d5425" SourceId="1" SourceUrl="http://tru-devaos.archaluminum.local/MicrosoftDynamicsAXAif50/axcps.svc?xsd=xsd21" />
+    <MetadataFile FileName="axcps13.xsd" MetadataType="Schema" ID="e39a21d7-8996-4408-959d-40d7b207ece5" SourceId="1" SourceUrl="http://tru-devaos.archaluminum.local/MicrosoftDynamicsAXAif50/axcps.svc?xsd=xsd22" />
+    <MetadataFile FileName="axcps14.xsd" MetadataType="Schema" ID="595a3ced-bca7-495e-832d-2589ece7e624" SourceId="1" SourceUrl="http://tru-devaos.archaluminum.local/MicrosoftDynamicsAXAif50/axcps.svc?xsd=xsd23" />
+    <MetadataFile FileName="CPSSalesPool.xsd" MetadataType="Schema" ID="5b864b5c-3375-4b01-9d6a-6a2ad96c4085" SourceId="1" SourceUrl="http://tru-devaos.archaluminum.local/MicrosoftDynamicsAXAif50/CPSSalesPool.xsd" />
+    <MetadataFile FileName="axcps15.xsd" MetadataType="Schema" ID="98ff2d2e-80c1-4c97-b848-cbe27ecb6481" SourceId="1" SourceUrl="http://tru-devaos.archaluminum.local/MicrosoftDynamicsAXAif50/axcps.svc?xsd=xsd28" />
+    <MetadataFile FileName="axcps16.xsd" MetadataType="Schema" ID="869a3019-c9a4-4452-9660-dc47269baf07" SourceId="1" SourceUrl="http://tru-devaos.archaluminum.local/MicrosoftDynamicsAXAif50/axcps.svc?xsd=xsd29" />
+    <MetadataFile FileName="axcps17.xsd" MetadataType="Schema" ID="fdb393c3-dddd-498c-9283-89e2f75d2530" SourceId="1" SourceUrl="http://tru-devaos.archaluminum.local/MicrosoftDynamicsAXAif50/axcps.svc?xsd=xsd41" />
+    <MetadataFile FileName="axcps18.xsd" MetadataType="Schema" ID="b7d68333-a3dd-497e-9567-2c5c720427b0" SourceId="1" SourceUrl="http://tru-devaos.archaluminum.local/MicrosoftDynamicsAXAif50/axcps.svc?xsd=xsd9" />
+    <MetadataFile FileName="CPSReturnOrderHeader.xsd" MetadataType="Schema" ID="f540cfac-b144-4f38-a0b2-f98a60aafc4a" SourceId="1" SourceUrl="http://tru-devaos.archaluminum.local/MicrosoftDynamicsAXAif50/CPSReturnOrderHeader.xsd" />
+    <MetadataFile FileName="CPSCustomerAddress.xsd" MetadataType="Schema" ID="1c2f48b5-12e8-4048-93e6-0c28a019ac31" SourceId="1" SourceUrl="http://tru-devaos.archaluminum.local/MicrosoftDynamicsAXAif50/CPSCustomerAddress.xsd" />
+    <MetadataFile FileName="CPSSpacerInfo.xsd" MetadataType="Schema" ID="e690110c-eeff-49b0-9de3-f5851f08f54c" SourceId="1" SourceUrl="http://tru-devaos.archaluminum.local/MicrosoftDynamicsAXAif50/CPSSpacerInfo.xsd" />
+    <MetadataFile FileName="CPSReturnOrderLine.xsd" MetadataType="Schema" ID="bcd2902b-96e1-46ac-9a1f-666b71fbe249" SourceId="1" SourceUrl="http://tru-devaos.archaluminum.local/MicrosoftDynamicsAXAif50/CPSReturnOrderLine.xsd" />
+    <MetadataFile FileName="CPSInterLayerInfo.xsd" MetadataType="Schema" ID="c6a1e1cd-9c92-4bc2-92d4-07417c2aa535" SourceId="1" SourceUrl="http://tru-devaos.archaluminum.local/MicrosoftDynamicsAXAif50/CPSInterLayerInfo.xsd" />
+    <MetadataFile FileName="CPSPackingSlipHeader.xsd" MetadataType="Schema" ID="96b7b475-947f-4086-a75d-b09a7d7d7db9" SourceId="1" SourceUrl="http://tru-devaos.archaluminum.local/MicrosoftDynamicsAXAif50/CPSPackingSlipHeader.xsd" />
+    <MetadataFile FileName="axcps19.xsd" MetadataType="Schema" ID="b61c417f-46fe-40ff-b349-5fcf1bf1dd9d" SourceId="1" SourceUrl="http://tru-devaos.archaluminum.local/MicrosoftDynamicsAXAif50/axcps.svc?xsd=xsd40" />
+    <MetadataFile FileName="axcps20.xsd" MetadataType="Schema" ID="d3a31257-7571-44df-a330-aa16875bf2cb" SourceId="1" SourceUrl="http://tru-devaos.archaluminum.local/MicrosoftDynamicsAXAif50/axcps.svc?xsd=xsd0" />
+    <MetadataFile FileName="CPSCustConfirmInfo.xsd" MetadataType="Schema" ID="bd6dce4b-3db5-4c47-a70d-5f95b1087ca2" SourceId="1" SourceUrl="http://tru-devaos.archaluminum.local/MicrosoftDynamicsAXAif50/CPSCustConfirmInfo.xsd" />
+    <MetadataFile FileName="CPSSalesOrdersSummaryByStatus.xsd" MetadataType="Schema" ID="a1aa2e24-ed31-49bb-8018-d4a31fae4a3c" SourceId="1" SourceUrl="http://tru-devaos.archaluminum.local/MicrosoftDynamicsAXAif50/CPSSalesOrdersSummaryByStatus.xsd" />
+    <MetadataFile FileName="axcps21.xsd" MetadataType="Schema" ID="3f374786-0414-4b23-a331-02b7dcfd1624" SourceId="1" SourceUrl="http://tru-devaos.archaluminum.local/MicrosoftDynamicsAXAif50/axcps.svc?xsd=xsd6" />
+    <MetadataFile FileName="CPSSalesOrderHeader.xsd" MetadataType="Schema" ID="74c7b15f-8a82-454d-a1dd-4a23bf9ff1c3" SourceId="1" SourceUrl="http://tru-devaos.archaluminum.local/MicrosoftDynamicsAXAif50/CPSSalesOrderHeader.xsd" />
+    <MetadataFile FileName="CPSSalesOrderLine.xsd" MetadataType="Schema" ID="3f2a284c-05af-4539-9eab-83d7d630cd16" SourceId="1" SourceUrl="http://tru-devaos.archaluminum.local/MicrosoftDynamicsAXAif50/CPSSalesOrderLine.xsd" />
+    <MetadataFile FileName="CPSQuotationHeader.xsd" MetadataType="Schema" ID="2cb5b840-b78d-4964-9171-5d758374bbee" SourceId="1" SourceUrl="http://tru-devaos.archaluminum.local/MicrosoftDynamicsAXAif50/CPSQuotationHeader.xsd" />
+    <MetadataFile FileName="axcps22.xsd" MetadataType="Schema" ID="3dc70c23-1c0f-4972-b9fb-7f6d63bb9c6b" SourceId="1" SourceUrl="http://tru-devaos.archaluminum.local/MicrosoftDynamicsAXAif50/axcps.svc?xsd=xsd2" />
+    <MetadataFile FileName="axcps23.xsd" MetadataType="Schema" ID="507e37a9-be93-41f5-80fb-5620ff1338f1" SourceId="1" SourceUrl="http://tru-devaos.archaluminum.local/MicrosoftDynamicsAXAif50/axcps.svc?xsd=xsd4" />
+    <MetadataFile FileName="CPSSalesQuotationNotes.xsd" MetadataType="Schema" ID="b07f8cd9-f9a7-4d19-b669-6bad1e823f43" SourceId="1" SourceUrl="http://tru-devaos.archaluminum.local/MicrosoftDynamicsAXAif50/CPSSalesQuotationNotes.xsd" />
+    <MetadataFile FileName="CPSProduct.xsd" MetadataType="Schema" ID="1811826c-6892-4372-8d80-3e7db9637821" SourceId="1" SourceUrl="http://tru-devaos.archaluminum.local/MicrosoftDynamicsAXAif50/CPSProduct.xsd" />
+    <MetadataFile FileName="axcps24.xsd" MetadataType="Schema" ID="dc0597df-1b9d-4f1a-b250-53938366d0c7" SourceId="1" SourceUrl="http://tru-devaos.archaluminum.local/MicrosoftDynamicsAXAif50/axcps.svc?xsd=xsd30" />
+    <MetadataFile FileName="CPSSalesOrderLineConfig.xsd" MetadataType="Schema" ID="04761ec6-a24d-44d3-8a4d-f645d5bde30d" SourceId="1" SourceUrl="http://tru-devaos.archaluminum.local/MicrosoftDynamicsAXAif50/CPSSalesOrderLineConfig.xsd" />
+    <MetadataFile FileName="axcps25.xsd" MetadataType="Schema" ID="940d3251-444e-4275-868e-81a60ce6222e" SourceId="1" SourceUrl="http://tru-devaos.archaluminum.local/MicrosoftDynamicsAXAif50/axcps.svc?xsd=xsd34" />
+    <MetadataFile FileName="axcps26.xsd" MetadataType="Schema" ID="cff334ea-2338-44b7-8c56-b95307998133" SourceId="1" SourceUrl="http://tru-devaos.archaluminum.local/MicrosoftDynamicsAXAif50/axcps.svc?xsd=xsd35" />
+    <MetadataFile FileName="axcps27.xsd" MetadataType="Schema" ID="2ad86d34-46eb-43d2-abf0-03478ad0e561" SourceId="1" SourceUrl="http://tru-devaos.archaluminum.local/MicrosoftDynamicsAXAif50/axcps.svc?xsd=xsd36" />
+    <MetadataFile FileName="axcps28.xsd" MetadataType="Schema" ID="5d435aad-733b-4a2c-9739-cc854bc2db1b" SourceId="1" SourceUrl="http://tru-devaos.archaluminum.local/MicrosoftDynamicsAXAif50/axcps.svc?xsd=xsd37" />
+    <MetadataFile FileName="axcps29.xsd" MetadataType="Schema" ID="644f55f0-1191-4edb-9468-d6f5273daf18" SourceId="1" SourceUrl="http://tru-devaos.archaluminum.local/MicrosoftDynamicsAXAif50/axcps.svc?xsd=xsd8" />
+    <MetadataFile FileName="axcps30.xsd" MetadataType="Schema" ID="17eb729f-4f53-41ac-b47f-575bc5c68909" SourceId="1" SourceUrl="http://tru-devaos.archaluminum.local/MicrosoftDynamicsAXAif50/axcps.svc?xsd=xsd31" />
+    <MetadataFile FileName="axcps31.xsd" MetadataType="Schema" ID="54165135-1210-4f3d-8d7f-dff56a1289c3" SourceId="1" SourceUrl="http://tru-devaos.archaluminum.local/MicrosoftDynamicsAXAif50/axcps.svc?xsd=xsd32" />
+    <MetadataFile FileName="axcps32.xsd" MetadataType="Schema" ID="96711551-3f8f-473f-9794-21d19f669cf5" SourceId="1" SourceUrl="http://tru-devaos.archaluminum.local/MicrosoftDynamicsAXAif50/axcps.svc?xsd=xsd33" />
+    <MetadataFile FileName="AXCPS.wsdl" MetadataType="Wsdl" ID="1b623e0e-0e83-4467-a887-d610085d7ca2" SourceId="1" SourceUrl="http://tru-devaos.archaluminum.local/MicrosoftDynamicsAXAif50/axcps.svc?wsdl" />
+    <MetadataFile FileName="CPSCatalogProduct.xsd" MetadataType="Schema" ID="3160e91b-bccd-4f58-8863-f8ec85dff232" SourceId="1" SourceUrl="http://tru-devaos.archaluminum.local/MicrosoftDynamicsAXAif50/CPSCatalogProduct.xsd" />
+    <MetadataFile FileName="axcps33.xsd" MetadataType="Schema" ID="009fc4d0-9148-42de-9b69-e84ef582e659" SourceId="1" SourceUrl="http://tru-devaos.archaluminum.local/MicrosoftDynamicsAXAif50/axcps.svc?xsd=xsd38" />
+    <MetadataFile FileName="axcps34.xsd" MetadataType="Schema" ID="88cc59bd-8030-445c-9897-ea026aff2ea0" SourceId="1" SourceUrl="http://tru-devaos.archaluminum.local/MicrosoftDynamicsAXAif50/axcps.svc?xsd=xsd39" />
+    <MetadataFile FileName="CPSMuntinInfo.xsd" MetadataType="Schema" ID="a314d8c9-94c2-4f05-a4f0-2111134dfbc5" SourceId="1" SourceUrl="http://tru-devaos.archaluminum.local/MicrosoftDynamicsAXAif50/CPSMuntinInfo.xsd" />
+    <MetadataFile FileName="axcps35.xsd" MetadataType="Schema" ID="5c47ebd2-e16d-44cd-91d4-c2384205d741" SourceId="1" SourceUrl="http://tru-devaos.archaluminum.local/MicrosoftDynamicsAXAif50/axcps.svc?xsd=xsd14" />
+    <MetadataFile FileName="axcps36.xsd" MetadataType="Schema" ID="32e16c4a-4289-420d-85be-3b4d1f892bf0" SourceId="1" SourceUrl="http://tru-devaos.archaluminum.local/MicrosoftDynamicsAXAif50/axcps.svc?xsd=xsd15" />
+    <MetadataFile FileName="axcps37.xsd" MetadataType="Schema" ID="d2410598-a5e5-4622-aebc-af4e2b5cf351" SourceId="1" SourceUrl="http://tru-devaos.archaluminum.local/MicrosoftDynamicsAXAif50/axcps.svc?xsd=xsd16" />
+    <MetadataFile FileName="axcps38.xsd" MetadataType="Schema" ID="8fe430b2-6ef0-42da-b9fc-e4ab4541ab92" SourceId="1" SourceUrl="http://tru-devaos.archaluminum.local/MicrosoftDynamicsAXAif50/axcps.svc?xsd=xsd17" />
+    <MetadataFile FileName="axcps39.xsd" MetadataType="Schema" ID="94a752e5-0af0-41f8-bec6-071ac6d384c8" SourceId="1" SourceUrl="http://tru-devaos.archaluminum.local/MicrosoftDynamicsAXAif50/axcps.svc?xsd=xsd10" />
+    <MetadataFile FileName="axcps40.xsd" MetadataType="Schema" ID="a00b7c14-83c7-4c0b-83d9-24599202ecd1" SourceId="1" SourceUrl="http://tru-devaos.archaluminum.local/MicrosoftDynamicsAXAif50/axcps.svc?xsd=xsd11" />
+    <MetadataFile FileName="axcps41.xsd" MetadataType="Schema" ID="b5622431-004b-4a78-9a64-19e57dcf1cd6" SourceId="1" SourceUrl="http://tru-devaos.archaluminum.local/MicrosoftDynamicsAXAif50/axcps.svc?xsd=xsd12" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

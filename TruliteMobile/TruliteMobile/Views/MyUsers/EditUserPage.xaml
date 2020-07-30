@@ -1,0 +1,161 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:components="clr-namespace:TruliteMobile.Components;assembly=TruliteMobile"
+             xmlns:users="clr-namespace:TruliteMobile.Views.Users;assembly=TruliteMobile"
+             xmlns:i18N="clr-namespace:TruliteMobile.i18n;assembly=TruliteMobile"
+             x:Class="TruliteMobile.Views.Users.EditUserPage"
+             Title="Edit User Information"
+             x:DataType="users:EditUserPageViewModel"
+             mc:Ignorable="d">
+
+    <!--#region Menu -->
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Command="{Binding OpenSettingsCommand}"
+                     IconImageSource="gears.png"
+                     Order="Primary"
+                     Priority="0"
+                     Text="Give Feedback" />
+    </ContentPage.ToolbarItems>
+    <!--#endregion-->
+    <ContentPage.Content>
+        <Grid x:Name="root"
+              Style="{StaticResource RootGrid}">
+            <ScrollView BackgroundColor="{StaticResource DarkPrimaryBlue}">
+                <StackLayout Padding="20"
+                             Spacing="20">
+                    <!--#region Details -->
+                    <Frame BackgroundColor="White">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition />
+                                <ColumnDefinition />
+                            </Grid.ColumnDefinitions>
+                            <Label Grid.ColumnSpan="2"
+                                   Style="{StaticResource GridHeaderLabel}"
+                                   HorizontalOptions="Center"
+                                   TextColor="{StaticResource DarkBlueButtonColor}"
+                                   FontSize="Medium"
+                                   Text="Information" />
+                            <Entry Grid.Row="1"
+                                   Keyboard="Default"
+                                   Placeholder="First Name"
+                                   Text="{Binding User.FirstName}"
+                                   ReturnType="Next" />
+                            <Entry Grid.Row="1"
+                                   Grid.Column="1"
+                                   Keyboard="Default"
+                                   Placeholder="Last Name"
+                                   Text="{Binding User.LastName}" />
+
+                            <Grid Grid.Row="4"
+                                  Grid.ColumnSpan="2">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto" />
+                                    <ColumnDefinition />
+                                </Grid.ColumnDefinitions>
+                                <Label Text="TimeZone" />
+                                <Picker ItemDisplayBinding="{Binding Name}"
+                                        Grid.Column="1"
+                                        ItemsSource="{Binding TimezoneList}"
+                                        SelectedItem="{Binding User.TimeZone}" />
+                            </Grid>
+                            <StackLayout Grid.Row="5"
+                                         Grid.ColumnSpan="2"
+                                         Orientation="Horizontal">
+                                <Label Text="Admin" />
+                                <Switch IsToggled="{Binding User.IsAdmin}" />
+                            </StackLayout>
+                            <StackLayout Grid.Row="6"
+                                         Grid.ColumnSpan="2"
+                                         Orientation="Horizontal">
+                                <Label Text="Show Site Tutorial" />
+                                <Switch IsToggled="{Binding User.ShowSiteTutorial}" />
+                            </StackLayout>
+                        </Grid>
+                    </Frame>
+                    <!--#endregion-->
+                    <!--#region Permissions -->
+                    <Frame BackgroundColor="White">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                            </Grid.RowDefinitions>
+                            <Label Style="{StaticResource GridHeaderLabel}"
+                                   HorizontalOptions="Center"
+                                   FontSize="Medium"
+                                   TextColor="{StaticResource DarkBlueButtonColor}"
+                                   Text="Permissions" />
+                            <StackLayout Grid.Row="1"
+                                         BindableLayout.ItemsSource="{Binding PermissionList}">
+                                <BindableLayout.ItemTemplate>
+                                    <DataTemplate x:DataType="users:AppPermissionViewSelection">
+                                        <Grid>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="Auto"></ColumnDefinition>
+                                                <ColumnDefinition />
+                                            </Grid.ColumnDefinitions>
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="Auto" />
+                                                <RowDefinition Height="Auto" />
+                                            </Grid.RowDefinitions>
+                                            <Switch IsToggled="{Binding IsChecked}"
+                                                    Grid.RowSpan="2"
+                                                    VerticalOptions="Start" />
+                                            <Label Text="{Binding Name}"
+                                                   Grid.Column="1"
+                                                   VerticalOptions="Center" />
+                                            <Label Text="{Binding Description}"
+                                                   FontSize="Micro"
+                                                   Grid.Column="1"
+                                                   Grid.Row="1"
+                                                   TextColor="{StaticResource MediumGray}"
+                                                   LineBreakMode="WordWrap"
+                                                   VerticalOptions="Center" />
+                                        </Grid>
+                                    </DataTemplate>
+                                </BindableLayout.ItemTemplate>
+                            </StackLayout>
+                        </Grid>
+                    </Frame>
+                    <!--#endregion-->
+
+                    <!--#region Actions -->
+                    <Frame BackgroundColor="White">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition />
+                                <ColumnDefinition />
+                            </Grid.ColumnDefinitions>
+                            <components:ActionButtonView IconText="&#xf00d;"
+                                                         TappedCommand="{Binding CloseCommand}"
+                                                         Text="{i18N:TranslateExtension Text=Close}"
+                                                         BackgroundColor="{StaticResource MediumGray}" />
+                            <components:ActionButtonView IconText="&#xf0c7;"
+                                                         TappedCommand="{Binding SaveCommand}"
+                                                         Text="{i18N:TranslateExtension Text=Save}"
+                                                         Grid.Column="1"
+                                                         BackgroundColor="{StaticResource DarkBlueButtonColor}" />
+
+                        </Grid>
+
+                    </Frame>
+                    <!--#endregion-->
+                </StackLayout>
+            </ScrollView>
+
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

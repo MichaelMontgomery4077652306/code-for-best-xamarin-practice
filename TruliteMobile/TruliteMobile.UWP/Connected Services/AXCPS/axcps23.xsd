@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://tru-devaos.archaluminum.local/MicrosoftDynamicsAXAif50/axcps.svc?xsd=xsd3" namespace="http://schemas.microsoft.com/dynamics/2006/02/documents/CPSGetPackingSlipsResponse" />
+  <xs:import schemaLocation="http://tru-devaos.archaluminum.local/MicrosoftDynamicsAXAif50/axcps.svc?xsd=xsd5" namespace="http://schemas.microsoft.com/dynamics/2006/02/documents/CPSGetCustomersResponse" />
+  <xs:import schemaLocation="http://tru-devaos.archaluminum.local/MicrosoftDynamicsAXAif50/axcps.svc?xsd=xsd7" namespace="http://schemas.microsoft.com/dynamics/2006/02/documents/CPSSalesQuotationInquiryResponse" />
+  <xs:import schemaLocation="http://tru-devaos.archaluminum.local/MicrosoftDynamicsAXAif50/axcps.svc?xsd=xsd8" namespace="http://schemas.microsoft.com/dynamics/2006/02/documents/CPSProductsResponse" />
+  <xs:import schemaLocation="http://tru-devaos.archaluminum.local/MicrosoftDynamicsAXAif50/axcps.svc?xsd=xsd9" namespace="http://schemas.microsoft.com/dynamics/2006/02/documents/CPSGetSalesOrdersSummaryByStatusResponse" />
+  <xs:import schemaLocation="http://tru-devaos.archaluminum.local/MicrosoftDynamicsAXAif50/axcps.svc?xsd=xsd10" namespace="http://schemas.microsoft.com/dynamics/2006/02/documents/CPSGetReturnOrdersResponse" />
+  <xs:import schemaLocation="http://tru-devaos.archaluminum.local/MicrosoftDynamicsAXAif50/axcps.svc?xsd=xsd11" namespace="http://schemas.microsoft.com/dynamics/2006/02/documents/CPSShipManifestDetailResponse" />
+  <xs:import schemaLocation="http://tru-devaos.archaluminum.local/MicrosoftDynamicsAXAif50/axcps.svc?xsd=xsd12" namespace="http://schemas.microsoft.com/dynamics/2006/02/documents/CPSInterLayerInfoResponse" />
+  <xs:import schemaLocation="http://tru-devaos.archaluminum.local/MicrosoftDynamicsAXAif50/axcps.svc?xsd=xsd13" namespace="http://schemas.microsoft.com/dynamics/2006/02/documents/CPSShipManifestHeaderResponse" />
+  <xs:import schemaLocation="http://tru-devaos.archaluminum.local/MicrosoftDynamicsAXAif50/axcps.svc?xsd=xsd14" namespace="http://schemas.microsoft.com/dynamics/2006/02/documents/CPSGetSalesOrderDetailsResponse" />
+  <xs:import schemaLocation="http://tru-devaos.archaluminum.local/MicrosoftDynamicsAXAif50/axcps.svc?xsd=xsd15" namespace="http://schemas.microsoft.com/dynamics/2006/02/documents/CPSSalesPoolResponse" />
+  <xs:import schemaLocation="http://tru-devaos.archaluminum.local/MicrosoftDynamicsAXAif50/axcps.svc?xsd=xsd16" namespace="http://schemas.microsoft.com/dynamics/2006/02/documents/CPSInventSitesResponse" />
+  <xs:import schemaLocation="http://tru-devaos.archaluminum.local/MicrosoftDynamicsAXAif50/axcps.svc?xsd=xsd17" namespace="http://schemas.microsoft.com/dynamics/2006/02/documents/CPSGetQuotationDetailsResponse" />
+  <xs:import schemaLocation="http://tru-devaos.archaluminum.local/MicrosoftDynamicsAXAif50/axcps.svc?xsd=xsd18" namespace="http://schemas.microsoft.com/dynamics/2006/02/documents/CPSGetInvoicesSummaryResponse" />
+  <xs:import schemaLocation="http://tru-devaos.archaluminum.local/MicrosoftDynamicsAXAif50/axcps.svc?xsd=xsd19" namespace="http://schemas.microsoft.com/dynamics/2006/02/documents/CPSGetCustomerAddressesResponse" />
+  <xs:import schemaLocation="http://tru-devaos.archaluminum.local/MicrosoftDynamicsAXAif50/axcps.svc?xsd=xsd20" namespace="http://schemas.microsoft.com/dynamics/2006/02/documents/CPSGetSalesOrderLineConfigResponse" />
+  <xs:import schemaLocation="http://tru-devaos.archaluminum.local/MicrosoftDynamicsAXAif50/axcps.svc?xsd=xsd21" namespace="http://schemas.microsoft.com/dynamics/2006/02/documents/CPSGetArchRackInfoResponse" />
+  <xs:import schemaLocation="http://tru-devaos.archaluminum.local/MicrosoftDynamicsAXAif50/axcps.svc?xsd=xsd22" namespace="http://schemas.microsoft.com/dynamics/2006/02/documents/CPSWarehouseEdgeFabResponse" />
+  <xs:import schemaLocation="http://tru-devaos.archaluminum.local/MicrosoftDynamicsAXAif50/axcps.svc?xsd=xsd23" namespace="http://schemas.microsoft.com/dynamics/2006/02/documents/CPSSalesQuotationReasonResponse" />
+  <xs:import schemaLocation="http://tru-devaos.archaluminum.local/MicrosoftDynamicsAXAif50/axcps.svc?xsd=xsd24" namespace="http://schemas.microsoft.com/dynamics/2006/02/documents/CPSGetQuotationsResponse" />
+  <xs:import schemaLocation="http://tru-devaos.archaluminum.local/MicrosoftDynamicsAXAif50/axcps.svc?xsd=xsd25" namespace="http://schemas.microsoft.com/dynamics/2006/02/documents/CPSCustConfirmInfoResponse" />
+  <xs:import schemaLocation="http://tru-devaos.archaluminum.local/MicrosoftDynamicsAXAif50/axcps.svc?xsd=xsd26" namespace="http://schemas.microsoft.com/dynamics/2006/02/documents/CPSGetPackingSlipDetailsResponse" />
+  <xs:import schemaLocation="http://tru-devaos.archaluminum.local/MicrosoftDynamicsAXAif50/axcps.svc?xsd=xsd27" namespace="http://schemas.microsoft.com/dynamics/2006/02/documents/CPSCustomerNotificationsResponse" />
+  <xs:import schemaLocation="http://tru-devaos.archaluminum.local/MicrosoftDynamicsAXAif50/axcps.svc?xsd=xsd28" namespace="http://schemas.microsoft.com/dynamics/2006/02/documents/CPSCustomerContact" />
+  <xs:import schemaLocation="http://tru-devaos.archaluminum.local/MicrosoftDynamicsAXAif50/axcps.svc?xsd=xsd29" namespace="http://schemas.microsoft.com/dynamics/2006/02/documents/CPSGetQuotationLineConfigResponse" />
+  <xs:import schemaLocation="http://tru-devaos.archaluminum.local/MicrosoftDynamicsAXAif50/axcps.svc?xsd=xsd30" namespace="http://schemas.microsoft.com/dynamics/2006/02/documents/CPSGetReturnOrdersSummaryResponse" />
+  <xs:import schemaLocation="http://tru-devaos.archaluminum.local/MicrosoftDynamicsAXAif50/axcps.svc?xsd=xsd31" namespace="http://schemas.microsoft.com/dynamics/2006/02/documents/CPSSpacerInfoResponse" />
+  <xs:import schemaLocation="http://tru-devaos.archaluminum.local/MicrosoftDynamicsAXAif50/axcps.svc?xsd=xsd32" namespace="http://schemas.microsoft.com/dynamics/2006/02/documents/CPSGetReturnOrderDetailsResponse" />
+  <xs:import schemaLocation="http://tru-devaos.archaluminum.local/MicrosoftDynamicsAXAif50/axcps.svc?xsd=xsd33" namespace="http://schemas.microsoft.com/dynamics/2006/02/documents/CPSGetInvoicesResponse" />
+  <xs:import schemaLocation="http://tru-devaos.archaluminum.local/MicrosoftDynamicsAXAif50/axcps.svc?xsd=xsd34" namespace="http://schemas.microsoft.com/dynamics/2006/02/documents/CPSGetInvoiceDetailsResponse" />
+  <xs:import schemaLocation="http://tru-devaos.archaluminum.local/MicrosoftDynamicsAXAif50/axcps.svc?xsd=xsd35" namespace="http://schemas.microsoft.com/dynamics/2006/02/documents/CPSGetSalesOrdersSummaryResponse" />
+  <xs:import schemaLocation="http://tru-devaos.archaluminum.local/MicrosoftDynamicsAXAif50/axcps.svc?xsd=xsd36" namespace="http://schemas.microsoft.com/dynamics/2006/02/documents/CPSGetCustomer" />
+  <xs:import schemaLocation="http://tru-devaos.archaluminum.local/MicrosoftDynamicsAXAif50/axcps.svc?xsd=xsd37" namespace="http://schemas.microsoft.com/dynamics/2006/02/documents/CPSMuntinInfoResponse" />
+  <xs:import schemaLocation="http://tru-devaos.archaluminum.local/MicrosoftDynamicsAXAif50/axcps.svc?xsd=xsd38" namespace="http://schemas.microsoft.com/dynamics/2006/02/documents/CPSGetSalesOrdersResponse" />
+  <xs:import schemaLocation="http://tru-devaos.archaluminum.local/MicrosoftDynamicsAXAif50/axcps.svc?xsd=xsd39" namespace="http://schemas.microsoft.com/dynamics/2006/02/documents/CPSGetCatalogProductsResponse" />
+  <xs:import schemaLocation="http://tru-devaos.archaluminum.local/MicrosoftDynamicsAXAif50/axcps.svc?xsd=xsd40" namespace="http://schemas.microsoft.com/dynamics/2006/02/documents/CPSSalesQuotationNotesResponse" />
+  <xs:import schemaLocation="http://tru-devaos.archaluminum.local/MicrosoftDynamicsAXAif50/axcps.svc?xsd=xsd41" namespace="http://schemas.microsoft.com/dynamics/2006/02/documents/CPSGetProduct" />
+  <xs:element xmlns:q1="http://schemas.microsoft.com/dynamics/2006/02/documents/CPSGetPackingSlipsResponse" name="CPSGetPackingSlipsResponse" type="q1:CPSGetPackingSlipsResponse" />
+  <xs:element xmlns:q2="http://schemas.microsoft.com/dynamics/2006/02/documents/CPSGetCustomersResponse" name="CPSGetCustomersResponse" type="q2:CPSGetCustomersResponse" />
+  <xs:element xmlns:q3="http://schemas.microsoft.com/dynamics/2006/02/documents/CPSSalesQuotationInquiryResponse" name="CPSSalesQuotationInquiryResponse" type="q3:CPSSalesQuotationInquiryResponse" />
+  <xs:element xmlns:q4="http://schemas.microsoft.com/dynamics/2006/02/documents/CPSProductsResponse" name="CPSProductsResponse" type="q4:CPSProductsResponse" />
+  <xs:element xmlns:q5="http://schemas.microsoft.com/dynamics/2006/02/documents/CPSGetSalesOrdersSummaryByStatusResponse" name="CPSGetSalesOrdersSummaryByStatusResponse" type="q5:CPSGetSalesOrdersSummaryByStatusResponse" />
+  <xs:element xmlns:q6="http://schemas.microsoft.com/dynamics/2006/02/documents/CPSGetReturnOrdersResponse" name="CPSGetReturnOrdersResponse" type="q6:CPSGetReturnOrdersResponse" />
+  <xs:element xmlns:q7="http://schemas.microsoft.com/dynamics/2006/02/documents/CPSShipManifestDetailResponse" name="CPSShipManifestDetailResponse" type="q7:CPSShipManifestDetailResponse" />
+  <xs:element xmlns:q8="http://schemas.microsoft.com/dynamics/2006/02/documents/CPSInterLayerInfoResponse" name="CPSInterLayerInfoResponse" type="q8:CPSInterLayerInfoResponse" />
+  <xs:element xmlns:q9="http://schemas.microsoft.com/dynamics/2006/02/documents/CPSShipManifestHeaderResponse" name="CPSShipManifestHeaderResponse" type="q9:CPSShipManifestHeaderResponse" />
+  <xs:element xmlns:q10="http://schemas.microsoft.com/dynamics/2006/02/documents/CPSGetSalesOrderDetailsResponse" name="CPSGetSalesOrderDetailsResponse" type="q10:CPSGetSalesOrderDetailsResponse" />
+  <xs:element xmlns:q11="http://schemas.microsoft.com/dynamics/2006/02/documents/CPSSalesPoolResponse" name="CPSSalesPoolResponse" type="q11:CPSSalesPoolResponse" />
+  <xs:element xmlns:q12="http://schemas.microsoft.com/dynamics/2006/02/documents/CPSInventSitesResponse" name="CPSInventSitesResponse" type="q12:CPSInventSitesResponse" />
+  <xs:element xmlns:q13="http://schemas.microsoft.com/dynamics/2006/02/documents/CPSGetQuotationDetailsResponse" name="CPSGetQuotationDetailsResponse" type="q13:CPSGetQuotationDetailsResponse" />
+  <xs:element xmlns:q14="http://schemas.microsoft.com/dynamics/2006/02/documents/CPSGetInvoicesSummaryResponse" name="CPSGetInvoicesSummaryResponse" type="q14:CPSGetInvoicesSummaryResponse" />
+  <xs:element xmlns:q15="http://schemas.microsoft.com/dynamics/2006/02/documents/CPSGetCustomerAddressesResponse" name="CPSGetCustomerAddressesResponse" type="q15:CPSGetCustomerAddressesResponse" />
+  <xs:element xmlns:q16="http://schemas.microsoft.com/dynamics/2006/02/documents/CPSGetSalesOrderLineConfigResponse" name="CPSGetSalesOrderLineConfigResponse" type="q16:CPSGetSalesOrderLineConfigResponse" />
+  <xs:element xmlns:q17="http://schemas.microsoft.com/dynamics/2006/02/documents/CPSGetArchRackInfoResponse" name="CPSGetArchRackInfoResponse" type="q17:CPSGetArchRackInfoResponse" />
+  <xs:element xmlns:q18="http://schemas.microsoft.com/dynamics/2006/02/documents/CPSWarehouseEdgeFabResponse" name="CPSWarehouseEdgeFabResponse" type="q18:CPSWarehouseEdgeFabResponse" />
+  <xs:element xmlns:q19="http://schemas.microsoft.com/dynamics/2006/02/documents/CPSSalesQuotationReasonResponse" name="CPSSalesQuotationReasonResponse" type="q19:CPSSalesQuotationReasonResponse" />
+  <xs:element xmlns:q20="http://schemas.microsoft.com/dynamics/2006/02/documents/CPSGetQuotationsResponse" name="CPSGetQuotationsResponse" type="q20:CPSGetQuotationsResponse" />
+  <xs:element xmlns:q21="http://schemas.microsoft.com/dynamics/2006/02/documents/CPSCustConfirmInfoResponse" name="CPSCustConfirmInfoResponse" type="q21:CPSCustConfirmInfoResponse" />
+  <xs:element xmlns:q22="http://schemas.microsoft.com/dynamics/2006/02/documents/CPSGetPackingSlipDetailsResponse" name="CPSGetPackingSlipDetailsResponse" type="q22:CPSGetPackingSlipDetailsResponse" />
+  <xs:element xmlns:q23="http://schemas.microsoft.com/dynamics/2006/02/documents/CPSCustomerNotificationsResponse" name="CPSCustomerNotificationsResponse" type="q23:CPSCustomerNotificationsResponse" />
+  <xs:element xmlns:q24="http://schemas.microsoft.com/dynamics/2006/02/documents/CPSCustomerContact" name="CPSCustomerContact" type="q24:CPSCustomerContact" />
+  <xs:element xmlns:q25="http://schemas.microsoft.com/dynamics/2006/02/documents/CPSGetQuotationLineConfigResponse" name="CPSGetQuotationLineConfigResponse" type="q25:CPSGetQuotationLineConfigResponse" />
+  <xs:element xmlns:q26="http://schemas.microsoft.com/dynamics/2006/02/documents/CPSGetReturnOrdersSummaryResponse" name="CPSGetReturnOrdersSummaryResponse" type="q26:CPSGetReturnOrdersSummaryResponse" />
+  <xs:element xmlns:q27="http://schemas.microsoft.com/dynamics/2006/02/documents/CPSSpacerInfoResponse" name="CPSSpacerInfoResponse" type="q27:CPSSpacerInfoResponse" />
+  <xs:element xmlns:q28="http://schemas.microsoft.com/dynamics/2006/02/documents/CPSGetReturnOrderDetailsResponse" name="CPSGetReturnOrderDetailsResponse" type="q28:CPSGetReturnOrderDetailsResponse" />
+  <xs:element xmlns:q29="http://schemas.microsoft.com/dynamics/2006/02/documents/CPSGetInvoicesResponse" name="CPSGetInvoicesResponse" type="q29:CPSGetInvoicesResponse" />
+  <xs:element xmlns:q30="http://schemas.microsoft.com/dynamics/2006/02/documents/CPSGetInvoiceDetailsResponse" name="CPSGetInvoiceDetailsResponse" type="q30:CPSGetInvoiceDetailsResponse" />
+  <xs:element xmlns:q31="http://schemas.microsoft.com/dynamics/2006/02/documents/CPSGetSalesOrdersSummaryResponse" name="CPSGetSalesOrdersSummaryResponse" type="q31:CPSGetSalesOrdersSummaryResponse" />
+  <xs:element xmlns:q32="http://schemas.microsoft.com/dynamics/2006/02/documents/CPSGetCustomer" name="CPSGetCustomer" type="q32:CPSGetCustomer" />
+  <xs:element xmlns:q33="http://schemas.microsoft.com/dynamics/2006/02/documents/CPSMuntinInfoResponse" name="CPSMuntinInfoResponse" type="q33:CPSMuntinInfoResponse" />
+  <xs:element xmlns:q34="http://schemas.microsoft.com/dynamics/2006/02/documents/CPSGetSalesOrdersResponse" name="CPSGetSalesOrdersResponse" type="q34:CPSGetSalesOrdersResponse" />
+  <xs:element xmlns:q35="http://schemas.microsoft.com/dynamics/2006/02/documents/CPSGetCatalogProductsResponse" name="CPSGetCatalogProductsResponse" type="q35:CPSGetCatalogProductsResponse" />
+  <xs:element xmlns:q36="http://schemas.microsoft.com/dynamics/2006/02/documents/CPSSalesQuotationNotesResponse" name="CPSSalesQuotationNotesResponse" type="q36:CPSSalesQuotationNotesResponse" />
+  <xs:element xmlns:q37="http://schemas.microsoft.com/dynamics/2006/02/documents/CPSGetProduct" name="CPSGetProduct" type="q37:CPSGetProduct" />
+</xs:schema>

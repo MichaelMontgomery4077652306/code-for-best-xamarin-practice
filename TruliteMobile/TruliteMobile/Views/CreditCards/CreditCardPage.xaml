@@ -1,0 +1,115 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="TruliteMobile.Views.CreditCards.CreditCardPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:components="clr-namespace:TruliteMobile.Components;assembly=TruliteMobile"
+    xmlns:converters="clr-namespace:XamarinUniversity.Converters;assembly=XamU.Infrastructure"
+    xmlns:creditCards="clr-namespace:TruliteMobile.Views.CreditCards;assembly=TruliteMobile"
+    xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+    xmlns:i18N="clr-namespace:TruliteMobile.i18n;assembly=TruliteMobile"
+    xmlns:infrastructure="clr-namespace:XamarinUniversity.Infrastructure;assembly=XamU.Infrastructure"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:orders="clr-namespace:TruliteMobile.Views.Orders;assembly=TruliteMobile"
+    xmlns:services="clr-namespace:TruliteMobile.Services;assembly=TruliteMobile"
+    xmlns:xForms="clr-namespace:Syncfusion.SfBusyIndicator.XForms;assembly=Syncfusion.SfBusyIndicator.XForms"
+    Title="{i18N:TranslateExtension Text=CreditCards}"
+    x:DataType="creditCards:CreditCardPageViewModel"
+    mc:Ignorable="d">
+    <!--#region Menu -->
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Command="{Binding OpenSettingsCommand}"
+                     IconImageSource="gears.png"
+                     Order="Primary"
+                     Priority="0"
+                     Text="{i18N:TranslateExtension Text=GiveFeedback}" />
+    </ContentPage.ToolbarItems>
+    <!--#endregion-->
+    <ContentPage.Content>
+        <Grid x:Name="root" Style="{StaticResource RootGrid}">
+            <Grid.RowDefinitions>
+                <RowDefinition />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+            <ListView
+                CachingStrategy="RecycleElement"
+                HasUnevenRows="True"
+                IsVisible="{Binding NoResults, Converter={converters:NotBooleanConverter}}"
+                ItemsSource="{Binding CreditCardList}"
+                SelectedItem="{Binding SelectedCard, Mode=TwoWay}"
+                SeparatorColor="{StaticResource DarkPrimaryBlue}"
+                SeparatorVisibility="Default">
+                <ListView.Behaviors>
+                    <infrastructure:EventToCommandBehavior Command="{Binding OpenCardCommand}" EventName="ItemTapped" />
+                </ListView.Behaviors>
+                <ListView.ItemTemplate>
+                    <DataTemplate x:DataType="services:CustomerCreditCardTokenViewModel">
+                        <ViewCell>
+                            <Grid Padding="5,5,5,10">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto" />
+                                    <ColumnDefinition />
+                                    <ColumnDefinition Width="Auto" />
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                </Grid.RowDefinitions>
+                                <!--  First Column  -->
+                                <Label FontFamily="{StaticResource FontAwesomeBrands}" Style="{StaticResource IconLabel}">
+                                    <Label.Triggers>
+                                        <!--  Visa  -->
+                                        <DataTrigger
+                                            Binding="{Binding CardType}"
+                                            TargetType="Label"
+                                            Value="001">
+                                            <Setter Property="Text" Value="&#xf1f0;" />
+                                        </DataTrigger>
+                                        <!--  Mastercard  -->
+                                        <DataTrigger
+                                            Binding="{Binding CardType}"
+                                            TargetType="Label"
+                                            Value="002">
+                                            <Setter Property="Text" Value="&#xf1f1;" />
+                                        </DataTrigger>
+                                        <!--  Amex  -->
+                                        <DataTrigger
+                                            Binding="{Binding CardType}"
+                                            TargetType="Label"
+                                            Value="003">
+                                            <Setter Property="Text" Value="&#xf1f3;" />
+                                        </DataTrigger>
+                                        <!--  Discover  -->
+                                        <DataTrigger
+                                            Binding="{Binding CardType}"
+                                            TargetType="Label"
+                                            Value="003">
+                                            <Setter Property="Text" Value="&#xf1f2;" />
+                                        </DataTrigger>
+                                    </Label.Triggers>
+                                </Label>
+                                <Label Grid.Row="1" Text="{Binding FriendlyName}" />
+                                <Label Grid.Row="2" Text="{Binding ExpiryDate, StringFormat='{0:MM-yyyy}'}" />
+                                <!--  Third Column  -->
+                                <Label
+                                    Grid.RowSpan="3"
+                                    Grid.Column="2"
+                                    FontSize="40"
+                                    Style="{StaticResource IconLabel}"
+                                    Text="&#xf054;"
+                                    TextColor="{StaticResource DarkPrimaryBlue}" />
+
+                            </Grid>
+
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            <components:NoResultsView IsVisible="{Binding NoResults}" />
+            <xForms:SfBusyIndicator />
+            <components:RowCountView Grid.Row="1" List="{Binding CreditCardList}" />
+
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xsd:schema xmlns="http://schemas.microsoft.com/dynamics/2006/02/documents/CPSCustomer" elementFormDefault="qualified" targetNamespace="http://schemas.microsoft.com/dynamics/2006/02/documents/CPSCustomer" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <xsd:element name="CPSCustomer" type="CPSCustomer" />
+  <xsd:complexType name="CPSCustomer">
+    <xsd:sequence>
+      <xsd:element name="Id" type="xsd:string" />
+      <xsd:element name="Name" type="xsd:string" />
+      <xsd:element name="Address" type="xsd:string" />
+      <xsd:element name="Phone" type="xsd:string" />
+      <xsd:element name="TimeZone" type="xsd:string" />
+      <xsd:element name="Email" type="xsd:string" />
+      <xsd:element name="ContactPhone" type="xsd:string" />
+      <xsd:element name="ContactName" type="xsd:string" />
+      <xsd:element name="ContactEmail" type="xsd:string" />
+      <xsd:element name="InviteCode" type="xsd:string" />
+      <xsd:element name="SalesGroup" type="xsd:string" />
+    </xsd:sequence>
+  </xsd:complexType>
+</xsd:schema>

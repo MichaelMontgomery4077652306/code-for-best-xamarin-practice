@@ -1,0 +1,114 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:xForms="clr-namespace:Syncfusion.SfChart.XForms;assembly=Syncfusion.SfChart.XForms"
+             xmlns:converters="clr-namespace:TruliteMobile.Converters;assembly=TruliteMobile"
+             xmlns:components="clr-namespace:TruliteMobile.Components;assembly=TruliteMobile"
+             xmlns:forms="clr-namespace:Microcharts.Forms;assembly=Microcharts.Forms"
+             mc:Ignorable="d"
+             x:Class="TruliteMobile.Components.ChartView">
+    <ContentView.Content>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+            <BoxView BackgroundColor="{DynamicResource FrameBackground}" />
+            <Label Text="{Binding Title}"
+                   Margin="5" />
+            <StackLayout Margin="5"
+                         Orientation="Horizontal"
+                         VerticalOptions="Center"
+                         HorizontalOptions="End">
+                <Label Style="{StaticResource IconLabel}"
+                       TextColor="{DynamicResource DefaultTextColor}"
+                       Text="&#xf021;">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding RefreshCommand}" />
+                    </Label.GestureRecognizers>
+                </Label>
+                <Label  TextColor="{DynamicResource DefaultTextColor}"
+                        Style="{StaticResource ChartExpandIconLabel}">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding ToggleCommand}" />
+                    </Label.GestureRecognizers>
+                </Label>
+                <Label Style="{StaticResource IconLabel}"
+                       TextColor="{DynamicResource DefaultTextColor}"
+                       Text="&#xf059;">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding ShowHelpMessageCommand}" />
+                    </Label.GestureRecognizers>
+                </Label>
+            </StackLayout>
+            <Grid Grid.Row="1"
+                  x:Name="grdChartArea1"
+                  IsVisible="{Binding IsExpanded}"
+                  HeightRequest="300">
+                <forms:ChartView x:Name="cv1">
+
+                </forms:ChartView>
+                <!--<xForms:SfChart x:Name="chartArea"
+                                IsVisible="False"
+                                x:DataType="components:ChartViewModel">
+
+                    <xForms:AreaSeries ItemsSource="{Binding ChartData}"
+                                       XBindingPath="XValue"
+                                       YBindingPath="YValue">
+                        <xForms:AreaSeries.ColorModel>
+                            <xForms:ChartColorModel Palette="Custom"
+                                                    CustomBrushes="{StaticResource ColorsArea}" />
+                        </xForms:AreaSeries.ColorModel>
+                    </xForms:AreaSeries>
+
+                </xForms:SfChart>-->
+                <!--<xForms:SfChart x:Name="chartBar"
+                                IsVisible="False"
+                                x:DataType="components:ChartViewModel">
+
+                    <xForms:ColumnSeries ItemsSource="{Binding ChartData}"
+                                         XBindingPath="XValue"
+                                         YBindingPath="YValue">
+                        <xForms:ColumnSeries.ColorModel>
+                            <xForms:ChartColorModel Palette="Custom"
+                                                    CustomBrushes="{StaticResource ColorsBar}" />
+                        </xForms:ColumnSeries.ColorModel>
+                    </xForms:ColumnSeries>
+
+                </xForms:SfChart>
+                <xForms:SfChart x:Name="chartLine"
+                                IsVisible="False"
+                                x:DataType="components:ChartViewModel">
+                    <xForms:SplineSeries  ItemsSource="{Binding ChartData}"
+                                          SplineType="Monotonic"
+                                          XBindingPath="XValue"
+                                          YBindingPath="YValue">
+                        <xForms:SplineSeries.ColorModel>
+                            <xForms:ChartColorModel Palette="Custom"
+                                                    CustomBrushes="{StaticResource ColorsLine}" />
+                        </xForms:SplineSeries.ColorModel>
+                    </xForms:SplineSeries>
+
+                </xForms:SfChart>
+                <xForms:SfChart IsVisible="False"
+                                x:DataType="components:ChartViewModel"
+                                x:Name="chartDoughnut">
+
+                    <xForms:DoughnutSeries DoughnutCoefficient="0.6"
+                                           DataMarkerPosition="Inside"
+                                           ItemsSource="{Binding ChartData}"
+                                           XBindingPath="XValue"
+                                           YBindingPath="YValue" />
+
+                </xForms:SfChart>-->
+                <ActivityIndicator 
+                                   Margin="20"
+                                   IsRunning="{Binding IsBusy}" />
+
+            </Grid>
+
+        </Grid>
+    </ContentView.Content>
+</ContentView>

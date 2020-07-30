@@ -1,0 +1,107 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:components="clr-namespace:TruliteMobile.Components;assembly=TruliteMobile"
+             xmlns:i18N="clr-namespace:TruliteMobile.i18n;assembly=TruliteMobile"
+             xmlns:invoices="clr-namespace:TruliteMobile.Views.Invoices;assembly=TruliteMobile"
+             x:Class="TruliteMobile.Views.Invoices.InvoicesFilterView">
+    <ContentView.Content>
+        <ScrollView>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+                <components:ResetFormView Tapped="ResetFormView_Tapped"
+                                          Grid.Column="1" />
+                <Entry Placeholder="{i18N:TranslateExtension Text=InvoiceNumber}"
+                       Grid.Row="1"
+                       Keyboard="Default"
+                       Text="{Binding Filter.Number}" />
+                <Entry Grid.Row="1"
+                       Grid.Column="1"
+                       Keyboard="Default"
+                       Placeholder="{i18N:TranslateExtension Text=SalesOrderNumber}"
+                       Text="{Binding Filter.SalesOrderNumber}" />
+                <Entry Placeholder="{i18N:TranslateExtension Text=PurchaseOrderNumber}"
+                       Grid.Column="0"
+                       Grid.Row="2"
+                       Keyboard="Default"
+                       Text="{Binding Filter.PONumber}" />
+                <Picker  Grid.Row="2"
+                         ItemsSource="{Binding InvoiceStatusList}"
+                         ItemDisplayBinding="{Binding Value}"
+                         SelectedItem="{Binding Filter.Status, Mode=TwoWay}"
+                         Grid.Column="1">
+                    <Picker.Triggers>
+                        <DataTrigger Binding="{Binding Mode}"
+                                     TargetType="Picker"
+                                     Value="{x:Static invoices:InvoicePageDefaultMode.Open}">
+                            <Setter Property="IsVisible"
+                                    Value="False" />
+                        </DataTrigger>
+                    </Picker.Triggers>
+                </Picker>
+                <Grid Grid.Row="3"
+                      Grid.ColumnSpan="2">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+                    <Label Text="{i18N:TranslateExtension Text=Quantity}" />
+                    <Picker  ItemsSource="{Binding QtyList}"
+                             SelectedItem="{Binding Filter.SelectedQty}"
+                             Grid.Column="1" />
+                </Grid>
+
+                <Label Text="{i18N:TranslateExtension Text=DueDate}"
+                       Grid.Row="4"
+                       Grid.ColumnSpan="2" />
+
+                <components:NullableDatePickerView Grid.Row="5"
+                                                   Date="{Binding Filter.StartDueDate}" />
+                <components:NullableDatePickerView Grid.Row="5"
+                                                   Grid.Column="1"
+                                                   Date="{Binding Filter.EndDueDate}" />
+                <Label Text="{i18N:TranslateExtension Text=InvoiceDate}"
+                       Grid.Row="6"
+                       Grid.ColumnSpan="2" />
+
+                <components:NullableDatePickerView Grid.Row="7"
+                                                   Date="{Binding Filter.StartDate}" />
+                <components:NullableDatePickerView Grid.Row="7"
+                                                   Grid.Column="1"
+                                                   Date="{Binding Filter.EndDate}" />
+                <components:ListSortView  Grid.Row="8"
+                                          Grid.ColumnSpan="2"
+                                          SortColumns="{Binding SortColumns}"
+                                          SelectedSortColumn="{Binding SelectedSortColumn}"
+                                          Ascending="{Binding Ascending}"
+                                          FilterTriggerCommand="{Binding FilterTriggerCommand}">
+
+                </components:ListSortView>
+                <Button Grid.Row="9"
+                        Grid.Column="1"
+                        Text="{i18N:TranslateExtension Text=Search}"
+                        Clicked="Button_Clicked" />
+
+            </Grid>
+
+        </ScrollView>
+            
+
+    </ContentView.Content>
+</ContentView>

@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:myContact="clr-namespace:TruliteMobile.Views.MyContact;assembly=TruliteMobile"
+             xmlns:i18N="clr-namespace:TruliteMobile.i18n;assembly=TruliteMobile"
+             mc:Ignorable="d"
+             VerticalOptions="Start"
+             HorizontalOptions="Center"
+             x:Class="TruliteMobile.Components.NoResultsView">
+    <ContentView.Content>
+
+        <Frame HasShadow="False"
+               Padding="5"
+               CornerRadius="2">
+            <Grid RowSpacing="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <BoxView BackgroundColor="{DynamicResource DarkPrimaryBlue}" />
+
+                <StackLayout Orientation="Horizontal" 
+                             HorizontalOptions="Center"
+                             VerticalOptions="Center">
+                    <Label Text="&#xf05a;"
+                           VerticalOptions="Center"
+                           FontSize="Medium"
+                           Style="{StaticResource IconLabel}"
+                           TextColor="White">
+                    </Label>
+                    <Label FontAttributes="Bold"
+                           Text="{i18N:Translate Text=SearchResults,TextCapitalization=Uppercase}"
+                           TextColor="White"
+                           FontSize="Medium"
+                           Margin="5" />
+                </StackLayout>
+                <Grid Grid.Row="1"
+                      Padding="5"
+                      BackgroundColor="#50CCCCCC">
+                    <Label Margin="10" HorizontalTextAlignment="Center" LineBreakMode="WordWrap"
+                           Text="{i18N:Translate Text=SorryNoData}" />
+
+                </Grid>
+            </Grid>
+        </Frame>
+    </ContentView.Content>
+</ContentView>

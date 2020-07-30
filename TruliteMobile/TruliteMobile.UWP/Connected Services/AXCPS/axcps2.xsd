@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xsd:schema xmlns="http://schemas.microsoft.com/dynamics/2006/02/documents/CPSGetCustomerAddressesResponse" xmlns:ek="http://schemas.microsoft.com/dynamics/2006/02/documents/CPSCustomerAddress" elementFormDefault="qualified" targetNamespace="http://schemas.microsoft.com/dynamics/2006/02/documents/CPSGetCustomerAddressesResponse" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <xsd:import schemaLocation="CPSCustomerAddress.xsd" namespace="http://schemas.microsoft.com/dynamics/2006/02/documents/CPSCustomerAddress" />
+  <xsd:element name="CPSGetCustomerAddressesResponse" type="CPSGetCustomerAddressesResponse" />
+  <xsd:complexType name="CPSGetCustomerAddressesResponse">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" maxOccurs="unbounded" ref="ek:CPSCustomerAddress" />
+    </xsd:sequence>
+  </xsd:complexType>
+</xsd:schema>

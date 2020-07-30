@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xsd:schema xmlns="http://schemas.microsoft.com/dynamics/2006/02/documents/CPSCatalogProduct" elementFormDefault="qualified" targetNamespace="http://schemas.microsoft.com/dynamics/2006/02/documents/CPSCatalogProduct" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <xsd:element name="CPSCatalogProduct" type="CPSCatalogProduct" />
+  <xsd:complexType name="CPSCatalogProduct">
+    <xsd:sequence>
+      <xsd:element name="ItemId" type="xsd:string" />
+      <xsd:element name="ItemName" type="xsd:string" />
+      <xsd:element name="PriceQuantity" type="xsd:string" />
+      <xsd:element name="PriceUnit" type="xsd:string" />
+      <xsd:element name="Price" type="xsd:string" />
+      <xsd:element name="Currency" type="xsd:string" />
+      <xsd:element name="StartDate" type="xsd:string" />
+      <xsd:element name="EndDate" type="xsd:string" />
+    </xsd:sequence>
+  </xsd:complexType>
+</xsd:schema>

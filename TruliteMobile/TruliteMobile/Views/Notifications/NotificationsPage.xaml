@@ -1,0 +1,169 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="TruliteMobile.Views.Notifications.NotificationsPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:components="clr-namespace:TruliteMobile.Components;assembly=TruliteMobile"
+    xmlns:converters="clr-namespace:XamarinUniversity.Converters;assembly=XamU.Infrastructure"
+    xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+    xmlns:i18N="clr-namespace:TruliteMobile.i18n;assembly=TruliteMobile"
+    xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:notifications="clr-namespace:TruliteMobile.Views.Notifications;assembly=TruliteMobile"
+    xmlns:services="clr-namespace:TruliteMobile.Services;assembly=TruliteMobile"
+    xmlns:xForms="clr-namespace:Syncfusion.SfBusyIndicator.XForms;assembly=Syncfusion.SfBusyIndicator.XForms"
+    Title="{i18N:TranslateExtension Text=NotificationsPageTitle}"
+    ios:Page.UseSafeArea="true"
+    mc:Ignorable="d">
+    <!--#region Menu -->
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Command="{Binding OpenSettingsCommand}"
+                     IconImageSource="gears.png"
+                     Order="Primary"
+                     Priority="0"
+                     Text="{i18N:TranslateExtension Text=GiveFeedback}" />
+    </ContentPage.ToolbarItems>
+    <!--#endregion-->
+    <ContentPage.Content>
+        <Grid
+            x:Name="root"
+            x:DataType="notifications:NotificationsPageViewModel"
+            Style="{StaticResource RootGrid}">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition />
+            </Grid.RowDefinitions>
+            <StackLayout
+                Margin="5"
+                HorizontalOptions="End"
+                Orientation="Horizontal">
+                <Label Text="{i18N:TranslateExtension Text=SearchFilter}"
+                       TextColor="{DynamicResource FilterHeaderTextColor}" />
+                <Label Style="{StaticResource FilterExpandIconLabel}">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding ToggleFilterCommand}" />
+                    </Label.GestureRecognizers>
+                </Label>
+            </StackLayout>
+            <notifications:NotificationsFilterView
+                Grid.Row="1"
+                FilterTriggerCommand="{Binding FilterChangeCommand}"
+                IsVisible="{Binding ShowFilter}"
+                SearchCommand="{Binding SearchCommand}" />
+
+            <components:NoResultsView Grid.Row="2" IsVisible="{Binding NoResults}" />
+            <ScrollView
+                Grid.Row="2"
+                Padding="10"
+                IsVisible="{Binding NoResults, Converter={converters:NotBooleanConverter}}">
+                <StackLayout BindableLayout.ItemsSource="{Binding List}">
+                    <BindableLayout.ItemTemplate>
+                        <DataTemplate x:DataType="services:CustomerNotification">
+                            <Grid Margin="5.10">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto" />
+                                    <ColumnDefinition />
+                                </Grid.ColumnDefinitions>
+                                <Label
+                                    Grid.Row="0"
+                                    Style="{StaticResource GridHeaderLabel}"
+                                    Text="{i18N:TranslateExtension Text=RecordId}" />
+                                <Label
+                                    Grid.Row="0"
+                                    Grid.Column="1"
+                                    Style="{StaticResource GridLabel}"
+                                    Text="{Binding RefRecId}" />
+                                <Label
+                                    Grid.Row="1"
+                                    Style="{StaticResource GridHeaderLabel}"
+                                    Text="{i18N:TranslateExtension Text=Date}" />
+                                <Label
+                                    Grid.Row="2"
+                                    Style="{StaticResource GridHeaderLabel}"
+                                    Text="{i18N:TranslateExtension Text=Read}" />
+                                <Label
+                                    Grid.Row="3"
+                                    Style="{StaticResource GridHeaderLabel}"
+                                    Text="{i18N:TranslateExtension Text=Type}" />
+                                <Label
+                                    Grid.Row="4"
+                                    Style="{StaticResource GridHeaderLabel}"
+                                    Text="{i18N:TranslateExtension Text=Notification}" />
+
+                                <Label
+                                    Grid.Row="1"
+                                    Grid.Column="1"
+                                    Style="{StaticResource GridLabel}"
+                                    Text="{Binding DateTime, StringFormat='{0:MM/dd/yyyy hh:mm tt}'}" />
+
+                                <Label
+                                    Grid.Row="2"
+                                    Grid.Column="1"
+                                    Style="{StaticResource GridLabel}"
+                                    Text="{i18N:TranslateExtension Text=No}">
+                                    <Label.Triggers>
+                                        <DataTrigger
+                                            Binding="{Binding IsRead}"
+                                            TargetType="Label"
+                                            Value="True">
+                                            <Setter Property="Text" Value="{i18N:TranslateExtension Text=Yes}" />
+                                        </DataTrigger>
+                                    </Label.Triggers>
+                                </Label>
+
+                                <Label
+                                    Grid.Row="3"
+                                    Grid.Column="1"
+                                    Style="{StaticResource GridLabel}"
+                                    Text="{Binding NotificationType}" />
+
+                                <Label
+                                    Grid.Row="4"
+                                    Grid.Column="1"
+                                    Style="{StaticResource GridLabel}"
+                                    Text="{Binding Notification}" />
+
+                                <components:ActionButtonView Grid.Row="5"
+                                                             Grid.Column="1"
+                                                             ButtonColor="{StaticResource DarkPrimaryBlue}"
+                                                             IconText="&#xf00c;"
+                                                             TappedCommand="{Binding BindingContext.MarkReadCommand, Source={x:Reference root}}"
+                                                             TappedCommandParameter="{Binding .}"
+                                                             Text="{i18N:TranslateExtension Text=MarkRead}">
+                                    <components:ActionButtonView.Triggers>
+                                        <DataTrigger TargetType="components:ActionButtonView"
+                                                     Binding="{Binding IsRead}"
+                                                     Value="True">
+                                            <Setter Property="Text"
+                                                    Value="{i18N:TranslateExtension Text=MarkNotRead}"/>
+                                        </DataTrigger>
+                                    </components:ActionButtonView.Triggers> 
+
+                                </components:ActionButtonView>
+
+                                <BoxView
+                                    Grid.Row="6"
+                                    Grid.ColumnSpan="2"
+                                    Margin="0,0,0,10"
+                                    BackgroundColor="{StaticResource DarkPrimaryBlue}"
+                                    HeightRequest="1"
+                                    VerticalOptions="Center" />
+                            </Grid>
+                        </DataTemplate>
+                    </BindableLayout.ItemTemplate>
+                </StackLayout>
+            </ScrollView>
+            <xForms:SfBusyIndicator Grid.Row="1" />
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

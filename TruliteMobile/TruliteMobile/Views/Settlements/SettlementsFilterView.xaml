@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:components="clr-namespace:TruliteMobile.Components;assembly=TruliteMobile"
+             xmlns:i18N="clr-namespace:TruliteMobile.i18n;assembly=TruliteMobile"
+             mc:Ignorable="d"
+             x:Class="TruliteMobile.Views.Settlements.SettlementsFilterView">
+    <ContentView.Content>
+        <Frame>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+                <components:ResetFormView Tapped="ResetFormView_Tapped"
+                                          Grid.Column="1" />
+
+                <Label Text="{i18N:TranslateExtension Text=StartEndDate}"
+                       Grid.Row="1"
+                       Grid.ColumnSpan="2" />
+                <components:NullableDatePickerView Grid.Row="2"
+                                                   Date="{Binding Filter.StartDate}" />
+                <components:NullableDatePickerView Grid.Row="2"
+                                                   Grid.Column="1"
+                                                   Date="{Binding Filter.EndDate}" />
+
+                <components:ListSortView Grid.Row="3"
+                                         Grid.ColumnSpan="2"
+                                         Ascending="{Binding Filter.Ascending}"
+                                         FilterTriggerCommand="{Binding FilterTriggerCommand}"
+                                         SelectedSortColumn="{Binding Filter.SelectedSortColumn}"
+                                         SortColumns="{Binding SortColumns}" />
+                <Button Grid.Row="4"
+                        HorizontalOptions="End"
+                        Grid.Column="1"
+                        Text="{i18N:TranslateExtension Text=Search}"
+                        Clicked="Button_Clicked" />
+
+            </Grid>
+        </Frame>
+    </ContentView.Content>
+</ContentView>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xsd:schema xmlns="http://schemas.microsoft.com/dynamics/2006/02/documents/CPSShipManifestHeaderResponse" xmlns:ek="http://schemas.microsoft.com/dynamics/2006/02/documents/CPSShipManifestHeader" elementFormDefault="qualified" targetNamespace="http://schemas.microsoft.com/dynamics/2006/02/documents/CPSShipManifestHeaderResponse" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <xsd:import schemaLocation="CPSShipManifestHeader.xsd" namespace="http://schemas.microsoft.com/dynamics/2006/02/documents/CPSShipManifestHeader" />
+  <xsd:element name="CPSShipManifestHeaderResponse" type="CPSShipManifestHeaderResponse" />
+  <xsd:complexType name="CPSShipManifestHeaderResponse">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" maxOccurs="unbounded" ref="ek:CPSShipManifestHeader" />
+    </xsd:sequence>
+  </xsd:complexType>
+</xsd:schema>

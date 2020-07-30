@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xsd:schema xmlns="http://schemas.microsoft.com/dynamics/2006/02/documents/CPSSalesQuotationReason" elementFormDefault="qualified" targetNamespace="http://schemas.microsoft.com/dynamics/2006/02/documents/CPSSalesQuotationReason" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <xsd:element name="CPSSalesQuotationReason" type="CPSSalesQuotationReason" />
+  <xsd:complexType name="CPSSalesQuotationReason">
+    <xsd:sequence>
+      <xsd:element name="ReasonId" type="xsd:string" />
+      <xsd:element name="ReasonName" type="xsd:string" />
+    </xsd:sequence>
+  </xsd:complexType>
+</xsd:schema>

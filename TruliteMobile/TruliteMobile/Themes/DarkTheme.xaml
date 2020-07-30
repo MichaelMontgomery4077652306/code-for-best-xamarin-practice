@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ResourceDictionary
+    x:Class="TruliteMobile.Themes.DarkTheme"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:xForms="clr-namespace:Syncfusion.SfChart.XForms;assembly=Syncfusion.SfChart.XForms"
+    mc:Ignorable="d">
+    <Color x:Key="PrimaryBlue">#2E71B6</Color>
+    <Color x:Key="PrimaryGray">#8C8F90</Color>
+    <Color x:Key="LightGray1">#DDDDDD</Color>
+    <Color x:Key="DarkPrimaryBlue">#1D4880</Color>
+
+    <Color x:Key="InvoiceBlue">#337ab7</Color>
+    <Color x:Key="OrderRed">#d9534f</Color>
+    <Color x:Key="SupportOrange">#f0ad4e</Color>
+    <Color x:Key="ReturnsGreen">#5CB85C</Color>
+
+    <Color x:Key="CyanButtonColor">#5BC0DE</Color>
+    <Color x:Key="GreenButtonColor">#5CB85C</Color>
+    <Color x:Key="DarkBlueButtonColor">#1D4880</Color>
+    <Color x:Key="MediumGray">#656565</Color>
+    <Color x:Key="LightGray2">#F0F3EE</Color>
+    <Color x:Key="LightTextColor">White</Color>
+    <Color x:Key="DefaultTextColor">White</Color>
+    <Color x:Key="FilterHeaderTextColor">#8C8F90</Color>
+    <Color x:Key="FrameBackground">#303030</Color>
+    <Color x:Key="PlaceholderTextColor">#909090</Color>
+    <Color x:Key="BusyIndicatorColor">#8C8F90</Color>
+    <Color x:Key="HeaderBackgroundColor">#303030</Color>
+    <Color x:Key="HyperlinkColor">#EEEEEE</Color>
+    <xForms:ChartColorCollection x:Key="ColorsBar">
+        <Color>#23b7e5</Color>
+    </xForms:ChartColorCollection>
+    <xForms:ChartColorCollection x:Key="ColorsLine">
+        <Color>#31C0BE</Color>
+    </xForms:ChartColorCollection>
+    <xForms:ChartColorCollection x:Key="ColorsArea">
+        <Color>#2677b5</Color>
+    </xForms:ChartColorCollection>
+    <Color x:Key="BackgroundColor">#202020</Color>
+</ResourceDictionary>

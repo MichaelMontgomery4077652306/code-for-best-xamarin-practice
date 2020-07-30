@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xsd:schema xmlns="http://schemas.microsoft.com/dynamics/2006/02/documents/CPSSalesOrderLineConfig" elementFormDefault="qualified" targetNamespace="http://schemas.microsoft.com/dynamics/2006/02/documents/CPSSalesOrderLineConfig" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <xsd:element name="CPSSalesOrderLineConfig" type="CPSSalesOrderLineConfig" />
+  <xsd:complexType name="CPSSalesOrderLineConfig">
+    <xsd:sequence>
+      <xsd:element name="var" type="xsd:string" />
+      <xsd:element name="val" type="xsd:string" />
+      <xsd:element name="idx" type="xsd:string" />
+      <xsd:element name="InventTransID" type="xsd:string" />
+    </xsd:sequence>
+  </xsd:complexType>
+</xsd:schema>

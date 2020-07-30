@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xsd:schema xmlns="http://schemas.microsoft.com/dynamics/2006/02/documents/CPSCustomerAddress" elementFormDefault="qualified" targetNamespace="http://schemas.microsoft.com/dynamics/2006/02/documents/CPSCustomerAddress" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <xsd:element name="CPSCustomerAddress" type="CPSCustomerAddress" />
+  <xsd:complexType name="CPSCustomerAddress">
+    <xsd:sequence>
+      <xsd:element name="Account" type="xsd:string" />
+      <xsd:element name="Name" type="xsd:string" />
+      <xsd:element name="Street" type="xsd:string" />
+      <xsd:element name="City" type="xsd:string" />
+      <xsd:element name="State" type="xsd:string" />
+      <xsd:element name="ZipCode" type="xsd:string" />
+    </xsd:sequence>
+  </xsd:complexType>
+</xsd:schema>

@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:components1="clr-namespace:TruliteMobile.Components;assembly=TruliteMobile"
+             mc:Ignorable="d"
+             BackgroundColor="Green"
+             x:DataType="components1:ToastView"
+             HeightRequest="80"
+             WidthRequest="200"
+             Margin="15"
+             HorizontalOptions="End"
+             VerticalOptions="Start"
+             x:Class="TruliteMobile.Components.ToastView">
+    <ContentView.Content>
+        <Grid Padding="10">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="40"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Label Style="{StaticResource IconLabel}" FontSize="24"
+                   TextColor="White"
+                   Text="&#xf058;"/>
+            <Label Text="{Binding Text}"
+                   Grid.Column="1"
+                   HorizontalTextAlignment="Center"
+                   TextColor="White"
+                   FontAttributes="Bold" />
+        </Grid>
+    </ContentView.Content>
+</ContentView>

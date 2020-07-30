@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<metadata>
+    <!--
+  This sample removes the class: android.support.v4.content.AsyncTaskLoader.LoadTask:
+  <remove-node path="/api/package[@name='android.support.v4.content']/class[@name='AsyncTaskLoader.LoadTask']" />
+  
+  This sample removes the method: android.support.v4.content.CursorLoader.loadInBackground:
+  <remove-node path="/api/package[@name='android.support.v4.content']/class[@name='CursorLoader']/method[@name='loadInBackground']" />
+  -->
+    <attr path="/api/package[@name='com.cybersource.inappsdk.datamodel.transaction']/class[@name='SDKEncryptTransactionObject']" name="visibility">public</attr>
+    <attr path="/api/package[@name='com.cybersource.inappsdk.datamodel.transaction']/class[@name='SDKTransactionObject.Builder']/method[@name='build' and count(parameter)=0]" name="managedReturn">Com.Cybersource.Inappsdk.Datamodel.Transaction.SDKEncryptTransactionObject</attr>
+    <attr path="/api/package[@name='com.cybersource.inappsdk.datamodel.transaction']/class[@name='SDKEncryptTransactionObject.Builder']/method[@name='build' and count(parameter)=0]" name="managedReturn">Com.Cybersource.Inappsdk.Datamodel.Transaction.SDKEncryptTransactionObject</attr>
+    <add-node path="/api/package[@name='com.cybersource.inappsdk.datamodel.transaction']">
+        <class abstract="false" deprecated="not deprecated" extends="com.cybersource.inappsdk.datamodel.transaction.SDKTransactionObject.Builder" extends-generic-aware="com.cybersource.inappsdk.datamodel.transaction.SDKTransactionObject.Builder" jni-extends="Lcom/cybersource/inappsdk/datamodel/transaction/SDKTransactionObject$Builder;" final="false" name="SDKEncryptTransactionObject.Builder" static="true" visibility="public" jni-signature="Lcom/cybersource/inappsdk/datamodel/transaction/SDKEncryptTransactionObject$Builder;">
+            <constructor deprecated="not deprecated" final="false" name="SDKEncryptTransactionObject.Builder" jni-signature="()V" bridge="false" static="false" type="com.cybersource.inappsdk.datamodel.transaction.SDKEncryptTransactionObject.Builder" synthetic="false" visibility="public">
+            </constructor>
+            <method abstract="false" deprecated="not deprecated" final="false" name="build" jni-signature="()Lcom/cybersource/inappsdk/datamodel/transaction/SDKEncryptTransactionObject;" bridge="false" native="false" return="com.cybersource.inappsdk.datamodel.transaction.SDKEncryptTransactionObject" jni-return="Lcom/cybersource/inappsdk/datamodel/transaction/SDKEncryptTransactionObject;" static="false"
+                synchronized="false" synthetic="false" visibility="public">
+            </method>
+        </class>
+    </add-node>
+</metadata>

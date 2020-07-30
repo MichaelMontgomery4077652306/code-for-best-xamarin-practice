@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:i18N="clr-namespace:TruliteMobile.i18n;assembly=TruliteMobile"
+             mc:Ignorable="d"
+             HorizontalOptions="End"
+             x:Class="TruliteMobile.Components.ResetFormView">
+  <ContentView.Content>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto" />
+            </Grid.ColumnDefinitions>
+            <Label Style="{StaticResource IconLabel}"
+                   Text="&#xf12d;"
+                   TextColor="{StaticResource DarkPrimaryBlue}"/>
+            <Label Text="{i18N:TranslateExtension Text=ResetForm}" Grid.Column="1" />
+            <BoxView Grid.ColumnSpan="2"
+                     BackgroundColor="Transparent">
+                <BoxView.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"/>
+                </BoxView.GestureRecognizers>
+            </BoxView>
+        </Grid>
+    </ContentView.Content>
+</ContentView>

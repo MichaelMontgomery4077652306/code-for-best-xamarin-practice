@@ -1,0 +1,223 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="TruliteMobile.Views.LienWaiver.LienWaiverPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:behaviors="clr-namespace:TruliteMobile.Behaviors;assembly=TruliteMobile"
+    xmlns:components="clr-namespace:TruliteMobile.Components;assembly=TruliteMobile"
+    xmlns:converters="clr-namespace:TruliteMobile.Converters;assembly=TruliteMobile"
+    xmlns:generic="clr-namespace:System.Collections.Generic;assembly=netstandard"
+    xmlns:i18N="clr-namespace:TruliteMobile.i18n;assembly=TruliteMobile"
+    xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+    xmlns:lienWaiver="clr-namespace:TruliteMobile.Views.LienWaiver;assembly=TruliteMobile"
+    xmlns:supportTickets="clr-namespace:TruliteMobile.Views.SupportTickets"
+    ios:Page.UseSafeArea="true"
+    x:DataType="lienWaiver:LienWaiverPageViewModel">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem
+            Command="{Binding OpenSettingsCommand}"
+            IconImageSource="gears.png"
+            Order="Primary"
+            Priority="0"
+            Text="{i18N:TranslateExtension Text=GiveFeedback}" />
+    </ContentPage.ToolbarItems>
+    <ContentPage.Content>
+        <ScrollView
+            x:Name="root"
+            Padding="5,5,10,5"
+            x:DataType="lienWaiver:LienWaiverPageViewModel">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <StackLayout>
+                    <Label
+                        FontAttributes="Bold"
+                        FontSize="Large"
+                        HorizontalTextAlignment="Center"
+                        LineBreakMode="WordWrap"
+                        Text="{i18N:TranslateExtension Text=LienWaiverTitle}" />
+
+                    <Label
+                        HorizontalTextAlignment="Center"
+                        LineBreakMode="WordWrap"
+                        Text="{i18N:TranslateExtension Text=LienWaiverHeader}" />
+
+                    <Frame>
+                        <StackLayout>
+                            <Label Text="{i18N:TranslateExtension Text=CustomerName, Suffix=':'}" />
+                            <Entry IsEnabled="False" Text="{Binding Model.CustomerName}" />
+                            <Label Text="{i18N:TranslateExtension Text=Email, Suffix=':'}" />
+                            <Entry
+                                IsEnabled="False"
+                                Keyboard="Email"
+                                Text="{Binding Model.Email}" />
+                            <Label Text="{i18N:TranslateExtension Text=PhoneNumber, Suffix=':'}" />
+                            <Entry
+                                Keyboard="Telephone"
+                                Placeholder="{i18N:TranslateExtension Text=PhoneNumberPlaceholder}"
+                                Text="{Binding Model.Phone}">
+                                <Entry.Behaviors>
+                                    <behaviors:MaskedTextBehavior Mask="(XXX) XXX-XXXX" />
+                                </Entry.Behaviors>
+                            </Entry>
+                            <Label Text="{i18N:TranslateExtension Text=ProjectName, Suffix=':'}" />
+                            <Entry
+                                MaxLength="100"
+                                Placeholder="Project Name"
+                                Text="{Binding Model.ProjectName}" />
+                            <Label Text="{i18N:TranslateExtension Text=ProjectAccountNum, Suffix=':'}" />
+                            <Entry IsEnabled="False" Text="{Binding Model.ProjectAccountNumber}" />
+                            <!--  Invoice Numbers  -->
+                            <StackLayout Orientation="Horizontal">
+                                <Label Text="{i18N:TranslateExtension Text=InvoiceNumbers, Suffix=':'}" />
+                                <Label
+                                    BackgroundColor="Transparent"
+                                    FontSize="Large"
+                                    Text="+"
+                                    TextColor="{StaticResource PrimaryBlue}">
+                                    <Label.GestureRecognizers>
+                                        <TapGestureRecognizer Command="{Binding AddInvoiceNumberCommand}" />
+                                    </Label.GestureRecognizers>
+                                </Label>
+                            </StackLayout>
+
+                            <StackLayout BindableLayout.ItemsSource="{Binding Model.InvoiceNumberList}">
+                                <BindableLayout.ItemTemplate>
+                                    <DataTemplate x:DataType="{x:Null}">
+                                        <Grid>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="180" />
+                                                <ColumnDefinition Width="Auto" />
+                                            </Grid.ColumnDefinitions>
+                                            <Entry
+                                                Keyboard="Default"
+                                                MaxLength="100"
+                                                Text="{Binding Value, Mode=TwoWay}" />
+                                            <Label
+                                                Grid.Column="1"
+                                                BackgroundColor="Transparent"
+                                                FontSize="Large"
+                                                Text="X"
+                                                TextColor="Red"
+                                                VerticalOptions="Center">
+                                                <Label.GestureRecognizers>
+                                                    <TapGestureRecognizer Command="{Binding BindingContext.RemoveInvoiceNumberCommand, Source={x:Reference root}}" CommandParameter="{Binding}" />
+                                                </Label.GestureRecognizers>
+                                            </Label>
+                                        </Grid>
+                                    </DataTemplate>
+                                </BindableLayout.ItemTemplate>
+                            </StackLayout>
+                            <!--  Dollar ammount  -->
+                            <Label Text="{i18N:TranslateExtension Text=RequestedDollarAmount, Suffix=':'}" />
+                            <Entry
+                                Keyboard="Numeric"
+                                MaxLength="100"
+                                Placeholder="{i18N:TranslateExtension Text=DollarAmountIsRequired}"
+                                Text="{Binding Model.DollarAmountStr}" />
+
+                            <!--  Waiver Type  -->
+                            <Label Text="{i18N:TranslateExtension Text=WaiverType, Suffix=':'}" />
+                            <Picker
+                                ItemDisplayBinding="{Binding Description}"
+                                ItemsSource="{Binding WaiverTypeList}"
+                                SelectedItem="{Binding SelectedWaiverType}" />
+
+                            <StackLayout IsVisible="{Binding SelectedWaiverType.SupportsDate}" Orientation="Horizontal">
+                                <Label Text="{i18N:TranslateExtension Text=ThroughDateOfWaiver, Suffix=': '}" />
+                                <components:NullableDatePickerView Date="{Binding SelectedWaiverType.ThroughDate}" />
+                            </StackLayout>
+                            <!--  Project Address  -->
+                            <Label Text="{i18N:TranslateExtension Text=ProjectAddress, Suffix=':'}" />
+                            <Entry
+                                MaxLength="100"
+                                   Placeholder="{i18N:TranslateExtension Text=ProjectAddress}"
+                                Text="{Binding Model.ProjectAddress}" />
+                            <Label Text="{i18N:TranslateExtension Text=ProjectCity, Suffix=':'}" />
+                            <Entry
+                                MaxLength="100"
+                                   Placeholder="{i18N:TranslateExtension Text=ProjectCity}"
+                                Text="{Binding Model.ProjectCity}" />
+                            <Label Text="{i18N:TranslateExtension Text=ProjectState, Suffix=':'}" />
+                            <Picker
+                                x:DataType="{x:Null}"
+                                ItemDisplayBinding="{Binding Name}"
+                                ItemsSource="{Binding StateList}"
+                                SelectedItem="{Binding Model.ProjectState}" />
+                            <Label Text="{i18N:TranslateExtension Text=ProjectZip, Suffix=':'}" />
+                            <Entry
+                                Keyboard="Numeric"
+                                Placeholder="{i18N:TranslateExtension Text=ProjectZip}"
+                                Text="{Binding Model.ProjectZip}">
+                                <Entry.Behaviors>
+                                    <behaviors:MaskedTextBehavior Mask="XXXXX" />
+                                </Entry.Behaviors>
+                            </Entry>
+
+                            <!--  Mailing Address  -->
+                            <Label Text="{i18N:TranslateExtension Text=MailingAddress, Suffix=':'}" />
+                            <Entry
+                                MaxLength="100"
+                                Placeholder="{i18N:TranslateExtension Text=MailingAddressForWaiver}"
+                                Text="{Binding Model.MailingAddress}" />
+                            <Label Text="{i18N:TranslateExtension Text=MailingCity, Suffix=':'}" />
+                            <Entry
+                                MaxLength="100"
+                                Placeholder="{i18N:TranslateExtension Text=MailingCityForWaiver}"
+                                Text="{Binding Model.MailingCity}" />
+                            <Label Text="{i18N:TranslateExtension Text=MailingState, Suffix=':'}" />
+                            <Picker
+                                x:DataType="{x:Null}"
+                                ItemDisplayBinding="{Binding Name}"
+                                ItemsSource="{Binding StateList}"
+                                SelectedItem="{Binding Model.MailingState}" />
+                            <Label Text="{i18N:TranslateExtension Text=MailingZip, Suffix=':'}" />
+                            <Entry
+                                Keyboard="Numeric"
+                                Placeholder="{i18N:TranslateExtension Text=MailingZipForWaiver}"
+                                Text="{Binding Model.MailingZip}">
+                                <Entry.Behaviors>
+                                    <behaviors:MaskedTextBehavior Mask="XXXXX" />
+                                </Entry.Behaviors>
+                            </Entry>
+                            <Label Text="{i18N:TranslateExtension Text=SpecialInstructions, Suffix=':'}" />
+                            <Editor Placeholder="{i18N:TranslateExtension Text=SpecialInstructions}" Text="{Binding Model.SpecialInstructions}" />
+                            <Label Text="{i18N:TranslateExtension Text=UploadAdditionalFile}" />
+                            <Button
+                                Padding="5"
+                                Command="{Binding SelectFileToUploadCommand}"
+                                HorizontalOptions="Start"
+                                Style="{StaticResource GreenButton}"
+                                Text="{i18N:TranslateExtension Text=SelectFile}"
+                                TextColor="White" />
+
+                            <StackLayout IsVisible="{Binding SelectedFile, Converter={converters:NotNullEmptyToVisibleConverter}}" Orientation="Horizontal">
+                                <Label Text="{Binding SelectedFile.Filename}" />
+                                <Label
+                                    FontSize="Large"
+                                    Text="X"
+                                    TextColor="Red">
+                                    <Label.GestureRecognizers>
+                                        <TapGestureRecognizer Command="{Binding RemoveAttachedFileCommand}" />
+                                    </Label.GestureRecognizers>
+                                </Label>
+                            </StackLayout>
+                            <Label
+                                FontAttributes="Bold"
+                                FontSize="Large"
+                                Text="{i18N:TranslateExtension Text=LienWaiverInstructions}" />
+                            <Button
+                                Padding="10"
+                                Command="{Binding SubmitCommand}"
+                                HorizontalOptions="End"
+                                Style="{StaticResource BlueButton}"
+                                Text="{i18N:TranslateExtension Text=Submit}" />
+                        </StackLayout>
+                    </Frame>
+                </StackLayout>
+
+            </Grid>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

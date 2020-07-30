@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xsd:schema xmlns="http://schemas.microsoft.com/dynamics/2006/02/documents/CPSProduct" elementFormDefault="qualified" targetNamespace="http://schemas.microsoft.com/dynamics/2006/02/documents/CPSProduct" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <xsd:element name="CPSProduct" type="CPSProduct" />
+  <xsd:complexType name="CPSProduct">
+    <xsd:sequence>
+      <xsd:element name="ItemId" type="xsd:string" />
+      <xsd:element name="ItemName" type="xsd:string" />
+      <xsd:element name="SearchName" type="xsd:string" />
+      <xsd:element name="SalesUnit" type="xsd:string" />
+      <xsd:element name="NetWeight" type="xsd:string" />
+      <xsd:element name="GrossWeight" type="xsd:string" />
+      <xsd:element name="Depth" type="xsd:string" />
+      <xsd:element name="Width" type="xsd:string" />
+      <xsd:element name="Height" type="xsd:string" />
+      <xsd:element name="Category" type="xsd:string" />
+      <xsd:element name="ThicknessId" type="xsd:string" />
+      <xsd:element name="ProcessID" type="xsd:string" />
+      <xsd:element name="ProcessName" type="xsd:string" />
+      <xsd:element name="ColorID" type="xsd:string" />
+      <xsd:element name="ColorName" type="xsd:string" />
+      <xsd:element name="ImageURL" type="xsd:string" />
+      <xsd:element name="Reflective" type="xsd:string" />
+      <xsd:element name="ItemReportGroupId" type="xsd:string" />
+      <xsd:element name="ItemReportGroupName" type="xsd:string" />
+    </xsd:sequence>
+  </xsd:complexType>
+</xsd:schema>

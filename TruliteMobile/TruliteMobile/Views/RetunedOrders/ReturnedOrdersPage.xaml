@@ -1,0 +1,174 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:i18N="clr-namespace:TruliteMobile.i18n;assembly=TruliteMobile"
+             xmlns:orders="clr-namespace:TruliteMobile.Views.Orders;assembly=TruliteMobile"
+             xmlns:converters="clr-namespace:XamarinUniversity.Converters;assembly=XamU.Infrastructure"
+             xmlns:infrastructure="clr-namespace:XamarinUniversity.Infrastructure;assembly=XamU.Infrastructure"
+             xmlns:services="clr-namespace:TruliteMobile.Services;assembly=TruliteMobile"
+             xmlns:components="clr-namespace:TruliteMobile.Components;assembly=TruliteMobile"
+             xmlns:xForms="clr-namespace:Syncfusion.SfBusyIndicator.XForms;assembly=Syncfusion.SfBusyIndicator.XForms"
+             xmlns:iOsSpecific="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+             xmlns:retunedOrders="clr-namespace:TruliteMobile.Views.RetunedOrders;assembly=TruliteMobile"
+             mc:Ignorable="d"
+             x:DataType="retunedOrders:RetunedOrdersPageViewModel"
+             Title="{i18N:TranslateExtension Text=ReturnOrders}"
+             iOsSpecific:Page.UseSafeArea="true"
+             x:Class="TruliteMobile.Views.RetunedOrders.ReturnedOrdersPage">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Command="{Binding OpenSettingsCommand}"
+                     IconImageSource="gears.png"
+                     Order="Primary"
+                     Priority="0"
+                     Text="{i18N:TranslateExtension Text=GiveFeedback}" />
+    </ContentPage.ToolbarItems>
+    <ContentPage.Content>
+        <Grid x:Name="root"
+              Style="{StaticResource RootGrid}">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+            <StackLayout Margin="5"
+                         HorizontalOptions="End"
+                         Orientation="Horizontal">
+                <Label Text="{i18N:TranslateExtension Text=SearchFilter}"
+                       TextColor="{DynamicResource FilterHeaderTextColor}" />
+                <Label Style="{StaticResource FilterExpandIconLabel}">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding ToggleFilterCommand}" />
+                    </Label.GestureRecognizers>
+                </Label>
+            </StackLayout>
+            <retunedOrders:ReturnedOrdersFilterView Grid.Row="1"
+                                                    FilterTriggerCommand="{Binding FilterChangeCommand}"
+                                             IsVisible="{Binding ShowFilter}"
+                                             SearchCommand="{Binding SearchCommand}" />
+            <BoxView Grid.Row="2"
+                     Margin="0,5"
+                     BackgroundColor="{StaticResource PrimaryBlue}"
+                     HeightRequest="1" />
+
+            <ListView Grid.Row="3"
+                      CachingStrategy="RecycleElement"
+                      HasUnevenRows="True"
+                      IsVisible="{Binding NoResults, Converter={converters:NotBooleanConverter}}"
+                      ItemsSource="{Binding ReturnedOrderList}"
+                      SelectedItem="{Binding SelectedOrder}"
+                      SeparatorColor="{StaticResource DarkPrimaryBlue}"
+                      SeparatorVisibility="Default">
+                <ListView.Behaviors>
+                    <infrastructure:EventToCommandBehavior Command="{Binding OpenLinesCommand}"
+                                                           EventName="ItemTapped" />
+                </ListView.Behaviors>
+
+                <ListView.GroupHeaderTemplate>
+                    <DataTemplate x:DataType="{x:Null}">
+                        <ViewCell>
+                            <Grid BackgroundColor="{StaticResource DarkPrimaryBlue}">
+                                <Label Margin="5"
+                                       FontAttributes="Bold"
+                                       HorizontalTextAlignment="Center"
+                                       Text="{Binding Key}"
+                                       TextColor="White" />
+                            </Grid>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.GroupHeaderTemplate>
+
+                <ListView.ItemTemplate>
+                    <DataTemplate x:DataType="services:ReturnOrder">
+                        <ViewCell>
+                            <Grid Padding="5,5,5,10">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto" />
+                                    <ColumnDefinition />
+                                    <ColumnDefinition Width="Auto" />
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                </Grid.RowDefinitions>
+                                <!--  First Column  -->
+                                <Label Text="{Binding SalesOrder.Key}" />
+                                <Label Grid.Row="1"
+                                       Text="{Binding OrderNo}" />
+                                <Label Grid.Row="2"
+                                       Text="{Binding Key}" />
+                                <!--  Second Column  -->
+                                <Label Grid.Column="1"
+                                       HorizontalTextAlignment="End"
+                                       Text="{Binding Amount, StringFormat='{0:c}'}" />
+                                <Label Grid.Row="2"
+                                       Grid.Column="1"
+                                       HorizontalOptions="End"
+                                       Text="{Binding ReturnDate, StringFormat='{0:d}'}" />
+                                <Label Grid.RowSpan="3"
+                                       Grid.Column="2"
+                                       FontSize="40"
+                                       Style="{StaticResource IconLabel}"
+                                       Text="&#xf054;"
+                                       TextColor="{StaticResource DarkPrimaryBlue}" />
+
+                            </Grid>
+
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            <components:NoResultsView Grid.Row="3"
+                                      IsVisible="{Binding NoResults}" />
+            <xForms:SfBusyIndicator Grid.Row="3" />
+            <Grid Grid.Row="4">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="1" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+                <BoxView Grid.ColumnSpan="2"
+                         BackgroundColor="{StaticResource PrimaryBlue}"
+                         HeightRequest="1"
+                         VerticalOptions="Start" />
+                <Label Grid.Row="1"
+                       Grid.Column="0"
+                       Margin="5"
+                       FontAttributes="Bold">
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <FormattedString.Spans>
+                                <Span Text="{i18N:TranslateExtension Text=Order, Suffix=':'}" />
+                                <Span Text="{Binding TotalAmount, StringFormat='{0:c}'}" />
+                            </FormattedString.Spans>
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
+                <Label Grid.Row="1"
+                       Grid.Column="1"
+                       Margin="5"
+                       HorizontalOptions="End"
+                       HorizontalTextAlignment="End">
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <FormattedString.Spans>
+                                <Span Text="{i18N:TranslateExtension Text=RowCount, Suffix=': '}" />
+                                <Span FontAttributes="Bold"
+                                      Text="{Binding RowCount}" />
+                            </FormattedString.Spans>
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
+
+            </Grid>
+
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,213 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="TruliteMobile.Views.Users.UserDetailPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:components="clr-namespace:TruliteMobile.Components;assembly=TruliteMobile"
+    xmlns:converters="clr-namespace:XamarinUniversity.Converters;assembly=XamU.Infrastructure"
+    xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+    xmlns:i18N="clr-namespace:TruliteMobile.i18n;assembly=TruliteMobile"
+    xmlns:iOsSpecific="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:users="clr-namespace:TruliteMobile.Views.Users;assembly=TruliteMobile"
+    xmlns:xForms="clr-namespace:Syncfusion.SfBusyIndicator.XForms;assembly=Syncfusion.SfBusyIndicator.XForms"
+    Title="{i18N:TranslateExtension Text=UserDetails}"
+    iOsSpecific:Page.UseSafeArea="true"
+    x:DataType="users:UserDetailPageViewModel"
+    mc:Ignorable="d">
+    <!--#region Menu -->
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Command="{Binding OpenSettingsCommand}"
+                     IconImageSource="gears.png"
+                     Order="Primary"
+                     Priority="0"
+                     Text="{i18N:TranslateExtension Text=GiveFeedback}" />
+    </ContentPage.ToolbarItems>
+    <!--#endregion-->
+    <ContentPage.Content>
+        <ScrollView>
+            <Grid
+                x:Name="root"
+                Padding="10"
+                BackgroundColor="{StaticResource DarkBlueButtonColor}">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition />
+                </Grid.RowDefinitions>
+                <!--#region Details -->
+                <Frame Margin="0,5"
+                       BackgroundColor="White">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+
+                        <components:ExpanderButton ChangeExpandCommand="{Binding ToggleHeaderFrameCommand}"
+                                                   IsExpanded="{Binding ShowHeaderFrame}"
+                                                   Text="{i18N:TranslateExtension Text=DETAILS}" />
+
+                        <Grid Grid.Row="1"
+                              IsVisible="{Binding ShowHeaderFrame}">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition />
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                            </Grid.RowDefinitions>
+                            <Label Grid.Row="0"
+                                   Style="{StaticResource GridHeaderLabel}"
+                                   Text="{i18N:TranslateExtension Text=Name,
+                                                               Suffix=':'}" />
+                            <Label Grid.Row="0"
+                                   Grid.Column="1"
+                                   Style="{StaticResource GridLabel}">
+                                <Label.FormattedText>
+                                    <FormattedString>
+                                        <FormattedString.Spans>
+                                            <Span Text="{Binding User.FirstName}" />
+                                            <Span Text=" " />
+                                            <Span Text="{Binding User.LastName}" />
+                                        </FormattedString.Spans>
+                                    </FormattedString>
+                                </Label.FormattedText>
+                            </Label>
+
+                            <Label Grid.Row="1"
+                                   Style="{StaticResource GridHeaderLabel}"
+                                   Text="{i18N:TranslateExtension Text=Email,
+                                                               Suffix=':'}" />
+                            <Label Grid.Row="1"
+                                   Grid.Column="1"
+                                   Style="{StaticResource GridLabel}"
+                                   Text="{Binding User.LoginId}" />
+
+                            <Label Grid.Row="2"
+                                   Style="{StaticResource GridHeaderLabel}"
+                                   Text="{i18N:TranslateExtension Text=Status,
+                                                               Suffix=':'}" />
+                            <Label Grid.Row="2"
+                                   Grid.Column="1"
+                                   Style="{StaticResource GridLabel}"
+                                   Text="{Binding User.AccountStatus.Name}" />
+
+                            <Label Grid.Row="3"
+                                   Style="{StaticResource GridHeaderLabel}"
+                                   Text="{i18N:TranslateExtension Text=Created,
+                                                               Suffix=':'}" />
+                            <Label Grid.Row="3"
+                                   Grid.Column="1"
+                                   Style="{StaticResource GridLabel}"
+                                   Text="{Binding User.DateCreated, StringFormat='{0:d}'}" />
+                            <!--  Admin  -->
+                            <Label Grid.Row="4"
+                                   Style="{StaticResource GridHeaderLabel}"
+                                   Text="{i18N:TranslateExtension Text=Admin,
+                                                               Suffix=':'}" />
+                            <Label Grid.Row="4"
+                                   Grid.Column="1"
+                                   FontSize="Small"
+                                   Style="{StaticResource IconLabel}"
+                                   Text="&#xf00d;"
+                                   TextColor="{StaticResource MediumGray}">
+                                <Label.Triggers>
+                                    <DataTrigger Binding="{Binding User.IsAdmin}"
+                                                 TargetType="Label"
+                                                 Value="True">
+                                        <Setter Property="Text"
+                                                Value="&#xf00c;" />
+                                        <Setter Property="TextColor"
+                                                Value="{StaticResource DarkPrimaryBlue}" />
+                                    </DataTrigger>
+                                </Label.Triggers>
+                            </Label>
+                            <!--  Timezone  -->
+                            <Label Grid.Row="5"
+                                   Style="{StaticResource GridHeaderLabel}"
+                                   Text="{i18N:TranslateExtension Text=Timezone,
+                                                               Suffix=':'}" />
+                            <Label Grid.Row="5"
+                                   Grid.Column="1"
+                                   Style="{StaticResource GridLabel}"
+                                   Text="{Binding User.TimeZone.Name}" />
+
+                            <!--  Phone  -->
+                            <Label Grid.Row="6"
+                                   Style="{StaticResource GridHeaderLabel}"
+                                   Text="{i18N:TranslateExtension Text=Phone,
+                                                               Suffix=':'}" />
+                            <Label Grid.Row="6"
+                                   Grid.Column="1"
+                                   Style="{StaticResource GridLabel}"
+                                   Text="{Binding User.PhoneNumber}" />
+                            <!--  Language  -->
+                            <Label Grid.Row="7"
+                                   Style="{StaticResource GridHeaderLabel}"
+                                   Text="{i18N:TranslateExtension Text=Language,
+                                                               Suffix=':'}" />
+                            <Label Grid.Row="7"
+                                   Grid.Column="1"
+                                   Style="{StaticResource GridLabel}"
+                                   Text="{Binding User.Language}" />
+
+                        </Grid>
+                    </Grid>
+
+                </Frame>
+                <!--#endregion-->
+
+                <!--#region Actions -->
+                <Frame Grid.Row="1"
+                       Margin="0,5"
+                       BackgroundColor="White">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+                        <components:ExpanderButton ChangeExpandCommand="{Binding ToggleActionsFrameCommand}"
+                                                   HorizontalOptions="End"
+                                                   IsExpanded="{Binding ShowActionsFrame}"
+                                                   VerticalOptions="Start" />
+                        <Label FontSize="Medium"
+                               HorizontalOptions="Center"
+                               Text="ACTIONS"
+                               TextColor="{StaticResource DarkBlueButtonColor}" />
+                        <StackLayout Grid.Row="1"
+                                     IsVisible="{Binding ShowActionsFrame}">
+                            <components:ActionButtonView BackgroundColor="{StaticResource DarkPrimaryBlue}"
+                                                         IconText="&#xf023;"
+                                                         TappedCommand="{Binding ResetPasswordCommand}"
+                                                         Text="{i18N:TranslateExtension Text=ResetPassword}" />
+                            <components:ActionButtonView BackgroundColor="{StaticResource DarkPrimaryBlue}"
+                                                         IconText="&#xf044;"
+                                                         IsVisible="{Binding IsAdmin}"
+                                                         TappedCommand="{Binding EditUserCommand}"
+                                                         Text="{i18N:TranslateExtension Text=EditUser}" />
+                            <components:ActionButtonView BackgroundColor="Red"
+                                                         IconText="&#xf235;"
+                                                         IsVisible="{Binding IsAdmin}"
+                                                         TappedCommand="{Binding DeleteUserCommand}"
+                                                         Text="{i18N:TranslateExtension Text=DeleteUser}" />
+                        </StackLayout>
+                       
+                    </Grid>
+                </Frame>
+                <!--#endregion-->
+
+                <xForms:SfBusyIndicator Grid.Row="2" />
+            </Grid>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

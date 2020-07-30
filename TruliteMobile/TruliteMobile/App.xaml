@@ -1,0 +1,234 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Application
+    x:Class="TruliteMobile.App"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:converters="clr-namespace:XamarinUniversity.Converters;assembly=XamU.Infrastructure"
+    xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+    xmlns:i18N="clr-namespace:TruliteMobile.i18n;assembly=TruliteMobile"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:themes="clr-namespace:TruliteMobile.Themes;assembly=TruliteMobile"
+    xmlns:xForms="clr-namespace:Syncfusion.SfChart.XForms;assembly=Syncfusion.SfChart.XForms"
+    xmlns:xForms1="clr-namespace:Syncfusion.SfBusyIndicator.XForms;assembly=Syncfusion.SfBusyIndicator.XForms"
+    xmlns:forms="clr-namespace:Microcharts.Forms;assembly=Microcharts.Forms"
+    mc:Ignorable="d">
+    <Application.Resources>
+
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <themes:LightTheme />
+                <!--  Add as many as you want here  -->
+            </ResourceDictionary.MergedDictionaries>
+
+            <Style TargetType="Picker">
+                <Setter Property="FontSize" Value="Default" />
+                <Setter Property="Visual" Value="CustomVisual" />
+                <Setter Property="TextColor" Value="{DynamicResource DefaultTextColor}" />
+            </Style>
+            <Style ApplyToDerivedTypes="True" TargetType="ContentPage">
+                <Setter Property="Visual" Value="Material" />
+                <Setter Property="BackgroundColor" Value="{DynamicResource BackgroundColor}" />
+            </Style>
+            <Style ApplyToDerivedTypes="True" TargetType="ContentView">
+                <Setter Property="Visual" Value="Material" />
+            </Style>
+
+            <OnPlatform x:Key="FontAwesomeBrands" x:TypeArguments="x:String">
+                <On Platform="Android" Value="FontAwesome5Brands.otf#Regular" />
+                <On Platform="iOS" Value="FontAwesome5Brands-Regular" />
+                <On Platform="UWP" Value="/Assets/FontAwesome5Brands.otf#Font Awesome 5 Brands" />
+            </OnPlatform>
+
+            <OnPlatform x:Key="FontAwesomeSolid" x:TypeArguments="x:String">
+                <On Platform="Android" Value="FontAwesome5Free-Solid.otf#Regular" />
+                <On Platform="iOS" Value="FontAwesome5Free-Solid" />
+                <On Platform="UWP" Value="/Assets/FontAwesome5Solid.otf#Font Awesome 5 Free" />
+            </OnPlatform>
+
+            <OnPlatform x:Key="FontAwesomeRegular" x:TypeArguments="x:String">
+                <On Platform="Android" Value="FontAwesome5Free-Regular.otf#Regular" />
+                <On Platform="iOS" Value="FontAwesome5Free-Regular" />
+                <On Platform="UWP" Value="/Assets/FontAwesome5Regular.otf#Font Awesome 5 Free" />
+            </OnPlatform>
+
+            <Style TargetType="Label">
+                <Setter Property="VerticalOptions" Value="Center" />
+                <Setter Property="FontSize" Value="Small" />
+                <Setter Property="TextColor" Value="{DynamicResource DefaultTextColor}" />
+            </Style>
+            <Style TargetType="Frame">
+                <Setter Property="HasShadow" Value="False" />
+                <Setter Property="BackgroundColor" Value="{DynamicResource FrameBackground}" />
+            </Style>
+            <Style x:Key="GridHeaderLabel" TargetType="Label">
+                <Setter Property="VerticalOptions" Value="Center" />
+                <Setter Property="HorizontalTextAlignment" Value="End" />
+                <Setter Property="FontAttributes" Value="Bold" />
+            </Style>
+            <Style x:Key="GridLabel" TargetType="Label">
+                <Setter Property="VerticalOptions" Value="Center" />
+                <Setter Property="LineBreakMode" Value="WordWrap" />
+            </Style>
+            <Style
+                x:Key="GridLinkLabel"
+                BasedOn="{StaticResource GridLabel}"
+                TargetType="Label">
+                <Setter Property="TextDecorations" Value="Underline" />
+                <Setter Property="TextColor" Value="{DynamicResource PrimaryBlue}" />
+                <!--<Setter Property="HorizontalTextAlignment" Value="Center"/>-->
+            </Style>
+            <Style
+                x:Key="WhiteLinkLabel"
+                BasedOn="{StaticResource GridLabel}"
+                TargetType="Label">
+                <Setter Property="TextDecorations" Value="Underline" />
+                <Setter Property="FontAttributes" Value="Bold" />
+                <Setter Property="TextColor" Value="{DynamicResource LightTextColor}" />
+                <Setter Property="HorizontalTextAlignment" Value="Center" />
+            </Style>
+            <Style
+                x:Key="IconLabel"
+                BasedOn="{StaticResource GridLabel}"
+                TargetType="Label">
+                <Setter Property="TextColor" Value="{DynamicResource PrimaryBlue}" />
+                <Setter Property="HorizontalOptions" Value="Start" />
+                <Setter Property="FontFamily" Value="{StaticResource FontAwesomeSolid}" />
+            </Style>
+            <Style TargetType="Image">
+                <Setter Property="VerticalOptions" Value="Center" />
+                <Setter Property="HorizontalOptions" Value="Center" />
+            </Style>
+            <Style
+                x:Key="FilterExpandIconLabel"
+                BasedOn="{StaticResource IconLabel}"
+                TargetType="Label">
+                <Setter Property="FontSize" Value="30" />
+                <Setter Property="Text" Value="&#xf13a;" />
+                <Style.Triggers>
+                    <DataTrigger
+                        Binding="{Binding ShowFilter}"
+                        TargetType="Label"
+                        Value="True">
+                        <Setter Property="Text" Value="&#xf139;" />
+                        <Setter Property="TextColor" Value="{DynamicResource PrimaryGray}" />
+                    </DataTrigger>
+                </Style.Triggers>
+            </Style>
+            <Style
+                x:Key="ChartExpandIconLabel"
+                BasedOn="{StaticResource IconLabel}"
+                TargetType="Label">
+                <Setter Property="Text" Value="&#xf13a;" />
+                <Style.Triggers>
+                    <DataTrigger
+                        Binding="{Binding IsExpanded}"
+                        TargetType="Label"
+                        Value="True">
+                        <Setter Property="Text" Value="&#xf139;" />
+                        <Setter Property="TextColor" Value="{DynamicResource PrimaryGray}" />
+                    </DataTrigger>
+                </Style.Triggers>
+            </Style>
+            <Style TargetType="ListView">
+                <Setter Property="SeparatorColor" Value="{DynamicResource PrimaryBlue}" />
+                <Setter Property="HasUnevenRows" Value="True" />
+                <Setter Property="BackgroundColor"
+                        Value="{DynamicResource FrameBackground}" />
+            </Style>
+
+            <Style x:Key="BlueButton" TargetType="Button">
+                <Setter Property="Padding" Value="5" />
+                <Setter Property="BackgroundColor" Value="{DynamicResource PrimaryBlue}" />
+                <Setter Property="TextColor" Value="White" />
+            </Style>
+            <Style
+                x:Key="GreenButton"
+                BasedOn="{StaticResource BlueButton}"
+                TargetType="Button">
+                <Setter Property="BackgroundColor" Value="Green" />
+            </Style>
+            <Style TargetType="Switch">
+                <Setter Property="OnColor"
+                        Value="{DynamicResource PrimaryBlue}" />
+                <Setter Property="Scale">
+                    <OnPlatform x:TypeArguments="x:Double">
+                        <On Platform="iOS" Value="0.7" />
+                        <On Platform="Android" Value="1.0" />
+                        <On Platform="UWP" Value="1.0" />
+                    </OnPlatform>
+                </Setter>
+            </Style>
+            <Style x:Key="WhiteButton" TargetType="Button">
+                <Setter Property="Padding" Value="5" />
+                <Setter Property="BorderColor" Value="#202020" />
+                <Setter Property="BorderWidth" Value="1" />
+                <Setter Property="BackgroundColor" Value="{DynamicResource BackgroundColor}" />
+                <Setter Property="TextColor" Value="#202020" />
+            </Style>
+            <Style TargetType="ScrollView">
+                <Setter Property="IsEnabled" Value="{Binding IsBusy, Converter={converters:NotBooleanConverter}}" />
+                <Style.Triggers>
+                    <DataTrigger
+                        Binding="{Binding IsBusy}"
+                        TargetType="ScrollView"
+                        Value="True">
+                        <Setter Property="Opacity" Value="0.5" />
+                    </DataTrigger>
+                </Style.Triggers>
+            </Style>
+            <Style x:Key="RootGrid" TargetType="Grid">
+                <Setter Property="Padding" Value="5,0" />
+                <Setter Property="IsEnabled" Value="{Binding IsBusy, Converter={converters:NotBooleanConverter}}" />
+                <Style.Triggers>
+                    <DataTrigger
+                        Binding="{Binding IsBusy}"
+                        TargetType="Grid"
+                        Value="True">
+                        <Setter Property="Opacity" Value="0.5" />
+                    </DataTrigger>
+                </Style.Triggers>
+            </Style>
+
+            <Style TargetType="xForms1:SfBusyIndicator">
+                <Setter Property="ViewBoxHeight" Value="60" />
+                <Setter Property="ViewBoxWidth" Value="60" />
+                <Setter Property="VerticalOptions" Value="Center" />
+                <Setter Property="HorizontalOptions" Value="Center" />
+
+                <Setter Property="IsVisible" Value="{Binding IsBusy}" />
+                <Setter Property="EnableAnimation" Value="{Binding IsBusy}" />
+
+                <Setter Property="AnimationType" Value="SingleCircle" />
+                <Setter Property="TextColor"
+                        Value="{DynamicResource BusyIndicatorColor}" />
+            </Style>
+
+            <Style TargetType="Entry">
+                <Setter Property="ReturnType" Value="Next" />
+                <Setter Property="TextColor" Value="{DynamicResource DefaultTextColor}" />
+                <Setter Property="PlaceholderColor" Value="{DynamicResource PlaceholderTextColor}" />
+
+            </Style>
+            <Style TargetType="DatePicker">
+                <Setter Property="TextColor"
+                        Value="{DynamicResource DefaultTextColor}" />
+            </Style>
+          
+            <!--<Style TargetType="ToolbarItem"
+                   x:Key="GiveFeedbackStyle">
+                <Setter Property="Order" Value="Primary"/>
+                <Setter Property="IconImageSource"
+                        Value="gears.png"/>
+                <Setter Property="Text"
+                        Value="{i18N:TranslateExtension Text=GiveFeedback}" />
+                <Setter Property="Command"
+                        Value="{Binding OpenSettingsCommand}"/>
+                <Setter Property="Priority" Value="0"/>
+            </Style>-->
+            <Style TargetType="forms:ChartView">
+                <Setter Property="BackgroundColor"
+                        Value="{DynamicResource FrameBackground}"/>
+            </Style>
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>

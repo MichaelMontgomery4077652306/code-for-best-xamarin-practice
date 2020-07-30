@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:feedback="clr-namespace:TruliteMobile.Views.Feedback;assembly=TruliteMobile"
+             xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+             xmlns:i18N="clr-namespace:TruliteMobile.i18n;assembly=TruliteMobile"
+             ios:Page.UseSafeArea="true"
+             Title="{i18N:TranslateExtension Text=HelpUsMakeOurAppBetter}"
+             Padding="0,20,0,0"
+             x:Class="TruliteMobile.Views.Feedback.GiveFeedbackPage">
+    <ContentPage.Content> 
+        <StackLayout Margin="10" x:DataType="feedback:GiveFeedbackPageViewModel" Spacing="5">
+            <Label Text="{i18N:TranslateExtension Text=Type}" FontAttributes="Bold"/>
+            <Picker ItemsSource="{Binding FeebackTypesList}" SelectedItem="{Binding SelectedType}"/>
+            <Label Text="{i18N:TranslateExtension Text=Message}" FontAttributes="Bold"/>
+            <Editor HeightRequest="200"
+                    Placeholder="{i18N:TranslateExtension Text=TellUsWhatYouThink}">
+
+            </Editor>
+            <Label Text="{i18N:TranslateExtension Text=FeedbackMessage}"
+                   FontSize="Micro" TextColor="Gray" LineBreakMode="WordWrap"/>
+            <BoxView HeightRequest="1" BackgroundColor="{StaticResource PrimaryBlue}"></BoxView>
+            <StackLayout HorizontalOptions="End" Orientation="Horizontal">
+                <Button Text="{i18N:TranslateExtension Text=Close}" Command="{Binding CloseCommand}"
+                        Style="{StaticResource WhiteButton}" />
+                <Button Text="{i18N:TranslateExtension Text=SubmitFeedback}" 
+                        Command="{Binding SubmitCommand}" Style="{StaticResource BlueButton}" /> 
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

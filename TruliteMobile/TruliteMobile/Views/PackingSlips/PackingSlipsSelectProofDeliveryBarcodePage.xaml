@@ -1,0 +1,78 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:packingSlips="clr-namespace:TruliteMobile.Views.PackingSlips;assembly=TruliteMobile"
+             xmlns:infrastructure="clr-namespace:XamarinUniversity.Infrastructure;assembly=XamU.Infrastructure"
+             xmlns:components="clr-namespace:TruliteMobile.Components;assembly=TruliteMobile"
+             xmlns:i18N="clr-namespace:TruliteMobile.i18n;assembly=TruliteMobile"
+             xmlns:xForms="clr-namespace:Syncfusion.SfBusyIndicator.XForms;assembly=Syncfusion.SfBusyIndicator.XForms"
+             xmlns:services="clr-namespace:TruliteMobile.Services;assembly=TruliteMobile"
+             mc:Ignorable="d"
+             x:DataType="packingSlips:PackingSlipsSelectProofDeliveryBarcodePageViewModel"
+             Title="{Binding Title}"
+             x:Class="TruliteMobile.Views.PackingSlips.PackingSlipsSelectProofDeliveryBarcodePage">
+    <ContentPage.Content>
+        <Grid Style="{StaticResource RootGrid}" Padding="10">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition />
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Label HorizontalTextAlignment="Start"
+                   Text="{i18N:Translate Text=SelectBarcode}"
+                   Style="{StaticResource GridHeaderLabel}"/>
+
+            <components:ListSortView Grid.Row="1"
+                                     Ascending="{Binding IsAscending, Mode=TwoWay}"
+                                     FilterTriggerCommand="{Binding FilterTriggerCommand}"
+                                     SortColumns="{Binding SortColumns}"
+                                     
+                                     SelectedSortColumn="{Binding SelectedSortColumn, Mode=TwoWay}" />
+            <ListView Grid.Row="2"
+                      HasUnevenRows="True"
+                ItemsSource="{Binding Barcodes}" 
+                      SelectedItem="{Binding SelectedBarcode}">
+                <ListView.Behaviors>
+                    <infrastructure:EventToCommandBehavior Command="{Binding BarcodeSelectedCommand}"
+                                                           EventName="ItemTapped" />
+                </ListView.Behaviors>
+                <ListView.ItemTemplate>
+                    <DataTemplate x:DataType="services:ProofOfDeliveryViewModel">
+                        <ViewCell>
+                            <Grid Padding="10">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                </Grid.RowDefinitions>
+                                <Label Text="{i18N:Translate Text=Barcode, Suffix=':'}"
+                                       Style="{StaticResource GridHeaderLabel}" />
+                                <Label Text="{i18N:Translate Text=DateScanned, Suffix=':'}"
+                                       Grid.Row="1"
+                                       Style="{StaticResource GridHeaderLabel}" />
+                                <Label Text="{Binding Barcode}"
+                                       Grid.Column="1"
+                                       Style="{StaticResource GridLinkLabel}" />
+                                <Label Text="{Binding DateScanned, StringFormat='{0:dd/MM/yyyy hh:mm:ss tt}'}"
+                                       Grid.Column="1"
+                                       Grid.Row="1"
+                                        />
+                            </Grid>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            <components:NoResultsView Grid.Row="2"
+                                      IsVisible="{Binding NoResults}" />
+            <components:RowCountView Grid.Row="3"
+                                     List="{Binding Barcodes}" />
+            <xForms:SfBusyIndicator Grid.Row="2" />
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

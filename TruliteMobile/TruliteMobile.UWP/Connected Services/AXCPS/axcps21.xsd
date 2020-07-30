@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/Microsoft.Dynamics.IntegrationFramework.Service" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Microsoft.Dynamics.IntegrationFramework.Service" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:simpleType name="TRLSalesQuotationLeadTime">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="None" />
+      <xs:enumeration value="Month1" />
+      <xs:enumeration value="Month3" />
+      <xs:enumeration value="Month6" />
+      <xs:enumeration value="Month9" />
+      <xs:enumeration value="Month12" />
+      <xs:enumeration value="Month24" />
+      <xs:enumeration value="MonthMax" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="TRLSalesQuotationLeadTime" nillable="true" type="tns:TRLSalesQuotationLeadTime" />
+  <xs:simpleType name="TRLSalesQuotationStatusFilter">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Active" />
+      <xs:enumeration value="Created" />
+      <xs:enumeration value="Sent" />
+      <xs:enumeration value="Confirmed" />
+      <xs:enumeration value="Lost" />
+      <xs:enumeration value="Cancelled" />
+      <xs:enumeration value="All" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="TRLSalesQuotationStatusFilter" nillable="true" type="tns:TRLSalesQuotationStatusFilter" />
+  <xs:simpleType name="TRLSummaryPeriod">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Day" />
+      <xs:enumeration value="Week" />
+      <xs:enumeration value="Month" />
+      <xs:enumeration value="Quarter" />
+      <xs:enumeration value="Year" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="TRLSummaryPeriod" nillable="true" type="tns:TRLSummaryPeriod" />
+  <xs:simpleType name="SalesStatus">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="None" />
+      <xs:enumeration value="Backorder" />
+      <xs:enumeration value="Delivered" />
+      <xs:enumeration value="Invoiced" />
+      <xs:enumeration value="Canceled" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="SalesStatus" nillable="true" type="tns:SalesStatus" />
+  <xs:simpleType name="ArchChargeCategoryType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Blank" />
+      <xs:enumeration value="Edgework" />
+      <xs:enumeration value="Fabrication" />
+      <xs:enumeration value="Shape" />
+      <xs:enumeration value="IGFab" />
+      <xs:enumeration value="Temper" />
+      <xs:enumeration value="Spandrel" />
+      <xs:enumeration value="Offset" />
+      <xs:enumeration value="Shield" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="ArchChargeCategoryType" nillable="true" type="tns:ArchChargeCategoryType" />
+  <xs:simpleType name="TRLSalesQuotationStatus">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Created" />
+      <xs:enumeration value="Sent" />
+      <xs:enumeration value="Confirmed" />
+      <xs:enumeration value="Lost" />
+      <xs:enumeration value="Cancelled" />
+      <xs:enumeration value="None" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="TRLSalesQuotationStatus" nillable="true" type="tns:TRLSalesQuotationStatus" />
+  <xs:simpleType name="TRLQuotationType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Sales" />
+      <xs:enumeration value="Project" />
+      <xs:enumeration value="None" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="TRLQuotationType" nillable="true" type="tns:TRLQuotationType" />
+  <xs:simpleType name="TRLInvoiceLineType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Line" />
+      <xs:enumeration value="Addon" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="TRLInvoiceLineType" nillable="true" type="tns:TRLInvoiceLineType" />
+  <xs:simpleType name="TRLPackingSlipLineType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Line" />
+      <xs:enumeration value="Addon" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="TRLPackingSlipLineType" nillable="true" type="tns:TRLPackingSlipLineType" />
+  <xs:simpleType name="TRLInvoiceStatus">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="None" />
+      <xs:enumeration value="Void" />
+      <xs:enumeration value="NotPaid" />
+      <xs:enumeration value="Paid" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="TRLInvoiceStatus" nillable="true" type="tns:TRLInvoiceStatus" />
+</xs:schema>
